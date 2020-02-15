@@ -1,10 +1,9 @@
-name: test
+name: test-deploy
 
 on: [push]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +23,13 @@ jobs:
         # flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         # flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
+    - name: Test
       run: |
-        python manage.py makemigrations
         python manage.py migrate --noinput
         python manage.py test
+        echo ${{github.ref}}
+
+    - name: Deploy to ECR
+      run: |
+        echo 'Deploy to develop'
+      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/devlop'
