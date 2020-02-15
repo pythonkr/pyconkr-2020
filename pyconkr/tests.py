@@ -3,7 +3,7 @@
 from django.test import TestCase
 from django.http import HttpResponse
 from django.test import Client
-from django.core.urlresolvers import reverse_lazy, reverse
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth import get_user_model
 from django_dynamic_fixture import G
 

@@ -5,7 +5,7 @@ from uuid import uuid4
 from constance import config
 from django.contrib.auth.models import User
 from django.contrib.staticfiles.templatetags.staticfiles import static
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -40,7 +40,7 @@ class ProgramTime(models.Model):
     name = models.CharField(max_length=100)
     begin = models.TimeField()
     end = models.TimeField()
-    day = models.ForeignKey(ProgramDate, null=True, blank=True)
+    day = models.ForeignKey(ProgramDate, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __meta__(self):
         ordering = ['begin']
@@ -83,7 +83,7 @@ class Sponsor(models.Model):
     image = models.ImageField(upload_to='sponsor', null=True, blank=True)
     url = models.CharField(max_length=255, null=True, blank=True)
     desc = models.TextField(null=True, blank=True)
-    level = models.ForeignKey(SponsorLevel, null=True, blank=True)
+    level = models.ForeignKey(SponsorLevel, on_delete=models.SET_NULL, null=True, blank=True)
     deposit_time = models.DateTimeField(null=True, blank=True)
 
     class Meta:
@@ -172,10 +172,10 @@ class Program(models.Model):
                                     ('K', _('Korean')),
                                 ), default='E')
 
-    date = models.ForeignKey(ProgramDate, null=True, blank=True)
+    date = models.ForeignKey(ProgramDate, on_delete=models.SET_NULL, null=True, blank=True)
     rooms = models.ManyToManyField(Room, blank=True)
     times = models.ManyToManyField(ProgramTime, blank=True)
-    category = models.ForeignKey(ProgramCategory, null=True, blank=True)
+    category = models.ForeignKey(ProgramCategory, on_delete=models.SET_NULL, null=True, blank=True)
 
     is_recordable = models.BooleanField(default=True)
     is_breaktime = models.BooleanField(default=False)
@@ -325,7 +325,7 @@ class TutorialProposal(models.Model):
 
     capacity = models.IntegerField(null=False)
     confirmed = models.BooleanField(default=False)
-    option = models.ForeignKey(Option, default=None, null=True, blank=True, verbose_name="구매 티켓 종류")
+    option = models.ForeignKey(Option, default=None, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="구매 티켓 종류")
     begin_date = models.DateField(null=True, blank=True)
     begin_time = models.TimeField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
@@ -411,24 +411,24 @@ class Banner(models.Model):
 
 
 class Preference(models.Model):
-    user = models.ForeignKey(User)
-    program = models.ForeignKey(Program)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    program = models.ForeignKey(Program, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         unique_together = ('user', 'program')
 
 
 class TutorialCheckin(models.Model):
-    user = models.ForeignKey(User)
-    tutorial = models.ForeignKey(TutorialProposal)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    tutorial = models.ForeignKey(TutorialProposal, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         unique_together = ('user', 'tutorial')
 
 
 class SprintCheckin(models.Model):
-    user = models.ForeignKey(User)
-    sprint = models.ForeignKey(SprintProposal)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    sprint = models.ForeignKey(SprintProposal, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         unique_together = ('user', 'sprint')

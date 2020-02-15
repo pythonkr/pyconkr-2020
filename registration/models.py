@@ -106,9 +106,9 @@ class RegistrationManager(models.Manager):
 
 
 class Registration(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     merchant_uid = models.CharField(max_length=32)
-    option = models.ForeignKey(Option, null=True)
+    option = models.ForeignKey(Option, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=100)
     top_size = models.CharField(
         max_length=20,
@@ -167,7 +167,7 @@ class Registration(models.Model):
 
 
 class ManualPayment(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=100)
     price = models.PositiveIntegerField(null=False)
     merchant_uid = models.CharField(max_length=32, db_index=True, blank=True)
@@ -201,6 +201,6 @@ class ManualPayment(models.Model):
 
 
 class IssueTicket(models.Model):
-    registration = models.ForeignKey(Registration)
-    issuer = models.ForeignKey(User)
+    registration = models.ForeignKey(Registration, on_delete=models.SET_NULL, null=True)
+    issuer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     issue_date = models.DateTimeField(default=timezone.now)

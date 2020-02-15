@@ -5,7 +5,7 @@ from unittest import mock
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from constance.test import override_config
 from django_dynamic_fixture import G
 

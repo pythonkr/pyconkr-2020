@@ -115,7 +115,7 @@ def profile(request):
     speaker = None
     programs = None
 
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         speaker = Speaker.objects.filter(email=request.user.email).first()
         if speaker:
             programs = speaker.program_set.all()
