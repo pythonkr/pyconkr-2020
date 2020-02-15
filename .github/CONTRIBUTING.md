@@ -1,4 +1,4 @@
-# 파이콘 한국 Contributing Guide
+# Contributing Guide
 
 Contributor 여러분 안녕하세요!!
 pyconkr-api contribution을 제출할 때에는 반드시 다음 가이드라인을 따라주세요.
