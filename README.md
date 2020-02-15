@@ -1,16 +1,16 @@
-# A git repository for PyCon Korea 2018
-## Version 11-August-2017
+# PyCon Korea Homepage
 
 [![Build Status](https://travis-ci.org/pythonkr/pyconkr-2018.svg?branch=master)](https://travis-ci.org/pythonkr/pyconkr-2018)
 
 ## Requiremensts
-- Python 3.6
+
+- Python 3.7.3
 
 ## Getting started
 
 ```bash
-$ git clone git@github.com:pythonkr/pyconkr-2018.git
-$ cd pyconkr-2018
+$ git clone git@github.com:pythonkr/pyconkr.git
+$ cd pyconkr
 $ pip install -r requirements.txt
 $ python manage.py compilemessages
 $ python manage.py makemigrations  # flatpages
@@ -20,5 +20,3 @@ $ bower install
 $ python manage.py runserver
 ```
 
-## ETC
-- 빌드 자동 테스트
