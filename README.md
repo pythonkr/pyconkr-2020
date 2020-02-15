@@ -1,6 +1,6 @@
 # PyCon Korea Homepage
 
-![test](https://github.com/pythonkr/pyconkr/workflows/test/badge.svg)
+![test-deploy](https://github.com/pythonkr/pyconkr/workflows/test-deploy/badge.svg)
 
 ## Requiremensts
 
