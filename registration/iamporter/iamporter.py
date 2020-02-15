@@ -50,7 +50,7 @@ class Iamporter(object):
 
         result = response.json()
 
-        if result['code'] is not 0:
+        if result['code'] != 0:
             raise IamporterError(result['code'], result['message'])
 
         return result['response']
