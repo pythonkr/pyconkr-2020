@@ -1,6 +1,6 @@
 # PyCon Korea Homepage
 
-[![Build Status](https://travis-ci.org/pythonkr/pyconkr-2018.svg?branch=master)](https://travis-ci.org/pythonkr/pyconkr-2018)
+![test](https://github.com/pythonkr/pyconkr/workflows/test/badge.svg)
 
 ## Requiremensts
 
