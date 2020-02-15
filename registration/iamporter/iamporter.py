@@ -22,7 +22,7 @@ def get_access_token(api_key, api_secret):
     # TODO : validate expire time
     result = response.json()
 
-    if result['code'] is not 0:
+    if result['code'] != 0:
         raise IamporterError(result['code'], result['message'])
 
     return result['response']['access_token']
