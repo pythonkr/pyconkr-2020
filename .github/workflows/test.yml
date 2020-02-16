@@ -45,4 +45,4 @@ jobs:
     - name: Deploy to ECR
       run: |
         echo 'Deploy to develop'
-      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/devlop' || github.ref == 'refs/heads/feature/ci
+      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/devlop' || github.ref == 'refs/heads/feature/ci'
