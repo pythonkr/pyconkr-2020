@@ -12,15 +12,6 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7.6
-    - name: Cache pip
-      uses: actions/cache@v1
-      with:
-        path: ~/.cache/pip # This path is specific to Ubuntu
-        # Look to see if there is a cache hit for the corresponding requirements file
-        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-          ${{ runner.os }}-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -40,9 +31,38 @@ jobs:
       run: |
         python manage.py test
         echo ${{github.ref}}
-    - name: Build the Docker image
-      run: docker build -t pyconkr .
-    - name: Deploy to ECR
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/devlop' || github.ref == 'refs/heads/feature/ci'
+    needs: test
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image to Amazon ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: pyconkr
+        IMAGE_TAG: ${{ github.sha }}
       run: |
-        echo 'Deploy to develop'
-      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/devlop' || github.ref == 'refs/heads/feature/ci'
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+
+
+
+
