@@ -43,7 +43,6 @@ jobs:
         echo ${{github.ref}}
 
   deploy:
-    name: Deploy
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/devlop' || github.ref == 'refs/heads/feature/ci'
     needs: test
