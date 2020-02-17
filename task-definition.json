@@ -2,6 +2,15 @@
   "executionRoleArn": "arn:aws:iam::518013201776:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/pyconkr",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
       "portMappings": [
         {
           "hostPort": 8000,
