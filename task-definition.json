@@ -1,0 +1,23 @@
+{
+  "containerDefinitions": [
+    {
+      "portMappings": [
+        {
+          "hostPort": 8000,
+          "protocol": "tcp",
+          "containerPort": 8000
+        }
+      ],
+      "essential": true,
+      "name": "pyconkr"
+    }
+  ],
+  "placementConstraints": [],
+  "memory": "2048",
+  "family": "pyconkr",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "1024"
+}
