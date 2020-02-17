@@ -83,7 +83,7 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: web
+        service: app
         cluster: pyconkr
         wait-for-service-stability: true
 
