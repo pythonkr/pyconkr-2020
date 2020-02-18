@@ -19,15 +19,17 @@
         }
       ],
       "essential": true,
+	  "memoryReservation": 512,
       "name": "pyconkr"
     }
   ],
   "placementConstraints": [],
   "memory": "2048",
+  "taskRoleArn": "arn:aws:iam::518013201776:role/ecsTaskExecutionRole",
   "family": "pyconkr",
   "requiresCompatibilities": [
     "FARGATE"
   ],
   "networkMode": "awsvpc",
-  "cpu": "1024"
+  "cpu": "512"
 }
