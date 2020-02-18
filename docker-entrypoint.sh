@@ -1,5 +1,5 @@
 #!/bin/bash
-export DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE:-pyconkr.settings}
+export DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE:-pyconkr.prod-settings}
 
 echo "Collect static files"
 python manage.py collectstatic --noinput
