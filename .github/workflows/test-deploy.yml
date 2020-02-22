@@ -90,7 +90,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
 
       - name: Fill in the new image ID in the Amazon ECS task definition
-        id: task-def
+        id: task-def-dev
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition-dev.json
