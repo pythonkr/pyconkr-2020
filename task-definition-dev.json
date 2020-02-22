@@ -1,0 +1,31 @@
+{
+  "executionRoleArn": "arn:aws:iam::518013201776:role/ecsTaskExecutionRole",
+  "containerDefinitions": [{
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "secretOptions": null,
+      "options": {
+        "awslogs-group": "/ecs/pyconkr-dev",
+        "awslogs-region": "ap-northeast-2",
+        "awslogs-stream-prefix": "ecs"
+      }
+    },
+    "portMappings": [{
+      "hostPort": 8000,
+      "protocol": "tcp",
+      "containerPort": 8000
+    }],
+    "essential": true,
+    "memoryReservation": 512,
+    "name": "pyconkr"
+  }],
+  "placementConstraints": [],
+  "taskRoleArn": "arn:aws:iam::518013201776:role/ecsTaskExecutionRole",
+  "family": "pyconkr-dev",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "memory": "512"
+}
