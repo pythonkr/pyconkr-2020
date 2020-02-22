@@ -17,7 +17,7 @@ from django.views.decorators.http import require_http_methods
 from django.views.generic import DetailView
 from iamport import Iamport
 
-from pyconkr.helper import render_io_error
+from web2018.helper import render_io_error
 from pyconkr.models import SprintProposal, SprintCheckin, Speaker
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
                     ManualPaymentForm, IssueSubmitForm, RegistrationFormWithoutTopSize)

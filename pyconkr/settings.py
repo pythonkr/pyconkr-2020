@@ -65,6 +65,7 @@ INSTALLED_APPS = (
                      'pyconkr',
                      'registration',
                      'web2020',
+                     'web2018',
                  )
 
 MIDDLEWARE = [
@@ -99,9 +100,9 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'pyconkr.context_processors.default',
-                'pyconkr.context_processors.sponsors',
-                'pyconkr.context_processors.profile',
+                'web2018.context_processors.default',
+                'web2018.context_processors.sponsors',
+                'web2018.context_processors.profile',
                 'constance.context_processors.config',
             ],
         },

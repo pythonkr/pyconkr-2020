@@ -95,7 +95,7 @@ ENV/
 .idea/
 
 # Bower
-pyconkr/static/components/*
+web2018/static/components/*
 web2020/static/components/*
 
 

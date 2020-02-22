@@ -7,7 +7,7 @@ from django_summernote.widgets import SummernoteInplaceWidget
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from pyconkr.models import SprintProposal, TutorialProposal
-from .models import Speaker, Program, Proposal, Profile
+from pyconkr.models import Speaker, Program, Proposal, Profile
 
 
 class EmailLoginForm(forms.Form):

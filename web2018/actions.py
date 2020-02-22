@@ -1,4 +1,4 @@
-from .models import (Program, Speaker)
+from pyconkr.models import (Program, Speaker)
 
 
 def convert_proposal_to_program(modeladmin, request, queryset):

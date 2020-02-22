@@ -6,7 +6,7 @@ from django.contrib.flatpages.models import FlatPage
 from django.db.models import Count
 from django.utils.translation import ugettext_lazy as _
 
-from .models import SponsorLevel, Speaker, Banner
+from pyconkr.models import SponsorLevel, Speaker, Banner
 
 
 def default(request):

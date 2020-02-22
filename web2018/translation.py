@@ -1,6 +1,6 @@
 from modeltranslation.translator import translator, TranslationOptions
 from django.contrib.flatpages.models import FlatPage
-from .models import (
+from pyconkr.models import (
     Room,
     ProgramCategory, ProgramTime,
     Sponsor, SponsorLevel,

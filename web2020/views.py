@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
+#from web2018 import Announcement
 from pyconkr.models import Announcement
 
 
