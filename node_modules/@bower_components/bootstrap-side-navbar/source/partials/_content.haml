@@ -1,0 +1,81 @@
+#content
+  %h1
+    = image_tag 'bs3-side-navbar.png', height: 80
+    Side Navbar for Bootstrap 3
+    %br/
+    %small
+      Responsive sidebar navigation using
+      = link_to 'default Bootstrap 3 navbar markup', 'http://getbootstrap.com/components/#navbar'
+
+  %h4 Sponsored by #{link_to 'Terracoding', 'http://www.terracoding.com' }
+
+  :markdown
+    ## Installation
+
+    ## Sass
+
+    Download [navbar-fixed-side.scss](https://raw.githubusercontent.com/samrayner/bootstrap-side-navbar/source/source/assets/stylesheets/navbar-fixed-side.scss)
+
+    Include it after Bootstrap in your Sass file:
+
+        @import 'bootstrap';
+        @import 'navbar-fixed-side';
+
+    ## CSS
+
+    Download the minified [navbar-fixed-side.css](https://raw.githubusercontent.com/samrayner/bootstrap-side-navbar/gh-pages/assets/stylesheets/navbar-fixed-side.css)
+
+    Include it after Bootstrap in your HTML:
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/navbar-fixed-side.css" rel="stylesheet" />
+
+    ---
+
+    ## Usage
+
+    Position the navbar using the standard Bootstrap grid system in a `.container-fluid`.
+
+    This gives you control over how wide it is and when it should collapse.
+
+    Then just use `.navbar-fixed-side` as you would [usually use `.navbar-fixed-top`][nft].
+
+    ### Examples
+
+    #### Left-hand side
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-3 col-lg-2">
+              <nav class="navbar navbar-default navbar-fixed-side">
+                <!-- normal collapsible navbar markup -->
+              </nav>
+            </div>
+            <div class="col-sm-9 col-lg-10">
+              <!-- your page content -->
+          </div>
+        </div>
+
+    #### Right-hand side
+    Use Bootstrap's [column ordering][co] to maintain source order
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-3 col-lg-2 col-sm-push-9 col-lg-push-10">
+              <nav class="navbar navbar-default navbar-fixed-side">
+                <!-- normal collapsable navbar markup -->
+              </nav>
+            </div>
+            <div class="col-sm-9 col-lg-10 col-sm-pull-3 col-lg-pull-2">
+              <!-- your page content -->
+          </div>
+        </div>
+
+    ### Options
+
+    The side navbar supports the inverse style for navbars. Replace `.navbar-default` with `.navbar-inverse` as normal.
+
+    [co]: https://getbootstrap.com/css/#grid-column-ordering
+    [nft]: http://getbootstrap.com/components/#navbar-fixed-top
+
+  = link_to "https://github.com/samrayner/bootstrap-side-navbar", class: 'github-ribbon' do
+    = image_tag "https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67", alt: "Fork me on Github"
