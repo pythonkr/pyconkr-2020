@@ -28,7 +28,7 @@ a {
 }
 
 .gradient-bg {
-  background: linear-gradient(90deg, #491faf, #771592, #a20a77);
+  background: linear-gradient(90deg, #0F4C81, #658DC6, #B5C7D3);
 }
 
 /** header **/
@@ -40,7 +40,7 @@ a {
 }
 
 .transparent-gradient-bg div {
-  background: linear-gradient(90deg, rgba(73, 31, 175, 0.2), rgba(119, 21, 146, 0.2), rgba(162, 10, 119, 0.2));
+  background: linear-gradient(90deg, rgba(15, 76, 129, 0.2), rgba(101, 141, 198, 0.2), rgba(181, 199, 211, 0.2));
   position: absolute;
   width: 100%;
   margin-top: 10px;
@@ -105,7 +105,7 @@ header p span:last-child {
   height: 85px;
   top: -30px;
   left: 33%;
-  background: #7b138f;
+  background: #0F4C81;
 }
 
 .bg-lines :nth-child(3) {
@@ -129,7 +129,7 @@ header p span:last-child {
   height: 85px;
   top: 300px;
   left: 55%;
-  background: #a20b78;
+  background: #658DC6;
 }
 
 .bg-lines :nth-child(6) {
@@ -137,7 +137,7 @@ header p span:last-child {
   height: 85px;
   top: 400px;
   left: -100px;
-  background: linear-gradient(90deg, #3a139d, #4920af00);
+  background: linear-gradient(90deg, #0F4C81, #B5C7D3);
 }
 
 .bg-lines :nth-child(7) {
