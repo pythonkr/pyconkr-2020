@@ -96,6 +96,8 @@ ENV/
 
 # Bower
 pyconkr/static/components/*
+web2020/static/components/*
+
 
 # TEST db
 db.sqlite3
