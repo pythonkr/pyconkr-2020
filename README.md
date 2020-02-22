@@ -2,6 +2,10 @@
 
 [![test-deploy](https://github.com/pythonkr/pyconkr/workflows/test-deploy/badge.svg)](https://github.com/pythonkr/pyconkr/actions?query=workflow%3Atest-deploy)
 
+## Contribution
+
+pyconkr-api contribution을 제출할 때에는 반드시 다음 [가이드라인](./.github/CONTRIBUTING.md)을 따라주세요.
+
 ## Requirements
 
 - Python 3.7.6
