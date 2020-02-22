@@ -1,6 +1,6 @@
 # PyCon Korea Homepage
 
-![test-deploy](https://github.com/pythonkr/pyconkr/workflows/test-deploy/badge.svg)
+[![test-deploy](https://github.com/pythonkr/pyconkr/workflows/test-deploy/badge.svg)](https://github.com/pythonkr/pyconkr/actions?query=workflow%3Atest-deploy)
 
 ## Requiremensts
 
@@ -19,4 +19,3 @@ $ python manage.py loaddata ./pyconkr/fixtures/flatpages.json
 $ bower install
 $ python manage.py runserver
 ```
-
