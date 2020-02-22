@@ -2,7 +2,7 @@
 
 [![test-deploy](https://github.com/pythonkr/pyconkr/workflows/test-deploy/badge.svg)](https://github.com/pythonkr/pyconkr/actions?query=workflow%3Atest-deploy)
 
-## Requiremensts
+## Requirements
 
 - Python 3.7.6
 
@@ -16,6 +16,6 @@ $ python manage.py compilemessages
 $ python manage.py makemigrations  # flatpages
 $ python manage.py migrate
 $ python manage.py loaddata ./pyconkr/fixtures/flatpages.json
-$ bower install
+$ yarn
 $ python manage.py runserver
 ```
