@@ -108,7 +108,7 @@ urlpatterns += i18n_patterns(
     re_path(r'^logout/$', logout, name='logout'),
 
     re_path(r'^registration/', include('registration.urls')),
-
+    re_path(r'^2020/', include('web2020.urls')),
     # for rosetta
     re_path(r'^rosetta/', include('rosetta.urls')),
 

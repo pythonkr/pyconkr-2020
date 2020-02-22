@@ -20,3 +20,7 @@ $ bower install
 $ python manage.py runserver
 ```
 
+For Install bower
+```
+$ sudo npm install -g bower
+```

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load i18n %}
+{% if LANGUAGE_CODE == 'en' %}
+<html lang="en">
+{% else %}
+<html lang="kr">
+{% endif %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block head-title %}{% trans "PyCon Korea 2020" %}{% endblock %}</title>
+    <meta property="og:site_name" content="{% trans "PyCon Korea 2020" %}">
+    <meta property="og:title" content="{% block og-title %}{% trans "PyCon Korea 2020" %}{% endblock %}">
+    <meta property="og:url" content="{{ request.path }}">
+    <meta property="og:image" content="{% block og-image %}{% static "image/pyconkr-2018-cover.png" %}{% endblock %}">
+    <meta property="og:description" content="{% block og-desc %}{% trans "base-og-description" %}{% endblock %}">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <link rel="icon" type="image/png" href="{% static 'image/favicon2018.ico' %}">
+
+    <link href="{% static 'components/slick-carousel/slick/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'components/slick-carousel/slick/slick-theme.css' %}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="{% static 'components/datatables.net-bs/css/dataTables.bootstrap.css' %}" rel="stylesheet">
+
+    <script src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'components/datatables.net/js/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'components/datatables.net-bs/js/dataTables.bootstrap.js' %}"></script>
+
+    <link href="{% static "components/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "components/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/pyconkr.css" %}" rel="stylesheet">
+    <link href="{% static "css/pyconkr-media.css" %}" rel="stylesheet">
+
+    <link href="{% static 'css/pyconkr-teaser.css' %}" rel="stylesheet" type="text/css">
+
+    {% block head-include %}
+    {% endblock %}
+</head>
+<body>
+{% block nav %}{% include "nav.html" %}{% endblock %}
+{% if index %}
+<div class="transparent-gradient-bg">
+    <div class="header-bg tilt-clock"></div>
+    <div class="header-bg tilt-clock"></div>
+</div>
+<div class="header-bg gradient-bg tilt-counterclock">
+    <div class="tilt-clock">
+        <div class="bg-lines tilt-counterclock">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <header class="text-center">
+            <h1>DIVE <span>INTO</span><br>DIVERSITY</h1>
+            <h2>{% trans "PyCon Korea 2018" %}</h2>
+            <p>
+                <span><b>{% trans "Sprint" %}</b> 2018.08.15({% trans "Wed" %}), 17({% trans "Fri" %})</span>
+                <span><b>{% trans "Tutorial" %}</b> 2018.08.17({% trans "Fri" %})</span>
+                <span><b>{% trans "Conference" %}</b> 2018.08.18 - 19({% trans "Sat" %}-{% trans "Sun" %})</span>
+            </p>
+            <p><b>{% trans "Coex, Seoul" %}</b></p>
+        </header>
+    </div>
+</div>
+{% endif %}
+
+<main>
+    <div class="container">
+    {% if not index %}
+        <h1>{% block title %}{{ title }}{% endblock %}</h1>
+    {% endif %}
+        {{ base_content | safe }}
+        {% block content %}{% endblock %}
+    </div>
+
+    {% block sponsors %}
+    <div class="container">
+        <div class="sponsors">
+        <h2>{% trans "Sponsors" %}</h2>
+        {% include "sponsors.html" %}
+        </div>
+    </div>
+    {% endblock %}
+</main>
+
+{% block unboxed_content %} {# for index ^^ #}
+{% endblock %}
+
+
+{% include "footer.html" %}
+
+</body>
+</html>

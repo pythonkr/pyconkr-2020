@@ -19,7 +19,6 @@ from django.utils.translation import ugettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -35,37 +34,38 @@ ALLOWED_HOSTS = []
 SITE_ID = 1
 
 INSTALLED_APPS = (
-    # django apps
-    'modeltranslation',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.sites',
-    'django.contrib.staticfiles',
-    'django.contrib.flatpages',
-    'django.contrib.humanize',
-) + (
-    # thirt-party apps
-    'django_summernote',
-    'rosetta',
-    'crispy_forms',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.twitter',
-    'sorl.thumbnail',
-    'constance',
-    'constance.backends.database',
-    'django_csv_exports',
-) + (
-    # local apps
-    'pyconkr',
-    'registration',
-)
+                     # django apps
+                     'modeltranslation',
+                     'django.contrib.admin',
+                     'django.contrib.auth',
+                     'django.contrib.contenttypes',
+                     'django.contrib.sessions',
+                     'django.contrib.messages',
+                     'django.contrib.sites',
+                     'django.contrib.staticfiles',
+                     'django.contrib.flatpages',
+                     'django.contrib.humanize',
+                 ) + (
+                     # thirt-party apps
+                     'django_summernote',
+                     'rosetta',
+                     'crispy_forms',
+                     'allauth',
+                     'allauth.account',
+                     'allauth.socialaccount',
+                     'allauth.socialaccount.providers.facebook',
+                     'allauth.socialaccount.providers.github',
+                     'allauth.socialaccount.providers.twitter',
+                     'sorl.thumbnail',
+                     'constance',
+                     'constance.backends.database',
+                     'django_csv_exports',
+                 ) + (
+                     # local apps
+                     'pyconkr',
+                     'registration',
+                     'web2020',
+                 )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,8 +83,10 @@ ROOT_URLCONF = 'pyconkr.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
         'DIRS': [
-            os.path.join(BASE_DIR, "pyconkr/templates"),
+            os.path.join(BASE_DIR, "web2020/templates"),
+            #os.path.join(BASE_DIR, "pyconkr/templates"),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -106,9 +108,7 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'pyconkr.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -231,12 +231,12 @@ SPEAKER_IMAGE_MINIMUM_DIMENSION = (500, 500)
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 CONSTANCE_CONFIG = {
-        'TOTAL_TICKET': (1800, '판매할 전체 티켓 수량'),
-        'IMP_DOM_USER_CODE': ('', '아임포트 국내용 유저 번호'),
-        'IMP_DOM_API_KEY': ('', '아임포트 국내용 API KEY'),
-        'IMP_DOM_API_SECRET': ('', '아임포트 국내용 API SECRET'),
-        'IMP_INTL_USER_CODE': ('', '아임포트 해외용 유저 번호'),
-        'IMP_INTL_API_KEY': ('', '아임포트 해외용 API KEY'),
-        'IMP_INTL_API_SECRET': ('', '아임포트 해외용 API SECRET'),
-        'SHOW_SLIDE_DATA': (False, 'Show slide data on schedule table and program detail'),
+    'TOTAL_TICKET': (1800, '판매할 전체 티켓 수량'),
+    'IMP_DOM_USER_CODE': ('', '아임포트 국내용 유저 번호'),
+    'IMP_DOM_API_KEY': ('', '아임포트 국내용 API KEY'),
+    'IMP_DOM_API_SECRET': ('', '아임포트 국내용 API SECRET'),
+    'IMP_INTL_USER_CODE': ('', '아임포트 해외용 유저 번호'),
+    'IMP_INTL_API_KEY': ('', '아임포트 해외용 API KEY'),
+    'IMP_INTL_API_SECRET': ('', '아임포트 해외용 API SECRET'),
+    'SHOW_SLIDE_DATA': (False, 'Show slide data on schedule table and program detail'),
 }
