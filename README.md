@@ -1,11 +1,12 @@
 # PyCon Korea Homepage
 
-![test-deploy](https://github.com/pythonkr/pyconkr/workflows/test-deploy/badge.svg)
+[![test-deploy](https://github.com/pythonkr/pyconkr/workflows/test-deploy/badge.svg)](https://github.com/pythonkr/pyconkr/actions?query=workflow%3Atest-deploy)
 
 ## Contribution
+
 pyconkr-api contribution을 제출할 때에는 반드시 다음 [가이드라인](./.github/CONTRIBUTING.md)을 따라주세요.
 
-## Requiremensts
+## Requirements
 
 - Python 3.7.6
 
@@ -19,7 +20,6 @@ $ python manage.py compilemessages
 $ python manage.py makemigrations  # flatpages
 $ python manage.py migrate
 $ python manage.py loaddata ./pyconkr/fixtures/flatpages.json
-$ bower install
+$ yarn
 $ python manage.py runserver
 ```
-
