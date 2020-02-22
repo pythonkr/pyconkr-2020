@@ -2,7 +2,7 @@
 
 ![test-deploy](https://github.com/pythonkr/pyconkr/workflows/test-deploy/badge.svg)
 
-## Requiremensts
+## Requirements
 
 - Python 3.7.6
 
