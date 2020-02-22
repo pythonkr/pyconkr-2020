@@ -1,6 +1,6 @@
 from pyconkr.settings import *
 
-DEBUG = True
+DEBUG = False
 # For debugging
 ALLOWED_HOSTS = [
     'localhost',
