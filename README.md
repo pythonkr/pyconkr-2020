@@ -16,7 +16,7 @@ $ python manage.py compilemessages
 $ python manage.py makemigrations  # flatpages
 $ python manage.py migrate
 $ python manage.py loaddata ./pyconkr/fixtures/flatpages.json
-$ bower install
+$ yarn
 $ python manage.py runserver
 ```
 
