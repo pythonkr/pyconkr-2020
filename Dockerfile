@@ -1,4 +1,4 @@
-FROM python:3.7.3
+FROM python:3.7.6
 
 ENV PYTHONUNBUFFERED 1
 WORKDIR /config

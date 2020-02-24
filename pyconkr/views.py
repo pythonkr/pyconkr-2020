@@ -107,7 +107,8 @@ class PatronList(ListView):
 
     def get_queryset(self):
         queryset = super(PatronList, self).get_queryset()
-        patron_option = Option.objects.filter(conference_type=CONFERENCE_REGISTRATION_PATRON)
+        patron_option = Option.objects.filter(
+            conference_type=CONFERENCE_REGISTRATION_PATRON)
 
         if patron_option.exists():
             return queryset.filter(option__in=patron_option, payment_status='paid').order_by('-additional_price', 'created')
@@ -182,7 +183,8 @@ class PreferenceList(SuccessMessageMixin, ListView):
                 program=Program.objects.get(id=program_id)))
 
         Preference.objects.bulk_create(preferences)
-        messages.success(self.request, _("Preferences are successfully updated."))
+        messages.success(self.request, _(
+            "Preferences are successfully updated."))
         return super(PreferenceList, self).get(request, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -218,7 +220,7 @@ def robots(request):
 
 
 def login(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('profile')
 
     form = EmailLoginForm()
@@ -309,11 +311,16 @@ class ProfileDetail(DetailView):
             payment_status__in=['paid', 'ready']
         ).exists()
         has_proposal = Proposal.objects.filter(user=self.request.user).exists()
-        has_sprint = SprintProposal.objects.filter(user=self.request.user).exists()
-        has_tutorial = TutorialProposal.objects.filter(user=self.request.user).exists()
-        context['tickets'] = Registration.objects.filter(user=self.request.user, payment_status__in=['paid', 'ready'])
-        context['joined_sprint'] = SprintCheckin.objects.filter(user=self.request.user)
-        context['cancelled_tickets'] = Registration.objects.filter(user=self.request.user, payment_status='cancelled')
+        has_sprint = SprintProposal.objects.filter(
+            user=self.request.user).exists()
+        has_tutorial = TutorialProposal.objects.filter(
+            user=self.request.user).exists()
+        context['tickets'] = Registration.objects.filter(
+            user=self.request.user, payment_status__in=['paid', 'ready'])
+        context['joined_sprint'] = SprintCheckin.objects.filter(
+            user=self.request.user)
+        context['cancelled_tickets'] = Registration.objects.filter(
+            user=self.request.user, payment_status='cancelled')
         context['is_registered'] = is_registered
         context['has_proposal'] = has_proposal
         context['has_tutorial'] = has_tutorial
@@ -399,7 +406,8 @@ class TutorialProposalList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TutorialProposalList, self).get_context_data(**kwargs)
-        context['tutorials'] = TutorialProposal.objects.filter(confirmed=True).all()
+        context['tutorials'] = TutorialProposal.objects.filter(
+            confirmed=True).all()
         return context
 
 
@@ -408,7 +416,8 @@ class SprintProposalList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(SprintProposalList, self).get_context_data(**kwargs)
-        context['sprints'] = SprintProposal.objects.filter(confirmed=True).all()
+        context['sprints'] = SprintProposal.objects.filter(
+            confirmed=True).all()
         if self.request.user.is_authenticated():
             context['joined_tutorials'] = TutorialCheckin.objects.filter(user=self.request.user).values_list(
                 'tutorial_id', flat=True)
@@ -464,11 +473,12 @@ class TutorialProposalDetail(DetailView):
     context_object_name = 'tutorial'
 
     def get_context_data(self, **kwargs):
-        context = super(TutorialProposalDetail, self).get_context_data(**kwargs)
+        context = super(TutorialProposalDetail,
+                        self).get_context_data(**kwargs)
         capacity = self.object.capacity
         checkin_ids = \
-        TutorialCheckin.objects.filter(tutorial=self.object).\
-                                order_by('id').values_list('id', flat=True)
+            TutorialCheckin.objects.filter(tutorial=self.object).\
+            order_by('id').values_list('id', flat=True)
         limit_bar_id = 65539
         if capacity < len(checkin_ids):
             limit_bar_id = checkin_ids[capacity-1]
@@ -477,14 +487,15 @@ class TutorialProposalDetail(DetailView):
                       'picture': x.user.profile.image,
                       'registered':
                       Registration.objects.filter(user=x.user,
-                      payment_status='paid').exists(),
+                                                  payment_status='paid').exists(),
                       'waiting': True if x.id > limit_bar_id else False
-                     } for x in TutorialCheckin.objects.filter(tutorial=self.object)]
+                      } for x in TutorialCheckin.objects.filter(tutorial=self.object)]
         context['attendees'] = attendees
 
         if self.request.user.is_authenticated():
             context['joined'] = \
-                TutorialCheckin.objects.filter(user=self.request.user, tutorial=self.object).exists()
+                TutorialCheckin.objects.filter(
+                    user=self.request.user, tutorial=self.object).exists()
         else:
             context['joined'] = False
 
@@ -510,7 +521,8 @@ class TutorialProposalUpdate(SuccessMessageMixin, UpdateView):
         return get_object_or_404(TutorialProposal, pk=self.request.user.tutorialproposal.pk)
 
     def get_context_data(self, **kwargs):
-        context = super(TutorialProposalUpdate, self).get_context_data(**kwargs)
+        context = super(TutorialProposalUpdate,
+                        self).get_context_data(**kwargs)
         context['title'] = _("Update tutorial")
         return context
 
@@ -522,7 +534,8 @@ def tutorial_join(request, pk):
     tutorial = get_object_or_404(TutorialProposal, pk=pk)
 
     if request.GET.get('leave'):
-        TutorialCheckin.objects.filter(user=request.user, tutorial=tutorial).delete()
+        TutorialCheckin.objects.filter(
+            user=request.user, tutorial=tutorial).delete()
     else:
         tc = TutorialCheckin(user=request.user, tutorial=tutorial)
         tc.save()
@@ -537,33 +550,34 @@ class SprintProposalDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(SprintProposalDetail, self).get_context_data(**kwargs)
         checkin_ids = \
-        SprintCheckin.objects.filter(sprint=self.object).\
-                                     order_by('id').values_list('id',flat=True)
+            SprintCheckin.objects.filter(sprint=self.object).\
+            order_by('id').values_list('id', flat=True)
         limit_bar_id = 65539
         checkins = SprintCheckin.objects.filter(sprint=self.object)
         attendees = []
         for x in checkins:
             if not hasattr(x.user, 'profile'):
                 attendees.append({'name': x.user.email.split('@')[0],
-                      'picture': None,
-                      'registered': Registration.objects.filter(user=x.user,
-                      payment_status='paid').exists(),
-                      'waiting': True if x.id > limit_bar_id else False
-                     })
+                                  'picture': None,
+                                  'registered': Registration.objects.filter(user=x.user,
+                                                                            payment_status='paid').exists(),
+                                  'waiting': True if x.id > limit_bar_id else False
+                                  })
             else:
                 attendees.append({'name': x.user.profile.name if x.user.profile.name != '' else
-                          x.user.email.split('@')[0],
-                          'picture': x.user.profile.image,
-                          'registered':
-                          Registration.objects.filter(user=x.user,
-                          payment_status='paid').exists(),
-                          'waiting': True if x.id > limit_bar_id else False
-                         })
+                                  x.user.email.split('@')[0],
+                                  'picture': x.user.profile.image,
+                                  'registered':
+                                  Registration.objects.filter(user=x.user,
+                                                              payment_status='paid').exists(),
+                                  'waiting': True if x.id > limit_bar_id else False
+                                  })
         context['attendees'] = attendees
 
         if self.request.user.is_authenticated():
             context['joined'] = \
-                SprintCheckin.objects.filter(user=self.request.user, sprint=self.object).exists()
+                SprintCheckin.objects.filter(
+                    user=self.request.user, sprint=self.object).exists()
         else:
             context['joined'] = False
 
