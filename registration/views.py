@@ -32,7 +32,7 @@ payment_logger = logging.getLogger('payment')
 def index(request):
     is_registered = False
 
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         is_registered = (Registration.objects.active_conference()
                          .filter(user=request.user, payment_status__in=['paid', 'ready'])
                          .exists())
@@ -48,7 +48,8 @@ def index(request):
 @login_required
 def status(request, option_id):
     option = Option.objects.get(id=option_id)
-    registrations = Registration.objects.filter(user=request.user, option=option)
+    registrations = Registration.objects.filter(
+        user=request.user, option=option)
 
     context = {
         'registrations': registrations,
@@ -201,7 +202,8 @@ def payment(request, option_id):
 @staff_member_required
 def registrations(request, option_id):
     option = Option.objects.get(id=option_id)
-    registrations = Registration.objects.filter(option=option, payment_status__in=['paid'])
+    registrations = Registration.objects.filter(
+        option=option, payment_status__in=['paid'])
 
     return render(request, 'registration/registration_list.html', {
         'title': '티켓 구매자 명단',
@@ -245,7 +247,8 @@ def payment_process(request):
     # TODO : more form validation
     # eg) merchant_uid
     if not form.is_valid():
-        form_errors_string = "\n".join(('%s:%s' % (k, v[0]) for k, v in form.errors.items()))
+        form_errors_string = "\n".join(
+            ('%s:%s' % (k, v[0]) for k, v in form.errors.items()))
         return JsonResponse({
             'success': False,
             'message': form_errors_string,
@@ -268,18 +271,22 @@ def payment_process(request):
             })
 
         remain_ticket_count = (
-                config.TOTAL_TICKET - Registration.objects.active_conference().filter(
-            payment_status__in=['paid', 'ready']).count())
+            config.TOTAL_TICKET - Registration.objects.active_conference().filter(
+                payment_status__in=['paid', 'ready']).count())
     elif product.event_type == EVENT_YOUNG:
-        registration_query = Registration.objects.filter(option=product, payment_status__in=['paid', 'ready'])
-        remain_ticket_count = (product.total - registration_query.filter(payment_status__in=['paid', 'ready']).count())
+        registration_query = Registration.objects.filter(
+            option=product, payment_status__in=['paid', 'ready'])
+        remain_ticket_count = (
+            product.total - registration_query.filter(payment_status__in=['paid', 'ready']).count())
     else:
-        registration_query = Registration.objects.filter(option=product, payment_status__in=['paid', 'ready'])
+        registration_query = Registration.objects.filter(
+            option=product, payment_status__in=['paid', 'ready'])
         registration = registration_query.filter(user=request.user)
         if registration.exists():
             return _redirect_registered(registration.option)
 
-        remain_ticket_count = (product.total - registration_query.filter(payment_status__in=['paid', 'ready']).count())
+        remain_ticket_count = (
+            product.total - registration_query.filter(payment_status__in=['paid', 'ready']).count())
 
     # 매진 상태
     if remain_ticket_count <= 0:
@@ -314,7 +321,8 @@ def payment_process(request):
 
         # 한국인용 카드 결제일 때
         if registration.payment_method == 'card-korean':
-            iamport = Iamport(config.IMP_DOM_API_KEY, config.IMP_DOM_API_SECRET)
+            iamport = Iamport(config.IMP_DOM_API_KEY,
+                              config.IMP_DOM_API_SECRET)
 
             # TODO : use validated and cleaned data
             iamport_params = dict(
@@ -334,7 +342,8 @@ def payment_process(request):
 
             iamport.pay_onetime(**iamport_params)
 
-            confirm = iamport.find_by_merchant_uid(post_data.get('merchant_uid'))
+            confirm = iamport.find_by_merchant_uid(
+                post_data.get('merchant_uid'))
 
             # 결제한 금액과 Form에 입력된 결제 금액들이 다를 때
             if confirm['amount'] != product.price + registration.additional_price:
@@ -352,7 +361,8 @@ def payment_process(request):
             registration.save()
 
         elif registration.payment_method == 'card-foreign':
-            iamport = Iamport(config.IMP_INTL_API_KEY, config.IMP_INTL_API_SECRET)
+            iamport = Iamport(config.IMP_INTL_API_KEY,
+                              config.IMP_INTL_API_SECRET)
 
             # TODO : use validated and cleaned data
             iamport_params = dict(
@@ -371,7 +381,8 @@ def payment_process(request):
             )
             iamport.pay_foreign(**iamport_params)
 
-            confirm = iamport.find_by_merchant_uid(post_data.get('merchant_uid'))
+            confirm = iamport.find_by_merchant_uid(
+                post_data.get('merchant_uid'))
 
             # 결제한 금액과 Form에 입력된 결제 금액들이 다를 때
             if confirm['amount'] != product.price + registration.additional_price:
@@ -438,7 +449,8 @@ def payment_callback(request):
         return HttpResponse()
     except Iamport.ResponseError as iamport_error:
         if iamport_error.code == 401 or iamport_error.code == 404:
-            iamport = Iamport(config.IMP_INTL_API_KEY, config.IMP_INTL_API_SECRET)
+            iamport = Iamport(config.IMP_INTL_API_KEY,
+                              config.IMP_INTL_API_SECRET)
             result = iamport.find_by_merchant_uid(merchant_uid)
             registration = registration.first()
 
@@ -456,7 +468,8 @@ def payment_callback(request):
 
 @login_required
 def manual_registration(request, manual_payment_id):
-    mp = get_object_or_404(ManualPayment, pk=manual_payment_id, user=request.user)
+    mp = get_object_or_404(
+        ManualPayment, pk=manual_payment_id, user=request.user)
     uid = str(uuid4()).replace('-', '')
     form = ManualPaymentForm(initial={
         'title': mp.title,
@@ -484,7 +497,8 @@ def manual_payment_process(request):
     form = ManualPaymentForm(request.POST)
 
     if not form.is_valid():
-        form_errors_string = "\n".join(('%s:%s' % (k, v[0]) for k, v in form.errors.items()))
+        form_errors_string = "\n".join(
+            ('%s:%s' % (k, v[0]) for k, v in form.errors.items()))
         return JsonResponse({
             'success': False,
             'message': form_errors_string,  # TODO : ...
@@ -492,7 +506,8 @@ def manual_payment_process(request):
 
     # check already payment
     try:
-        mp = ManualPayment.objects.get(pk=request.POST.get('manual_payment_id'))
+        mp = ManualPayment.objects.get(
+            pk=request.POST.get('manual_payment_id'))
     except ManualPayment.DoesNotExist:
         return JsonResponse({
             'success': False,
@@ -524,7 +539,8 @@ def manual_payment_process(request):
         )
 
         imp_client.pay_onetime(**imp_params)
-        confirm = imp_client.find_by_merchant_uid(request.POST.get('merchant_uid'))
+        confirm = imp_client.find_by_merchant_uid(
+            request.POST.get('merchant_uid'))
 
         if confirm['amount'] != mp.price:
             return render_io_error("amount is not same as product.price. it will be canceled")
@@ -556,14 +572,15 @@ class RegistrationReceiptDetail(DetailView):
                                  user_id=self.request.user.pk)
 
     def get_context_data(self, **kwargs):
-        context = super(RegistrationReceiptDetail, self).get_context_data(**kwargs)
+        context = super(RegistrationReceiptDetail,
+                        self).get_context_data(**kwargs)
         context['title'] = _("Registration Receipt")
         return context
 
 
 def group_required(*group_names):
     def in_groups(u):
-        if u.is_authenticated():
+        if u.is_authenticated:
             if bool(u.groups.filter(name__in=group_names)) or u.is_superuser:
                 return True
         return False
@@ -618,13 +635,16 @@ def issue_print(request, registration_id):
     # 개인후원
     personal_patron = True if registration.option.id == 1 else False
     # 발표자
-    speaker = True if Speaker.objects.filter(email=registration.user.email).exists() else False
+    speaker = True if Speaker.objects.filter(
+        email=registration.user.email).exists() else False
     # 아이돌봄
     options = Option.objects.filter(event_type=EVENT_BABYCARE)
-    baby_care = True if Registration.objects.filter(user=registration.user).filter(option__in=options).exists() else False
+    baby_care = True if Registration.objects.filter(
+        user=registration.user).filter(option__in=options).exists() else False
     # 영코더
     options = Option.objects.filter(event_type=EVENT_YOUNG)
-    young_coder = True if Registration.objects.filter(user=registration.user).filter(option__in=options).exists() else False
+    young_coder = True if Registration.objects.filter(
+        user=registration.user).filter(option__in=options).exists() else False
 
     if personal_patron or speaker or baby_care or young_coder:
         additional_ticket = {
@@ -653,7 +673,8 @@ def sprint_print(request, checkin_id):
     # 수정 필요
     company = checkin.user.profile.organization if checkin.user.profile is not None else '.'
     company = checkin.user.profile.organization if checkin.user.profile.organization is not None else '.'
-    dict_map = {1: 'Nekoyume', 2: '니름', 3: 'Hearthstone++', 4: 'pandas', 6: 'Backend.Al'}
+    dict_map = {1: 'Nekoyume', 2: '니름',
+                3: 'Hearthstone++', 4: 'pandas', 6: 'Backend.Al'}
 
     context = {
         'name': name,

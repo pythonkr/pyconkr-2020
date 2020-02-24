@@ -26,14 +26,14 @@ admin.autodiscover()
 
 urlpatterns = [
     re_path(r'^2020/robots.txt$', robots, name='robots'),
-    re_path(r'2020/summernote/', include('django_summernote.urls')),
+    re_path(r'^2020/summernote/', include('django_summernote.urls')),
     re_path(r'^2020/admin/', admin.site.urls),
-
     re_path(r'^2020/accounts/', include('allauth.urls')),
     re_path(r'^2020/i18n/', include('django.conf.urls.i18n')),
 ]
 
 urlpatterns += i18n_patterns(
+    re_path(r'^2020$', index, name='index'),
     re_path(r'^2020/$', index, name='index'),
     re_path(r'^2020/room/(?P<pk>\d+)$',
             RoomDetail.as_view(), name='room'),
@@ -97,11 +97,11 @@ urlpatterns += i18n_patterns(
             login_required(TutorialProposalUpdate.as_view()), name='tutorial-proposal-update'),
     re_path(r'^2020/profile/sprint-proposal/edit$',
             login_required(SprintProposalUpdate.as_view()), name='sprint-proposal-update'),
-    re_path(r'^2020/profile$',
+
+    re_path(r'^2020/profile/$',
             login_required(ProfileDetail.as_view()), name='profile'),
     re_path(r'^2020/profile/edit$',
             login_required(ProfileUpdate.as_view()), name='profile_edit'),
-
     re_path(r'^2020/login/$', login, name='login'),
     re_path(r'^2020/login/req/(?P<token>[a-z0-9\-]+)$',
             login_req, name='login_req'),
@@ -115,7 +115,7 @@ urlpatterns += i18n_patterns(
 
     # for flatpages
     re_path(r'^2020/pages/', include('django.contrib.flatpages.urls')),
-    re_path(r'^2020/(?P<url>.*/)$', views.flatpage, name='flatpage'),
+    #     re_path(r'^2020/(?P<url>.*/)$', views.flatpage, name='flatpage'),
 
     prefix_default_language=False
 )

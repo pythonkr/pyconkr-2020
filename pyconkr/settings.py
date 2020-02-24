@@ -172,7 +172,7 @@ USE_L10N = True
 USE_TZ = True
 
 FORCE_SCRIPT_NAME = ''
-
+APPEND_SLASH = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -191,22 +191,22 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 
     # `allauth` specific authentication methods, such as login by e-mail
+    # From 2019 we have decided to support github/facebook login
     'allauth.account.auth_backends.AuthenticationBackend',
 )
-
-APPEND_SLASH = True
 
 LOGIN_URL = '/2020/login/'
 LOGIN_REDIRECT_URL = '/2020/profile/'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 DOMAIN = ''
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = ''
-EMAIL_PORT = 587
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = ''
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
@@ -234,6 +234,42 @@ SUMMERNOTE_CONFIG = {
         static_url('css/pyconkr.css'),
         static_url('css/pyconkr-summernote.css'),
     ),
+}
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ]
+    },
+    # Didn't finish yet
+    # https://django-allauth.readthedocs.io/en/latest/providers.html#facebook
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+        'SCOPE': ['email', 'public_profile', 'user_friends'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time',
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v2.12',
+    }
 }
 
 SPEAKER_IMAGE_MAXIMUM_FILESIZE_IN_MB = 5

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 from django.contrib import messages
+from django.dispatch import receiver
 from django.contrib.auth import login as user_login, logout as user_logout
 from django.contrib.auth.models import User
 from django.contrib.flatpages.models import FlatPage
@@ -22,6 +23,7 @@ from .models import (Room, Program, ProgramDate, ProgramTime, ProgramCategory,
                      SprintProposal, EmailToken, Profile, Proposal, TutorialCheckin,
                      SprintCheckin)
 from registration.models import Registration, Option, CONFERENCE_REGISTRATION_PATRON
+from allauth.socialaccount.signals import pre_social_login, social_account_added, social_account_updated
 
 logger = logging.getLogger(__name__)
 payment_logger = logging.getLogger('payment')
@@ -122,7 +124,7 @@ class SpeakerDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(SpeakerDetail, self).get_context_data(**kwargs)
 
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             if self.request.user.email == self.object.email:
                 context['editable'] = True
 
@@ -148,7 +150,7 @@ class ProgramDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProgramDetail, self).get_context_data(**kwargs)
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             for speaker in self.object.speakers.all():
                 if self.request.user.email == speaker.email:
                     context['editable'] = True
@@ -223,24 +225,7 @@ def login(request):
     if request.user.is_authenticated:
         return redirect('profile')
 
-    form = EmailLoginForm()
-
-    if request.method == 'POST':
-        form = EmailLoginForm(request.POST)
-        if form.is_valid():
-            # Remove previous tokens
-            email = form.cleaned_data['email']
-            EmailToken.objects.filter(email=email).delete()
-
-            # Create new
-            token = EmailToken(email=email)
-            token.save()
-
-            sendEmailToken(request, token)
-            return redirect(reverse('login_mailsent'))
-
     return render(request, 'login.html', {
-        'form': form,
         'title': _('Login'),
     })
 
@@ -303,7 +288,7 @@ class ProfileDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProfileDetail, self).get_context_data(**kwargs)
 
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             if self.request.user == self.object.user:
                 context['editable'] = True
         is_registered = Registration.objects.active_conference().filter(
@@ -418,7 +403,7 @@ class SprintProposalList(ListView):
         context = super(SprintProposalList, self).get_context_data(**kwargs)
         context['sprints'] = SprintProposal.objects.filter(
             confirmed=True).all()
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             context['joined_tutorials'] = TutorialCheckin.objects.filter(user=self.request.user).values_list(
                 'tutorial_id', flat=True)
         return context
@@ -492,7 +477,7 @@ class TutorialProposalDetail(DetailView):
                       } for x in TutorialCheckin.objects.filter(tutorial=self.object)]
         context['attendees'] = attendees
 
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             context['joined'] = \
                 TutorialCheckin.objects.filter(
                     user=self.request.user, tutorial=self.object).exists()
@@ -574,7 +559,7 @@ class SprintProposalDetail(DetailView):
                                   })
         context['attendees'] = attendees
 
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             context['joined'] = \
                 SprintCheckin.objects.filter(
                     user=self.request.user, sprint=self.object).exists()
@@ -612,3 +597,26 @@ def sprint_join(request, pk):
         sc.save()
 
     return redirect('sprint', pk)
+
+
+@receiver(social_account_updated)
+def populate_profile(request, sociallogin, **kwargs):
+    supported_provider = ['facebook', 'github']
+    if sociallogin.account.provider not in supported_provider:
+        return
+    user = sociallogin.user
+    user_data = sociallogin.account.extra_data
+    if sociallogin.account.provider == 'facebook':
+        mail = user_data['email']
+        name = user_data['name']
+    if sociallogin.account.provider == 'github':
+        user_data = sociallogin.account.extra_data
+        email = user_data['email']
+        name = user_data['name']
+
+    profile, _ = Profile.objects.get_or_create(user=user)
+    if not profile.name:
+        profile.name = name
+    if not profile.email:
+        profile.email = email
+    profile.save()
