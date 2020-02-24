@@ -105,3 +105,6 @@ db.sqlite3
 
 # Visual studio code configurations
 .vscode/
+
+collected_static/
+env.sh

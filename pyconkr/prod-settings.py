@@ -20,3 +20,21 @@ if 'ECS_CONTAINER_METADATA_URI' in os.environ:
                                  for ip in network['IPv4Addresses']]
     print(f'Append ELB healthcheck hostname: {ELB_HEALTHCHECK_HOSTNAMES}')
     ALLOWED_HOSTS += ELB_HEALTHCHECK_HOSTNAMES
+
+
+aws_env_keys = ['AWS_ACCESS_KEY_ID',
+                'AWS_SECRET_ACCESS_KEY', 'AWS_STORAGE_BUCKET_NAME']
+
+for key in aws_env_keys:
+    if not os.getenv(key):
+        print(f'You should set {key}')
+        exit(1)
+
+AWS_DEFAULT_ACL = 'public-read'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME = 'ap-northeast-2'
+AWS_S3_SIGNATURE_VERSION = 's3v4'

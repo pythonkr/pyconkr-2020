@@ -15,6 +15,19 @@
       "protocol": "tcp",
       "containerPort": 8000
     }],
+    "secrets": [{
+        "valueFrom": "DEV_AWS_ACCESS_KEY_ID",
+        "name": "AWS_ACCESS_KEY_ID"
+      },
+      {
+        "valueFrom": "DEV_AWS_SECRET_ACCESS_KEY",
+        "name": "AWS_SECRET_ACCESS_KEY"
+      },
+      {
+        "valueFrom": "DEV_AWS_STORAGE_BUCKET_NAME",
+        "name": "AWS_STORAGE_BUCKET_NAME"
+      }
+    ],
     "essential": true,
     "memoryReservation": 512,
     "name": "pyconkr"
