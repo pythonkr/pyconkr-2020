@@ -15,6 +15,10 @@
       "protocol": "tcp",
       "containerPort": 8000
     }],
+    "environment": [{
+      "name": "AWS_STORAGE_BUCKET_NAME",
+      "value": "pyconkr-dev"
+    }],
     "secrets": [{
         "valueFrom": "DEV_AWS_ACCESS_KEY_ID",
         "name": "AWS_ACCESS_KEY_ID"
