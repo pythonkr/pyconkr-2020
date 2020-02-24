@@ -21,6 +21,25 @@ if 'ECS_CONTAINER_METADATA_URI' in os.environ:
     print(f'Append ELB healthcheck hostname: {ELB_HEALTHCHECK_HOSTNAMES}')
     ALLOWED_HOSTS += ELB_HEALTHCHECK_HOSTNAMES
 
+db_env_keys = ['POSTGRES_HOST', 'POSTGRES_NAME', 'POSTGRES_PORT',
+               'POSTGRES_USER', 'POSTGRES_PASSWORD']
+
+for key in db_env_keys:
+    if not os.getenv(key):
+        print(f'You should set {key}')
+        exit(1)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_NAME'),
+        'HOST': os.getenv('POSTGRES_HOST'),
+        'PORT': os.getenv('POSTGRES_PORT'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+    }
+}
+
 
 aws_env_keys = ['AWS_ACCESS_KEY_ID',
                 'AWS_SECRET_ACCESS_KEY', 'AWS_STORAGE_BUCKET_NAME']

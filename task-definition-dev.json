@@ -20,6 +20,25 @@
       "value": "pyconkr-dev"
     }],
     "secrets": [{
+        "valueFrom": "DEV_POSTGRES_NAME",
+        "name": "POSTGRES_NAME"
+      },
+      {
+        "valueFrom": "DEV_POSTGRES_HOST",
+        "name": "POSTGRES_HOST"
+      },
+      {
+        "valueFrom": "DEV_POSTGRES_PORT",
+        "name": "POSTGRES_PORT"
+      },
+      {
+        "valueFrom": "DEV_POSTGRES_USER",
+        "name": "POSTGRES_USER"
+      },
+      {
+        "valueFrom": "DEV_POSTGRES_PASSWORD",
+        "name": "POSTGRES_PASSWORD"
+      }, {
         "valueFrom": "DEV_AWS_ACCESS_KEY_ID",
         "name": "AWS_ACCESS_KEY_ID"
       },

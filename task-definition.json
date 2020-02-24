@@ -20,6 +20,26 @@
       "value": "pyconkr"
     }],
     "secrets": [{
+        "valueFrom": "PROD_POSTGRES_NAME",
+        "name": "POSTGRES_NAME"
+      },
+      {
+        "valueFrom": "PROD_POSTGRES_HOST",
+        "name": "POSTGRES_HOST"
+      },
+      {
+        "valueFrom": "PROD_POSTGRES_PORT",
+        "name": "POSTGRES_PORT"
+      },
+      {
+        "valueFrom": "PROD_POSTGRES_USER",
+        "name": "POSTGRES_USER"
+      },
+      {
+        "valueFrom": "PROD_POSTGRES_PASSWORD",
+        "name": "POSTGRES_PASSWORD"
+      },
+      {
         "valueFrom": "PROD_AWS_ACCESS_KEY_ID",
         "name": "AWS_ACCESS_KEY_ID"
       },
