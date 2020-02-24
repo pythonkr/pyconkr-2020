@@ -11,6 +11,7 @@ ALLOWED_HOSTS = [
     'pycon.kr',
 ]
 
+# https://stackoverflow.com/questions/54784981/django-allauth-google-oauth-redirect-uri-mismatch-error
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 # Append ELB healthcheck hostname(internal ip address)

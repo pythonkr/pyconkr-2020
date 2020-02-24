@@ -287,3 +287,8 @@ CONSTANCE_CONFIG = {
     'IMP_INTL_API_SECRET': ('', '아임포트 해외용 API SECRET'),
     'SHOW_SLIDE_DATA': (False, 'Show slide data on schedule table and program detail'),
 }
+
+# For supporting i18n of django modules
+MIGRATION_MODULES = {
+    'flatpages': 'pyconkr.flatpages_migrations',
+}
