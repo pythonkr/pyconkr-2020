@@ -14,7 +14,6 @@ ALLOWED_HOSTS = [
 # Append ELB healthcheck hostname(internal ip address)
 # https://stackoverflow.com/questions/55718292/getting-400s-from-aws-elb-hostcheck-to-work-with-django-allowed-hosts-in-aws-ec
 if 'ECS_CONTAINER_METADATA_URI' in os.environ:
-
     ELB_HEALTHCHECK_HOSTNAMES = [ip for network in
                                  requests.get(os.environ['ECS_CONTAINER_METADATA_URI']).json()[
                                      'Networks']
