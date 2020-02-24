@@ -1,5 +1,6 @@
 from pyconkr.settings import *
 import os
+import requests
 
 DEBUG = False
 ALLOWED_HOSTS = [
