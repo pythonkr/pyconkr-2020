@@ -26,10 +26,6 @@
       {
         "valueFrom": "DEV_AWS_SECRET_ACCESS_KEY",
         "name": "AWS_SECRET_ACCESS_KEY"
-      },
-      {
-        "valueFrom": "DEV_AWS_STORAGE_BUCKET_NAME",
-        "name": "AWS_STORAGE_BUCKET_NAME"
       }
     ],
     "essential": true,
