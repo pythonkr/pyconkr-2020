@@ -11,6 +11,8 @@ ALLOWED_HOSTS = [
     'pycon.kr',
 ]
 
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+
 # Append ELB healthcheck hostname(internal ip address)
 # https://stackoverflow.com/questions/55718292/getting-400s-from-aws-elb-hostcheck-to-work-with-django-allowed-hosts-in-aws-ec
 if 'ECS_CONTAINER_METADATA_URI' in os.environ:
