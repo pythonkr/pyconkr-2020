@@ -95,7 +95,11 @@ ENV/
 .idea/
 
 # Bower
+pyconkr/static/components
 pyconkr/static/components/*
+
+# yarn
+node_modules/
 
 # TEST db
 db.sqlite3
@@ -108,3 +112,4 @@ db.sqlite3
 
 collected_static/
 env.sh
+
