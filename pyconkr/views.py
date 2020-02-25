@@ -23,7 +23,6 @@ from .models import (Room, Program, ProgramDate, ProgramTime, ProgramCategory,
                      SprintProposal, EmailToken, Profile, Proposal, TutorialCheckin,
                      SprintCheckin)
 from registration.models import Registration, Option, CONFERENCE_REGISTRATION_PATRON
-from allauth.socialaccount.signals import pre_social_login, social_account_added, social_account_updated
 
 logger = logging.getLogger(__name__)
 payment_logger = logging.getLogger('payment')
@@ -597,26 +596,3 @@ def sprint_join(request, pk):
         sc.save()
 
     return redirect('sprint', pk)
-
-
-@receiver(social_account_updated)
-def populate_profile(request, sociallogin, **kwargs):
-    supported_provider = ['facebook', 'github']
-    if sociallogin.account.provider not in supported_provider:
-        return
-    user = sociallogin.user
-    user_data = sociallogin.account.extra_data
-    if sociallogin.account.provider == 'facebook':
-        mail = user_data['email']
-        name = user_data['name']
-    if sociallogin.account.provider == 'github':
-        user_data = sociallogin.account.extra_data
-        email = user_data['email']
-        name = user_data['name']
-
-    profile, _ = Profile.objects.get_or_create(user=user)
-    if not profile.name:
-        profile.name = name
-    if not profile.email:
-        profile.email = email
-    profile.save()
