@@ -218,6 +218,7 @@ def static_url(url):
 SUMMERNOTE_CONFIG = {
     'width': '100%',
     'toolbar': [
+        ['insert', ['emoji']],
         ['style', ['style']],
         ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript',
                   'strikethrough', 'clear']],
@@ -230,7 +231,13 @@ SUMMERNOTE_CONFIG = {
         ['view', ['fullscreen', 'codeview']],
         ['help', ['help']],
     ],
+    'js': (
+        static_url('js/summernote-emoji-config.js'),
+        static_url('components/summernote-emoji/tam-emoji/js/config.js'),
+        static_url('components/summernote-emoji/tam-emoji/js/tam-emoji.min.js'),
+    ),
     'css': (
+        static_url('components/summernote-emoji/tam-emoji/css/emoji.css'),
         static_url('css/pyconkr.css'),
         static_url('css/pyconkr-summernote.css'),
     ),
