@@ -19,64 +19,78 @@ def default(request):
 
     submenu = None
     menu = OrderedDict([
-        ('about', {
-            'title': _('About'),
-            'icon': 'python',
-            'submenu': OrderedDict([
-                ('pyconkr', {'title': _('About PyCon Korea 2018')}),
-                ('coc', {'title': _('Code of Conduct')}),
-                ('blog', {'title': _('PyCon Korea Blog')}),
-                ('announcements', {'title': _('Announcements')}),
-                ('sponsor', {'title': _('Sponsors')}),
-                ('patron', {'title': _('Patrons')}),
-                ('sponsorship', {'title': _('Sponsorship')}),
-                ('staff', {'title': _('Staff')}),
-                ('contact', {'title': _('Contact')}),
-            ]),
-        }),
-        ('program', {
-            'title': _('Programs'),
-            'icon': 'calendar',
-            'submenu': OrderedDict([
-                ('schedule', {'title': _('Schedule')}),
-                ('list', {'title': _('Program list')}),
-                ('keynote', {'title': _('Keynotes')}),
-                ('speaker', {'title': _('Speakers')}),
-                ('tutorial', {'title': _('Tutorial')}),
-                ('sprint', {'title': _('Sprint')}),
-                ('youngcoder', {'title': _('Young Coder')}),
-                ('child_care', {'title': _('Child Care')}),
-                ('lightning_talk', {'title': _('Lightning talk')}),
-                ('ost', {'title': _('Open Spaces')}),
-                ('health', {'title': _('Health')}),
-            ]),
-        }),
-        ('venue', {
-            'title': _('Venue'),
-            'icon': 'map-marker',
-            'submenu': OrderedDict([
-                ('map', {'title': _('Venue Map')}),
-                ('transportation', {'title': _('Transportation')}),
-            ]),
-        }),
-        ('cfp', {
-            'title': _('Proposal'),
-            'icon': 'edit',
-            'submenu': OrderedDict([
-                ('cfp', {'title': _('Call for proposals')}),
-                ('howto', {'title': _('How to propose')}),
-            ]),
-        }),
-        ('registration', {
-            'title': _('Registration'),
-            'icon': 'book',
-            'submenu': OrderedDict([
-                ('information', {'title': _('Information')}),
-                ('purchase', {'title': _('Purchase a ticket')}),
-                ('finacial-aid', {'title': _('Financial Aid')}),
-                ('visa', {'title': _('Visa Sponsing')}),
-            ]),
-        }),
+        (
+            'about', {
+                'title': _('About'),
+                'submenu': OrderedDict([
+                    ('pyconkr', {'title': _('About PyCon Korea 2018')}),
+                    ('venue', {'title': _('Venue')}),
+                    ('patron', {'title': _('Patrons')}),
+                    ('coc', {'title': _('Code of Conduct')}),
+                    ('orginizing-team', {'title': _('Organization Team')}),
+                ])
+            }
+        ),
+        (
+            'support', {
+                'title': _('Support'),
+                'submenu': OrderedDict([
+                    ('financial-aid', {'title': _('Financial Aid')}),
+                    ('visa-sponsing', {'title': _('Visa Sponsing')}),
+                    ('child-care', {'title': _('Child Care')}),
+                ])
+            },
+        ),
+        (
+            'program', {
+                'title': _('Program'),
+                'submenu': OrderedDict([
+                    ('keynote', {'title': _('Keynotes')}),
+                    ('talks', {'title': _('Talks')}),
+                    ('lightning_talk', {'title': _('Lightning talk')}),
+                    ('openspace', {'title': _('Open Spaces')}),
+                    ('tutorial', {'title': _('Tutorial')}),
+                    ('sprint', {'title': _('Sprint')}),
+                    ('youngcoder', {'title': _('Young Coder')}),
+                ])
+            }
+        ),
+        (
+            'timetable', {
+                'title': _('Timetable'),
+                'submenu': OrderedDict([
+                    ('conference', {'title': _('Conference')}),
+                    ('tutorial', {'title': _('Tutorial')}),
+                    ('sprint', {'title': _('Sprint')}),
+                ])
+            }
+        ),
+        (
+            'contribution', {
+                'title': _('Contribution'),
+                'submenu': OrderedDict([
+                    ('about', {'title': _('About Contribution')}),
+                    ('review-talk-proposal',
+                     {'title': _('Review Talk Proposal')}),
+                    ('proposing-tutorial',
+                     {'title': _('Proposing a Tutorial')}),
+                    ('recommending-keynote',
+                     {'title': _('Recommending Keynote')}),
+                    ('volunteer', {'title': _('Volunteer')}),
+                ])
+            }
+        ),
+        (
+            'sponsor', {
+                'title': _('Sponsor'),
+                'submenu': OrderedDict([
+                    ('prospectus', {'title': _('Prospectus')}),
+                    ('benefit', {'title': _('Benefit')}),
+                    ('join', {'title': _('Join as Sponsor')}),
+                    ('faq', {'title': _('FAQ')}),
+                ])
+            }
+        )
     ])
 
     for k, v in menu.items():
