@@ -58,6 +58,7 @@ def default(request):
         (
             'timetable', {
                 'title': _('Timetable'),
+                'disable': True,
                 'submenu': OrderedDict([
                     ('conference', {'title': _('Conference')}),
                     ('tutorial', {'title': _('Tutorial')}),
@@ -71,11 +72,11 @@ def default(request):
                 'submenu': OrderedDict([
                     ('about', {'title': _('About Contribution')}),
                     ('review-talk-proposal',
-                     {'title': _('Review Talk Proposal')}),
+                     {'title': _('Review Talk Proposal'), 'disable': True}),
                     ('proposing-tutorial',
-                     {'title': _('Proposing a Tutorial')}),
+                     {'title': _('Proposing a Tutorial'), 'disable': True}),
                     ('recommending-keynote',
-                     {'title': _('Recommending Keynote')}),
+                     {'title': _('Recommending Keynote'), 'disable': True}),
                     ('volunteer', {'title': _('Volunteer')}),
                 ])
             }
