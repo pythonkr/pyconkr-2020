@@ -265,7 +265,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'id',
             'email',
             'name',
-            'username',
+            # 'username',
             'first_name',
             'last_name',
         ],
