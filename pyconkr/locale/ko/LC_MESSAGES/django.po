@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-26 13:50+0900\n"
+"POT-Creation-Date: 2020-02-26 18:05+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -90,12 +90,12 @@ msgid "Open Spaces"
 msgstr "열린 공간"
 
 #: pyconkr/context_processors.py:55 pyconkr/context_processors.py:67
-#: pyconkr/templates/base.html:65
+#: pyconkr/templates/base.html:66
 msgid "Tutorial"
 msgstr "튜토리얼"
 
 #: pyconkr/context_processors.py:56 pyconkr/context_processors.py:68
-#: pyconkr/templates/base.html:64
+#: pyconkr/templates/base.html:65
 msgid "Sprint"
 msgstr "스프린트"
 
@@ -107,7 +107,7 @@ msgstr "영코더"
 msgid "Timetable"
 msgstr "시간표"
 
-#: pyconkr/context_processors.py:66 pyconkr/templates/base.html:66
+#: pyconkr/context_processors.py:66 pyconkr/templates/base.html:67
 msgid "Conference"
 msgstr "컨퍼런스"
 
@@ -343,7 +343,7 @@ msgid "4 hours"
 msgstr "4 시간"
 
 #: pyconkr/templates/base.html:11 pyconkr/templates/base.html:12
-#: pyconkr/templates/base.html:13 pyconkr/templates/base.html:62
+#: pyconkr/templates/base.html:13 pyconkr/templates/base.html:63
 #: pyconkr/templates/footer.html:6
 #, fuzzy
 #| msgid "PyCon Korea 2018"
@@ -354,27 +354,27 @@ msgstr "파이콘 한국 2020"
 msgid "base-og-description"
 msgstr "파이콘 한국 2018: 8월 15, 17~19일 코엑스"
 
-#: pyconkr/templates/base.html:64
+#: pyconkr/templates/base.html:65
 msgid "Thu"
 msgstr ""
 
-#: pyconkr/templates/base.html:64 pyconkr/templates/base.html:65
+#: pyconkr/templates/base.html:65 pyconkr/templates/base.html:66
 msgid "Fri"
 msgstr "금"
 
-#: pyconkr/templates/base.html:66
+#: pyconkr/templates/base.html:67
 msgid "Sat"
 msgstr "토"
 
-#: pyconkr/templates/base.html:66
+#: pyconkr/templates/base.html:67
 msgid "Sun"
 msgstr "일"
 
-#: pyconkr/templates/base.html:68
+#: pyconkr/templates/base.html:69
 msgid "Coex Grand Ballroom, Seoul"
 msgstr ""
 
-#: pyconkr/templates/base.html:86 pyconkr/templates/pyconkr/sponsor_list.html:4
+#: pyconkr/templates/base.html:87 pyconkr/templates/pyconkr/sponsor_list.html:4
 msgid "Sponsors"
 msgstr "후원사 목록"
 
@@ -407,7 +407,7 @@ msgstr "더 알아보기"
 #: pyconkr/templates/login.html:7
 #, fuzzy
 #| msgid "Login via Social accounts"
-msgid "Login via social media account"
+msgid "Login via Social Account"
 msgstr "소셜 계정으로 로그인"
 
 #: pyconkr/templates/login.html:9
@@ -422,15 +422,19 @@ msgstr ""
 "오직 메일 주소만 저장합니다. 비밀번호나 기타 개인 정보를 절대로 저장하지 않습"
 "니다."
 
-#: pyconkr/templates/login.html:16
-msgid "Login via Social accounts"
-msgstr "소셜 계정으로 로그인"
-
-#: pyconkr/templates/login.html:19
+#: pyconkr/templates/login.html:13 pyconkr/templates/login.html:29
 msgid "Sign in with GitHub"
 msgstr "GitHub로 로그인"
 
-#: pyconkr/templates/login.html:21
+#: pyconkr/templates/login.html:15
+msgid "Sign in with Facebook"
+msgstr "Facebook으로 로그인"
+
+#: pyconkr/templates/login.html:26
+msgid "Login via Social accounts"
+msgstr "소셜 계정으로 로그인"
+
+#: pyconkr/templates/login.html:31
 msgid "Sign in with Twitter"
 msgstr "트위터로 로그인"
 
@@ -709,6 +713,11 @@ msgstr "스프린트 제안서가 수정되었습니다."
 #: pyconkr/views.py:582
 msgid "Update sprint"
 msgstr "스프린트 갱신"
+
+#, fuzzy
+#~| msgid "Login via Social accounts"
+#~ msgid "Login via social media account"
+#~ msgstr "소셜 계정으로 로그인"
 
 #~ msgid "PyCon Korea Blog"
 #~ msgstr "파이콘 한국 블로그"

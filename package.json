@@ -20,6 +20,7 @@
     "@bower_components/select2-bootstrap-css": "t0m/select2-bootstrap-css#~1.4.6",
     "@bower_components/slick-carousel": "kenwheeler/slick#^1.8.1",
     "@bower_components/typed.js": "mattboldt/typed.js#~1.1.1",
+    "bootstrap-social": "^5.1.1",
     "summernote-emoji": "https://github.com/trinhtam/summernote-emoji.git"
   },
   "engines": {

@@ -4,20 +4,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h3>{% trans "Login via social media account" %}</h3>
+<h3>{% trans "Login via Social Account" %}</h3>
 <div class="alert alert-info" role="alert">
         {% trans "We store your social account id, mail address only. Never store password or any other personal information." %}
 </div>
-<li><a href="{% url 'github_login' %}"> <span class="glyphicon glyphicon-user"></span>Login with GitHub</a></li>
-{% comment %} {% crispy form %} {% endcomment %}
-<!--
-<hr>
-<h3>{% trans "Login via Social accounts" %}</h3>
 <p>
-    <a class="btn btn-social btn-github" href="{% provider_login_url "github" %}">
+    <a class="btn btn-block btn-social btn-lg btn-github" href="{% url 'github_login' %}">
         <i class="fa fa-github"></i> {% trans "Sign in with GitHub" %}</a>
-    <a class="btn btn-social btn-twitter" href="{% provider_login_url "twitter" %}">
-        <i class="fa fa-twitter"></i> {% trans "Sign in with Twitter" %}</a>
+    <a class="btn btn-block btn-social btn-lg btn-facebook"  href="{% url 'facebook_login' %}">
+        <i class="fa fa-facebook"></i> {% trans "Sign in with Facebook" %}</a>
 </p>
--->
 {% endblock %}

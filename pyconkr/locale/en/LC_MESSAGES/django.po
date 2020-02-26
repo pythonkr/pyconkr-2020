@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-26 13:50+0900\n"
+"POT-Creation-Date: 2020-02-26 18:05+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -93,12 +93,12 @@ msgid "Open Spaces"
 msgstr "Open Spaces"
 
 #: pyconkr/context_processors.py:55 pyconkr/context_processors.py:67
-#: pyconkr/templates/base.html:65
+#: pyconkr/templates/base.html:66
 msgid "Tutorial"
 msgstr "Tutorial"
 
 #: pyconkr/context_processors.py:56 pyconkr/context_processors.py:68
-#: pyconkr/templates/base.html:64
+#: pyconkr/templates/base.html:65
 msgid "Sprint"
 msgstr "Sprint"
 
@@ -110,7 +110,7 @@ msgstr "Young Coder"
 msgid "Timetable"
 msgstr ""
 
-#: pyconkr/context_processors.py:66 pyconkr/templates/base.html:66
+#: pyconkr/context_processors.py:66 pyconkr/templates/base.html:67
 msgid "Conference"
 msgstr ""
 
@@ -350,7 +350,7 @@ msgid "4 hours"
 msgstr "4 hours"
 
 #: pyconkr/templates/base.html:11 pyconkr/templates/base.html:12
-#: pyconkr/templates/base.html:13 pyconkr/templates/base.html:62
+#: pyconkr/templates/base.html:13 pyconkr/templates/base.html:63
 #: pyconkr/templates/footer.html:6
 #, fuzzy
 #| msgid "PyCon Korea 2018"
@@ -361,27 +361,27 @@ msgstr "PyCon Korea 2018"
 msgid "base-og-description"
 msgstr "PyCon Korea 2018: 15th, 17th-19th August. Coex Seoul."
 
-#: pyconkr/templates/base.html:64
+#: pyconkr/templates/base.html:65
 msgid "Thu"
 msgstr ""
 
-#: pyconkr/templates/base.html:64 pyconkr/templates/base.html:65
+#: pyconkr/templates/base.html:65 pyconkr/templates/base.html:66
 msgid "Fri"
 msgstr ""
 
-#: pyconkr/templates/base.html:66
+#: pyconkr/templates/base.html:67
 msgid "Sat"
 msgstr ""
 
-#: pyconkr/templates/base.html:66
+#: pyconkr/templates/base.html:67
 msgid "Sun"
 msgstr ""
 
-#: pyconkr/templates/base.html:68
+#: pyconkr/templates/base.html:69
 msgid "Coex Grand Ballroom, Seoul"
 msgstr ""
 
-#: pyconkr/templates/base.html:86 pyconkr/templates/pyconkr/sponsor_list.html:4
+#: pyconkr/templates/base.html:87 pyconkr/templates/pyconkr/sponsor_list.html:4
 msgid "Sponsors"
 msgstr "Sponsors"
 
@@ -410,7 +410,7 @@ msgstr "Stay connected"
 #: pyconkr/templates/login.html:7
 #, fuzzy
 #| msgid "Login via Social accounts"
-msgid "Login via social media account"
+msgid "Login via Social Account"
 msgstr "Login via Social accounts"
 
 #: pyconkr/templates/login.html:9
@@ -425,15 +425,21 @@ msgstr ""
 "We store your mail address only. Never store password or any personal "
 "information."
 
-#: pyconkr/templates/login.html:16
-msgid "Login via Social accounts"
-msgstr "Login via Social accounts"
-
-#: pyconkr/templates/login.html:19
+#: pyconkr/templates/login.html:13 pyconkr/templates/login.html:29
 msgid "Sign in with GitHub"
 msgstr "Sign in with GitHub"
 
-#: pyconkr/templates/login.html:21
+#: pyconkr/templates/login.html:15
+#, fuzzy
+#| msgid "Sign in with GitHub"
+msgid "Sign in with Facebook"
+msgstr "Sign in with GitHub"
+
+#: pyconkr/templates/login.html:26
+msgid "Login via Social accounts"
+msgstr "Login via Social accounts"
+
+#: pyconkr/templates/login.html:31
 msgid "Sign in with Twitter"
 msgstr "Sign in with Twitter"
 
@@ -712,6 +718,11 @@ msgstr "Sprint proposal successfully updated."
 #: pyconkr/views.py:582
 msgid "Update sprint"
 msgstr "Update sprint"
+
+#, fuzzy
+#~| msgid "Login via Social accounts"
+#~ msgid "Login via social media account"
+#~ msgstr "Login via Social accounts"
 
 #~ msgid "PyCon Korea Blog"
 #~ msgstr "PyCon Korea Blog"
