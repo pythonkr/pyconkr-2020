@@ -3,7 +3,7 @@ export DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE:-pyconkr.prod-settings}
 
 echo "Collect static files"
 python manage.py collectstatic --noinput
-
+python manage.py compilemessages
 echo "Apply database migrations"
 python manage.py makemigrations
 python manage.py migrate

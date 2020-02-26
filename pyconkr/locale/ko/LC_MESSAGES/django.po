@@ -24,10 +24,8 @@ msgid "About"
 msgstr "파이콘 한국"
 
 #: pyconkr/context_processors.py:26
-#, fuzzy
-#| msgid "About PyCon Korea 2018"
 msgid "About PyCon Korea 2020"
-msgstr "파이콘 한국 2018"
+msgstr "파이콘 한국 2020"
 
 #: pyconkr/context_processors.py:27
 msgid "Venue"
@@ -46,8 +44,6 @@ msgid "Organization Team"
 msgstr "파이콘 한국 준비위원회"
 
 #: pyconkr/context_processors.py:31
-#, fuzzy
-#| msgid "About PyCon Korea 2018"
 msgid "Previous PyCon Korea"
 msgstr "지난 파이콘 한국"
 
@@ -69,7 +65,7 @@ msgstr "아이돌봄"
 
 #: pyconkr/context_processors.py:43
 msgid "Speech to text translation"
-msgstr ""
+msgstr "문자통역"
 
 #: pyconkr/context_processors.py:49
 #: pyconkr/templates/pyconkr/program_detail.html:4
@@ -116,10 +112,8 @@ msgid "Conference"
 msgstr "컨퍼런스"
 
 #: pyconkr/context_processors.py:74
-#, fuzzy
-#| msgid "Contribution description"
 msgid "Contribution"
-msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
+msgstr "기여하기"
 
 #: pyconkr/context_processors.py:76
 msgid "About Contribution"
@@ -164,10 +158,8 @@ msgid "Benefit"
 msgstr "후원 혜택"
 
 #: pyconkr/context_processors.py:94
-#, fuzzy
-#| msgid "Sponsor"
 msgid "Join as Sponsor"
-msgstr "후원사"
+msgstr "후원사로 참여하기"
 
 #: pyconkr/context_processors.py:95
 msgid "FAQ"
