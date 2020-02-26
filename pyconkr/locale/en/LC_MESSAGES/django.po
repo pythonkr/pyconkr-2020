@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 22:57+0900\n"
+"POT-Creation-Date: 2020-02-26 13:21+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -44,117 +44,131 @@ msgstr "Code of Conduct"
 msgid "Organization Team"
 msgstr ""
 
-#: pyconkr/context_processors.py:36
+#: pyconkr/context_processors.py:31
+#, fuzzy
+#| msgid "About PyCon Korea 2018"
+msgid "Previous PyCon Korea"
+msgstr "About PyCon Korea 2018"
+
+#: pyconkr/context_processors.py:37
 msgid "Support"
 msgstr ""
 
-#: pyconkr/context_processors.py:38
+#: pyconkr/context_processors.py:39
 msgid "Financial Aid"
 msgstr "Financial Aid"
 
-#: pyconkr/context_processors.py:39
+#: pyconkr/context_processors.py:40
 msgid "Visa Sponsing"
 msgstr ""
 
-#: pyconkr/context_processors.py:40
+#: pyconkr/context_processors.py:41
 msgid "Child Care"
 msgstr "Child Care"
 
-#: pyconkr/context_processors.py:46
+#: pyconkr/context_processors.py:42
+msgid "Shorthand"
+msgstr ""
+
+#: pyconkr/context_processors.py:48
 #: pyconkr/templates/pyconkr/program_detail.html:4
 #: pyconkr/templates/pyconkr/speaker_detail.html:22
 msgid "Program"
 msgstr "Program"
 
-#: pyconkr/context_processors.py:48
+#: pyconkr/context_processors.py:50
 msgid "Keynotes"
 msgstr "Keynotes"
 
-#: pyconkr/context_processors.py:49
+#: pyconkr/context_processors.py:51
 msgid "Talks"
 msgstr ""
 
-#: pyconkr/context_processors.py:50
+#: pyconkr/context_processors.py:52
 msgid "Lightning talk"
 msgstr "Lightning talk"
 
-#: pyconkr/context_processors.py:51
+#: pyconkr/context_processors.py:53
 msgid "Open Spaces"
 msgstr "Open Spaces"
 
-#: pyconkr/context_processors.py:52 pyconkr/context_processors.py:64
+#: pyconkr/context_processors.py:54 pyconkr/context_processors.py:66
 #: pyconkr/templates/base.html:65
 msgid "Tutorial"
 msgstr "Tutorial"
 
-#: pyconkr/context_processors.py:53 pyconkr/context_processors.py:65
+#: pyconkr/context_processors.py:55 pyconkr/context_processors.py:67
 #: pyconkr/templates/base.html:64
 msgid "Sprint"
 msgstr "Sprint"
 
-#: pyconkr/context_processors.py:54
+#: pyconkr/context_processors.py:56
 msgid "Young Coder"
 msgstr "Young Coder"
 
-#: pyconkr/context_processors.py:60
+#: pyconkr/context_processors.py:62
 msgid "Timetable"
 msgstr ""
 
-#: pyconkr/context_processors.py:63 pyconkr/templates/base.html:66
+#: pyconkr/context_processors.py:65 pyconkr/templates/base.html:66
 msgid "Conference"
 msgstr ""
 
-#: pyconkr/context_processors.py:71
+#: pyconkr/context_processors.py:73
 #, fuzzy
 #| msgid "Contribution description"
 msgid "Contribution"
 msgstr "Describe about your contribution activity in this project"
 
-#: pyconkr/context_processors.py:73
+#: pyconkr/context_processors.py:75
 msgid "About Contribution"
 msgstr ""
 
-#: pyconkr/context_processors.py:75
+#: pyconkr/context_processors.py:77
 #, fuzzy
 #| msgid "Tutorial Proposal"
 msgid "Review Talk Proposal"
 msgstr "Tutorial Proposal"
 
-#: pyconkr/context_processors.py:77
+#: pyconkr/context_processors.py:79
 #, fuzzy
 #| msgid "Propose a tutorial"
 msgid "Proposing a Tutorial"
 msgstr "Proposal a tutorial"
 
-#: pyconkr/context_processors.py:79
+#: pyconkr/context_processors.py:81
 msgid "Recommending Keynote"
 msgstr "Recommending Keynote"
 
-#: pyconkr/context_processors.py:80
+#: pyconkr/context_processors.py:82
 msgid "Volunteer"
 msgstr "Volunteer"
 
-#: pyconkr/context_processors.py:86
+#: pyconkr/context_processors.py:83
+msgid "Video Subtitle"
+msgstr ""
+
+#: pyconkr/context_processors.py:89
 #: pyconkr/templates/pyconkr/sponsor_detail.html:4
 #: pyconkr/templates/pyconkr/sponsor_detail.html:5
 msgid "Sponsor"
 msgstr "Sponsor"
 
-#: pyconkr/context_processors.py:88
+#: pyconkr/context_processors.py:91
 msgid "Prospectus"
 msgstr "Prospectus"
 
-#: pyconkr/context_processors.py:89
+#: pyconkr/context_processors.py:92
 msgid "Benefit"
 msgstr "Benefit"
 
-#: pyconkr/context_processors.py:90
+#: pyconkr/context_processors.py:93
 #, fuzzy
 #| msgid "Sponsor"
 msgid "Join as Sponsor"
 msgstr "Sponsor"
 
-#: pyconkr/context_processors.py:91
+#: pyconkr/context_processors.py:94
 msgid "FAQ"
 msgstr "FAQ"
 

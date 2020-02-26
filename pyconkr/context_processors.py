@@ -28,6 +28,7 @@ def default(request):
                     ('patron', {'title': _('Patrons')}),
                     ('coc', {'title': _('Code of Conduct')}),
                     ('orginizing-team', {'title': _('Organization Team')}),
+                    ('previous-pyconkr', {'title': _('Previous PyCon Korea')}),
                 ])
             }
         ),
@@ -38,6 +39,7 @@ def default(request):
                     ('financial-aid', {'title': _('Financial Aid')}),
                     ('visa-sponsing', {'title': _('Visa Sponsing')}),
                     ('child-care', {'title': _('Child Care')}),
+                    ('shorthand', {'title': _('Shorthand')}),
                 ])
             },
         ),
@@ -78,6 +80,7 @@ def default(request):
                     ('recommending-keynote',
                      {'title': _('Recommending Keynote'), 'disable': True}),
                     ('volunteer', {'title': _('Volunteer')}),
+                    ('video-subtitle', {'title': _('Video Subtitle')}),
                 ])
             }
         ),

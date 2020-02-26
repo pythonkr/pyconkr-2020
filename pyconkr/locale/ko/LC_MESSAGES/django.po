@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 22:57+0900\n"
+"POT-Creation-Date: 2020-02-26 13:21+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -45,117 +45,131 @@ msgstr "파이콘 성명서"
 msgid "Organization Team"
 msgstr "파이콘 한국 준비위원회"
 
-#: pyconkr/context_processors.py:36
+#: pyconkr/context_processors.py:31
+#, fuzzy
+#| msgid "About PyCon Korea 2018"
+msgid "Previous PyCon Korea"
+msgstr "지난 파이콘 한국"
+
+#: pyconkr/context_processors.py:37
 msgid "Support"
 msgstr "지원 및 안내"
 
-#: pyconkr/context_processors.py:38
+#: pyconkr/context_processors.py:39
 msgid "Financial Aid"
 msgstr "재정 지원"
 
-#: pyconkr/context_processors.py:39
+#: pyconkr/context_processors.py:40
 msgid "Visa Sponsing"
 msgstr "비자 지원"
 
-#: pyconkr/context_processors.py:40
+#: pyconkr/context_processors.py:41
 msgid "Child Care"
 msgstr "아이돌봄"
 
-#: pyconkr/context_processors.py:46
+#: pyconkr/context_processors.py:42
+msgid "Shorthand"
+msgstr ""
+
+#: pyconkr/context_processors.py:48
 #: pyconkr/templates/pyconkr/program_detail.html:4
 #: pyconkr/templates/pyconkr/speaker_detail.html:22
 msgid "Program"
 msgstr "프로그램"
 
-#: pyconkr/context_processors.py:48
+#: pyconkr/context_processors.py:50
 msgid "Keynotes"
 msgstr "키노트"
 
-#: pyconkr/context_processors.py:49
+#: pyconkr/context_processors.py:51
 msgid "Talks"
 msgstr "발표"
 
-#: pyconkr/context_processors.py:50
+#: pyconkr/context_processors.py:52
 msgid "Lightning talk"
 msgstr "라이트닝 토크"
 
-#: pyconkr/context_processors.py:51
+#: pyconkr/context_processors.py:53
 msgid "Open Spaces"
 msgstr "열린 공간"
 
-#: pyconkr/context_processors.py:52 pyconkr/context_processors.py:64
+#: pyconkr/context_processors.py:54 pyconkr/context_processors.py:66
 #: pyconkr/templates/base.html:65
 msgid "Tutorial"
 msgstr "튜토리얼"
 
-#: pyconkr/context_processors.py:53 pyconkr/context_processors.py:65
+#: pyconkr/context_processors.py:55 pyconkr/context_processors.py:67
 #: pyconkr/templates/base.html:64
 msgid "Sprint"
 msgstr "스프린트"
 
-#: pyconkr/context_processors.py:54
+#: pyconkr/context_processors.py:56
 msgid "Young Coder"
 msgstr "영코더"
 
-#: pyconkr/context_processors.py:60
+#: pyconkr/context_processors.py:62
 msgid "Timetable"
 msgstr "시간표"
 
-#: pyconkr/context_processors.py:63 pyconkr/templates/base.html:66
+#: pyconkr/context_processors.py:65 pyconkr/templates/base.html:66
 msgid "Conference"
 msgstr "컨퍼런스"
 
-#: pyconkr/context_processors.py:71
+#: pyconkr/context_processors.py:73
 #, fuzzy
 #| msgid "Contribution description"
 msgid "Contribution"
 msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
 
-#: pyconkr/context_processors.py:73
+#: pyconkr/context_processors.py:75
 msgid "About Contribution"
 msgstr "공헌 안내"
 
-#: pyconkr/context_processors.py:75
+#: pyconkr/context_processors.py:77
 #, fuzzy
 #| msgid "Tutorial Proposal"
 msgid "Review Talk Proposal"
 msgstr "튜토리얼 제안서"
 
-#: pyconkr/context_processors.py:77
+#: pyconkr/context_processors.py:79
 #, fuzzy
 #| msgid "Propose a tutorial"
 msgid "Proposing a Tutorial"
 msgstr "튜토리얼 제안하기"
 
-#: pyconkr/context_processors.py:79
+#: pyconkr/context_processors.py:81
 msgid "Recommending Keynote"
 msgstr "키노트 연사 추천하기"
 
-#: pyconkr/context_processors.py:80
+#: pyconkr/context_processors.py:82
 msgid "Volunteer"
 msgstr "자원봉사"
 
-#: pyconkr/context_processors.py:86
+#: pyconkr/context_processors.py:83
+msgid "Video Subtitle"
+msgstr "영상 자막"
+
+#: pyconkr/context_processors.py:89
 #: pyconkr/templates/pyconkr/sponsor_detail.html:4
 #: pyconkr/templates/pyconkr/sponsor_detail.html:5
 msgid "Sponsor"
 msgstr "후원사"
 
-#: pyconkr/context_processors.py:88
+#: pyconkr/context_processors.py:91
 msgid "Prospectus"
 msgstr "후원 안내"
 
-#: pyconkr/context_processors.py:89
+#: pyconkr/context_processors.py:92
 msgid "Benefit"
 msgstr "후원 혜택"
 
-#: pyconkr/context_processors.py:90
+#: pyconkr/context_processors.py:93
 #, fuzzy
 #| msgid "Sponsor"
 msgid "Join as Sponsor"
 msgstr "후원사"
 
-#: pyconkr/context_processors.py:91
+#: pyconkr/context_processors.py:94
 msgid "FAQ"
 msgstr "FAQ"
 
