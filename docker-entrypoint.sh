@@ -1,9 +1,12 @@
 #!/bin/bash
 export DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE:-pyconkr.prod-settings}
+echo "Yarn install"
+yarn install
 
 echo "Collect static files"
-python manage.py collectstatic --noinput
 python manage.py compilemessages
+python manage.py collectstatic --noinput
+
 echo "Apply database migrations"
 python manage.py makemigrations
 python manage.py migrate

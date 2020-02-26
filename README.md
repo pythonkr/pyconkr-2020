@@ -16,9 +16,9 @@ pyconkr-api contribution을 제출할 때에는 반드시 다음 [가이드라�
 $ git clone git@github.com:pythonkr/pyconkr.git
 $ cd pyconkr
 $ pip install -r requirements.txt
+$ yarn
 $ python manage.py compilemessages
 $ python manage.py makemigrations
 $ python manage.py migrate
-$ yarn
 $ python manage.py runserver
 ```
