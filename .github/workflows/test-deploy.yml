@@ -89,10 +89,19 @@ jobs:
           wait-for-service-stability: true
         if: github.ref == 'refs/heads/master'
 
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def-dev
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-definition-dev.json
+          container-name: pyconkr
+          image: ${{ steps.build-image.outputs.image }}
+        if: github.ref == 'refs/heads/develop'
+
       - name: Deploy Amazon ECS task definition into STAGE
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          task-definition: ${{ steps.task-def-dev.outputs.task-definition }}
           service: app
           cluster: pyconkr-dev
           wait-for-service-stability: true
