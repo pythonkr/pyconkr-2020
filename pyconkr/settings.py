@@ -243,6 +243,8 @@ SUMMERNOTE_CONFIG = {
     ),
 }
 
+
+# ACCOUNT_UNIQUE_EMAIL = False
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
         'SCOPE': [
