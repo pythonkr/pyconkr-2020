@@ -100,6 +100,7 @@ pyconkr/static/components/*
 
 # yarn
 node_modules/
+yarn.lock
 
 # TEST db
 db.sqlite3
