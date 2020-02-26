@@ -33,7 +33,7 @@ msgstr "장소"
 
 #: pyconkr/context_processors.py:28
 msgid "Patrons"
-msgstr "개인 후원자"
+msgstr "개인후원자"
 
 #: pyconkr/context_processors.py:29
 msgid "Code of Conduct"
@@ -53,7 +53,7 @@ msgstr "지원 및 안내"
 
 #: pyconkr/context_processors.py:39
 msgid "Financial Aid"
-msgstr "재정 지원"
+msgstr "재정지원"
 
 #: pyconkr/context_processors.py:40
 msgid "Visa Sponsing"
