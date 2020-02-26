@@ -44,7 +44,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/devlop'
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop'
     needs: test
     steps:
       - name: Checkout
