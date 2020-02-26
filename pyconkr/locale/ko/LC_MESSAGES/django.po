@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-26 13:21+0900\n"
+"POT-Creation-Date: 2020-02-26 13:50+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -67,109 +67,109 @@ msgstr "비자 지원"
 msgid "Child Care"
 msgstr "아이돌봄"
 
-#: pyconkr/context_processors.py:42
-msgid "Shorthand"
+#: pyconkr/context_processors.py:43
+msgid "Speech to text translation"
 msgstr ""
 
-#: pyconkr/context_processors.py:48
+#: pyconkr/context_processors.py:49
 #: pyconkr/templates/pyconkr/program_detail.html:4
 #: pyconkr/templates/pyconkr/speaker_detail.html:22
 msgid "Program"
 msgstr "프로그램"
 
-#: pyconkr/context_processors.py:50
+#: pyconkr/context_processors.py:51
 msgid "Keynotes"
 msgstr "키노트"
 
-#: pyconkr/context_processors.py:51
+#: pyconkr/context_processors.py:52
 msgid "Talks"
 msgstr "발표"
 
-#: pyconkr/context_processors.py:52
+#: pyconkr/context_processors.py:53
 msgid "Lightning talk"
 msgstr "라이트닝 토크"
 
-#: pyconkr/context_processors.py:53
+#: pyconkr/context_processors.py:54
 msgid "Open Spaces"
 msgstr "열린 공간"
 
-#: pyconkr/context_processors.py:54 pyconkr/context_processors.py:66
+#: pyconkr/context_processors.py:55 pyconkr/context_processors.py:67
 #: pyconkr/templates/base.html:65
 msgid "Tutorial"
 msgstr "튜토리얼"
 
-#: pyconkr/context_processors.py:55 pyconkr/context_processors.py:67
+#: pyconkr/context_processors.py:56 pyconkr/context_processors.py:68
 #: pyconkr/templates/base.html:64
 msgid "Sprint"
 msgstr "스프린트"
 
-#: pyconkr/context_processors.py:56
+#: pyconkr/context_processors.py:57
 msgid "Young Coder"
 msgstr "영코더"
 
-#: pyconkr/context_processors.py:62
+#: pyconkr/context_processors.py:63
 msgid "Timetable"
 msgstr "시간표"
 
-#: pyconkr/context_processors.py:65 pyconkr/templates/base.html:66
+#: pyconkr/context_processors.py:66 pyconkr/templates/base.html:66
 msgid "Conference"
 msgstr "컨퍼런스"
 
-#: pyconkr/context_processors.py:73
+#: pyconkr/context_processors.py:74
 #, fuzzy
 #| msgid "Contribution description"
 msgid "Contribution"
 msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
 
-#: pyconkr/context_processors.py:75
+#: pyconkr/context_processors.py:76
 msgid "About Contribution"
 msgstr "공헌 안내"
 
-#: pyconkr/context_processors.py:77
+#: pyconkr/context_processors.py:78
 #, fuzzy
 #| msgid "Tutorial Proposal"
 msgid "Review Talk Proposal"
 msgstr "튜토리얼 제안서"
 
-#: pyconkr/context_processors.py:79
+#: pyconkr/context_processors.py:80
 #, fuzzy
 #| msgid "Propose a tutorial"
 msgid "Proposing a Tutorial"
 msgstr "튜토리얼 제안하기"
 
-#: pyconkr/context_processors.py:81
+#: pyconkr/context_processors.py:82
 msgid "Recommending Keynote"
 msgstr "키노트 연사 추천하기"
 
-#: pyconkr/context_processors.py:82
+#: pyconkr/context_processors.py:83
 msgid "Volunteer"
 msgstr "자원봉사"
 
-#: pyconkr/context_processors.py:83
+#: pyconkr/context_processors.py:84
 msgid "Video Subtitle"
 msgstr "영상 자막"
 
-#: pyconkr/context_processors.py:89
+#: pyconkr/context_processors.py:90
 #: pyconkr/templates/pyconkr/sponsor_detail.html:4
 #: pyconkr/templates/pyconkr/sponsor_detail.html:5
 msgid "Sponsor"
 msgstr "후원사"
 
-#: pyconkr/context_processors.py:91
+#: pyconkr/context_processors.py:92
 msgid "Prospectus"
 msgstr "후원 안내"
 
-#: pyconkr/context_processors.py:92
+#: pyconkr/context_processors.py:93
 msgid "Benefit"
 msgstr "후원 혜택"
 
-#: pyconkr/context_processors.py:93
+#: pyconkr/context_processors.py:94
 #, fuzzy
 #| msgid "Sponsor"
 msgid "Join as Sponsor"
 msgstr "후원사"
 
-#: pyconkr/context_processors.py:94
+#: pyconkr/context_processors.py:95
 msgid "FAQ"
 msgstr "FAQ"
 

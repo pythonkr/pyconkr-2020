@@ -39,7 +39,8 @@ def default(request):
                     ('financial-aid', {'title': _('Financial Aid')}),
                     ('visa-sponsing', {'title': _('Visa Sponsing')}),
                     ('child-care', {'title': _('Child Care')}),
-                    ('shorthand', {'title': _('Shorthand')}),
+                    ('speech2text', {
+                     'title': _('Speech to text translation')}),
                 ])
             },
         ),
