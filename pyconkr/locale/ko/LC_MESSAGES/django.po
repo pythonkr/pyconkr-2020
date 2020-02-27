@@ -464,7 +464,7 @@ msgstr "요청한 토큰이 없거나 유효하지 않습니다."
 #: pyconkr/templates/mail/ticket_registered_html.html:2
 #: pyconkr/templates/mail/ticket_registered_text.html:2
 msgid "PyCon Korea Registration confirmation"
-msgstr "파이콘 한국 2018 등록 확인"
+msgstr "파이콘 한국 2020 등록 확인"
 
 #: pyconkr/templates/mail/ticket_registered_html.html:19
 msgid "결제 정보"
@@ -472,8 +472,8 @@ msgstr "결제 정보"
 
 #: pyconkr/templates/mail/token_html.html:3
 #: pyconkr/templates/mail/token_text.html:2
-msgid "You can login to PyCon Korea 2018 homepage via below url."
-msgstr "아래 주소를 통해 파이콘 한국 2018 홈페이지에 로그인하실 수 있습니다."
+msgid "You can login to PyCon Korea 2020 homepage via below url."
+msgstr "아래 주소를 통해 파이콘 한국 20120홈페이지에 로그인하실 수 있습니다."
 
 #: pyconkr/templates/mail/token_html.html:4
 msgid "Link"
