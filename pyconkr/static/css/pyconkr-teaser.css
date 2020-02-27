@@ -159,7 +159,7 @@ header p span:last-child {
 /** text **/
 main h2 {
   color: #303030;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 main h3 {
@@ -172,12 +172,16 @@ main h3 {
 
 main h3:after {
   border-style: solid;
-  border-image: linear-gradient(to right, #3b4ec7 20%, #771592 30%, #f21e87 100%);
+  border-image: linear-gradient(to right, #0F4C81 20%, #7D0F81 30%, #fa7268 100%);
   border-image-slice: 1;
   border-width: 0 0 2px 0;
   content: "";
   display: block;
   padding-top: 3px;
+}
+
+main ul {
+    margin: 0;
 }
 
 .submit-btn {
