@@ -157,6 +157,11 @@ header p span:last-child {
 }
 
 /** text **/
+main h2 {
+  color: #303030;
+  margin-top: 2rem;
+}
+
 main h3 {
   color: #303030;
   font-size: 1.5rem;
