@@ -180,8 +180,8 @@ main h3:after {
   padding-top: 3px;
 }
 
-main ul {
-    margin: 0;
+main ul, main ol {
+    margin: 0 0 10px 0;
 }
 
 main .alert-warning, main .table {
