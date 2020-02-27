@@ -184,6 +184,11 @@ main ul {
     margin: 0;
 }
 
+main .alert-warning {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .submit-btn {
   display: inline-block;
   border: 1px solid #7757c4;
