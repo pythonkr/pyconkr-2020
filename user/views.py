@@ -63,7 +63,8 @@ class ProfileUpdate(SuccessMessageMixin, UpdateView):
         return queryset.filter(user=self.request.user)
 
     def get_object(self, queryset=None):
-        return get_object_or_404(Profile, pk=self.request.user.profile.pk)
+        profile, _ = Profile.objects.get_or_create(user=self.request.user)
+        return get_object_or_404(Profile, pk=profile.pk)
 
     def get_context_data(self, **kwargs):
         context = super(ProfileUpdate, self).get_context_data(**kwargs)

@@ -1,5 +1,4 @@
 from modeltranslation.translator import translator, TranslationOptions
-from django.contrib.flatpages.models import FlatPage
 from .models import (
     Sponsor, SponsorLevel,
 )

@@ -2,6 +2,7 @@ from django import forms
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
+from django.core.files.images import get_image_dimensions
 from crispy_forms.layout import Submit
 from crispy_forms.helper import FormHelper
 from .models import Profile
@@ -10,6 +11,8 @@ from .models import Profile
 class ProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
+        self.fields['name_ko'].required = True
+        self.fields['name_en'].required = True
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', _('Submit')))
@@ -22,8 +25,8 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('name', 'phone', 'organization',
-                  'nationality', 'image', 'bio')
+        fields = ('name_ko', 'name_en', 'phone', 'email',
+                  'organization', 'image', 'bio_ko', 'bio_en')
         widgets = {
             'bio': SummernoteInplaceWidget(),
         }
