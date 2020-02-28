@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-28 14:55+0900\n"
+"POT-Creation-Date: 2020-02-28 14:59+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -668,6 +668,12 @@ msgid ""
 "스프린트는 파이썬 뿐만 아니라 모든 언어의 오픈소스 프로젝트를 대상으로 진행됩"
 "니다."
 msgstr ""
+
+#: .\pyconkr\templates\pyconkr\sprintproposal_list.html:13
+#, fuzzy
+#| msgid "Sprint"
+msgid "Sprint list"
+msgstr "스프린트 목록"
 
 #: .\pyconkr\templates\pyconkr\sprintproposal_list.html:20
 #: .\pyconkr\templates\pyconkr\tutorialproposal_list.html:12
