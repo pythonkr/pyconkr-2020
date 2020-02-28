@@ -29,10 +29,10 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/$', index, name='index'),
     re_path(r'^2020/login/$', login, name='login'),
     re_path(r'^2020/logout/$', logout, name='logout'),
-    re_path(r'^2020/announcement/?', include('program.urls')),
-    re_path(r'^2020/profile/?', include('user.urls')),
-    re_path(r'^2020/sponsor/?', include('sponsor.urls')),
-    re_path(r'^2020/program/?', include('program.urls')),
+    re_path(r'^2020/announcement/', include('program.urls')),
+    re_path(r'^2020/profile/', include('user.urls')),
+    re_path(r'^2020/sponsor/', include('sponsor.urls')),
+    re_path(r'^2020/program/', include('program.urls')),
 
 
     re_path(r'^2020/about/patron/$',
