@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% load staticfiles %}
-
+{% load i18n %}
 
 {% block head-include %}
 <script src="{% static 'components/slick-carousel/slick/slick.min.js' %}"></script>
@@ -32,32 +32,34 @@
 {% endif %}
 
 <section class="box-section">
-  <h3>행사 상세</h3>
+  <h3>{% trans 'Detail' %}</h3>
   <p>
-    파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입니다.<br><br>
+    {% trans "파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입니다." %}<br><br>
 
-    <h4>스프린트 (8/13, 8/14)</h4>
-    <span>관심있는 오픈소스 프로젝트를 같은 장소에 모여 집중적으로 개발하는 자리입니다</span><br>
+    <h4>{% trans "Sprint" %} (8/13({% trans 'Thu' %}), 8/14({% trans "Fri" %}))</h4>
+    <span>{% trans "관심있는 오픈소스 프로젝트를 같은 장소에 모여 집중적으로 개발하는 자리입니다." %}</span><br>
 {#    <a class="btn btn-info" href="{% url 'sprint' %}" tabindex="0">스프린트 참가하기</a><br><br>#}
-    <a class="btn btn-info" tabindex="0">스프린트 참가는 준비중입니다.</a><br><br>
+    <a class="btn btn-info" tabindex="0">{% trans "스프린트 참가는 준비중입니다." %}</a><br><br>
 
-    <h4>튜토리얼 (8/14)</h4>
-    <span>초보자들을 위해, 또는 새로운 것을 접하는 사람들을 위해 진행하는 교육 프로그램입니다.</span><br>
+    <h4>{% trans "Tutorial" %} (8/14({% trans "Fri" %}))</h4>
+    <span>{% trans "초보자들을 위해, 또는 새로운 것을 접하는 사람들을 위해 진행하는 교육 프로그램입니다." %}</span><br>
 {#    <a class="btn btn-info" href="{% url 'tutorial' %}" tabindex="0">튜토리얼 참가하기</a><br><br>#}
-    <a class="btn btn-info" tabindex="0">튜토리얼 참가는 준비중입니다.</a><br><br>
+    <a class="btn btn-info" tabindex="0">{% trans "튜토리얼 참가는 준비중입니다." %}</a><br><br>
 
-    <h4>컨퍼런스 (8/15 - 8/16)</h4>
+    <h4>{% trans "Conference" %} (8/15({% trans "Sat" %}) - 8/16({% trans "Sun" %}))</h4>
 {#    <span>파이썬 사용 사례, 지식 공유를 위한 행사입니다.<br> 컨퍼런스의 자세한 시간표는 <a href="{% url 'schedule' %}">프로그램 > 세부일정</a> 에서 확인하실 수 있습니다.</span><br>#}
-    <span>파이썬 사용 사례, 지식 공유를 위한 행사입니다.<br> 컨퍼런스의 자세한 시간표는 프로그램 > 세부일정에서 추후에 확인하실 수 있습니다.</span><br>
+    <span>{% trans "파이썬 사용 사례, 지식 공유를 위한 행사입니다." %}<br>{% trans "컨퍼런스의 자세한 시간표는 프로그램 > 세부일정에서 추후에 확인하실 수 있습니다." %}</span><br>
 {#    <a class="btn btn-info" href="{% url 'registration_index' %}" tabindex="0">컨퍼런스 티켓 구매하기</a><br><br>#}
-     <a class="btn btn-info" tabindex="0">컨퍼런스 티켓은 준비중입니다.</a><br><br>
+     <a class="btn btn-info" tabindex="0">{% trans "컨퍼런스 티켓은 준비중입니다." %}</a><br><br>
 
-    이 외의 모든 공지사항은 <a href="https://www.facebook.com/pyconkorea/">공식 페이스북</a>과 이곳을 통해 공지될 예정입니다.
+    {% trans "이 외의 모든 공지사항은 공식 " %}
+    <a href="https://www.facebook.com/pyconkorea/" target="_blank">{% trans "페이스북" %}</a>{% trans "과 " %}
+    <a href="https://twitter.com/PyConKR" target="_blank">{% trans "트위터" %}</a>{% trans ", 이곳을 통해 공지될 예정입니다." %}
   </p>
 </section>
 
 <section class="box-section">
-  <h3>슬로건</h3>
+  <h3>{% trans "Slogan" %}</h3>
   <p>"We are Pythonistas"</p>
   <p>
 {#    슬로건 설명#}
@@ -65,18 +67,18 @@
 </section>
 
 <section class="box-section">
-  <h3>장소</h3>
-  <h4>서울 코엑스 그랜드볼룸</h4>
+  <h3>{% trans "Venue" %}</h3>
+  <h4>{% trans "서울 코엑스 그랜드볼룸" %}</h4>
   <div class="map-box-container">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.820434500639!2d127.05690121619708!3d37.51215307980805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2012d6bd01b%3A0x30702ebd32133065!2sCoex+Mall!5e0!3m2!1sen!2skr!4v1463414893518" height="450" width="100%" class="css-1rz0gj e1uzntma0"></iframe>
   </div>
 </section>
 
 <section class="box-section">
-  <h3>문의 & 공식계정</h3>
-  <p>파이콘 한국 2020에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다.</p>
-  <p><b>이메일</b> <a href="mailto:pyconkr@pycon.kr">pyconkr@pycon.kr</a></p>
-  <p><b>페이스북</b> <a href="https://www.facebook.com/pyconkorea/">https://www.facebook.com/pyconkorea/</a></p>
-  <p><b>스폰서</b> <a href="mailto:sponsor@pycon.kr">sponsor@pycon.kr</a></p>
+  <h3>{% trans "문의 & 공식 계정" %}</h3>
+  <p>{% trans "파이콘 한국 2020에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다." %}</p>
+  <p><b>{% trans "Email" %}</b> <a href="mailto:pyconkr@pycon.kr">pyconkr@pycon.kr</a></p>
+  <p><b>{% trans "페이스북" %}</b> <a href="https://www.facebook.com/pyconkorea/">https://www.facebook.com/pyconkorea/</a></p>
+  <p><b>{% trans "Sponsor" %}</b> <a href="mailto:sponsor@pycon.kr">sponsor@pycon.kr</a></p>
 </section>
 {% endblock %}
