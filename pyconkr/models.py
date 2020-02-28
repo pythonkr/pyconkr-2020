@@ -373,29 +373,6 @@ class SprintProposal(models.Model):
         return reverse('sprint', args=[self.id])
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100, null=True, blank=True)
-    phone = models.CharField(max_length=100, null=True, blank=True)
-    organization = models.CharField(max_length=100, null=True, blank=True)
-    nationality = models.CharField(max_length=100, null=True, blank=True)
-    image = SorlImageField(upload_to='profile', null=True, blank=True)
-    bio = models.TextField(max_length=4000, null=True, blank=True)
-
-    @receiver(post_save, sender=User)
-    def create_user_profile(sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(user=instance)
-
-    def get_absolute_url(self):
-        return reverse('profile')
-
-    @property
-    def is_empty(self):
-        return self.name == '' or self.phone is None or self.organization is None or self.bio is None
-
-
 class Banner(models.Model):
     name = models.CharField(max_length=100)
     url = models.CharField(max_length=255, null=True, blank=True)

@@ -18,7 +18,6 @@ from .views import SpeakerList, SpeakerDetail, SpeakerUpdate
 from .views import SponsorList, SponsorDetail, PatronList
 from .views import ProgramList, ProgramDetail, ProgramUpdate, PreferenceList
 from .views import ProposalCreate, ProposalUpdate, ProposalDetail
-from .views import ProfileDetail, ProfileUpdate
 from .views import login, login_req, login_mailsent, logout
 
 from django.contrib import admin
@@ -35,6 +34,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     re_path(r'^2020$', index, name='index'),
     re_path(r'^2020/$', index, name='index'),
+    re_path(r'^2020/profile/', include('user.urls')),
     re_path(r'^2020/room/(?P<pk>\d+)$',
             RoomDetail.as_view(), name='room'),
 
@@ -98,10 +98,6 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/profile/sprint-proposal/edit$',
             login_required(SprintProposalUpdate.as_view()), name='sprint-proposal-update'),
 
-    re_path(r'^2020/profile/$',
-            login_required(ProfileDetail.as_view()), name='profile'),
-    re_path(r'^2020/profile/edit$',
-            login_required(ProfileUpdate.as_view()), name='profile_edit'),
     re_path(r'^2020/login/$', login, name='login'),
     re_path(r'^2020/login/req/(?P<token>[a-z0-9\-]+)$',
             login_req, name='login_req'),

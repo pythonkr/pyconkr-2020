@@ -7,7 +7,8 @@ from django_summernote.widgets import SummernoteInplaceWidget
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from pyconkr.models import SprintProposal, TutorialProposal
-from .models import Speaker, Program, Proposal, Profile
+from .models import Speaker, Program, Proposal
+from user.models import Profile
 
 
 class EmailLoginForm(forms.Form):
@@ -111,7 +112,8 @@ class ProposalForm(forms.ModelForm):
 
     class Meta:
         model = Proposal
-        fields = ('title', 'brief', 'desc', 'comment', 'difficulty', 'duration', 'language',)
+        fields = ('title', 'brief', 'desc', 'comment',
+                  'difficulty', 'duration', 'language',)
         widgets = {
             'desc': SummernoteInplaceWidget(),
             'comment': SummernoteInplaceWidget(),
@@ -138,7 +140,8 @@ class SprintProposalForm(forms.ModelForm):
 
     class Meta:
         model = SprintProposal
-        fields = ('title', 'language', 'project_url', 'project_brief', 'contribution_desc',)
+        fields = ('title', 'language', 'project_url',
+                  'project_brief', 'contribution_desc',)
         widgets = {
             'contribution_desc': SummernoteInplaceWidget(),
             'comment': SummernoteInplaceWidget(),
@@ -175,50 +178,3 @@ class TutorialProposalForm(forms.ModelForm):
 
             'difficulty': _('Session difficulty'),
         }
-
-
-class ProfileForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(ProfileForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', _('Submit')))
-        self.fields['image'].help_text += _('Maximum size is %(size)d MB') \
-            % {'size': settings.SPEAKER_IMAGE_MAXIMUM_FILESIZE_IN_MB}
-        self.fields['image'].help_text += ' / ' \
-            + _('Minimum dimension is %(width)d x %(height)d') \
-            % {'width': settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[0],
-               'height': settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[1]}
-
-    class Meta:
-        model = Profile
-        fields = ('name', 'phone', 'organization', 'nationality', 'image', 'bio')
-        widgets = {
-            'bio': SummernoteInplaceWidget(),
-        }
-        labels = {
-            'image': _('Photo'),
-        }
-
-    def clean_image(self):
-        image = self.cleaned_data.get('image')
-        if image:
-            try:
-                if image._size > settings.SPEAKER_IMAGE_MAXIMUM_FILESIZE_IN_MB * 1024 * 1024:
-                    raise forms.ValidationError(
-                        _('Maximum size is %(size)d MB')
-                        % {'size': settings.SPEAKER_IMAGE_MAXIMUM_FILESIZE_IN_MB}
-                    )
-            except AttributeError:
-                pass
-
-            w, h = get_image_dimensions(image)
-            if w < settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[0] \
-                    or h < settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[1]:
-                raise forms.ValidationError(
-                    _('Minimum dimension is %(width)d x %(height)d')
-                    % {'width': settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[0],
-                       'height': settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[1]}
-                )
-
-        return image
