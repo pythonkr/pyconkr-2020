@@ -31,11 +31,9 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/logout/$', logout, name='logout'),
     re_path(r'^2020/announcement/', include('program.urls')),
     re_path(r'^2020/profile/', include('user.urls')),
-    re_path(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),
+
     re_path(r'^2020/sponsor/', include('sponsor.urls')),
     re_path(r'^2020/program/', include('program.urls')),
-
-
     re_path(r'^2020/about/patron/$',
             PatronList.as_view(), name='patrons'),
 
@@ -46,8 +44,8 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/rosetta/', include('rosetta.urls')),
 
     # for flatpages
+    re_path(r'^(?P<url>.*/?)$', views.flatpage, name='flatpage'),
     re_path(r'^2020/pages/', include('django.contrib.flatpages.urls')),
-
 
     prefix_default_language=False
 )
