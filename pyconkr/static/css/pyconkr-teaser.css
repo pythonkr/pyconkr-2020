@@ -157,6 +157,10 @@ header p span:last-child {
 }
 
 /** text **/
+main h1 {
+  margin-bottom: 2rem;
+}
+
 main h2 {
   color: #303030;
   margin-top: 3rem;
