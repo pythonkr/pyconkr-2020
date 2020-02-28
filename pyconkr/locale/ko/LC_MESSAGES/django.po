@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-28 14:29+0900\n"
+"POT-Creation-Date: 2020-02-28 14:45+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -745,17 +745,6 @@ msgstr "스프린트 제안서가 수정되었습니다."
 msgid "Update sprint"
 msgstr "스프린트 갱신"
 
-#~ msgid "Hosted on Naver D2"
-#~ msgstr ""
-#~ "홈페이지 호스팅은 <a href=\"http://d2.naver.com/\">Naver D2</a>의 지원을 "
-#~ "받고 있습니다."
-
-#~ msgid "Login via Social accounts"
-#~ msgstr "소셜 계정으로 로그인"
-
-#~ msgid "Sign in with Twitter"
-#~ msgstr "트위터로 로그인"
-
 #, fuzzy
 #~| msgid "Login via Social accounts"
 #~ msgid "Login via social media account"
@@ -811,9 +800,6 @@ msgstr "스프린트 갱신"
 
 #~ msgid "Wed"
 #~ msgstr "수"
-
-#~ msgid "Coex, Seoul"
-#~ msgstr "서울, 코엑스"
 
 #~ msgid "Login via mail"
 #~ msgstr "메일로 로그인"
@@ -881,12 +867,6 @@ msgstr "스프린트 갱신"
 #~ msgid "Propose a sprint"
 #~ msgstr "스프린트 제안하기"
 
-#~ msgid "About PyCon 2017"
-#~ msgstr "파이콘 한국 2017"
-
-#~ msgid "PyCon 2017"
-#~ msgstr "파이콘 한국 2017"
-
 #~ msgid "Respect, Diversity at PyCon APAC 2016"
 #~ msgstr "Respect, Diversity at PyCon APAC 2016"
 
@@ -895,24 +875,3 @@ msgstr "스프린트 갱신"
 
 #~ msgid "Registration receipt"
 #~ msgstr "등록 영수증"
-
-#~ msgid "PyCon APAC"
-#~ msgstr "파이콘 APAC"
-
-#~ msgid "PyCon Schedule"
-#~ msgstr "2017년 8월 12일 (토) ~ 2017년 8월 15일 (화)"
-
-#~ msgid "PyCon Location"
-#~ msgstr "코엑스 그랜드볼룸, 서울"
-
-#~ msgid "Manual Payment"
-#~ msgstr "임시 결제"
-
-#~ msgid "Credit Card only for Korean"
-#~ msgstr "카드 결제 (한국용)"
-
-#~ msgid "Credit Card for Foreign"
-#~ msgstr "카드 결제 (해외용), Credit Card for Foreign"
-
-#~ msgid "Virtual Bank Transfer"
-#~ msgstr "가상 계좌 입금"

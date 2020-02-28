@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-28 14:29+0900\n"
+"POT-Creation-Date: 2020-02-28 14:45+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -685,7 +685,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Sprint"
 msgid "Sprints"
-msgstr "Sprints"
+msgstr ""
 
 #: .\pyconkr\templates\pyconkr\sprintproposal_list.html:20
 #: .\pyconkr\templates\pyconkr\tutorialproposal_list.html:12
@@ -756,158 +756,3 @@ msgstr "Sprint proposal successfully updated."
 #: .\pyconkr\views.py:582
 msgid "Update sprint"
 msgstr "Update sprint"
-
-#~ msgid "Hosted on Naver D2"
-#~ msgstr "Hosted on <a href=\"http://d2.naver.com/\">Naver D2</a>"
-
-#~ msgid "Login via Social accounts"
-#~ msgstr "Login via Social accounts"
-
-#~ msgid "Sign in with Twitter"
-#~ msgstr "Sign in with Twitter"
-
-#, fuzzy
-#~| msgid "Login via Social accounts"
-#~ msgid "Login via social media account"
-#~ msgstr "Login via Social accounts"
-
-#~ msgid "PyCon Korea Blog"
-#~ msgstr "PyCon Korea Blog"
-
-#~ msgid "Announcements"
-#~ msgstr "Announcements"
-
-#~ msgid "Sponsorship"
-#~ msgstr "Sponsorship"
-
-#~ msgid "Staff"
-#~ msgstr "Staff"
-
-#~ msgid "Contact"
-#~ msgstr "Contact"
-
-#~ msgid "Schedule"
-#~ msgstr "Schedule"
-
-#~ msgid "Program list"
-#~ msgstr "Program list"
-
-#~ msgid "Speakers"
-#~ msgstr "Speakers"
-
-#~ msgid "Venue Map"
-#~ msgstr "Venue Map"
-
-#~ msgid "Transportation"
-#~ msgstr "Transportation"
-
-#~ msgid "Call for proposals"
-#~ msgstr "Call for proposals"
-
-#~ msgid "How to propose"
-#~ msgstr "How to propose"
-
-#~ msgid "Registration"
-#~ msgstr "Registration"
-
-#~ msgid "Information"
-#~ msgstr "Information"
-
-#~ msgid "Purchase a ticket"
-#~ msgstr "Purchase a ticket"
-
-#~ msgid "Login via mail"
-#~ msgstr "Login via mail"
-
-#~ msgid "Sprint and Tutorial"
-#~ msgstr "Sprint and Tutorial"
-
-#~ msgid "Capacity"
-#~ msgstr "Capacity"
-
-#~ msgid "10 people"
-#~ msgstr "10 people"
-
-#~ msgid "45 people"
-#~ msgstr "45 people"
-
-#~ msgid "100 people"
-#~ msgstr "100 people"
-
-#~ msgid "Thank you for registration."
-#~ msgstr "Thank you for registration."
-
-#~ msgid "You didn't have a ticket."
-#~ msgstr "You didn't have a ticket."
-
-#~ msgid "Please be a tutorial speaker at PyCon."
-#~ msgstr "Please be a tutorial speaker at PyCon."
-
-#~ msgid "Submit a new proposal"
-#~ msgstr "Submit a new proposal"
-
-#~ msgid "Please be a sprint leader at PyCon."
-#~ msgstr "Please be a sprint leader at PyCon."
-
-#~ msgid "Please make your profile first"
-#~ msgstr "Please make your profile first"
-
-#~ msgid "Preference survey"
-#~ msgstr "Preference survey"
-
-#~ msgid "Hotels"
-#~ msgstr "Hotels"
-
-#~ msgid "Restaurants"
-#~ msgstr "Restaurants"
-
-#~ msgid "Propose"
-#~ msgstr "Propose"
-
-#~ msgid "PyCon Korea Opengraph Description"
-#~ msgstr "PyCon Korea Opengraph Description"
-
-#~ msgid "Back to the Basic"
-#~ msgstr "Back to the Basic"
-
-#~ msgid "Thank you for submitting."
-#~ msgstr "Thank you for submitting."
-
-#~ msgid "Check my proposal"
-#~ msgstr "Check my proposal"
-
-#~ msgid "Please be a session speaker at PyCon."
-#~ msgstr "Please be a session speaker at PyCon."
-
-#~ msgid "Propose a sprint"
-#~ msgstr "Proposal a sprint"
-
-#~ msgid "About PyCon 2017"
-#~ msgstr "About PyCon Korea 2017"
-
-#~ msgid "PyCon 2017"
-#~ msgstr "PyCon Korea 2017 "
-
-#~ msgid "Respect, Diversity at PyCon APAC 2016"
-#~ msgstr "Respect, Diversity at PyCon APAC 2016"
-
-#~ msgid "Respect, Diversity"
-#~ msgstr "Respect, Diversity"
-
-#~ msgid "Registration receipt"
-#~ msgstr "Registration receipt"
-
-#~ msgid "PyCon Schedule"
-#~ msgstr "12 Aug 2017 (Sat) ~ 15 Aug 2017 (Tue)"
-
-#~ msgid "PyCon Location"
-#~ msgstr "Coex Grand Ballroom, Seoul"
-
-#~ msgid "Credit Card only for Korean"
-#~ msgstr "Credit Card only for Korean"
-
-#~ msgid "Credit Card for Foreign"
-#~ msgstr "Credit Card for Foreign"
-
-#~ msgid "Virtual Bank Transfer"
-#~ msgstr "Virtual Bank Transfer"
