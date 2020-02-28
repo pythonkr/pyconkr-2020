@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-28 14:45+0900\n"
+"POT-Creation-Date: 2020-02-28 14:55+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -669,20 +669,14 @@ msgid ""
 "니다."
 msgstr ""
 
-#: .\pyconkr\templates\pyconkr\sprintproposal_list.html:13
-#, fuzzy
-#| msgid "Sprint"
-msgid "Sprints"
-msgstr "스프린트 목록"
-
 #: .\pyconkr\templates\pyconkr\sprintproposal_list.html:20
 #: .\pyconkr\templates\pyconkr\tutorialproposal_list.html:12
 msgid "Joined"
 msgstr "참석 예정"
 
 #: .\pyconkr\templates\pyconkr\sprintproposal_list.html:25
-msgid "문의"
-msgstr ""
+msgid "Contact"
+msgstr "문의"
 
 #: .\pyconkr\templates\schedule.html:51 .\pyconkr\templates\schedule.html:88
 #: .\pyconkr\templates\schedule.html:154
@@ -744,134 +738,3 @@ msgstr "스프린트 제안서가 수정되었습니다."
 #: .\pyconkr\views.py:582
 msgid "Update sprint"
 msgstr "스프린트 갱신"
-
-#, fuzzy
-#~| msgid "Login via Social accounts"
-#~ msgid "Login via social media account"
-#~ msgstr "소셜 계정으로 로그인"
-
-#~ msgid "PyCon Korea Blog"
-#~ msgstr "파이콘 한국 블로그"
-
-#~ msgid "Announcements"
-#~ msgstr "알림"
-
-#~ msgid "Sponsorship"
-#~ msgstr "후원 안내"
-
-#~ msgid "Staff"
-#~ msgstr "준비위원회 및 자원봉사자"
-
-#~ msgid "Contact"
-#~ msgstr "연락처"
-
-#~ msgid "Schedule"
-#~ msgstr "세부 일정"
-
-#~ msgid "Program list"
-#~ msgstr "프로그램 목록"
-
-#~ msgid "Speakers"
-#~ msgstr "발표자"
-
-#~ msgid "Health"
-#~ msgstr "체육 시간"
-
-#~ msgid "Venue Map"
-#~ msgstr "지도"
-
-#~ msgid "Transportation"
-#~ msgstr "교통 수단"
-
-#~ msgid "Call for proposals"
-#~ msgstr "발표자 모집"
-
-#~ msgid "How to propose"
-#~ msgstr "발표안 제안하기"
-
-#~ msgid "Registration"
-#~ msgstr "등록"
-
-#~ msgid "Information"
-#~ msgstr "정보"
-
-#~ msgid "Purchase a ticket"
-#~ msgstr "티켓 구입"
-
-#~ msgid "Wed"
-#~ msgstr "수"
-
-#~ msgid "Login via mail"
-#~ msgstr "메일로 로그인"
-
-#~ msgid "Sprint and Tutorial"
-#~ msgstr "스프린트와 튜토리얼"
-
-#~ msgid "Capacity"
-#~ msgstr "수용 인원"
-
-#~ msgid "10 people"
-#~ msgstr "10 명"
-
-#~ msgid "45 people"
-#~ msgstr "45 명"
-
-#~ msgid "100 people"
-#~ msgstr "100 명"
-
-#~ msgid "Thank you for registration."
-#~ msgstr "등록해주셔서 감사합니다."
-
-#~ msgid "You didn't have a ticket."
-#~ msgstr "아직 티켓을 구입하지 않았습니다."
-
-#~ msgid "Please be a tutorial speaker at PyCon."
-#~ msgstr "파이콘의 튜토리얼 진행자가 되어주세요."
-
-#~ msgid "Submit a new proposal"
-#~ msgstr "발표안 제출하기"
-
-#~ msgid "Please be a sprint leader at PyCon."
-#~ msgstr "파이콘의 스프린트 진행자가 되어주세요."
-
-#~ msgid "Please make your profile first"
-#~ msgstr "프로필을 먼저 만들어주세요"
-
-#~ msgid "Preference survey"
-#~ msgstr "선호도 조사"
-
-#~ msgid "Hotels"
-#~ msgstr "숙박 안내"
-
-#~ msgid "Restaurants"
-#~ msgstr "식당 정보"
-
-#~ msgid "Propose"
-#~ msgstr "제출하기"
-
-#~ msgid "Back to the Basic"
-#~ msgstr "Back to the Basic"
-
-#~ msgid "Thank you for submitting."
-#~ msgstr "제출해주셔서 감사합니다."
-
-#~ msgid "Check my proposal"
-#~ msgstr "내 발표안 확인하기"
-
-#~ msgid "Please be a session speaker at PyCon."
-#~ msgstr "파이콘의 발표자가 되어주세요."
-
-#~ msgid "Not registered user"
-#~ msgstr "미등록"
-
-#~ msgid "Propose a sprint"
-#~ msgstr "스프린트 제안하기"
-
-#~ msgid "Respect, Diversity at PyCon APAC 2016"
-#~ msgstr "Respect, Diversity at PyCon APAC 2016"
-
-#~ msgid "Respect, Diversity"
-#~ msgstr "Respect, Diversity"
-
-#~ msgid "Registration receipt"
-#~ msgstr "등록 영수증"

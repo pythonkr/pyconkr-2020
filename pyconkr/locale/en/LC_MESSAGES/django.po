@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-28 14:45+0900\n"
+"POT-Creation-Date: 2020-02-28 14:55+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -681,20 +681,14 @@ msgstr ""
 "Sprint sessions are not just limited to the projects using Python, all "
 "languages are welcome!"
 
-#: .\pyconkr\templates\pyconkr\sprintproposal_list.html:13
-#, fuzzy
-#| msgid "Sprint"
-msgid "Sprints"
-msgstr ""
-
 #: .\pyconkr\templates\pyconkr\sprintproposal_list.html:20
 #: .\pyconkr\templates\pyconkr\tutorialproposal_list.html:12
 msgid "Joined"
 msgstr "Joined"
 
 #: .\pyconkr\templates\pyconkr\sprintproposal_list.html:25
-msgid "문의"
-msgstr "Contact"
+msgid "Contact"
+msgstr ""
 
 #: .\pyconkr\templates\schedule.html:51 .\pyconkr\templates\schedule.html:88
 #: .\pyconkr\templates\schedule.html:154
