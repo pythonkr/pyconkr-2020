@@ -7,6 +7,10 @@ from sorl.thumbnail import ImageField as SorlImageField
 User = get_user_model()
 
 
+def profile_image(instance, filename):
+    return f'profile/{instance.id}/{filename}'
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
@@ -14,7 +18,7 @@ class Profile(models.Model):
     phone = models.CharField(max_length=100, null=True, blank=True)
     organization = models.CharField(max_length=100, null=True, blank=True)
     nationality = models.CharField(max_length=100, null=True, blank=True)
-    image = SorlImageField(upload_to='profile', null=True, blank=True)
+    image = SorlImageField(upload_to=profile_image, null=True, blank=True)
     bio = models.TextField(max_length=4000, null=True, blank=True)
 
     def get_absolute_url(self):

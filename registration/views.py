@@ -18,7 +18,7 @@ from django.views.generic import DetailView
 from iamport import Iamport
 
 from pyconkr.helper import render_io_error
-from pyconkr.models import SprintProposal, SprintCheckin, Speaker
+from program.models import SprintProposal, SprintCheckin, Speaker
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
                     ManualPaymentForm, IssueSubmitForm, RegistrationFormWithoutTopSize)
 from .iamporter import IamporterError

@@ -64,7 +64,10 @@ INSTALLED_APPS = (
 ) + (
     # local apps
     'pyconkr',
+    'announcement',
     'user',
+    'sponsor',
+    'program',
     'registration',
 )
 

@@ -5,8 +5,8 @@ from django.shortcuts import redirect, get_object_or_404
 from .models import Profile
 from .forms import ProfileForm
 from registration.models import Registration
-from pyconkr.models import TutorialProposal, SprintProposal, Proposal
-from pyconkr.models import TutorialCheckin, SprintCheckin
+from program.models import TutorialProposal, SprintProposal, Proposal
+from program.models import TutorialCheckin, SprintCheckin
 
 
 class ProfileDetail(DetailView):
