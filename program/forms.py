@@ -72,7 +72,7 @@ class ProgramForm(forms.ModelForm):
             'name': _('Title'),
             'slide_url': _('Slide URL'),
             'video_url': _('Video URL'),
-            'is_recordable': _('Photography and recording is allowed'),
+            'is_recordable': _('Photography and recording is allowed.'),
             'desc': _('Description'),
         }
 

@@ -29,7 +29,7 @@ def default(request):
                     ('venue', {'title': _('Venue')}),
                     ('patron', {'title': _('Patrons')}),
                     ('coc', {'title': _('Code of Conduct')}),
-                    ('orginizing-team', {'title': _('Organization Team')}),
+                    ('orginizing-team', {'title': _('Organizing Team')}),
                     ('previous-pyconkr', {'title': _('Previous PyCon Korea')}),
                 ])
             }
