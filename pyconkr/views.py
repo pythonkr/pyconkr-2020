@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+from mail_templated import send_mail
+from django.dispatch import receiver
+from allauth.account.signals import user_signed_up
+from allauth.socialaccount.signals import social_account_added
 from django.contrib.auth import login as user_login, logout as user_logout
 from django.contrib.auth import get_user_model
 from django import template
@@ -54,3 +58,12 @@ def login(request):
 def logout(request):
     user_logout(request)
     return redirect(reverse('index'))
+
+
+@receiver(user_signed_up)
+def user_signed_up_custom(request, user, **kwargs):
+    from_email = 'PyCon Korea <pyconkr@pycon.kr>'
+    email = user.email
+    if not email:
+        return
+    send_mail('mail/welcome.html', {'user': user}, from_email, [email])

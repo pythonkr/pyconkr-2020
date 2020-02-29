@@ -1,3 +1,4 @@
+from import_export.admin import ImportExportMixin, ImportExportModelAdmin
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.flatpages.models import FlatPage
@@ -6,6 +7,7 @@ from django_summernote.admin import SummernoteModelAdmin
 from django_summernote.widgets import SummernoteWidget
 from modeltranslation.admin import TranslationAdmin
 from .models import (EmailToken, Banner)
+from import_export import resources
 
 
 class SummernoteWidgetWithCustomToolbar(SummernoteWidget):
@@ -24,9 +26,16 @@ class EmailTokenAdmin(admin.ModelAdmin):
 admin.site.register(EmailToken, EmailTokenAdmin)
 
 
-class FlatPageAdmin(TranslationAdmin):
+class FlatPageResource(resources.ModelResource):
+
+    class Meta:
+        model = FlatPage
+
+
+class FlatPageAdmin(TranslationAdmin, ImportExportModelAdmin):
     formfield_overrides = {models.TextField: {
         'widget': SummernoteWidgetWithCustomToolbar}}
+    resource_class = FlatPageResource
 
 
 admin.site.unregister(FlatPage)

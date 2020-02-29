@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'constance.backends.database',
     'django_csv_exports',
     'mail_templated',
+    'import_export',
 ) + (
     # local apps
     'pyconkr',
@@ -190,8 +191,20 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_URL = '/2020/login/'
 LOGIN_REDIRECT_URL = '/2020/profile/'
-ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = False
+# SOCIALACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+if os.getenv('EMAIL_HOST_USER'):
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_HOST = 'email-smtp.us-west-2.amazonaws.com'
+    EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+    EMAIL_PORT = 587
+    DEFAULT_FROM_EMAIL = 'PyCon Korea <pyconkr@pycon.kr>'
+
 
 DOMAIN = ''
 

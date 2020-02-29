@@ -14,7 +14,7 @@ def send_test_mail(modeladmin, request, queryset):
         if not email:
             continue
         print(f'sent {email}')
-        send_mail('email_extras/test.html', {'user': obj}, from_email, [email])
+        send_mail('mail/test.html', {'user': obj}, from_email, [email])
 
 
 send_test_mail.short_description = 'Send test mail'
