@@ -50,7 +50,7 @@ msgstr "Maximum size is %(size)d MB"
 #: .\user\forms.py:53
 #, python-format
 msgid "Minimum dimension is %(width)d x %(height)d"
-msgstr "Minimum dimension is %(dim)d x %(dim)d"
+msgstr ""
 
 #: .\program\forms.py:29 .\user\forms.py:34
 msgid "Photo"

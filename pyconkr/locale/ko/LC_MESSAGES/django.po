@@ -51,7 +51,7 @@ msgstr "최대 크기 %(size)d MB"
 #: .\user\forms.py:53
 #, python-format
 msgid "Minimum dimension is %(width)d x %(height)d"
-msgstr "최소 해상도 %(dim)d x %(dim)d"
+msgstr "최소 해상도 %(width)d x %(height)d"
 
 #: .\program\forms.py:29 .\user\forms.py:34
 msgid "Photo"
