@@ -8,8 +8,8 @@ from django.utils.translation import ugettext_lazy as _
 
 
 def sendEmailToken(request, token):
-    title = _('PyCon Korea 2018 one-time login token')
-    sender = _('PyCon Korea 2018') + '<no-reply@pycon.kr>'
+    title = _('PyCon Korea 2020 one-time login token')
+    sender = _('PyCon Korea 2020') + '<no-reply@pycon.kr>'
     html = render_to_string('mail/token_html.html', {'token': token}, request)
     text = render_to_string('mail/token_text.html', {'token': token}, request)
 

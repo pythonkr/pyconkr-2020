@@ -23,7 +23,7 @@
         <div class="desc-text">
           {{ announcement.desc|safe }}
         </div>
-        <a class="submit-btn" href="{% url 'announcement' announcement.id %}">자세히 보기</a>
+        <a class="submit-btn" href="{% url 'announcement' announcement.id %}">{% trans "자세히 보기" %}</a>
       </div>
     </div>
     {% endfor %}
