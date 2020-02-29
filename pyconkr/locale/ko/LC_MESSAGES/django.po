@@ -285,7 +285,7 @@ msgstr "아이돌봄"
 
 #: pyconkr/context_processors.py:45
 msgid "Speech to text translation"
-msgstr "문자통역"
+msgstr "문자 통역"
 
 #: pyconkr/context_processors.py:51
 #: pyconkr/templates/pyconkr/program_detail.html:4

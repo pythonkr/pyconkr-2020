@@ -42,7 +42,7 @@ def default(request):
                     ('visa-sponsing', {'title': _('Visa Sponsing')}),
                     ('child-care', {'title': _('Child Care')}),
                     ('speech2text', {
-                     'title': _('Speech to text translation')}),
+                     'title': _('Speech to Text Translation')}),
                 ])
             },
         ),
@@ -52,7 +52,7 @@ def default(request):
                 'submenu': OrderedDict([
                     ('keynote', {'title': _('Keynotes')}),
                     ('talks', {'title': _('Talks')}),
-                    ('lightning-talk', {'title': _('Lightning talk')}),
+                    ('lightning-talk', {'title': _('Lightning Talk')}),
                     ('openspace', {'title': _('Open Spaces')}),
                     ('tutorial', {'title': _('Tutorial')}),
                     ('sprint', {'title': _('Sprint')}),
