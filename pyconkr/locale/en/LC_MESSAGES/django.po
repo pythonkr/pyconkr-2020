@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 17:20+0900\n"
+"POT-Creation-Date: 2020-02-29 17:27+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -79,8 +79,10 @@ msgstr "Presentation slides URL"
 msgid "Video URL"
 msgstr "Presentation video URL"
 
-#: .\program\forms.py:75
-msgid "Photography and recording is allowed"
+#: .\program\forms.py:75 .\pyconkr\templates\pyconkr\program_detail.html:54
+#, fuzzy
+#| msgid "Photography and recording is allowed"
+msgid "Photography and recording is allowed."
 msgstr "Photography and recording is allowed"
 
 #: .\program\forms.py:76 .\pyconkr\templates\pyconkr\program_detail.html:73
@@ -402,24 +404,19 @@ msgid "Login"
 msgstr "Login"
 
 #: .\pyconkr\helper.py:11
-msgid "PyCon Korea 2018 one-time login token"
-msgstr "PyCon Korea 2018 one-time login token"
+msgid "PyCon Korea 2020 one-time login token"
+msgstr "PyCon Korea 2020 one-time login token"
 
-#: .\pyconkr\helper.py:12
-msgid "PyCon Korea 2018"
-msgstr "PyCon Korea 2018"
-
-#: .\pyconkr\templates\base.html:11 .\pyconkr\templates\base.html:12
-#: .\pyconkr\templates\base.html:13 .\pyconkr\templates\base.html:63
-#: .\pyconkr\templates\footer.html:6 .\pyconkr\templates\mail\token_html.html:2
-#, fuzzy
-#| msgid "PyCon Korea 2018"
+#: .\pyconkr\helper.py:12 .\pyconkr\templates\base.html:11
+#: .\pyconkr\templates\base.html:12 .\pyconkr\templates\base.html:13
+#: .\pyconkr\templates\base.html:63 .\pyconkr\templates\footer.html:6
+#: .\pyconkr\templates\mail\token_html.html:2
 msgid "PyCon Korea 2020"
-msgstr "PyCon Korea 2018"
+msgstr "PyCon Korea 2020"
 
 #: .\pyconkr\templates\base.html:16
 msgid "base-og-description"
-msgstr "PyCon Korea 2018: 15th, 17th-19th August. Coex Seoul."
+msgstr "PyCon Korea 2020: 13th-16th August. Coex, Seoul."
 
 #: .\pyconkr\templates\base.html:65 .\pyconkr\templates\index.html:39
 msgid "Thu"
@@ -464,6 +461,10 @@ msgstr "Powered by Django"
 #: .\pyconkr\templates\footer.html:13
 msgid "Stay connected"
 msgstr "Stay connected"
+
+#: .\pyconkr\templates\index.html:26
+msgid "자세히 보기"
+msgstr "Show detail"
 
 #: .\pyconkr\templates\index.html:35
 msgid "Detail"
@@ -663,17 +664,9 @@ msgstr "Intermediate"
 msgid "Difficulty Experienced"
 msgstr "Experienced"
 
-#: .\pyconkr\templates\pyconkr\program_detail.html:54
-#, fuzzy
-#| msgid "Photography and recording is allowed"
-msgid "Photography and recording is allowed."
-msgstr "Photography and recording is allowed"
-
 #: .\pyconkr\templates\pyconkr\program_detail.html:56
-#, fuzzy
-#| msgid "Photography and recording is not allowed"
 msgid "Photography and recording is not allowed."
-msgstr "Photography and recording is not allowed"
+msgstr "Photography and recording is not allowed."
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:61
 msgid "Slide"
@@ -806,7 +799,7 @@ msgstr "English"
 
 #: .\user\models.py:21
 msgid "여기에 기입한 조직 이름이 행사 당일 이름표에 표시됩니다."
-msgstr ""
+msgstr "The organization name you enter here will appear on the name tag on the day of the event."
 
 #: .\user\templates\user\profile_detail.html:35
 msgid "My Tickets"
@@ -835,9 +828,3 @@ msgstr "Profile successfully updated."
 #: .\user\views.py:71
 msgid "Update profile"
 msgstr "Update profile"
-
-#~ msgid "Not valid token"
-#~ msgstr "Not valid token"
-
-#~ msgid "Mail sent"
-#~ msgstr "Mail sent"

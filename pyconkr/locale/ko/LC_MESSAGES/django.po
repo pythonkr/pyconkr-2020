@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 17:20+0900\n"
+"POT-Creation-Date: 2020-02-29 17:27+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -80,8 +80,8 @@ msgstr "슬라이드 URL"
 msgid "Video URL"
 msgstr "동영상 URL"
 
-#: .\program\forms.py:75
-msgid "Photography and recording is allowed"
+#: .\program\forms.py:75 .\pyconkr\templates\pyconkr\program_detail.html:54
+msgid "Photography and recording is allowed."
 msgstr "촬영, 녹화가 가능합니다."
 
 #: .\program\forms.py:76 .\pyconkr\templates\pyconkr\program_detail.html:73
@@ -399,16 +399,13 @@ msgstr "로그인"
 #: .\pyconkr\helper.py:11
 #, fuzzy
 #| msgid "PyCon Korea 2020 one-time login token"
-msgid "PyCon Korea 2018 one-time login token"
+msgid "PyCon Korea 2020 one-time login token"
 msgstr "파이콘 한국 2020 일회용 로그인 토큰"
 
-#: .\pyconkr\helper.py:12
-msgid "PyCon Korea 2018"
-msgstr "파이콘 한국 2020"
-
-#: .\pyconkr\templates\base.html:11 .\pyconkr\templates\base.html:12
-#: .\pyconkr\templates\base.html:13 .\pyconkr\templates\base.html:63
-#: .\pyconkr\templates\footer.html:6 .\pyconkr\templates\mail\token_html.html:2
+#: .\pyconkr\helper.py:12 .\pyconkr\templates\base.html:11
+#: .\pyconkr\templates\base.html:12 .\pyconkr\templates\base.html:13
+#: .\pyconkr\templates\base.html:63 .\pyconkr\templates\footer.html:6
+#: .\pyconkr\templates\mail\token_html.html:2
 msgid "PyCon Korea 2020"
 msgstr "파이콘 한국 2020"
 
@@ -461,6 +458,10 @@ msgstr ""
 #: .\pyconkr\templates\footer.html:13
 msgid "Stay connected"
 msgstr "더 알아보기"
+
+#: .\pyconkr\templates\index.html:26
+msgid "자세히 보기"
+msgstr ""
 
 #: .\pyconkr\templates\index.html:35
 msgid "Detail"
@@ -652,10 +653,6 @@ msgstr "중급"
 #: .\pyconkr\templates\schedule.html:149
 msgid "Difficulty Experienced"
 msgstr "상급"
-
-#: .\pyconkr\templates\pyconkr\program_detail.html:54
-msgid "Photography and recording is allowed."
-msgstr "촬영, 녹화가 가능합니다."
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:56
 msgid "Photography and recording is not allowed."
