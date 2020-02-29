@@ -1,0 +1,39 @@
+{% extends "mail_templated/base.tpl" %}
+{% load i18n %}
+{% block subject %}
+PyCon Korea 2020 참가신청이 완료 되었습니다.
+{% endblock %}
+
+{% block html %}
+<p>안녕하세요 {{user.username}}님</p>
+<p>
+    본 메일은 PyCon Korea 2020 등록완료 확인 메일입니다.<br/>
+    <br/>
+    PyCon Korea 2020에 등록해주셔 감사합니다.<br/>
+    PyCon Korea 2015 는 <b>8월 29~30일</b> 서울시 상암동 누리꿈 스퀘어에서 개최됩니다.<br/>
+    <ul>
+        <li>장소 : 누리꿈 스퀘어</li>
+        <li>주소 : 서울특별시 마포구 상암동 1605</li>
+        <li>도로명 주소 : 서울특별시 마포구 월드컵북로 396</li>
+    </ul>
+    행사와 관련된 정보는 <a href="http://www.pycon.kr/2020/">http://www.pycon.kr/2020/</a> 에서 확인하실 수 있습니다.<br/>
+    <br/>
+</p>
+<h3>{% trans '결제 정보' %}</h3>
+<table>
+    <tr>
+        <th align="right" style="padding-right: 5px;">이메일</th><td>{{user.email}}</td>
+    </tr>
+    <tr>
+        <th align="right" style="padding-right: 5px;">이름</th><td>{{user.profile.name}}</td>
+    </tr>
+</table>
+<p> 결제와 관련된 정보는 <a href="http://www.pycon.kr">파이콘 홈페이지</a> 에서도 확인이 가능합니다.
+<p>
+    PyCon Korea 2020 에서 뵙겠습니다.<br/>
+</p>
+{% endblock %}
+{% comment %} {% load i18n %}
+<h1><img src="http://www.pycon.kr/2015/static/image/pyconkr-badge.png" width="32" height="32" align="absmiddle"/> {% trans "PyCon Korea Registration confirmation" %}</h1>
+<p>PyCon Korea 2020 참가신청이 완료 되었습니다.</p>
+ {% endcomment %}

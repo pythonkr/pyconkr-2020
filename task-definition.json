@@ -46,6 +46,14 @@
       {
         "valueFrom": "PROD_AWS_SECRET_ACCESS_KEY",
         "name": "AWS_SECRET_ACCESS_KEY"
+      },
+      {
+        "valueFrom": "EMAIL_HOST_USER",
+        "name": "EMAIL_HOST_USER"
+      },
+      {
+        "valueFrom": "EMAIL_HOST_PASSWORD",
+        "name": "EMAIL_HOST_PASSWORD"
       }
     ],
     "essential": true,

@@ -15,7 +15,6 @@ def profile_image(instance, filename):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=100, null=True, blank=True)
     organization = models.CharField(max_length=100, null=True, blank=True, help_text=_(
         '여기에 기입한 조직 이름이 행사 당일 이름표에 표시됩니다.'))

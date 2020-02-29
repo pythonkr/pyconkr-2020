@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'constance',
     'constance.backends.database',
     'django_csv_exports',
+    'mail_templated',
 ) + (
     # local apps
     'pyconkr',
@@ -193,12 +194,6 @@ ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 DOMAIN = ''
-
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = ''
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ''
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 

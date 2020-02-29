@@ -9,10 +9,13 @@ from .models import Profile
 
 
 class ProfileForm(forms.ModelForm):
+    email = forms.EmailField(required=True)
+
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
         self.fields['name_ko'].required = True
         self.fields['name_en'].required = True
+        self.fields['email'].initial = self.instance.user.email
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', _('Submit')))
@@ -25,7 +28,7 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('name_ko', 'name_en', 'phone', 'email',
+        fields = ('name_ko', 'name_en', 'email', 'phone',
                   'organization', 'image', 'bio_ko', 'bio_en')
         widgets = {
             'bio': SummernoteInplaceWidget(),
@@ -33,6 +36,14 @@ class ProfileForm(forms.ModelForm):
         labels = {
             'image': _('Photo'),
         }
+
+    def save(self, commit=True):
+        user = self.instance.user
+        email = self.cleaned_data['email']
+        if email != user.email:
+            user.email = self.cleaned_data['email']
+            user.save()
+        return super(ProfileForm, self).save(commit=commit)
 
     def clean_image(self):
         image = self.cleaned_data.get('image')

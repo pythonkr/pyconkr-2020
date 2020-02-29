@@ -94,8 +94,10 @@ Best Regards.
             continue
 
         try:
-            iamport = Iamport(imp_key=config.IMP_DOM_API_KEY, imp_secret=config.IMP_DOM_API_SECRET)
-            iamport.cancel_by_merchant_uid('Django Admin에서 결제 취소', obj.merchant_uid)
+            iamport = Iamport(imp_key=config.IMP_DOM_API_KEY,
+                              imp_secret=config.IMP_DOM_API_SECRET)
+            iamport.cancel_by_merchant_uid(
+                'Django Admin에서 결제 취소', obj.merchant_uid)
         except IOError:
             obj.cancel_status = 'IOError'
             results.append(obj)
