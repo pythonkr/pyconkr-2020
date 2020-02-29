@@ -25,8 +25,7 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    re_path(r'^2020$', index, name='index'),
-    re_path(r'^2020/$', index, name='index'),
+    re_path(r'^2020/?$', index, name='index'),
     re_path(r'^2020/login/$', login, name='login'),
     re_path(r'^2020/logout/$', logout, name='logout'),
     re_path(r'^2020/announcement/', include('program.urls')),

@@ -271,6 +271,7 @@ SPEAKER_IMAGE_MINIMUM_DIMENSION = (500, 500)
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 CONSTANCE_CONFIG = {
+    'SLACK_TOKEN': ('', '홈페이지에서 파준위 슬랙으로 알림을 보내기 위한 토큰'),
     'TOTAL_TICKET': (1800, '판매할 전체 티켓 수량'),
     'IMP_DOM_USER_CODE': ('', '아임포트 국내용 유저 번호'),
     'IMP_DOM_API_KEY': ('', '아임포트 국내용 API KEY'),
