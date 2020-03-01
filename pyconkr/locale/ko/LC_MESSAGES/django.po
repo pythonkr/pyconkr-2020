@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-01 12:01+0900\n"
+"POT-Creation-Date: 2020-03-01 12:47+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -627,8 +627,8 @@ msgstr ""
 
 #: .\pyconkr\templates\mail\welcome.html:16
 msgid ""
-"파이콘 한국 2020 는 <b>8월 13-16일</b>, 총 4일간 서울시 삼성동 코엑스 그랜드"
-"볼룸에서 진행됩니다."
+"파이콘 한국 2020은 <b>8월 13-16일</b>, 총 4일간 서울시 삼성동 코엑스 그랜드볼"
+"룸에서 진행됩니다."
 msgstr ""
 
 #: .\pyconkr\templates\mail\welcome.html:18
@@ -638,7 +638,7 @@ msgstr ""
 #: .\pyconkr\templates\mail\welcome.html:20
 msgid ""
 "행사와 관련된 정보는 <a href='http://www.pycon.kr/2020/'>http://www.pycon."
-"kr/2020/</a> 에서 확인하실 수 있습니다."
+"kr/2020/</a>에서 확인하실 수 있습니다."
 msgstr ""
 
 #: .\pyconkr\templates\nav.html:8
