@@ -43,7 +43,7 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/rosetta/', include('rosetta.urls')),
 
     # for flatpages
-    re_path(r'^(?P<url>.*/?)$', views.flatpage, name='flatpage'),
+    re_path(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),
     re_path(r'^2020/pages/', include('django.contrib.flatpages.urls')),
 
     prefix_default_language=False

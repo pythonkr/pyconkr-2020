@@ -28,7 +28,7 @@
             {% for sk, sv in v.submenu.items %}
               {% if not sv.disable %}
               <li class="{% if sv.active %}active{% endif %}">
-                <a href="{% url "index" %}/{{ k }}/{{ sk }}">{{ sv.title }}</a>
+                <a href="{% url "index" %}/{{ k }}/{{ sk }}/">{{ sv.title }}</a>
               </li>
               {% endif %}
             {% endfor %}
@@ -36,7 +36,7 @@
           </li>
           {% else %}
           <li class="{% if v.active %}active{% endif %}">
-            <a href="{% url "index" %}/{{ k }}">{{ v.title }}</a>
+            <a href="{% url "index" %}/{{ k }}/">{{ v.title }}</a>
           </li>
           {% endif %}
         {% endif %}
