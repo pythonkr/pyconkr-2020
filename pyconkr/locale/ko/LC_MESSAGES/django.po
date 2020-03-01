@@ -554,10 +554,6 @@ msgid "Login via Social Account"
 msgstr "소셜 계정으로 로그인"
 
 #: .\pyconkr\templates\login.html:9
-#, fuzzy
-#| msgid ""
-#| "We store your mail address only. Never store password or any personal "
-#| "information."
 msgid ""
 "We store your social account id, mail address only. Never store password or "
 "any other personal information."
