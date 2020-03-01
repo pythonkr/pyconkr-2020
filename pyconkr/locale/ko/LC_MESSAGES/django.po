@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 17:27+0900\n"
+"POT-Creation-Date: 2020-03-01 12:47+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -37,23 +37,23 @@ msgid "Read more"
 msgstr "더 보기"
 
 #: .\program\forms.py:14 .\program\forms.py:63 .\program\forms.py:85
-#: .\program\forms.py:113 .\program\forms.py:138 .\user\forms.py:18
+#: .\program\forms.py:113 .\program\forms.py:138 .\user\forms.py:21
 msgid "Submit"
 msgstr "제출"
 
-#: .\program\forms.py:15 .\program\forms.py:40 .\user\forms.py:19
-#: .\user\forms.py:43
+#: .\program\forms.py:15 .\program\forms.py:40 .\user\forms.py:22
+#: .\user\forms.py:54
 #, python-format
 msgid "Maximum size is %(size)d MB"
 msgstr "최대 크기 %(size)d MB"
 
-#: .\program\forms.py:18 .\program\forms.py:50 .\user\forms.py:22
-#: .\user\forms.py:53
+#: .\program\forms.py:18 .\program\forms.py:50 .\user\forms.py:25
+#: .\user\forms.py:64
 #, python-format
 msgid "Minimum dimension is %(width)d x %(height)d"
 msgstr "최소 해상도 %(width)d x %(height)d"
 
-#: .\program\forms.py:29 .\user\forms.py:34
+#: .\program\forms.py:29 .\user\forms.py:37
 msgid "Photo"
 msgstr "사진"
 
@@ -178,12 +178,12 @@ msgid "40 mins"
 msgstr "40분"
 
 #: .\program\models.py:126 .\program\models.py:225 .\program\models.py:258
-#: .\pyconkr\settings.py:147
+#: .\pyconkr\settings.py:149
 msgid "English"
 msgstr "영어"
 
 #: .\program\models.py:127 .\program\models.py:226 .\program\models.py:259
-#: .\pyconkr\settings.py:146
+#: .\pyconkr\settings.py:148
 msgid "Korean"
 msgstr "한국어"
 
@@ -346,14 +346,10 @@ msgid "About Contribution"
 msgstr "공헌 안내"
 
 #: .\pyconkr\context_processors.py:80
-#, fuzzy
-#| msgid "Tutorial Proposal"
 msgid "Review Talk Proposal"
 msgstr "튜토리얼 제안서"
 
 #: .\pyconkr\context_processors.py:82
-#, fuzzy
-#| msgid "Propose a tutorial"
 msgid "Proposing a Tutorial"
 msgstr "튜토리얼 제안하기"
 
@@ -392,13 +388,11 @@ msgid "FAQ"
 msgstr "FAQ"
 
 #: .\pyconkr\forms.py:23 .\pyconkr\templates\login_notvalidtoken.html:7
-#: .\pyconkr\templates\nav.html:72 .\pyconkr\views.py:50
+#: .\pyconkr\templates\nav.html:72 .\pyconkr\views.py:54
 msgid "Login"
 msgstr "로그인"
 
 #: .\pyconkr\helper.py:11
-#, fuzzy
-#| msgid "PyCon Korea 2020 one-time login token"
 msgid "PyCon Korea 2020 one-time login token"
 msgstr "파이콘 한국 2020 일회용 로그인 토큰"
 
@@ -444,8 +438,6 @@ msgid "Comments"
 msgstr "댓글"
 
 #: .\pyconkr\templates\footer.html:7
-#, fuzzy
-#| msgid "PyCon Korea 2018 is a product of PyCon Korea Organizing Team"
 msgid "PyCon Korea 2020 is a product of PyCon Korea Organizing Team"
 msgstr "파이콘 한국 2020은 파이콘 한국 준비위원회가 만들고 있습니다."
 
@@ -548,16 +540,10 @@ msgid "Email"
 msgstr "이메일"
 
 #: .\pyconkr\templates\login.html:7
-#, fuzzy
-#| msgid "Login via Social accounts"
 msgid "Login via Social Account"
 msgstr "소셜 계정으로 로그인"
 
 #: .\pyconkr\templates\login.html:9
-#, fuzzy
-#| msgid ""
-#| "We store your mail address only. Never store password or any personal "
-#| "information."
 msgid ""
 "We store your social account id, mail address only. Never store password or "
 "any other personal information."
@@ -596,25 +582,64 @@ msgstr "첫 화면으로"
 msgid "Requested token is not found or invalid."
 msgstr "요청한 토큰이 없거나 유효하지 않습니다."
 
+#: .\pyconkr\templates\mail\test.html:22
+#: .\pyconkr\templates\mail\ticket_registered_html.html:19
+msgid "결제 정보"
+msgstr "결제 정보"
+
 #: .\pyconkr\templates\mail\ticket_registered_html.html:2
 #: .\pyconkr\templates\mail\ticket_registered_text.html:2
 msgid "PyCon Korea Registration confirmation"
 msgstr "파이콘 한국 2020 등록 확인"
 
-#: .\pyconkr\templates\mail\ticket_registered_html.html:19
-msgid "결제 정보"
-msgstr "결제 정보"
-
 #: .\pyconkr\templates\mail\token_html.html:3
 #: .\pyconkr\templates\mail\token_text.html:2
-#, fuzzy
-#| msgid "You can login to PyCon Korea 2018 homepage via below url."
 msgid "You can login to PyCon Korea 2020 homepage via below url."
 msgstr "아래 주소를 통해 파이콘 한국 2020 홈페이지에 로그인하실 수 있습니다."
 
 #: .\pyconkr\templates\mail\token_html.html:4
 msgid "Link"
 msgstr "링크"
+
+#: .\pyconkr\templates\mail\welcome.html:4
+msgid "파이콘 한국 2020에 가입하신 걸 환영합니다 :)"
+msgstr ""
+
+#: .\pyconkr\templates\mail\welcome.html:8
+msgid "안녕하세요,"
+msgstr ""
+
+#: .\pyconkr\templates\mail\welcome.html:8
+msgid "님."
+msgstr ""
+
+#: .\pyconkr\templates\mail\welcome.html:10
+msgid ""
+"파이써니스타들의 축제 파이콘 한국 2020 홈페이지에 찾아와 주셔서 진심으로 환영"
+"합니다."
+msgstr ""
+
+#: .\pyconkr\templates\mail\welcome.html:13
+msgid ""
+"올해도 파이써니스타들의 8월을 빛낼 수 있는 파이콘 한국을 만들기 위해 준비위원"
+"회 모두 최선을 다하겠습니다."
+msgstr ""
+
+#: .\pyconkr\templates\mail\welcome.html:16
+msgid ""
+"파이콘 한국 2020은 <b>8월 13-16일</b>, 총 4일간 서울시 삼성동 코엑스 그랜드볼"
+"룸에서 진행됩니다."
+msgstr ""
+
+#: .\pyconkr\templates\mail\welcome.html:18
+msgid "장소 : 삼성동 코엑스 그랜드볼룸"
+msgstr ""
+
+#: .\pyconkr\templates\mail\welcome.html:20
+msgid ""
+"행사와 관련된 정보는 <a href='http://www.pycon.kr/2020/'>http://www.pycon."
+"kr/2020/</a>에서 확인하실 수 있습니다."
+msgstr ""
 
 #: .\pyconkr\templates\nav.html:8
 msgid "Toggle navigation"
@@ -780,7 +805,7 @@ msgstr "문의"
 msgid "Schedule English Label"
 msgstr "영어"
 
-#: .\user\models.py:21
+#: .\user\models.py:20
 msgid "여기에 기입한 조직 이름이 행사 당일 이름표에 표시됩니다."
 msgstr ""
 
