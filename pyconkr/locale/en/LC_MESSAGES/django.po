@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-01 12:47+0900\n"
+"POT-Creation-Date: 2020-03-03 07:26+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -327,7 +327,7 @@ msgstr "Tutorial"
 msgid "Sprint"
 msgstr "Sprint"
 
-#: .\pyconkr\context_processors.py:59
+#: .\pyconkr\context_processors.py:59 .\pyconkr\templates\youngcoder.html:12
 msgid "Young Coder"
 msgstr "Young Coder"
 
@@ -690,6 +690,16 @@ msgstr "Programs"
 #: .\pyconkr\templates\nav.html:67
 msgid "Logout"
 msgstr "Logout"
+
+#: .\pyconkr\templates\pyconkr\patron_list.html:7
+msgid "개인 후원자 목록"
+msgstr "Patrons"
+
+#: .\pyconkr\templates\pyconkr\patron_list.html:12
+msgid ""
+"파이콘 한국 2020을 후원해주신 개인 후원자 분들의 명단입니다. 후원해주셔서 감"
+"사합니다."
+msgstr "This is a list of patrons who sponsored PyCon Korea 2020. Thank you for your support."
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:21
 #: .\pyconkr\templates\schedule.html:42 .\pyconkr\templates\schedule.html:79
