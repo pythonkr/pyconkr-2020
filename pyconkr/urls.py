@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.conf.urls import include, url
+from django.conf.urls import include, url, handler404, handler500
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib.flatpages import views
@@ -48,6 +48,9 @@ urlpatterns += i18n_patterns(
 
     prefix_default_language=False
 )
+
+handler404 = 'pyconkr.views.error_page_404'
+handler500 = 'pyconkr.views.error_page_500'
 
 # for development
 if settings.DEBUG:
