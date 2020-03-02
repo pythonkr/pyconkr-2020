@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 07:26+0900\n"
+"POT-Creation-Date: 2020-03-03 07:59+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -814,6 +814,104 @@ msgstr "문의"
 #: .\pyconkr\templates\schedule.html:154
 msgid "Schedule English Label"
 msgstr "영어"
+
+#: .\pyconkr\templates\youngcoder.html:57
+msgid "영코더란?"
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:60
+msgid "여러분, 안녕하세요!"
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:62
+msgid ""
+"여러분의 부모님, 삼촌, 이모께서 오랜 시간 동안 컴퓨터 앞에 앉아있으시는 이유"
+"가 궁금했던 적이 있나요?"
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:63
+msgid ""
+"혹은 즐겨하는 게임이나 자주 방문하는 웹사이트, 스마트폰의 애플리케이션이 어떻"
+"게 동작하는지 궁금하지 않으세요?"
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:64
+msgid ""
+"초등학교 5학년부터 고등학생까지 소프트웨어란 무엇이고, 어떻게 동작하는지, 모"
+"두가 사랑하는 \"파이썬\"이라는 언어를 통해 함께 알아봅시다!"
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:66
+msgid "왜 프로그래밍을 배우나요?"
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:68
+msgid "여러분들이 모두 개발자가 될 필요는 없어요."
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:69
+msgid ""
+"하지만 오늘날 프로그래밍 언어를 이해하는 것은 영어를 잘하는 것만큼 여러분들"
+"을 더 훌륭한 사람으로 만들어줄 수 있답니다."
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:70
+msgid ""
+"또한 프로그래밍을 배운다는 것은 컴퓨터가 어떻게 동작하는지 그리고 IT가 세상"
+"을 어떻게 변화시켜 나가는지 이해하게 만들어줍니다."
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:71
+msgid "영어를 쓰는 사람들의 문화와 삶의 방식을 이해할 수 있게 되는 것처럼요!"
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:72
+msgid ""
+"게다가 프로그래밍이라는 것은 상당히 합리적이고 논리적이어서, 이것을 배우면 여"
+"러분들에게 어떠한 문제가 닥쳐도 가장 알맞은 해결 방법을 더욱 정확하고 빠르게 "
+"찾을 수 있는 사고력을 길러준답니다."
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:74
+msgid "무엇을 배울까요?"
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:76
+msgid ""
+"마치 영어를 배우듯 쉽게 배울 수 있는 \"파이썬\"은 굉장히 강력한 프로그래밍 언"
+"어입니다."
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:77
+msgid ""
+"컴퓨터 프로그램 작성, 웹 사이트 및 게임 제작, 과학 및 수학 컴퓨팅 등의 작업"
+"에 사용되고 있고, 구글이나 카카오 등의 훌륭한 서비스들이 파이썬으로 만들어지"
+"고 있습니다."
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:78
+msgid ""
+"우리가 만나는 몇 시간 동안 이 파이썬을 활용하여 컴퓨터와 대화하는 방법을 배우"
+"게 될 것입니다."
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:79
+msgid ""
+"프로그래밍을 전혀 몰라도 상관없어요~ 숫자, 문자, 문자열, 목록 등 파이썬의 간"
+"단한 데이터 유형을 배우는 것으로 시작할 것이거든요."
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:80
+msgid ""
+"그래도 긴장은 하셔야 해요. 조건문, 반복문 등 약간 더 어려운 것도 살펴볼 예정"
+"이거든요."
+msgstr ""
+
+#: .\pyconkr\templates\youngcoder.html:81
+msgid ""
+"마지막으로, 우리는 웹 사이트 및 간단한 게임을 만들어 보면서 이 세상을 이해할 "
+"수 있는 더 넓은 시야를 갖게 될 것입니다."
+msgstr ""
 
 #: .\user\models.py:20
 msgid "여기에 기입한 조직 이름이 행사 당일 이름표에 표시됩니다."
