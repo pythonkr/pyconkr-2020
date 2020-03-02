@@ -30,7 +30,7 @@ msgstr "목록으로"
 #: .\pyconkr\templates\pyconkr\speaker_list.html:9
 #: .\pyconkr\templates\schedule.html:10 .\pyconkr\templates\sponsors.html:22
 msgid "Ready for content"
-msgstr "준비 중입니다"
+msgstr "준비 중입니다."
 
 #: .\announcement\templates\announcement\announcement_list.html:20
 msgid "Read more"
