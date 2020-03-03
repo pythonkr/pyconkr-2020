@@ -625,6 +625,14 @@ footer p {
     margin: 0;
 }
 
+footer .btn-fa-icon a {
+    margin-left: 4px;
+}
+
+footer .btn-fa-icon .fa {
+    width: 18px;
+}
+
 .social-badges {
     display: inline-block;
     overflow: hidden;
