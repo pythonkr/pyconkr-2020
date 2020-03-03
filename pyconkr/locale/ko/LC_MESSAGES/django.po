@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 07:59+0900\n"
+"POT-Creation-Date: 2020-03-03 14:38+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -438,7 +438,7 @@ msgid "Comments"
 msgstr "댓글"
 
 #: .\pyconkr\templates\footer.html:7
-msgid "PyCon Korea 2020 is a product of PyCon Korea Organizing Team"
+msgid "PyCon Korea 2020 is a product of PyCon Korea Organizing Team."
 msgstr "파이콘 한국 2020은 파이콘 한국 준비위원회가 만들고 있습니다."
 
 #: .\pyconkr\templates\footer.html:9

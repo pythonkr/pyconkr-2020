@@ -12,7 +12,7 @@
   </div>
   {% else %}
   {% if not options %}
-  <div>등록 기간이 아닙니다</div>
+  <div>등록 기간이 아닙니다.</div>
   {% else %}
   <div>
     {% for option in options %}
@@ -24,7 +24,7 @@
         {% if option.is_cancelable %}
           {{ option.cancelable_date|date:"Y년 M d일 D a g시까지"}}
         {% else %}
-          환불 불가(Not Refundable)
+          환불 불가 (Not Refundable)
         {% endif %}
       </p>
       <p>

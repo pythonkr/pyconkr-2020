@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 07:59+0900\n"
+"POT-Creation-Date: 2020-03-03 14:38+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -80,10 +80,8 @@ msgid "Video URL"
 msgstr "Presentation video URL"
 
 #: .\program\forms.py:75 .\pyconkr\templates\pyconkr\program_detail.html:54
-#, fuzzy
-#| msgid "Photography and recording is allowed"
 msgid "Photography and recording is allowed."
-msgstr "Photography and recording is allowed"
+msgstr "Photography and recording is allowed."
 
 #: .\program\forms.py:76 .\pyconkr\templates\pyconkr\program_detail.html:73
 msgid "Description"
@@ -307,10 +305,8 @@ msgid "Talks"
 msgstr ""
 
 #: .\pyconkr\context_processors.py:55
-#, fuzzy
-#| msgid "Lightning talk"
 msgid "Lightning Talk"
-msgstr "Lightning talk"
+msgstr "Lightning Talk"
 
 #: .\pyconkr\context_processors.py:56
 msgid "Open Spaces"
@@ -341,26 +337,20 @@ msgid "Conference"
 msgstr ""
 
 #: .\pyconkr\context_processors.py:76
-#, fuzzy
-#| msgid "Contribution description"
 msgid "Contribution"
-msgstr "Describe about your contribution activity in this project"
+msgstr "Describe about your contribution activity in this project."
 
 #: .\pyconkr\context_processors.py:78
 msgid "About Contribution"
 msgstr ""
 
 #: .\pyconkr\context_processors.py:80
-#, fuzzy
-#| msgid "Tutorial Proposal"
 msgid "Review Talk Proposal"
-msgstr "Tutorial Proposal"
+msgstr ""
 
 #: .\pyconkr\context_processors.py:82
-#, fuzzy
-#| msgid "Propose a tutorial"
 msgid "Proposing a Tutorial"
-msgstr "Proposal a tutorial"
+msgstr ""
 
 #: .\pyconkr\context_processors.py:84
 msgid "Recommending Keynote"
@@ -389,10 +379,8 @@ msgid "Benefit"
 msgstr "Benefit"
 
 #: .\pyconkr\context_processors.py:96
-#, fuzzy
-#| msgid "Sponsor"
 msgid "Join as Sponsor"
-msgstr "Sponsor"
+msgstr ""
 
 #: .\pyconkr\context_processors.py:97
 msgid "FAQ"
@@ -449,10 +437,8 @@ msgid "Comments"
 msgstr "Comments"
 
 #: .\pyconkr\templates\footer.html:7
-#, fuzzy
-#| msgid "PyCon Korea 2018 is a product of PyCon Korea Organizing Team"
-msgid "PyCon Korea 2020 is a product of PyCon Korea Organizing Team"
-msgstr "PyCon Korea 2020 is a product of PyCon Korea Organizing Team"
+msgid "PyCon Korea 2020 is a product of PyCon Korea Organizing Team."
+msgstr "PyCon Korea 2020 is a product of PyCon Korea Organizing Team."
 
 #: .\pyconkr\templates\footer.html:9
 msgid "Powered by Django"
@@ -556,30 +542,20 @@ msgid "Email"
 msgstr ""
 
 #: .\pyconkr\templates\login.html:7
-#, fuzzy
-#| msgid "Login via Social accounts"
 msgid "Login via Social Account"
-msgstr "Login via Social accounts"
+msgstr ""
 
 #: .\pyconkr\templates\login.html:9
-#, fuzzy
-#| msgid ""
-#| "We store your mail address only. Never store password or any personal "
-#| "information."
 msgid ""
 "We store your social account id, mail address only. Never store password or "
 "any other personal information."
 msgstr ""
-"We store your mail address only. Never store password or any personal "
-"information."
 
 #: .\pyconkr\templates\login.html:13
 msgid "Sign in with GitHub"
 msgstr "Sign in with GitHub"
 
 #: .\pyconkr\templates\login.html:15
-#, fuzzy
-#| msgid "Sign in with GitHub"
 msgid "Sign in with Facebook"
 msgstr "Sign in with Facebook"
 
@@ -866,19 +842,25 @@ msgstr "Hello, Pythonistas!"
 msgid ""
 "여러분의 부모님, 삼촌, 이모께서 오랜 시간 동안 컴퓨터 앞에 앉아있으시는 이유"
 "가 궁금했던 적이 있나요?"
-msgstr "Have you ever wondered why your parents, uncle and aunt have been sitting at your computer for a long time?"
+msgstr ""
+"Have you ever wondered why your parents, uncle and aunt have been sitting at "
+"your computer for a long time?"
 
 #: .\pyconkr\templates\youngcoder.html:63
 msgid ""
 "혹은 즐겨하는 게임이나 자주 방문하는 웹사이트, 스마트폰의 애플리케이션이 어떻"
 "게 동작하는지 궁금하지 않으세요?"
-msgstr "Or are you wondering how your favorite games, websites you visit or applications on your smartphone work?"
+msgstr ""
+"Or are you wondering how your favorite games, websites you visit or "
+"applications on your smartphone work?"
 
 #: .\pyconkr\templates\youngcoder.html:64
 msgid ""
 "초등학교 5학년부터 고등학생까지 소프트웨어란 무엇이고, 어떻게 동작하는지, 모"
 "두가 사랑하는 \"파이썬\"이라는 언어를 통해 함께 알아봅시다!"
-msgstr "Learn what software is and how it works from 12 to 18 years old with the language \"Python\" that everyone loves!"
+msgstr ""
+"Learn what software is and how it works from 12 to 18 years old with the "
+"language \"Python\" that everyone loves!"
 
 #: .\pyconkr\templates\youngcoder.html:66
 msgid "왜 프로그래밍을 배우나요?"
@@ -892,24 +874,33 @@ msgstr "You don't all have to be developers."
 msgid ""
 "하지만 오늘날 프로그래밍 언어를 이해하는 것은 영어를 잘하는 것만큼 여러분들"
 "을 더 훌륭한 사람으로 만들어줄 수 있답니다."
-msgstr "But understanding a programming language today can make you a better person as good as you are good at English."
+msgstr ""
+"But understanding a programming language today can make you a better person "
+"as good as you are good at English."
 
 #: .\pyconkr\templates\youngcoder.html:70
 msgid ""
 "또한 프로그래밍을 배운다는 것은 컴퓨터가 어떻게 동작하는지 그리고 IT가 세상"
 "을 어떻게 변화시켜 나가는지 이해하게 만들어줍니다."
-msgstr "Learning programming also helps you understand how computers work and how IT is changing the world."
+msgstr ""
+"Learning programming also helps you understand how computers work and how IT "
+"is changing the world."
 
 #: .\pyconkr\templates\youngcoder.html:71
 msgid "영어를 쓰는 사람들의 문화와 삶의 방식을 이해할 수 있게 되는 것처럼요!"
-msgstr "Just like being able to understand the culture and way of life of English speakers!"
+msgstr ""
+"Just like being able to understand the culture and way of life of English "
+"speakers!"
 
 #: .\pyconkr\templates\youngcoder.html:72
 msgid ""
 "게다가 프로그래밍이라는 것은 상당히 합리적이고 논리적이어서, 이것을 배우면 여"
 "러분들에게 어떠한 문제가 닥쳐도 가장 알맞은 해결 방법을 더욱 정확하고 빠르게 "
 "찾을 수 있는 사고력을 길러준답니다."
-msgstr "In addition, programming is so rational and logical that learning it will help you to think more quickly and accurately to find the best solution for any problem."
+msgstr ""
+"In addition, programming is so rational and logical that learning it will "
+"help you to think more quickly and accurately to find the best solution for "
+"any problem."
 
 #: .\pyconkr\templates\youngcoder.html:74
 msgid "무엇을 배울까요?"
@@ -919,38 +910,51 @@ msgstr "What do we learn?"
 msgid ""
 "마치 영어를 배우듯 쉽게 배울 수 있는 \"파이썬\"은 굉장히 강력한 프로그래밍 언"
 "어입니다."
-msgstr "\"Python\" is a very powerful programming language that makes learning as easy as learning English."
+msgstr ""
+"\"Python\" is a very powerful programming language that makes learning as "
+"easy as learning English."
 
 #: .\pyconkr\templates\youngcoder.html:77
 msgid ""
 "컴퓨터 프로그램 작성, 웹 사이트 및 게임 제작, 과학 및 수학 컴퓨팅 등의 작업"
 "에 사용되고 있고, 구글이나 카카오 등의 훌륭한 서비스들이 파이썬으로 만들어지"
 "고 있습니다."
-msgstr "It's used for computer programming, website and game creation, scientific and mathematical computing, and great services such as Google and Kakao are being written in Python."
+msgstr ""
+"It's used for computer programming, website and game creation, scientific "
+"and mathematical computing, and great services such as Google and Kakao are "
+"being written in Python."
 
 #: .\pyconkr\templates\youngcoder.html:78
 msgid ""
 "우리가 만나는 몇 시간 동안 이 파이썬을 활용하여 컴퓨터와 대화하는 방법을 배우"
 "게 될 것입니다."
-msgstr "In the hours we meet, you will learn how to use Python to talk to your computer."
+msgstr ""
+"In the hours we meet, you will learn how to use Python to talk to your "
+"computer."
 
 #: .\pyconkr\templates\youngcoder.html:79
 msgid ""
 "프로그래밍을 전혀 몰라도 상관없어요~ 숫자, 문자, 문자열, 목록 등 파이썬의 간"
 "단한 데이터 유형을 배우는 것으로 시작할 것이거든요."
-msgstr "It doesn't matter if you don't know any programming. We'll start by learning Python's simple data types like numbers, characters, strings, lists, etc."
+msgstr ""
+"It doesn't matter if you don't know any programming. We'll start by learning "
+"Python's simple data types like numbers, characters, strings, lists, etc."
 
 #: .\pyconkr\templates\youngcoder.html:80
 msgid ""
 "그래도 긴장은 하셔야 해요. 조건문, 반복문 등 약간 더 어려운 것도 살펴볼 예정"
 "이거든요."
-msgstr "But you need to be nervous. I'm going to look at some more difficult things like conditional statements and loops."
+msgstr ""
+"But you need to be nervous. I'm going to look at some more difficult things "
+"like conditional statements and loops."
 
 #: .\pyconkr\templates\youngcoder.html:81
 msgid ""
 "마지막으로, 우리는 웹 사이트 및 간단한 게임을 만들어 보면서 이 세상을 이해할 "
 "수 있는 더 넓은 시야를 갖게 될 것입니다."
-msgstr "In the end, we will have a broader view of the world as we create websites and simple games."
+msgstr ""
+"In the end, we will have a broader view of the world as we create websites "
+"and simple games."
 
 #: .\user\models.py:20
 msgid "여기에 기입한 조직 이름이 행사 당일 이름표에 표시됩니다."

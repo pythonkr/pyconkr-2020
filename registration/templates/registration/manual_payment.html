@@ -33,7 +33,7 @@
                         window.location.reload();
                         return;
                     }
-                    alert('결제가 완료되었습니다.\n영수증 및 등록증은 support@pycon.kr 로 문의주시기 바랍니다.');
+                    alert('결제가 완료되었습니다.\n영수증 및 등록증은 pyconkr@pycon.kr 로 문의주시기 바랍니다.');
                     window.location.href = '{% url 'index' %}';
                 }.bind(this)).fail(function(xhr, status, error) {
                     alert('결제에 실패했습니다. 다시 시도해 주세요.' + error);
@@ -58,7 +58,7 @@
             });
 
             if ('{{ payment_status }}' == 'paid') {
-                alert('이미 결제하셨습니다. 문의사항은 support@pycon.kr 로 보내주시기 바랍니다.');
+                alert('이미 결제하셨습니다. 문의사항은 pyconkr@pycon.kr 로 보내주시기 바랍니다.');
                 $('#submit-id-submit').attr('disabled', true);
             } else {
                 $('#submit-id-submit').attr('disabled', false);
