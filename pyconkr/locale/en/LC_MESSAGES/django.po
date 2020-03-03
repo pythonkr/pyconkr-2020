@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 14:38+0900\n"
+"POT-Creation-Date: 2020-03-03 21:49+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -404,16 +404,11 @@ msgstr "PyCon Korea 2020"
 
 #: .\pyconkr\templates\base.html:16
 msgid "base-og-description"
-msgstr "PyCon Korea 2020: 13th-16th August. Coex, Seoul."
-
-#: .\pyconkr\templates\base.html:65 .\pyconkr\templates\index.html:39
-msgid "Thu"
-msgstr ""
+msgstr "PyCon Korea 2020: 13th-16th August, Coex, Seoul."
 
 #: .\pyconkr\templates\base.html:65 .\pyconkr\templates\base.html:66
-#: .\pyconkr\templates\index.html:39 .\pyconkr\templates\index.html:44
-msgid "Fri"
-msgstr ""
+msgid "날짜 미정"
+msgstr "Undecided"
 
 #: .\pyconkr\templates\base.html:67 .\pyconkr\templates\index.html:49
 msgid "Sat"
