@@ -189,7 +189,7 @@ msgstr "한국어"
 
 #: .\program\models.py:188
 msgid "Not arranged yet"
-msgstr "아직 결정되지 않았습니다"
+msgstr "아직 결정되지 않았습니다."
 
 #: .\program\models.py:251
 msgid "1 hour"
