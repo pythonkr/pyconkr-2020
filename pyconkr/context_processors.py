@@ -76,6 +76,7 @@ def default(request):
                 'title': _('Contribution'),
                 'submenu': OrderedDict([
                     ('about', {'title': _('About Contribution')}),
+                    ('cfp/propose', {'title': _('Proposing a talk')}),
                     ('review-talk-proposal',
                      {'title': _('Review Talk Proposal'), 'disable': True}),
                     ('proposing-tutorial',

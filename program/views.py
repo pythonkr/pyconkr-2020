@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
@@ -354,6 +354,8 @@ class TutorialProposalCreate(SuccessMessageMixin, CreateView):
 
 
 class ProposalDetail(DetailView):
+    template_name = "pyconkr/proposal_detail.html"
+
     def get_object(self, queryset=None):
         return get_object_or_404(Proposal, pk=self.request.user.proposal.pk)
 
@@ -371,6 +373,7 @@ class ProposalDetail(DetailView):
 class ProposalUpdate(SuccessMessageMixin, UpdateView):
     model = Proposal
     form_class = ProposalForm
+    template_name = "pyconkr/proposal_form.html"
     success_message = _("Proposal successfully updated.")
 
     def get_object(self, queryset=None):

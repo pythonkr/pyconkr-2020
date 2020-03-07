@@ -945,3 +945,7 @@ msgstr "프로필 갱신"
 
 #~ msgid "Fri"
 #~ msgstr "금"
+
+#: .\pyconkr\context_processors.py:26
+msgid "Proposing a talk"
+msgstr "발표 제안하기"
