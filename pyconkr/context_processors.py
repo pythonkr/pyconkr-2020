@@ -95,6 +95,7 @@ def default(request):
                     ('benefit', {'title': _('Benefit')}),
                     ('join', {'title': _('Join as Sponsor')}),
                     ('faq', {'title': _('FAQ')}),
+                    ('terms-of-sponsor', {'title': _('Terms of Sponsor')}),
                 ])
             }
         )

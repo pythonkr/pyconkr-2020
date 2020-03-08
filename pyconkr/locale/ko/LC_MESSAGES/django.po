@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-07 20:10+0900\n"
+"POT-Creation-Date: 2020-03-08 12:21+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -380,6 +380,10 @@ msgstr "후원사로 참여하기"
 #: pyconkr/context_processors.py:97
 msgid "FAQ"
 msgstr "FAQ"
+
+#: pyconkr/context_processors.py:98
+msgid "Terms of Sponsor"
+msgstr "후원사 약관"
 
 #: pyconkr/forms.py:23 pyconkr/templates/login_notvalidtoken.html:7
 #: pyconkr/templates/nav.html:72 pyconkr/views.py:54
