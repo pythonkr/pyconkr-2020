@@ -66,7 +66,8 @@ def user_signed_up_custom(request, user, **kwargs):
     email = user.email
     if not email:
         return
-    send_mail('mail/welcome.html', {'user': user}, from_email, [email])
+    send_mail('mail/welcome.html', {'user': user},
+              from_email, [email], fail_silently=True)
 
 
 def error_page_404(request, exception):

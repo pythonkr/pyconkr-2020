@@ -21,12 +21,13 @@ urlpatterns = [
     re_path(r'^2020/robots.txt$', robots, name='robots'),
     re_path(r'^2020/summernote/', include('django_summernote.urls')),
     re_path(r'^2020/admin/', admin.site.urls),
-    re_path(r'^2020/accounts/', include('allauth.urls')),
+
     re_path(r'^2020/i18n/', include('django.conf.urls.i18n')),
 ]
 
 urlpatterns += i18n_patterns(
     re_path(r'^2020/?$', index, name='index'),
+    re_path(r'^2020/accounts/', include('allauth.urls')),
     re_path(r'^2020/login/$', login, name='login'),
     re_path(r'^2020/logout/$', logout, name='logout'),
     re_path(r'^2020/announcement/', include('program.urls')),
@@ -49,7 +50,7 @@ urlpatterns += i18n_patterns(
 
     # for flatpages
     re_path(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),
-    re_path(r'^2020/pages/', include('django.contrib.flatpages.urls')),
+    # re_path(r'^2020/pages/', include('django.contrib.flatpages.urls')),
 
     prefix_default_language=False
 )

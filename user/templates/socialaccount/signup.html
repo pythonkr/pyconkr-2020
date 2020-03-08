@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% comment %} {% extends "socialaccount/base.html" %} {% endcomment %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<p>{% blocktrans with provider_name=account.get_provider.name %}
+{{provider_name}} 계정으로 성공적으로 인증을 받았습니다. 계정 인증 시 <b>이름과 이메일</b>과 같은 공개 정보가 저장됩니다.
+
+{% endblocktrans %}
+</p>
+<p>
+{% trans "필수 정보를 입력한 이후 약관 동의를 완료하시면 가입 절차가 완료됩니다.🤖" %}
+</p>
+
+{% crispy form %}
+{% comment %} 
+
+<form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit">{% trans "Sign Up" %} &raquo;</button> {% endcomment %}
+{% comment %} </form> {% endcomment %}
+
+{% endblock %}

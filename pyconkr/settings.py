@@ -39,12 +39,6 @@ INSTALLED_APPS = (
     'django_summernote',
     'rosetta',
     'crispy_forms',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.twitter',
     'sorl.thumbnail',
     'constance',
     'constance.backends.database',
@@ -59,6 +53,13 @@ INSTALLED_APPS = (
     'sponsor',
     'program',
     'registration',
+) + (
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.twitter',
 )
 
 MIDDLEWARE = [
@@ -155,6 +156,7 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = {
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'pyconkr', 'locale'),
+    os.path.join(BASE_DIR, 'user', 'locale'),
 )
 
 TIME_ZONE = 'Asia/Seoul'
@@ -195,6 +197,10 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = False
 # SOCIALACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+SOCIALACCOUNT_AUTO_SIGNUP = False
+SOCIALACCOUNT_FORMS = {
+    'signup': 'user.forms.SocialSignupForm'
+}
 
 if os.getenv('EMAIL_HOST_USER'):
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
