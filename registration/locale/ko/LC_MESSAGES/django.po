@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 21:49+0900\n"
+"POT-Creation-Date: 2020-03-08 20:27+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: woojing seok <woojing@pycon.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,11 +66,9 @@ msgstr "추가 후원 금액"
 
 #: .\registration\forms.py:81
 msgid "Title"
-msgstr ""
+msgstr "제목"
 
 #: .\registration\forms.py:82
-#, fuzzy
-#| msgid "E-mail"
 msgid "Email"
 msgstr "이메일"
 
@@ -95,7 +92,7 @@ msgstr "등록"
 
 #: .\registration\templates\registration\registration_detail.html:14
 msgid "PyCon Korea 2020"
-msgstr ""
+msgstr "파이콘 한국 2020"
 
 #: .\registration\templates\registration\status.html:8
 msgid "Registration status"
@@ -158,8 +155,6 @@ msgid "Account number to transafer"
 msgstr "이체할 계좌 번호"
 
 #: .\registration\templates\registration\status.html:128
-#, fuzzy
-#| msgid "Account number to transafer"
 msgid "Account owner name"
 msgstr "이체할 계좌 번호"
 
@@ -202,8 +197,3 @@ msgstr ""
 #: .\registration\views.py:683
 msgid "Sprint Print"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Bank to transfer"
-#~ msgid "Virtual Bank Transfer"
-#~ msgstr "이체할 은행"
