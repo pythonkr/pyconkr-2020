@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
@@ -6,6 +6,8 @@ from django.urls import reverse
 from .models import (Program, ProgramCategory, Preference,
                      Speaker, Room, Proposal, TutorialProposal, SprintProposal)
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, ProgramForm
+
+from program.slack import new_cfp_registered, cfp_updated
 
 
 class ProgramList(ListView):
@@ -354,6 +356,8 @@ class TutorialProposalCreate(SuccessMessageMixin, CreateView):
 
 
 class ProposalDetail(DetailView):
+    template_name = "pyconkr/proposal_detail.html"
+
     def get_object(self, queryset=None):
         return get_object_or_404(Proposal, pk=self.request.user.proposal.pk)
 
@@ -371,6 +375,7 @@ class ProposalDetail(DetailView):
 class ProposalUpdate(SuccessMessageMixin, UpdateView):
     model = Proposal
     form_class = ProposalForm
+    template_name = "pyconkr/proposal_form.html"
     success_message = _("Proposal successfully updated.")
 
     def get_object(self, queryset=None):
@@ -382,6 +387,7 @@ class ProposalUpdate(SuccessMessageMixin, UpdateView):
         return context
 
     def get_success_url(self):
+        cfp_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('proposal')
 
 
@@ -403,6 +409,7 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
+        new_cfp_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('proposal')
 
 
