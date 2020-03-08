@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-08 16:48+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: sponsor/forms.py:14
+msgid "Submit"
+msgstr ""
+
+#: sponsor/forms.py:29
+msgid "후원사 등급"
+msgstr "Sponsor Level"
+
+#: sponsor/forms.py:30
+msgid "로고 이미지"
+msgstr "Logo Image"
+
+#: sponsor/forms.py:31
+msgid "후원사 이름(한글)"
+msgstr "Sponsor Name(Korean)"
+
+#: sponsor/forms.py:32
+msgid "후원사 이름(영문)"
+msgstr "Sponsor Name(English)"
+
+#: sponsor/forms.py:33
+msgid "후원사 홈페이지 주소"
+msgstr "Sponsor Homepage Url"
+
+#: sponsor/forms.py:34
+msgid "후원사 소개(한글)"
+msgstr "Sponsor Description(Korean)"
+
+#: sponsor/forms.py:35
+msgid "후원사 소개(영문)"
+msgstr "Sponsor Description(English)"
+
+#: sponsor/forms.py:36
+msgid "후원 담당자 이름"
+msgstr "Name of person in charge of sponsorship"
+
+#: sponsor/forms.py:37
+msgid "후원 담당자 이메일"
+msgstr "Email of person in charge of sponsorship"
+
+#: sponsor/forms.py:38
+msgid "후원사 사업자 등록 번호"
+msgstr "Business Registration Number"
+
+#: sponsor/forms.py:39
+msgid "후원사 사업자 등록증"
+msgstr "Business Registration File"
+
+#: sponsor/forms.py:40
+msgid "추가로 문의할 점"
+msgstr "More questions"
+
+#: sponsor/models.py:62
+msgid "후원사를 등록한 유저"
+msgstr "User who applied sponsorship"
+
+#: sponsor/models.py:64
+msgid "후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다."
+msgstr "The name of sponsor. It can be name of service or company"
+
+#: sponsor/models.py:67
+msgid ""
+"후원을 원하시는 등급을 선택해주십시오. 모두 판매된 등급은 선택할 수 없습니다."
+msgstr "Please select the sponsor level you would like to. You can't select a level that's all sold."
+
+#: sponsor/models.py:69
+msgid "후원사 설명입니다. 이 설명은 홈페이지에 게시됩니다."
+msgstr "The description of sponsor. It will be posted on the homepage."
+
+#: sponsor/models.py:71
+msgid ""
+"준비위원회와 후원과 관련된 논의를 진행할 담당자의 이름을 입력해주십시오."
+msgstr ""
+"Please enter the name of the person in charge who will discuss the "
+"sponsorship with the PyCon Korea Organizing Team."
+
+#: sponsor/models.py:73
+msgid ""
+"입력하신 메일로 후원과 관련된 안내 메일이나 문의를 보낼 예정입니다. 후원 담당"
+"자의 이메일 주소를 입력해주십시오."
+msgstr ""
+"Please enter the email of the person in charge who will discuss the "
+"sponsorship with the PyCon Korea Organizing Team."
+
+#: sponsor/models.py:75
+msgid "후원사 사업자 등록번호입니다. 세금 계산서 발급에 사용됩니다."
+msgstr ""
+"Business Registration Number of Sponsor. Sponsor Business Registration "
+"Number. It is used to issue tax invoices."
+
+#: sponsor/models.py:78
+msgid "후원사 사업자 등록증 스캔본입니다. 세금 계산서 발급에 사용됩니다."
+msgstr ""
+"Scan file of sponsor's business registration. It is used to issue tax "
+"invoices."
+
+#: sponsor/models.py:80
+msgid "파이콘 홈페이지에 공개되는 후원사 홈페이지 주소입니다."
+msgstr ""
+"This is the url of the sponsor's homepage that will be displayed on the "
+"PyCon Korea homepage."
+
+#: sponsor/models.py:82
+msgid "홈페이지에 공개되는 후원사 이미지입니다."
+msgstr "It is the logo image of the sponsor that is displayed on the homepage."
+
+#: sponsor/models.py:84
+msgid ""
+"파이콘 한국 준비위원회에게 행사나 후원 관련해 전달할 내용을 추가로 기입합니"
+"다. 이 내용은 홈페이지에 게시되지 않습니다."
+msgstr ""
+"Enter the contents you want to ask to PyCon Korea Organizing Teamabout the "
+"event or sponsorship.This content will not be posted on the homepage."
+
+#: sponsor/views.py:21
+msgid ""
+"후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발"
+"송드리도록 하겠습니다."
+msgstr ""
+"Your sponsor application has been successfully processed. "
+"We will send you an e-mail after the Review."
