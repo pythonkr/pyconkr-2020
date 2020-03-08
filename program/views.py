@@ -387,7 +387,7 @@ class ProposalUpdate(SuccessMessageMixin, UpdateView):
         return context
 
     def get_success_url(self):
-        cfp_updated(self.object.id, self.object.title)
+        cfp_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('proposal')
 
 
@@ -409,7 +409,7 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
-        new_cfp_registered(self.object.id, self.object.title)
+        new_cfp_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('proposal')
 
 
