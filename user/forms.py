@@ -98,13 +98,13 @@ class SocialSignupForm(forms.Form):
     def set_agreement_labels(self):
         terms_of_service_text = _("이용 약관에 동의합니다.")
         self.fields['checked_terms_of_service'].label = f'''
-        <a target="_blank" {self.reserve_flatpage_with_href_attr('2020/terms_of_service/')}">
+        <a target="_blank" {self.reserve_flatpage_with_href_attr('2020/terms-of-service/')}">
           {terms_of_service_text}
         </a>
         '''
         checked_privacy_text = _("개인정보 처리방침에 동의합니다.")
         self.fields['checked_privacy_policy'].label = f'''
-        <a target="_blank" {self.reserve_flatpage_with_href_attr('2020/privacy_policy/')}">
+        <a target="_blank" {self.reserve_flatpage_with_href_attr('2020/privacy-policy/')}">
           {checked_privacy_text}
         </a>
         '''
