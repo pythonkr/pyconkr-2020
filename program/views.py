@@ -387,7 +387,7 @@ class ProposalUpdate(SuccessMessageMixin, UpdateView):
         return context
 
     def get_success_url(self):
-        cfp_updated(self.object.title)
+        cfp_updated(self.object.id, self.object.title)
         return reverse('proposal')
 
 
@@ -399,7 +399,6 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.save()
-        new_cfp_registered(form.data['title'])
         return super(ProposalCreate, self).form_valid(form)
 
     def dispatch(self, request, *args, **kwargs):
@@ -410,6 +409,7 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
+        new_cfp_registered(self.object.id, self.object.title)
         return reverse('proposal')
 
 
