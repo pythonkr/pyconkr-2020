@@ -7,6 +7,9 @@ from .models import (Program, ProgramCategory, Preference,
                      Speaker, Room, Proposal, TutorialProposal, SprintProposal)
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, ProgramForm
 
+import constance
+import datetime
+
 from program.slack import new_cfp_registered, cfp_updated
 
 
@@ -402,8 +405,16 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return super(ProposalCreate, self).form_valid(form)
 
     def dispatch(self, request, *args, **kwargs):
+        deadline = constance.config.CFP_DEADLINE
+        now = datetime.datetime.now()
+
         if Proposal.objects.filter(user=request.user).exists():
             return redirect('proposal')
+
+        if deadline < now:
+            # 에러 플랫 페이지로 이동
+            return redirect("/2020/error/closed/")
+
         if request.user.profile.name == '':
             return redirect('profile_edit')
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)

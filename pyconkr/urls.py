@@ -43,9 +43,9 @@ urlpatterns += i18n_patterns(
     # for rosetta
     re_path(r'^2020/rosetta/', include('rosetta.urls')),
 
-    # cfp (contribution의 하위 url에 두기위해 별도로 기술)
-    re_path(r'^2020/contribution/cfp/propose/$',
-            login_required(ProposalCreate.as_view()), name='propose'),
+    # # cfp (contribution의 하위 url에 두기위해 별도로 기술)
+    # re_path(r'^2020/contribution/cfp/propose/$',
+    #         login_required(ProposalCreate.as_view()), name='propose'),
 
     # for flatpages
     re_path(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),

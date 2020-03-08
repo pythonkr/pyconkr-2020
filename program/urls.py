@@ -46,10 +46,8 @@ urlpatterns = [
             login_required(sprint_join), name='sprint-join'),
     re_path(r'^room/(?P<pk>\d+)$',
             RoomDetail.as_view(), name='room'),
-
-    # 루트 urls.py로 이동 (contribution의 하위에 두기 위함)
-    # re_path(r'^cfp/propose/$',
-    #         login_required(ProposalCreate.as_view()), name='propose'),
+    re_path(r'^cfp/propose/$',
+            login_required(ProposalCreate.as_view()), name='propose'),
     re_path(r'^cfp/tutorial-propose/$',
             login_required(TutorialProposalCreate.as_view()), name='tutorial-propose'),
     re_path(r'^profile/proposal/$',
