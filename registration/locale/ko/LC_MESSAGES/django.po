@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -66,7 +65,7 @@ msgstr "추가 후원 금액"
 
 #: registration/forms.py:81
 msgid "Title"
-msgstr ""
+msgstr "제목"
 
 #: registration/forms.py:82
 #, fuzzy
@@ -94,7 +93,7 @@ msgstr "등록"
 
 #: registration/templates/registration/registration_detail.html:14
 msgid "PyCon Korea 2020"
-msgstr ""
+msgstr "파이콘 한국 2020"
 
 #: registration/templates/registration/status.html:8
 msgid "Registration status"
@@ -201,8 +200,3 @@ msgstr ""
 #: registration/views.py:683
 msgid "Sprint Print"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Bank to transfer"
-#~ msgid "Virtual Bank Transfer"
-#~ msgstr "이체할 은행"

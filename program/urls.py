@@ -46,7 +46,6 @@ urlpatterns = [
             login_required(sprint_join), name='sprint-join'),
     re_path(r'^room/(?P<pk>\d+)$',
             RoomDetail.as_view(), name='room'),
-
     re_path(r'^cfp/propose/$',
             login_required(ProposalCreate.as_view()), name='propose'),
     re_path(r'^cfp/tutorial-propose/$',
