@@ -77,10 +77,16 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             {% trans "Language" %} <span class="caret"></span></a>
           <ul id="language-menu" class="dropdown-menu" role="menu">
+            {% get_current_language as current_lang %}
             {% get_language_info_list for LANGUAGES as languages %}
             {% for language in languages %}
             {% language language.code %}
-            <li><a href="{% url 'index' %}">{{ language.name_local }}</a></li>
+                <!-- 메인 언어 -->
+                {% if current_lang == 'ko' %}
+                    <li><a href="{% url 'index' %}{{ request.path|slice:"5:" }}">{{ language.name_local }}</a></li>
+                {% else %}
+                    <li><a href="{% url 'index' %}{{ request.path|slice:"8:" }}">{{ language.name_local }}</a></li>
+                {% endif %}
             {% endlanguage %}
             {% endfor %}
           </ul>
