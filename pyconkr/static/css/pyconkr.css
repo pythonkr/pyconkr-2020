@@ -901,7 +901,7 @@ table.items td.header {
 
 button.button-in-page {
     font-size: 1.5rem;
-    width: 25%;
+    width: auto;
     height: 4rem;
     border-radius: 10px;
     color: #F4FAFF;
