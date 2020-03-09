@@ -136,12 +136,12 @@
 
 @media (min-width: 992px) {
     .container {
-        width: 970px;
+        width: 980px;
     }
 }
 
 @media (min-width: 1280px) {
     .container {
-        width: 970px;
+        width: 1024px;
     }
 }
