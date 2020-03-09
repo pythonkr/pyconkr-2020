@@ -844,3 +844,53 @@ footer .hosting {
   color: #c3c3c3;
   height: 14em;
 }
+
+section.index-border {
+    border: 1px solid black;
+    padding: 30px 10px;
+    width: 75%;
+    margin: 0 auto;
+}
+
+section.index-border h2.index {
+    text-align: center;
+    margin: 8px 0px 12px 0px;
+}
+
+section.index-border ul, li {
+    list-style: none;
+    margin: 12px 0px;
+}
+
+section.index-border li.title {
+    font-weight: 600;
+}
+
+section.index-border a {
+    text-decoration: none;
+    color: black;
+}
+
+section.index-border a:hover {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+table.items {
+    margin: 2rem auto;
+}
+
+table.items tr, td, th {
+    text-align: center;
+    height: 3rem;
+}
+
+table.items tbody {
+    border-top: solid 2px #0F4C81;
+    border-bottom: solid 1px #DFE3E6;
+}
+
+table.items tr {
+    border-bottom: solid 1px #DFE3E6;
+}

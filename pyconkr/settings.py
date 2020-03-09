@@ -245,7 +245,6 @@ SUMMERNOTE_CONFIG = {
     'css': (
         static_url('components/summernote-emoji/tam-emoji/css/emoji.css'),
         static_url('css/pyconkr.css'),
-        static_url('css/pyconkr-summernote.css'),
     ),
 }
 
