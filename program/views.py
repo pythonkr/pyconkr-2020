@@ -406,7 +406,8 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
 
     def dispatch(self, request, *args, **kwargs):
         deadline = constance.config.CFP_DEADLINE
-        now = datetime.datetime.now()
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        now = datetime.datetime.now(tz=KST)
 
         if Proposal.objects.filter(user=request.user).exists():
             return redirect('proposal')
