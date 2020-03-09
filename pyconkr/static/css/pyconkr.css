@@ -857,7 +857,7 @@ section.index-border h2.index {
     margin: 8px 0px 12px 0px;
 }
 
-section.index-border ul, li {
+section.index-border ul, section.index-border li {
     list-style: none;
     margin: 12px 0px;
 }
@@ -881,7 +881,7 @@ table.items {
     margin: 2rem auto;
 }
 
-table.items tr, td, th {
+table.items tr, table.items td, table.items th {
     text-align: center;
     height: 3rem;
 }
