@@ -894,3 +894,13 @@ table.items tbody {
 table.items tr {
     border-bottom: solid 1px #DFE3E6;
 }
+
+button.button-in-page {
+    font-size: 1.5rem;
+    width: 25%;
+    height: 4rem;
+    border-radius: 10px;
+    color: #F4FAFF;
+    background-color: #60ACEC;
+    font-weight: 500;
+}
