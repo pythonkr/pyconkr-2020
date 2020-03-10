@@ -877,25 +877,25 @@ section.index-border a:hover {
     cursor: pointer;
 }
 
-table.items {
+table {
     margin: 2rem auto;
 }
 
-table.items tr, table.items td, table.items th {
+table tr, table td, table th {
     text-align: center;
     height: 3rem;
 }
 
-table.items tbody {
+table tbody {
     border-top: solid 2px #0F4C81;
     border-bottom: solid 1px #DFE3E6;
 }
 
-table.items tr {
+table tr {
     border-bottom: solid 1px #DFE3E6;
 }
 
-table.items td.header {
+table td.header {
     font-weight: bold;
 }
 
