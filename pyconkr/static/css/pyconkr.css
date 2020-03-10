@@ -152,6 +152,8 @@ input[type=file] {
 .navbar .navbar-toggle {
     border-radius: 48px;
     padding: 5px;
+    height: auto;
+    font-size: inherit;
 }
 
 .navbar .glyphicon {
