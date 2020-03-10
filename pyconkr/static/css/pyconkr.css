@@ -879,6 +879,7 @@ section.index-border a:hover {
 
 table {
     margin: 2rem auto;
+    width: 75%;
 }
 
 table tr, table td, table th {
@@ -899,7 +900,7 @@ table td.header {
     font-weight: bold;
 }
 
-button.button-in-page {
+button {
     font-size: 1.5rem;
     width: auto;
     height: 4rem;
