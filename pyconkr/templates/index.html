@@ -37,20 +37,23 @@
     {% trans "파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입니다." %}<br><br>
 
     <h4>{% trans "Sprint" %}</h4>
-    <span>{% trans "관심있는 오픈소스 프로젝트를 같은 장소에 모여 집중적으로 개발하는 자리입니다." %}</span><br>
+    <div>{% trans "관심있는 오픈소스 프로젝트를 같은 장소에 모여 집중적으로 개발하는 자리입니다." %}</div>
+    <div>{% trans "새로운 동료를 만나고, 오픈소스에서 얻을 수 있는 경험과 지식을 나눌 수 있습니다." %}</div>
 {#    <a class="btn btn-info" href="{% url 'sprint' %}" tabindex="0">스프린트 참가하기</a><br><br>#}
-    <a class="btn btn-info" tabindex="0">{% trans "스프린트 참가는 준비중입니다." %}</a><br><br>
+    <a class="btn btn-info" tabindex="0">{% trans "스프린트 참가는 준비 중입니다." %}</a><br><br>
 
     <h4>{% trans "Tutorial" %}</h4>
     <span>{% trans "초보자들을 위해, 또는 새로운 것을 접하는 사람들을 위해 진행하는 교육 프로그램입니다." %}</span><br>
 {#    <a class="btn btn-info" href="{% url 'tutorial' %}" tabindex="0">튜토리얼 참가하기</a><br><br>#}
-    <a class="btn btn-info" tabindex="0">{% trans "튜토리얼 참가는 준비중입니다." %}</a><br><br>
+    <a class="btn btn-info" tabindex="0">{% trans "튜토리얼 참가는 준비 중입니다." %}</a><br><br>
 
     <h4>{% trans "Conference" %} (8/15({% trans "Sat" %}) - 8/16({% trans "Sun" %}))</h4>
 {#    <span>파이썬 사용 사례, 지식 공유를 위한 행사입니다.<br> 컨퍼런스의 자세한 시간표는 <a href="{% url 'schedule' %}">프로그램 > 세부일정</a> 에서 확인하실 수 있습니다.</span><br>#}
-    <span>{% trans "파이썬 사용 사례, 지식 공유를 위한 행사입니다." %}<br>{% trans "컨퍼런스의 자세한 시간표는 프로그램 > 세부일정에서 추후에 확인하실 수 있습니다." %}</span><br>
+    <div>{% trans "파이썬 사용 사례와 지식을 공유하는 50여 개의 다양한 발표 세션이 열립니다." %}</div>
+    <div>{% trans "또 후원 기업 부스와 영코더, 라이트닝 토크, 열린공간 등 다양한 이벤트를 통해 다양한 참가자와 교류할 수 있습니다." %}</div>
+    <div>{% trans "컨퍼런스의 자세한 시간표는 프로그램 > 세부일정에서 추후에 확인하실 수 있습니다." %}</div>
 {#    <a class="btn btn-info" href="{% url 'registration_index' %}" tabindex="0">컨퍼런스 티켓 구매하기</a><br><br>#}
-     <a class="btn btn-info" tabindex="0">{% trans "컨퍼런스 티켓은 준비중입니다." %}</a><br><br>
+    <a class="btn btn-info" tabindex="0">{% trans "컨퍼런스 티켓은 준비 중입니다." %}</a><br><br>
 
     {% trans "이 외의 모든 공지사항은 공식 " %}
     <a href="https://www.facebook.com/pyconkorea/" target="_blank">{% trans "페이스북" %}</a>{% trans "과 " %}
@@ -62,7 +65,16 @@
   <h3>{% trans "Slogan" %}</h3>
   <p>"We are Pythonistas"</p>
   <p>
-{#    슬로건 설명#}
+    <div>{% trans "이 곳에는 '파이썬'이라는 단 하나의 공통점으로 모이는 사람들이 있습니다." %}</div><br>
+    <div>{% trans "이제 막 파이썬이 무엇인지 알게 된 사람들," %}</div>
+    <div>{% trans "파이썬으로 무언가를 만들고 연구하며 세상에 기여하고 있는 사람들," %}</div>
+    <div>{% trans "다른 이에게 파이썬을 더 널리 알리고 싶은 사람들까지." %}</div><br>
+    <div>{% trans "이렇게 다양한 사람들이 모여있는 파이콘 한국에서" %}</div>
+    <div>{% trans "우리는 서로의 경험담에 응원을 보내고, 울고 웃으며 많은 이야기를 나눕니다." %}</div>
+    <div>{% trans "그렇게 파이콘 한국은 점점 깊어지고, 넓어지고, 단단해졌습니다." %}</div><br>
+    <div>{% trans "올해도 어김없이 열릴 파이콘 한국을 통해<br>여러분의 세상이 한 발자국 더 넓어질 수 있기를 바랍니다." %}</div><br>
+    <div>{% trans "이곳에 모인 우리는 함께 걸어갈 수 있는 힘을 가진 파이써니스타들이니까요." %}</div>
+    <div>{% trans "We are Pythonistas." %}</div>
   </p>
 </section>
 
