@@ -44,6 +44,10 @@ class SponsorLevel(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def text_with_remain(self):
+        return 'asdf'
+
 
 def registration_file_upload_to(instance, filename):
     return f'sponsor/business_registration/{instance.id}/{filename}'
@@ -79,7 +83,7 @@ class Sponsor(models.Model):
     url = models.CharField(max_length=255, null=True, blank=True,
                            help_text=_('파이콘 홈페이지에 공개되는 후원사 홈페이지 주소입니다.'))
     logo_image = SorlImageField(upload_to=logo_image_upload_to, null=True, blank=True,
-                                help_text=_('홈페이지에 공개되는 후원사 이미지입니다.'))
+                                help_text=_('홈페이지에 공개되는 후원사 로고 이미지입니다.'))
     comment = models.TextField(null=True, blank=True,
                                help_text=_('파이콘 한국 준비위원회에게 행사나 후원 관련해 전달할 내용을 추가로 기입합니다. 이 내용은 홈페이지에 게시되지 않습니다.'))
     paid_at = models.DateTimeField(null=True, blank=True,
