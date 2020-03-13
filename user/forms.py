@@ -13,6 +13,8 @@ from crispy_forms.helper import FormHelper
 from .models import Profile
 from django.urls import reverse
 from django.db import transaction
+from django.contrib.auth import get_user_model
+UserModel = get_user_model()
 
 
 class ProfileForm(forms.ModelForm):
@@ -76,7 +78,7 @@ class ProfileForm(forms.ModelForm):
         return image
 
 
-class SocialSignupForm(forms.Form):
+class SocialSignupForm(SignupForm):
     email = forms.EmailField(label=_('이메일'), help_text=_(
         '파이콘 행사에 관련된 안내 메일을 받을 이메일 주소를 입력해주세요.'))
     name = forms.CharField(max_length=100, label=_(
@@ -89,9 +91,9 @@ class SocialSignupForm(forms.Form):
     checked_coc = forms.BooleanField()
 
     def __init__(self, *args, **kwargs):
-        self.sociallogin = kwargs.pop('sociallogin')
         super(SocialSignupForm, self).__init__(*args, **kwargs)
         self.fields['email'].initial = self.sociallogin.user.email
+        self.fields['username'].widget = forms.HiddenInput()
         self.set_form()
         self.set_agreement_labels()
 
@@ -132,8 +134,8 @@ class SocialSignupForm(forms.Form):
         self.helper.add_input(Submit('submit', _('가입하기')))
 
     @transaction.atomic
-    def save(self, commit=True):
-        user = self.sociallogin.user
+    def save(self, request, commit=True):
+        user = super(SocialSignupForm, self).save(request)
         user.email = self.cleaned_data['email']
         user.save()
         profile, _ = Profile.objects.get_or_create(user=user)
