@@ -76,7 +76,7 @@ def default(request):
             'contribution', {
                 'title': _('Contribution'),
                 'submenu': OrderedDict([
-                    ('about', {'title': _('About Contribution')}),
+                    # ('about', {'title': _('About Contribution')}),
                     ('cfp/guide', {'title': _('How to submit proposal')}),
                     ('cfp', {'title': _('Proposing a talk')}),
                     ('review-talk-proposal',
