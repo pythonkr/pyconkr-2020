@@ -295,7 +295,10 @@ CONSTANCE_CONFIG = {
     'IMP_INTL_API_SECRET': ('', '아임포트 해외용 API SECRET'),
     'SHOW_SLIDE_DATA': (False, 'Show slide data on schedule table and program detail'),
     'SLACK_CHANNEL': ('#bot-test', '홈페이지에서 파준위 슬랙으로 알림을 보낼 채널'),
+    'CFP_OPEN': (datetime.datetime(2000, 1, 1), 'CFP 오픈'),
     'CFP_DEADLINE': (datetime.datetime(2000, 1, 1), 'CFP 마감기간'),
+    'CFS_OPEN': (datetime.datetime(2000, 1, 1), '후원사 모집 오픈'),
+    'CFS_DEADLINE': (datetime.datetime(2000, 1, 1), '후원사 모집 종료'),
 }
 
 # For supporting i18n of django modules

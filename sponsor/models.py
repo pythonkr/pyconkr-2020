@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext as _
 from sorl.thumbnail import ImageField as SorlImageField
+from django.urls import reverse
 
 User = get_user_model()
 
@@ -44,10 +45,6 @@ class SponsorLevel(models.Model):
     def __str__(self):
         return self.name
 
-    @property
-    def text_with_remain(self):
-        return 'asdf'
-
 
 def registration_file_upload_to(instance, filename):
     return f'sponsor/business_registration/{instance.id}/{filename}'
@@ -60,11 +57,11 @@ def logo_image_upload_to(instance, filename):
 class Sponsor(models.Model):
     class Meta:
         ordering = ['paid_at', 'id']
-    slug = models.SlugField(max_length=100, unique=True,
+    slug = models.SlugField(max_length=100, null=True, blank=True,
                             help_text='후원사 상세 페이지의 path로 사용됩니다')
     creator = models.ForeignKey(User, on_delete=models.CASCADE,
                                 help_text=_('후원사를 등록한 유저'))
-    name = models.CharField(max_length=255, null=True, blank=True,
+    name = models.CharField(max_length=255,
                             help_text=_('후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다.'))
     level = models.ForeignKey(SponsorLevel, null=True,
                               on_delete=models.SET_NULL, blank=True,
@@ -99,4 +96,4 @@ class Sponsor(models.Model):
         return f'{self.name}/{self.level}'
 
     def get_absolute_url(self):
-        return reverse('sponsor', args=[self.slug])
+        return reverse('sponsor', args=[self.pk])

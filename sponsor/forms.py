@@ -10,11 +10,10 @@ from django.forms import ModelChoiceField
 
 class SponsorLevelChoiceField(ModelChoiceField):
     def label_from_instance(self, obj):
-        return obj.id
+        return f'{obj.name} ({obj.current_remaining_number}/{obj.limit})'
 
 
 class SponsorForm(forms.ModelForm):
-
     class Meta:
         model = Sponsor
         fields = ('level', 'logo_image', 'name_ko', 'name_en',
@@ -43,6 +42,7 @@ class SponsorForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', _('Submit')))
-        self.fields['level'].to_field_name = 'text_with_remain'
+        self.fields['name_ko'].required = True
+        self.fields['name_ko'].required = True
         self.fields['level'] = SponsorLevelChoiceField(
             queryset=SponsorLevel.objects.filter(visible=True))
