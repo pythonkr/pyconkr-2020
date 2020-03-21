@@ -8,7 +8,9 @@
     {% if request.user.proposal %}
         <h3>
             {{ proposal.title }}
-            <a href="{% url 'proposal-update' %}"><i class="fa fa-pencil-square-o"></i></a>
+            {% if EDIT_AVAILABLE %}
+                <a href="{% url 'proposal-update' %}"><i class="fa fa-pencil-square-o"></i></a>
+            {% endif %}
         </h3>
         <p>
             <span class="label label-info">{{ proposal.get_difficulty_display }}</span>

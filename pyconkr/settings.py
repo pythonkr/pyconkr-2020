@@ -284,6 +284,8 @@ SPEAKER_IMAGE_MINIMUM_DIMENSION = (500, 500)
 
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
+KST = datetime.timezone(datetime.timedelta(hours=9))
+
 CONSTANCE_CONFIG = {
     'SLACK_TOKEN': ('', '홈페이지에서 파준위 슬랙으로 알림을 보내기 위한 토큰'),
     'TOTAL_TICKET': (1800, '판매할 전체 티켓 수량'),
@@ -295,7 +297,9 @@ CONSTANCE_CONFIG = {
     'IMP_INTL_API_SECRET': ('', '아임포트 해외용 API SECRET'),
     'SHOW_SLIDE_DATA': (False, 'Show slide data on schedule table and program detail'),
     'SLACK_CHANNEL': ('#bot-test', '홈페이지에서 파준위 슬랙으로 알림을 보낼 채널'),
-    'CFP_DEADLINE': (datetime.datetime(2000, 1, 1), 'CFP 마감기간'),
+    'CFP_DEADLINE': (datetime.datetime(2000, 1, 1, tzinfo=KST), 'CFP 마감기간'),
+    'OPEN_REVIEW_START': (datetime.datetime(2000, 1, 1, tzinfo=KST), '오픈 리뷰 시작 시점'),
+    'OPEN_REVIEW_FINISH': (datetime.datetime(2000, 1, 1, tzinfo=KST), '오픈 리뷰 마감 시점'),
 }
 
 # For supporting i18n of django modules
