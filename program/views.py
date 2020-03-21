@@ -372,6 +372,7 @@ class ProposalDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProposalDetail, self).get_context_data(**kwargs)
         context['title'] = _("Proposal")
+        context['EDIT_AVAILABLE'] = edit_proposal_available_checker(self.request)
         return context
 
 
@@ -383,6 +384,12 @@ class ProposalUpdate(SuccessMessageMixin, UpdateView):
 
     def get_object(self, queryset=None):
         return get_object_or_404(Proposal, pk=self.request.user.proposal.pk)
+
+    def dispatch(self, request, *args, **kwargs):
+        if edit_proposal_available_checker(request) is False:
+            return redirect("/2020/error/closed/")
+
+        return super(ProposalUpdate, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(ProposalUpdate, self).get_context_data(**kwargs)
@@ -405,19 +412,17 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return super(ProposalCreate, self).form_valid(form)
 
     def dispatch(self, request, *args, **kwargs):
-        deadline = constance.config.CFP_DEADLINE
-        KST = datetime.timezone(datetime.timedelta(hours=9))
-        now = datetime.datetime.now(tz=KST)
+        if request.user.profile.name == '':
+            return redirect('profile_edit')
 
         if Proposal.objects.filter(user=request.user).exists():
             return redirect('proposal')
 
-        if deadline < now:
-            # 에러 플랫 페이지로 이동
+        EDIT_AVAILABLE = edit_proposal_available_checker(request)
+
+        if EDIT_AVAILABLE is False:
             return redirect("/2020/error/closed/")
 
-        if request.user.profile.name == '':
-            return redirect('profile_edit')
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
@@ -432,3 +437,25 @@ class ProgramUpdate(UpdateView):
     def get_queryset(self):
         queryset = super(ProgramUpdate, self).get_queryset()
         return queryset.filter(speakers__email=self.request.user.email)
+
+
+def edit_proposal_available_checker(request):
+    KST = datetime.timezone(datetime.timedelta(hours=9))
+    now = datetime.datetime.now(tz=KST)
+    flag = False
+
+    cfp_deadline = constance.config.CFP_DEADLINE.replace(tzinfo=KST)
+    open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
+    open_review_finish = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
+
+    # CFP 마감 이후에 오픈리뷰를 시작한다는 가정
+    if open_review_finish < now and Proposal.objects.filter(user=request.user).exists():
+        print('제출한 CFP가 있는 경우, 오픈리뷰 마감 후에는 수정 가능')
+        flag = True
+
+    # CFP가 마감된 경우
+    elif cfp_deadline > now:
+        print("CFP 마감 상태")
+        flag = True
+
+    return flag
