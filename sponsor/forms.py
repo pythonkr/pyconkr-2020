@@ -41,8 +41,14 @@ class SponsorForm(forms.ModelForm):
         super(SponsorForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
+        self.helper.add_input(Submit('save', _('Save')))
         self.helper.add_input(Submit('submit', _('Submit')))
+
         self.fields['name_ko'].required = True
         self.fields['name_ko'].required = True
         self.fields['level'] = SponsorLevelChoiceField(
             queryset=SponsorLevel.objects.filter(visible=True))
+
+    def form_valid(self, form):
+        if self.request.POST['submit'] == 'save':
+            return super(SongEditView, self).form_valid(form)

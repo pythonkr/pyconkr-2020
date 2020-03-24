@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-15 20:13+0900\n"
+"POT-Creation-Date: 2020-03-23 06:27+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -367,8 +367,6 @@ msgid "Video Subtitle"
 msgstr ""
 
 #: pyconkr/context_processors.py:95 pyconkr/templates/index.html:94
-#: pyconkr/templates/pyconkr/sponsor_detail.html:4
-#: pyconkr/templates/pyconkr/sponsor_detail.html:5
 msgid "Sponsor"
 msgstr "Sponsor"
 
