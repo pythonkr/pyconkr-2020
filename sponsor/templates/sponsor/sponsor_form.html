@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans "후원사로 참여하기" %}{% endblock %}
+
+{% block content %}
+
+<div class="alert alert-warning" role="alert">
+  <a href={% url 'flatpage' url='2020/sponsor/prospectus/' %} target='_blank'>
+    📙{% trans "제안서를 작성하시기 전에 후원사 모집 안내를 꼭 읽어주세요." %}
+  </a>
+</div>
+{% crispy form %}
+{% endblock %}

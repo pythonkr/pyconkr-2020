@@ -2,13 +2,11 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-15 19:22+0900\n"
+"POT-Creation-Date: 2020-03-24 16:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,27 +96,27 @@ msgstr ""
 msgid "필수 정보를 입력한 이후 약관 동의를 완료하시면 가입 절차가 완료됩니다.🤖"
 msgstr ""
 
-#: user/templates/user/profile_detail.html:35
-msgid "My Tickets"
+#: user/templates/user/profile_detail.html:34
+msgid "후원사 신청 내역"
 msgstr ""
 
-#: user/templates/user/profile_detail.html:53
-msgid "Ready For Paid"
+#: user/templates/user/profile_detail.html:41
+msgid "스폰서 확정"
 msgstr ""
 
-#: user/templates/user/profile_detail.html:57
-msgid "Check Registration Status"
+#: user/templates/user/profile_detail.html:43
+msgid "신청서 제출"
 msgstr ""
 
-#: user/templates/user/profile_detail.html:76
-msgid "My Sprint"
+#: user/templates/user/profile_detail.html:45
+msgid "임시 저장"
 msgstr ""
 
-#: user/templates/user/profile_detail.html:94
-msgid "Cancelled Tickets"
+#: user/templates/user/profile_detail.html:51
+msgid "수정하기"
 msgstr ""
 
-#: user/templates/user/profile_form.html:5 user/views.py:51
+#: user/templates/user/profile_form.html:5 user/views.py:56
 msgid "Profile"
 msgstr ""
 
@@ -126,10 +124,10 @@ msgstr ""
 msgid "Social Sign-up"
 msgstr ""
 
-#: user/views.py:59
+#: user/views.py:64
 msgid "Profile successfully updated."
 msgstr ""
 
-#: user/views.py:71
+#: user/views.py:76
 msgid "Update profile"
 msgstr ""

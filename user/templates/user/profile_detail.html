@@ -30,8 +30,34 @@
                 <div>{{ profile.bio|safe }}</div>
             </div>
         </div>
-
-        <hr>
+        {% if sponsors %}
+        <h3>{% trans '후원사 신청 내역' %}</h3>
+        <div>
+            <ul class="list-group">
+            {% for sponsor in sponsors %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'sponsor' sponsor.id %}">
+                        {% if sponsor.accepted %}
+                            [{% trans '스폰서 확정' %}]
+                        {% elif sponsor.submitted %}
+                            [{% trans '신청서 제출' %}]
+                        {% else %}
+                            [{% trans '임시 저장' %}]
+                        {% endif %}
+                        {{ sponsor.name }}({{ sponsor.level.name }})
+                        
+                    </a>
+                    <a href="{% url 'join_sponsor' %}">
+                    <span class="badge badge-primary badge-pill">{% trans '수정하기' %}</span>
+                    </a>
+                    {% comment %} <a class='badge'><i class="fa fa-pencil-square-o"></i></a> {% endcomment %}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        
+        {% comment %} <hr>
         <h3>{% trans 'My Tickets' %}</h3>
         <div>
             {% for ticket in tickets %}
@@ -121,7 +147,7 @@
                   </div>
               </div>
               {% endfor %}
-        </div>
+        </div> {% endcomment %}
 
     {% endif %}
 </div>
