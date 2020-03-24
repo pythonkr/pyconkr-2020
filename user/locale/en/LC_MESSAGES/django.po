@@ -125,7 +125,7 @@ msgstr "Submitted"
 msgid "임시 저장"
 msgstr "Temporarily Saved"
 
-#: user/templates/user/profile_detail.html:50
+#: user/templates/user/profile_detail.html:51
 msgid "수정하기"
 msgstr "Edit"
 

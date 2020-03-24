@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext as _
@@ -44,6 +45,10 @@ class SponsorLevel(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def text_with_remain(self):
+        return 'asdf'
 
 
 def registration_file_upload_to(instance, filename):
