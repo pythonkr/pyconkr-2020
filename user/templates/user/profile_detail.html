@@ -47,7 +47,9 @@
                         {{ sponsor.name }}({{ sponsor.level.name }})
                         
                     </a>
+                    <a href="{% url 'join_sponsor' %}">
                     <span class="badge badge-primary badge-pill">{% trans '수정하기' %}</span>
+                    </a>
                     {% comment %} <a class='badge'><i class="fa fa-pencil-square-o"></i></a> {% endcomment %}
                 </li>
             {% endfor %}

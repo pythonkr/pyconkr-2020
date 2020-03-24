@@ -47,3 +47,8 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
                 'content': _('모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요').format(
                     opening.strftime("%Y-%m-%d %H:%M"), deadline.strftime("%Y-%m-%d %H:%M"))})
         return super(SponsorUpdate, self).get(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        if 'submit' in self.request.POST:
+            form.instance.submitted = True
+        return super(SponsorUpdate, self).form_valid(form)
