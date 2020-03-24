@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-24 16:15+0900\n"
+"POT-Creation-Date: 2020-03-24 16:32+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -129,7 +129,7 @@ msgstr "Describe about your contribution activity in this project."
 msgid "Brief"
 msgstr "Brief"
 
-#: program/forms.py:154 pyconkr/templates/pyconkr/proposal_detail.html:21
+#: program/forms.py:154 pyconkr/templates/pyconkr/proposal_detail.html:23
 #: pyconkr/templates/pyconkr/sprintproposal_detail.html:43
 #: pyconkr/templates/pyconkr/tutorialproposal_detail.html:68
 msgid "Detailed description"
@@ -224,15 +224,15 @@ msgstr "Update tutorial"
 msgid "Tutorial proposal successfully created."
 msgstr "Tutorial proposal successfully created."
 
-#: program/views.py:374 program/views.py:389
+#: program/views.py:374 program/views.py:396
 msgid "Proposal"
 msgstr "Proposal"
 
-#: program/views.py:382
+#: program/views.py:383
 msgid "Proposal successfully updated."
 msgstr "Proposal successfully updated."
 
-#: program/views.py:400
+#: program/views.py:407
 msgid "Proposal successfully created."
 msgstr "Proposal successfully created."
 
@@ -810,7 +810,7 @@ msgstr "Submit preferences"
 msgid "Up to 5 items can be selected."
 msgstr "Up to 5 items can be selected."
 
-#: pyconkr/templates/pyconkr/proposal_detail.html:26
+#: pyconkr/templates/pyconkr/proposal_detail.html:28
 msgid "Comment to reviewers"
 msgstr "Comment to reviewers (optional)"
 

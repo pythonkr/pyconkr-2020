@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-24 16:15+0900\n"
+"POT-Creation-Date: 2020-03-24 16:32+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -130,7 +130,7 @@ msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
 msgid "Brief"
 msgstr "간단한 설명"
 
-#: program/forms.py:154 pyconkr/templates/pyconkr/proposal_detail.html:21
+#: program/forms.py:154 pyconkr/templates/pyconkr/proposal_detail.html:23
 #: pyconkr/templates/pyconkr/sprintproposal_detail.html:43
 #: pyconkr/templates/pyconkr/tutorialproposal_detail.html:68
 msgid "Detailed description"
@@ -225,15 +225,15 @@ msgstr "튜토리얼 갱신"
 msgid "Tutorial proposal successfully created."
 msgstr "튜토리얼 제안을 제출하였습니다."
 
-#: program/views.py:374 program/views.py:389
+#: program/views.py:374 program/views.py:396
 msgid "Proposal"
 msgstr "발표안"
 
-#: program/views.py:382
+#: program/views.py:383
 msgid "Proposal successfully updated."
 msgstr "발표안이 수정되었습니다."
 
-#: program/views.py:400
+#: program/views.py:407
 msgid "Proposal successfully created."
 msgstr "발표안을 제출하였습니다."
 
@@ -793,7 +793,7 @@ msgstr "선호도 등록하기"
 msgid "Up to 5 items can be selected."
 msgstr "최대 5개까지만 선택하실 수 있습니다."
 
-#: pyconkr/templates/pyconkr/proposal_detail.html:26
+#: pyconkr/templates/pyconkr/proposal_detail.html:28
 msgid "Comment to reviewers"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 

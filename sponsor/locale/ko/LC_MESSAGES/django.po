@@ -2,20 +2,11 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-<<<<<<< HEAD
-#
-#, fuzzy
-=======
->>>>>>> e27a48c0bb376d7e1bd37ef431970e5a5304e267
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2020-03-23 06:27+0900\n"
-=======
-"POT-Creation-Date: 2020-03-24 16:15+0900\n"
->>>>>>> e27a48c0bb376d7e1bd37ef431970e5a5304e267
+"POT-Creation-Date: 2020-03-24 16:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,105 +65,58 @@ msgid "추가로 문의할 점"
 msgstr ""
 
 #: sponsor/forms.py:44
-<<<<<<< HEAD
-msgid "Submit"
-msgstr ""
-
-#: sponsor/models.py:63
-msgid "후원사를 등록한 유저"
-msgstr ""
-
-#: sponsor/models.py:65
-msgid "후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다."
-msgstr ""
-
-#: sponsor/models.py:68
-=======
-msgid "Temporarily Save"
+msgid "Save"
 msgstr ""
 
 #: sponsor/forms.py:45
 msgid "Submit"
-msgstr ""
+msgstr "제출하기"
 
-#: sponsor/models.py:67
+#: sponsor/models.py:68
 msgid "후원사를 등록한 유저"
 msgstr ""
 
-#: sponsor/models.py:69
+#: sponsor/models.py:70
 msgid "후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다."
 msgstr ""
 
-#: sponsor/models.py:72
->>>>>>> e27a48c0bb376d7e1bd37ef431970e5a5304e267
+#: sponsor/models.py:73
 msgid ""
 "후원을 원하시는 등급을 선택해주십시오. 모두 판매된 등급은 선택할 수 없습니다."
 msgstr ""
 
-<<<<<<< HEAD
-#: sponsor/models.py:70
+#: sponsor/models.py:75
 msgid "후원사 설명입니다. 이 설명은 홈페이지에 게시됩니다."
 msgstr ""
 
-#: sponsor/models.py:72
-=======
-#: sponsor/models.py:74
-msgid "후원사 설명입니다. 이 설명은 홈페이지에 게시됩니다."
-msgstr ""
-
-#: sponsor/models.py:76
->>>>>>> e27a48c0bb376d7e1bd37ef431970e5a5304e267
+#: sponsor/models.py:77
 msgid ""
 "준비위원회와 후원과 관련된 논의를 진행할 담당자의 이름을 입력해주십시오."
 msgstr ""
 
-<<<<<<< HEAD
-#: sponsor/models.py:74
-=======
-#: sponsor/models.py:78
->>>>>>> e27a48c0bb376d7e1bd37ef431970e5a5304e267
+#: sponsor/models.py:79
 msgid ""
 "입력하신 메일로 후원과 관련된 안내 메일이나 문의를 보낼 예정입니다. 후원 담당"
 "자의 이메일 주소를 입력해주십시오."
 msgstr ""
 
-<<<<<<< HEAD
-#: sponsor/models.py:76
-msgid "후원사 사업자 등록번호입니다. 세금 계산서 발급에 사용됩니다."
-msgstr ""
-
-#: sponsor/models.py:79
-msgid "후원사 사업자 등록증 스캔본입니다. 세금 계산서 발급에 사용됩니다."
-msgstr ""
-
 #: sponsor/models.py:81
-msgid "파이콘 홈페이지에 공개되는 후원사 홈페이지 주소입니다."
-msgstr ""
-
-#: sponsor/models.py:83
-msgid "홈페이지에 공개되는 후원사 로고 이미지입니다."
-msgstr ""
-
-#: sponsor/models.py:85
-=======
-#: sponsor/models.py:80
 msgid "후원사 사업자 등록번호입니다. 세금 계산서 발급에 사용됩니다."
 msgstr ""
 
-#: sponsor/models.py:83
+#: sponsor/models.py:84
 msgid "후원사 사업자 등록증 스캔본입니다. 세금 계산서 발급에 사용됩니다."
 msgstr ""
 
-#: sponsor/models.py:85
+#: sponsor/models.py:86
 msgid "파이콘 홈페이지에 공개되는 후원사 홈페이지 주소입니다."
 msgstr ""
 
-#: sponsor/models.py:87
+#: sponsor/models.py:88
 msgid "홈페이지에 공개되는 후원사 로고 이미지입니다."
 msgstr ""
 
-#: sponsor/models.py:89
->>>>>>> e27a48c0bb376d7e1bd37ef431970e5a5304e267
+#: sponsor/models.py:90
 msgid ""
 "파이콘 한국 준비위원회에게 행사나 후원 관련해 전달할 내용을 추가로 기입합니"
 "다. 이 내용은 홈페이지에 게시되지 않습니다."
@@ -213,3 +157,6 @@ msgstr ""
 msgid ""
 "모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요"
 msgstr ""
+
+#~ msgid "Temporarily Save"
+#~ msgstr "임시저장"
