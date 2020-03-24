@@ -113,4 +113,5 @@ db.sqlite3
 
 collected_static/
 env.sh
+media/
 

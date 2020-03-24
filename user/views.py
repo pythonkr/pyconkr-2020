@@ -3,6 +3,7 @@ from django.utils.translation import ugettext as _
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect, get_object_or_404
 from .models import Profile
+from sponsor.models import Sponsor
 from .forms import ProfileForm
 from registration.models import Registration
 from program.models import TutorialProposal, SprintProposal, Proposal
@@ -33,6 +34,10 @@ class ProfileDetail(DetailView):
             user=self.request.user,
             payment_status__in=['paid', 'ready']
         ).exists()
+        context['sponsors'] = Sponsor.objects.filter(
+            creator=self.request.user)
+        context['has_sponsor'] = Sponsor.objects.filter(
+            creator=self.request.user).exists()
         has_proposal = Proposal.objects.filter(user=self.request.user).exists()
         has_sprint = SprintProposal.objects.filter(
             user=self.request.user).exists()
