@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-24 16:32+0900\n"
+"POT-Creation-Date: 2020-03-26 14:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,79 +18,79 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: user/forms.py:30
+#: .\user\forms.py:30
 msgid "Submit"
 msgstr ""
 
-#: user/forms.py:31 user/forms.py:63
+#: .\user\forms.py:31 .\user\forms.py:63
 #, python-format
 msgid "Maximum size is %(size)d MB"
 msgstr ""
 
-#: user/forms.py:34 user/forms.py:73
+#: .\user\forms.py:34 .\user\forms.py:73
 #, python-format
 msgid "Minimum dimension is %(width)d x %(height)d"
 msgstr ""
 
-#: user/forms.py:46
+#: .\user\forms.py:46
 msgid "Photo"
 msgstr ""
 
-#: user/forms.py:82
+#: .\user\forms.py:82
 msgid "이메일"
 msgstr "Email"
 
-#: user/forms.py:83
+#: .\user\forms.py:83
 msgid "파이콘 행사에 관련된 안내 메일을 받을 이메일 주소를 입력해주세요."
 msgstr ""
 "Please enter your e-mail address to receive information about PyCon Korea."
 
-#: user/forms.py:85
+#: .\user\forms.py:85
 msgid "이름"
 msgstr "Name"
 
-#: user/forms.py:85
+#: .\user\forms.py:85
 msgid "기입한 이름이 행사 당일 이름표에 표시됩니다."
 msgstr "Please specify the name you want to print on the conference nametag."
 
-#: user/forms.py:87
+#: .\user\forms.py:87
 msgid "소속"
 msgstr "Organization"
 
-#: user/forms.py:87
+#: .\user\forms.py:87
 msgid ""
 "기입한 조직명이 행사 당일 이름표에 표시됩니다. 필수 입력 사항은 아닙니다."
 msgstr ""
 "Please specify the organization name you want to print on the conference "
 "nametag. It is not required"
 
-#: user/forms.py:101
+#: .\user\forms.py:101
 msgid "이용 약관에 동의합니다."
 msgstr "Agree terms of service."
 
-#: user/forms.py:107
+#: .\user\forms.py:107
 msgid "개인정보 처리방침에 동의합니다."
 msgstr "Agree privacy protection policy."
 
-#: user/forms.py:113
+#: .\user\forms.py:113
 msgid "파이콘 한국 행동 강령에 동의합니다."
 msgstr "Agree PyCon Korea Code of Conduct."
 
-#: user/forms.py:134
+#: .\user\forms.py:134
 msgid "가입하기"
 msgstr "Sign Up"
 
-#: user/models.py:20
+#: .\user\models.py:20
 msgid "여기에 기입한 조직 이름이 행사 당일 이름표에 표시됩니다."
 msgstr ""
 "Please specify the organization name you want to print on the conference "
 "nametag."
 
-#: user/templates/socialaccount/signup.html:7
+#: .\user\templates\socialaccount\signup.html:7
 msgid "Signup"
 msgstr ""
 
-#: user/templates/socialaccount/signup.html:10
+#: .\user\templates\socialaccount\signup.html:10
 #, python-format
 msgid ""
 "\n"
@@ -103,44 +103,44 @@ msgstr ""
 "authorize your account, we save the following public information, such as "
 "<b>name and email</b>.\n"
 
-#: user/templates/socialaccount/signup.html:16
+#: .\user\templates\socialaccount\signup.html:16
 msgid "필수 정보를 입력한 이후 약관 동의를 완료하시면 가입 절차가 완료됩니다.🤖"
 msgstr ""
 "Enter your required information and accept the terms to complete your signup."
 "🤖"
 
-#: user/templates/user/profile_detail.html:34
+#: .\user\templates\user\profile_detail.html:34
 msgid "후원사 신청 내역"
 msgstr "Sponsor Application"
 
-#: user/templates/user/profile_detail.html:41
+#: .\user\templates\user\profile_detail.html:41
 msgid "스폰서 확정"
 msgstr "Accepted"
 
-#: user/templates/user/profile_detail.html:43
+#: .\user\templates\user\profile_detail.html:43
 msgid "신청서 제출"
 msgstr "Submitted"
 
-#: user/templates/user/profile_detail.html:45
+#: .\user\templates\user\profile_detail.html:45
 msgid "임시 저장"
 msgstr "Temporarily Saved"
 
-#: user/templates/user/profile_detail.html:51
+#: .\user\templates\user\profile_detail.html:51
 msgid "수정하기"
 msgstr "Edit"
 
-#: user/templates/user/profile_form.html:5 user/views.py:56
+#: .\user\templates\user\profile_form.html:5 .\user\views.py:56
 msgid "Profile"
 msgstr ""
 
-#: user/templates/user/social_signup_form.html:5
+#: .\user\templates\user\social_signup_form.html:5
 msgid "Social Sign-up"
 msgstr ""
 
-#: user/views.py:64
+#: .\user\views.py:64
 msgid "Profile successfully updated."
 msgstr ""
 
-#: user/views.py:76
+#: .\user\views.py:76
 msgid "Update profile"
 msgstr ""
