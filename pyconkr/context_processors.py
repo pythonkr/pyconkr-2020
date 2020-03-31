@@ -39,11 +39,11 @@ def default(request):
             'support', {
                 'title': _('Support'),
                 'submenu': OrderedDict([
-                    ('financial-aid', {'title': _('Financial Aid')}),
+                    # ('financial-aid', {'title': _('Financial Aid')}),
                     ('visa-sponsing', {'title': _('Visa Sponsing')}),
-                    ('child-care', {'title': _('Child Care')}),
-                    ('speech2text', {
-                     'title': _('Speech to Text Translation')}),
+                    # ('child-care', {'title': _('Child Care')}),
+                    # ('speech2text', {
+                    #  'title': _('Speech to Text Translation')}),
                 ])
             },
         ),
@@ -57,7 +57,7 @@ def default(request):
                     ('openspace', {'title': _('Open Spaces')}),
                     ('tutorial', {'title': _('Tutorial')}),
                     ('sprint', {'title': _('Sprint')}),
-                    ('youngcoder', {'title': _('Young Coder')}),
+                    # ('youngcoder', {'title': _('Young Coder')}),
                 ])
             }
         ),
