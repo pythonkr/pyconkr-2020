@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-26 14:18+0900\n"
+"POT-Creation-Date: 2020-03-31 20:38+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -248,10 +248,6 @@ msgstr "파이콘 한국"
 msgid "About PyCon Korea 2020"
 msgstr "파이콘 한국 2020"
 
-#: .\pyconkr\context_processors.py:29
-msgid "Venue"
-msgstr "장소"
-
 #: .\pyconkr\context_processors.py:30
 msgid "Important Dates"
 msgstr "주요 일정"
@@ -276,21 +272,9 @@ msgstr "지난 파이콘 한국"
 msgid "Support"
 msgstr "지원 및 안내"
 
-#: .\pyconkr\context_processors.py:42
-msgid "Financial Aid"
-msgstr "재정지원"
-
 #: .\pyconkr\context_processors.py:43
 msgid "Visa Sponsing"
 msgstr "Visa Sponsing"
-
-#: .\pyconkr\context_processors.py:44
-msgid "Child Care"
-msgstr "아이돌봄"
-
-#: .\pyconkr\context_processors.py:46
-msgid "Speech to Text Translation"
-msgstr "문자 통역"
 
 #: .\pyconkr\context_processors.py:52
 #: .\pyconkr\templates\pyconkr\program_detail.html:4
@@ -324,10 +308,6 @@ msgstr "튜토리얼"
 #: .\pyconkr\templates\pyconkr\sprintproposal_list.html:4
 msgid "Sprint"
 msgstr "스프린트"
-
-#: .\pyconkr\context_processors.py:60 .\pyconkr\templates\youngcoder.html:12
-msgid "Young Coder"
-msgstr "영코더"
 
 #: .\pyconkr\context_processors.py:66
 msgid "Timetable"
@@ -482,23 +462,9 @@ msgstr ""
 msgid "튜토리얼 참가는 준비 중입니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:50
-msgid "Sat"
-msgstr "토"
-
-#: .\pyconkr\templates\index.html:50
-msgid "Sun"
-msgstr "일"
-
 #: .\pyconkr\templates\index.html:52
 msgid ""
 "파이썬 사용 사례와 지식을 공유하는 50여 개의 다양한 발표 세션이 열립니다."
-msgstr ""
-
-#: .\pyconkr\templates\index.html:53
-msgid ""
-"또 후원 기업 부스와 영코더, 라이트닝 토크, 열린공간 등 다양한 이벤트를 통해 "
-"다양한 참가자와 교류할 수 있습니다."
 msgstr ""
 
 #: .\pyconkr\templates\index.html:54
@@ -862,6 +828,10 @@ msgstr "문의"
 msgid "Schedule English Label"
 msgstr "영어"
 
+#: .\pyconkr\templates\youngcoder.html:12
+msgid "Young Coder"
+msgstr "영코더"
+
 #: .\pyconkr\templates\youngcoder.html:57
 msgid "영코더란?"
 msgstr ""
@@ -959,6 +929,24 @@ msgid ""
 "마지막으로, 우리는 웹 사이트 및 간단한 게임을 만들어 보면서 이 세상을 이해할 "
 "수 있는 더 넓은 시야를 갖게 될 것입니다."
 msgstr ""
+
+#~ msgid "Venue"
+#~ msgstr "장소"
+
+#~ msgid "Financial Aid"
+#~ msgstr "재정지원"
+
+#~ msgid "Child Care"
+#~ msgstr "아이돌봄"
+
+#~ msgid "Speech to Text Translation"
+#~ msgstr "문자 통역"
+
+#~ msgid "Sat"
+#~ msgstr "토"
+
+#~ msgid "Sun"
+#~ msgstr "일"
 
 #~ msgid "Coex Grand Ballroom, Seoul"
 #~ msgstr "코엑스 그랜드볼룸, 서울"

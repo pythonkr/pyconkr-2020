@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-26 14:18+0900\n"
+"POT-Creation-Date: 2020-03-31 20:38+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -247,10 +247,6 @@ msgstr "About"
 msgid "About PyCon Korea 2020"
 msgstr "About PyCon Korea 2020"
 
-#: .\pyconkr\context_processors.py:29
-msgid "Venue"
-msgstr "Venue"
-
 #: .\pyconkr\context_processors.py:30
 msgid "Important Dates"
 msgstr ""
@@ -275,20 +271,8 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
-#: .\pyconkr\context_processors.py:42
-msgid "Financial Aid"
-msgstr "Financial Aid"
-
 #: .\pyconkr\context_processors.py:43
 msgid "Visa Sponsing"
-msgstr ""
-
-#: .\pyconkr\context_processors.py:44
-msgid "Child Care"
-msgstr "Child Care"
-
-#: .\pyconkr\context_processors.py:46
-msgid "Speech to Text Translation"
 msgstr ""
 
 #: .\pyconkr\context_processors.py:52
@@ -323,10 +307,6 @@ msgstr "Tutorial"
 #: .\pyconkr\templates\pyconkr\sprintproposal_list.html:4
 msgid "Sprint"
 msgstr "Sprint"
-
-#: .\pyconkr\context_processors.py:60 .\pyconkr\templates\youngcoder.html:12
-msgid "Young Coder"
-msgstr "Young Coder"
 
 #: .\pyconkr\context_processors.py:66
 msgid "Timetable"
@@ -486,29 +466,12 @@ msgstr ""
 msgid "튜토리얼 참가는 준비 중입니다."
 msgstr "Tutorial participation is being prepared."
 
-#: .\pyconkr\templates\index.html:50
-msgid "Sat"
-msgstr ""
-
-#: .\pyconkr\templates\index.html:50
-msgid "Sun"
-msgstr ""
-
 #: .\pyconkr\templates\index.html:52
 msgid ""
 "파이썬 사용 사례와 지식을 공유하는 50여 개의 다양한 발표 세션이 열립니다."
 msgstr ""
 "There are over 50 different presentation sessions that share knowledge and "
 "use of Python use cases."
-
-#: .\pyconkr\templates\index.html:53
-msgid ""
-"또 후원 기업 부스와 영코더, 라이트닝 토크, 열린공간 등 다양한 이벤트를 통해 "
-"다양한 참가자와 교류할 수 있습니다."
-msgstr ""
-"In addition, various events such as sponsored company booth, young coder, "
-"lightning talk, open space are available. You can participate in the event "
-"and interact with various participants."
 
 #: .\pyconkr\templates\index.html:54
 msgid ""
@@ -884,6 +847,10 @@ msgstr ""
 msgid "Schedule English Label"
 msgstr "English"
 
+#: .\pyconkr\templates\youngcoder.html:12
+msgid "Young Coder"
+msgstr "Young Coder"
+
 #: .\pyconkr\templates\youngcoder.html:57
 msgid "영코더란?"
 msgstr "What is Young Coder?"
@@ -1009,6 +976,23 @@ msgid ""
 msgstr ""
 "In the end, we will have a broader view of the world as we create websites "
 "and simple games."
+
+#~ msgid "Venue"
+#~ msgstr "Venue"
+
+#~ msgid "Financial Aid"
+#~ msgstr "Financial Aid"
+
+#~ msgid "Child Care"
+#~ msgstr "Child Care"
+
+#~ msgid ""
+#~ "또 후원 기업 부스와 영코더, 라이트닝 토크, 열린공간 등 다양한 이벤트를 통"
+#~ "해 다양한 참가자와 교류할 수 있습니다."
+#~ msgstr ""
+#~ "In addition, various events such as sponsored company booth, young coder, "
+#~ "lightning talk, open space are available. You can participate in the "
+#~ "event and interact with various participants."
 
 #~ msgid "서울 코엑스 그랜드볼룸"
 #~ msgstr "Coex Grand Ballroom, Seoul"
