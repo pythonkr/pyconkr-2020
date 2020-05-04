@@ -40,10 +40,10 @@ def default(request):
                 'title': _('Support'),
                 'submenu': OrderedDict([
                     # ('financial-aid', {'title': _('Financial Aid')}),
-                    ('visa-sponsing', {'title': _('Visa Sponsing')}),
+                    # ('visa-sponsing', {'title': _('Visa Sponsing')}),
                     # ('child-care', {'title': _('Child Care')}),
-                    # ('speech2text', {
-                    #  'title': _('Speech to Text Translation')}),
+                    ('speech2text', {
+                     'title': _('Speech to Text Translation')}),
                 ])
             },
         ),
@@ -53,10 +53,10 @@ def default(request):
                 'submenu': OrderedDict([
                     ('keynote', {'title': _('Keynotes')}),
                     ('talks', {'title': _('Talks')}),
-                    ('lightning-talk', {'title': _('Lightning Talk')}),
-                    ('openspace', {'title': _('Open Spaces')}),
-                    ('tutorial', {'title': _('Tutorial')}),
-                    ('sprint', {'title': _('Sprint')}),
+                    # ('lightning-talk', {'title': _('Lightning Talk')}),
+                    # ('openspace', {'title': _('Open Spaces')}),
+                    # ('tutorial', {'title': _('Tutorial')}),
+                    # ('sprint', {'title': _('Sprint')}),
                     # ('youngcoder', {'title': _('Young Coder')}),
                 ])
             }
@@ -85,7 +85,7 @@ def default(request):
                      {'title': _('Proposing a Tutorial'), 'disable': True}),
                     ('recommending-keynote',
                      {'title': _('Recommending Keynote'), 'disable': True}),
-                    ('volunteer', {'title': _('Volunteer')}),
+                    # ('volunteer', {'title': _('Volunteer')}),
                     ('video-subtitle', {'title': _('Video Subtitle')}),
                 ])
             }
