@@ -292,6 +292,7 @@ main .alert-warning, main .table {
     left: 1%;
   }
 }
+
 @media (max-width: 500px) {
   .header-bg {
     min-height: 650px;
@@ -301,6 +302,7 @@ main .alert-warning, main .table {
     font-size: 3rem;
   }
 }
+
 .align-left {
   text-align: left;
 }
