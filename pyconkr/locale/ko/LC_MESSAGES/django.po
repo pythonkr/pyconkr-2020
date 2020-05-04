@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 20:38+0900\n"
+"POT-Creation-Date: 2020-05-04 19:41+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -272,9 +272,9 @@ msgstr "지난 파이콘 한국"
 msgid "Support"
 msgstr "지원 및 안내"
 
-#: .\pyconkr\context_processors.py:43
-msgid "Visa Sponsing"
-msgstr "Visa Sponsing"
+#: .\pyconkr\context_processors.py:46
+msgid "Speech to Text Translation"
+msgstr "문자 통역"
 
 #: .\pyconkr\context_processors.py:52
 #: .\pyconkr\templates\pyconkr\program_detail.html:4
@@ -290,33 +290,23 @@ msgstr "키노트"
 msgid "Talks"
 msgstr "발표"
 
-#: .\pyconkr\context_processors.py:56
-msgid "Lightning Talk"
-msgstr "라이트닝 토크"
-
-#: .\pyconkr\context_processors.py:57
-msgid "Open Spaces"
-msgstr "열린 공간"
-
-#: .\pyconkr\context_processors.py:58 .\pyconkr\context_processors.py:70
-#: .\pyconkr\templates\base.html:65 .\pyconkr\templates\index.html:45
-msgid "Tutorial"
-msgstr "튜토리얼"
-
-#: .\pyconkr\context_processors.py:59 .\pyconkr\context_processors.py:71
-#: .\pyconkr\templates\base.html:64 .\pyconkr\templates\index.html:39
-#: .\pyconkr\templates\pyconkr\sprintproposal_list.html:4
-msgid "Sprint"
-msgstr "스프린트"
-
 #: .\pyconkr\context_processors.py:66
 msgid "Timetable"
 msgstr "시간표"
 
-#: .\pyconkr\context_processors.py:69 .\pyconkr\templates\base.html:66
-#: .\pyconkr\templates\index.html:50
+#: .\pyconkr\context_processors.py:69 .\pyconkr\templates\base.html:64
+#: .\pyconkr\templates\index.html:52
 msgid "Conference"
 msgstr "컨퍼런스"
+
+#: .\pyconkr\context_processors.py:70
+msgid "Tutorial"
+msgstr "튜토리얼"
+
+#: .\pyconkr\context_processors.py:71
+#: .\pyconkr\templates\pyconkr\sprintproposal_list.html:4
+msgid "Sprint"
+msgstr "스프린트"
 
 #: .\pyconkr\context_processors.py:77
 msgid "Contribution"
@@ -342,15 +332,11 @@ msgstr "튜토리얼 제안하기"
 msgid "Recommending Keynote"
 msgstr "키노트 연사 추천하기"
 
-#: .\pyconkr\context_processors.py:88
-msgid "Volunteer"
-msgstr "자원봉사"
-
 #: .\pyconkr\context_processors.py:89
 msgid "Video Subtitle"
 msgstr "영상 자막"
 
-#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:94
+#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:96
 msgid "Sponsor"
 msgstr "후원사"
 
@@ -395,12 +381,15 @@ msgstr "파이콘 한국 2020"
 msgid "base-og-description"
 msgstr "파이콘 한국 2020: 8월 13-16일"
 
-#: .\pyconkr\templates\base.html:64 .\pyconkr\templates\base.html:65
-#: .\pyconkr\templates\base.html:66
-msgid "날짜 미정"
+#: .\pyconkr\templates\base.html:64
+msgid "토"
 msgstr ""
 
-#: .\pyconkr\templates\base.html:86
+#: .\pyconkr\templates\base.html:64
+msgid "일"
+msgstr ""
+
+#: .\pyconkr\templates\base.html:84
 #: .\pyconkr\templates\pyconkr\sponsor_list.html:4
 msgid "Sponsors"
 msgstr "후원사 목록"
@@ -437,124 +426,103 @@ msgid ""
 "니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:40
-msgid ""
-"관심있는 오픈소스 프로젝트를 같은 장소에 모여 집중적으로 개발하는 자리입니다."
+#: .\pyconkr\templates\index.html:38
+msgid "파이콘 한국 2020은 온라인으로 진행됩니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:41
-msgid ""
-"새로운 동료를 만나고, 오픈소스에서 얻을 수 있는 경험과 지식을 나눌 수 있습니"
-"다."
+#: .\pyconkr\templates\index.html:39
+msgid "세부 운영 계획, 행사 상세 일정은 추후 안내 예정입니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:43
-msgid "스프린트 참가는 준비 중입니다."
-msgstr ""
-
-#: .\pyconkr\templates\index.html:46
-msgid ""
-"초보자들을 위해, 또는 새로운 것을 접하는 사람들을 위해 진행하는 교육 프로그램"
-"입니다."
-msgstr ""
-
-#: .\pyconkr\templates\index.html:48
-msgid "튜토리얼 참가는 준비 중입니다."
-msgstr ""
-
-#: .\pyconkr\templates\index.html:52
+#: .\pyconkr\templates\index.html:54
 msgid ""
 "파이썬 사용 사례와 지식을 공유하는 50여 개의 다양한 발표 세션이 열립니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:54
+#: .\pyconkr\templates\index.html:56
 msgid ""
 "컨퍼런스의 자세한 시간표는 프로그램 > 세부일정에서 추후에 확인하실 수 있습니"
 "다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:56
-msgid "컨퍼런스 티켓은 준비 중입니다."
-msgstr ""
-
-#: .\pyconkr\templates\index.html:58
+#: .\pyconkr\templates\index.html:60
 msgid "이 외의 모든 공지사항은 공식 "
 msgstr ""
 
-#: .\pyconkr\templates\index.html:59 .\pyconkr\templates\index.html:93
+#: .\pyconkr\templates\index.html:61 .\pyconkr\templates\index.html:95
 msgid "페이스북"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:59
+#: .\pyconkr\templates\index.html:61
 msgid "과 "
 msgstr ""
 
-#: .\pyconkr\templates\index.html:60
+#: .\pyconkr\templates\index.html:62
 msgid "트위터"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:60
+#: .\pyconkr\templates\index.html:62
 msgid ", 이곳을 통해 공지될 예정입니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:65
+#: .\pyconkr\templates\index.html:67
 msgid "Slogan"
 msgstr "슬로건"
 
-#: .\pyconkr\templates\index.html:68
+#: .\pyconkr\templates\index.html:70
 msgid "이 곳에는 '파이썬'이라는 단 하나의 공통점으로 모이는 사람들이 있습니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:69
+#: .\pyconkr\templates\index.html:71
 msgid "이제 막 파이썬이 무엇인지 알게 된 사람들,"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:70
+#: .\pyconkr\templates\index.html:72
 msgid "파이썬으로 무언가를 만들고 연구하며 세상에 기여하고 있는 사람들,"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:71
+#: .\pyconkr\templates\index.html:73
 msgid "다른 이에게 파이썬을 더 널리 알리고 싶은 사람들까지."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:72
+#: .\pyconkr\templates\index.html:74
 msgid "이렇게 다양한 사람들이 모여있는 파이콘 한국에서"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:73
+#: .\pyconkr\templates\index.html:75
 msgid ""
 "우리는 서로의 경험담에 응원을 보내고, 울고 웃으며 많은 이야기를 나눕니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:74
+#: .\pyconkr\templates\index.html:76
 msgid "그렇게 파이콘 한국은 점점 깊어지고, 넓어지고, 단단해졌습니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:75
+#: .\pyconkr\templates\index.html:77
 msgid ""
 "올해도 어김없이 열릴 파이콘 한국을 통해<br>여러분의 세상이 한 발자국 더 넓어"
 "질 수 있기를 바랍니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:76
+#: .\pyconkr\templates\index.html:78
 msgid ""
 "이곳에 모인 우리는 함께 걸어갈 수 있는 힘을 가진 파이써니스타들이니까요."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:77
+#: .\pyconkr\templates\index.html:79
 msgid "We are Pythonistas."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:90
+#: .\pyconkr\templates\index.html:92
 msgid "문의 & 공식 계정"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:91
+#: .\pyconkr\templates\index.html:93
 msgid ""
 "파이콘 한국 2020에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:92
+#: .\pyconkr\templates\index.html:94
 msgid "Email"
 msgstr "이메일"
 
@@ -930,6 +898,18 @@ msgid ""
 "수 있는 더 넓은 시야를 갖게 될 것입니다."
 msgstr ""
 
+#~ msgid "Visa Sponsing"
+#~ msgstr "Visa Sponsing"
+
+#~ msgid "Lightning Talk"
+#~ msgstr "라이트닝 토크"
+
+#~ msgid "Open Spaces"
+#~ msgstr "열린 공간"
+
+#~ msgid "Volunteer"
+#~ msgstr "자원봉사"
+
 #~ msgid "Venue"
 #~ msgstr "장소"
 
@@ -938,9 +918,6 @@ msgstr ""
 
 #~ msgid "Child Care"
 #~ msgstr "아이돌봄"
-
-#~ msgid "Speech to Text Translation"
-#~ msgstr "문자 통역"
 
 #~ msgid "Sat"
 #~ msgstr "토"
