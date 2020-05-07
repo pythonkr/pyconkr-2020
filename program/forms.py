@@ -8,6 +8,8 @@ from django.utils.translation import ugettext as _
 from django.core.files.images import get_image_dimensions
 from .models import Speaker, Program, Proposal, SprintProposal, TutorialProposal
 
+from constance import config
+
 
 class SpeakerForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -87,12 +89,15 @@ class ProposalForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', _('Submit')))
 
+        self.fields['brief'].initial = config.CFP_BRIEF_TEMPLATE
+        self.fields['desc'].initial = config.CFP_DESC_TEMPLATE
+
     class Meta:
         model = Proposal
         fields = ('title', 'brief', 'desc', 'comment',
                   'difficulty', 'duration', 'language',)
         widgets = {
-            'desc': SummernoteInplaceWidget(),
+            # 'desc': SummernoteInplaceWidget(), # template 적용을 위해 summernote 제외
             'comment': SummernoteInplaceWidget(),
         }
 
