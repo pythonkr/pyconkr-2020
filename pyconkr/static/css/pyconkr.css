@@ -911,7 +911,7 @@ button {
     font-weight: 500;
 }
 
-div.fixed-footer {
+div.sticky-footer {
     position: fixed;
     bottom: 0;
     left: 0;
