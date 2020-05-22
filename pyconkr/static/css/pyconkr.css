@@ -609,12 +609,12 @@ input[type=file] {
 
 /** footer **/
 footer {
-  height: 185px;
+  height: 160px;
   padding: 2rem 0;
   background-color: #eee;
   color: #717171;
   font-size: 0.7rem;
-  margin-top: -185px;
+  margin-top: -160px;
 }
 
 footer h3 {
@@ -911,11 +911,11 @@ button {
     font-weight: 500;
 }
 
-div.sticky-footer {
+.sticky-footer {
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: #088487;
+    background-color: #0F4C81;
     color: white;
     font-weight: 700;
     display: flex;
@@ -923,4 +923,20 @@ div.sticky-footer {
     align-items: center;
     width: 100%;
     height: 40px;
+    padding: 0 20px;
+}
+
+.sticky-footer .coc {
+    padding: 0 10px;
+}
+
+.sticky-footer .snslinks {
+    padding: 5px 0 0 0;
+}
+.sticky-footer .snslinks > a {
+    padding: 10px 10px;
+}
+
+.sticky-footer .snslinks svg {
+    width: 20px;
 }
