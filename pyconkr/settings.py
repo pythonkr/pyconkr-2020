@@ -35,7 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.humanize',
 ) + (
-    # thirt-party apps
+    # third-party apps
     'django_summernote',
     'rosetta',
     'crispy_forms',
@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'django_csv_exports',
     'mail_templated',
     'import_export',
+    'sass_processor',
 ) + (
     # local apps
     'pyconkr',
@@ -343,3 +344,17 @@ LOGGING = {
         },
     }
 }
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
+
+SASS_PROCESSOR_AUTO_INCLUDE = False
+
+SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
