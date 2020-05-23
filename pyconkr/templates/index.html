@@ -15,19 +15,10 @@
 
 {% if recent_announcements %}
 <section class="box-section">
-  <div class="js_slick">
+    <h3>공지사항</h3>
     {% for announcement in recent_announcements %}
-    <div class="box-slick-wrap">
-      <div class="box-slick">
-        <div class="title-text title-underline">{{ announcement }}</div>
-        <div class="desc-text">
-          {{ announcement.desc|safe }}
-        </div>
-        <a class="submit-btn" href="{% url 'announcement' announcement.id %}">{% trans "자세히 보기" %}</a>
-      </div>
-    </div>
+        <li><a href="{{ announcement.url }}">{{ announcement.title|safe }}</a></li>
     {% endfor %}
-  </div>
 </section>
 {% endif %}
 
