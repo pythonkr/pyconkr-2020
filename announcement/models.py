@@ -3,6 +3,7 @@ from django.db import models
 
 class Announcement(models.Model):
     title = models.CharField(max_length=100, db_index=True)
+    url = models.URLField(max_length=500)
     desc = models.TextField(null=True, blank=True)
 
     announce_after = models.DateTimeField(null=True, blank=True)
