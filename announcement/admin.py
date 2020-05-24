@@ -5,7 +5,7 @@ from .models import Announcement
 
 
 class AnnouncementAdmin(SummernoteModelAdmin, TranslationAdmin):
-    list_display = ('id', 'title', 'created', 'modified')
+    list_display = ('id', 'title',)
     ordering = ('id',)
     search_fields = ('title',)
 
