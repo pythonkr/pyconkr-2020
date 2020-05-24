@@ -5,7 +5,7 @@ from .models import (
 
 
 class AnnouncementTranslationOptions(TranslationOptions):
-    fields = ('title', 'desc',)
+    fields = ('title',)
 
 
 translator.register(Announcement, AnnouncementTranslationOptions)
