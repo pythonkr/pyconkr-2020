@@ -16,7 +16,9 @@
 <section class="box-section">
     <h3>{% trans "공지사항" %}</h3>
     {% for announcement in recent_announcements %}
-        <li><a href="{{ announcement.url }}">{{ announcement.title|safe }}</a></li>
+        {% if announcement.active %}
+            <li><a href="{{ announcement.url }}">{{ announcement.title|safe }}</a></li>
+        {% endif %}
     {% endfor %}
 </section>
 {% endif %}
