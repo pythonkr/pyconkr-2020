@@ -32,7 +32,7 @@
     <link href="{% static "components/bootstrap-social/bootstrap-social.css" %}" rel="stylesheet">
     <link href="{% static "css/pyconkr-media.css" %}" rel="stylesheet">
     <link href="{% static "css/pyconkr-teaser.css" %}" rel="stylesheet" type="text/css">
-    <link href="{% sass_src "css/pyconkr.scss" %}" rel="stylesheet" />
+    <link href="{% sass_src "css/pyconkr.scss" %}?{% now "U" %}" rel="stylesheet" />
 
     {% block head-include %}
     {% endblock %}
