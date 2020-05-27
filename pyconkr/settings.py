@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'mail_templated',
     'import_export',
     'sass_processor',
+    'compressor',
 ) + (
     # local apps
     'pyconkr',
@@ -351,6 +352,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'sass_processor.finders.CssFinder',
+    'compressor.finders.CompressorFinder',
 ]
 
 SASS_PROCESSOR_AUTO_INCLUDE = False
