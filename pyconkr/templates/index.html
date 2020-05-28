@@ -17,7 +17,7 @@
     <h3>{% trans "공지사항" %}</h3>
     {% for announcement in recent_announcements %}
         {% if announcement.active %}
-            <li><a href="{{ announcement.url }}">{{ announcement.title|safe }}</a></li>
+            <li><a href="{{ announcement.url }}" target="_blank">{{ announcement.title|safe }}</a></li>
         {% endif %}
     {% endfor %}
 </section>
