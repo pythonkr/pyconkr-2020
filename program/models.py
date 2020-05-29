@@ -222,10 +222,11 @@ class Proposal(models.Model):
 
     language = models.CharField(max_length=1,
                                 choices=(
-                                    ('E', _('English')),
+                                    ('', '---------'),
                                     ('K', _('Korean')),
+                                    ('E', _('English')),
                                 ),
-                                default='E')
+                                default='')
 
     category = models.CharField(max_length=25,
                                 choices=(
