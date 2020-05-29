@@ -26,7 +26,7 @@ def default(request):
                 'title': _('About'),
                 'submenu': OrderedDict([
                     ('pyconkr', {'title': _('About PyCon Korea 2020')}),
-                    # ('venue', {'title': _('Venue')}),
+                    ('venue', {'title': _('Venue'), 'disable': True}),
                     ('schedule', {'title': _('Important Dates')}),
                     ('patron', {'title': _('Patrons')}),
                     ('coc', {'title': _('Code of Conduct')}),
@@ -39,11 +39,11 @@ def default(request):
             'support', {
                 'title': _('Support'),
                 'submenu': OrderedDict([
-                    # ('financial-aid', {'title': _('Financial Aid')}),
-                    # ('visa-sponsing', {'title': _('Visa Sponsing')}),
-                    # ('child-care', {'title': _('Child Care')}),
+                    ('financial-aid', {'title': _('Financial Aid'), 'disable': True}),
+                    ('visa-sponsing', {'title': _('Visa Sponsing'), 'disable': True}),
+                    ('child-care', {'title': _('Child Care'), 'disable': True}),
                     ('speech2text', {
-                     'title': _('Speech to Text Translation')}),
+                     'title': _('Speech to Text Translation'), 'disable': True}),
                 ])
             },
         ),
@@ -53,11 +53,11 @@ def default(request):
                 'submenu': OrderedDict([
                     ('keynote', {'title': _('Keynotes')}),
                     ('talks', {'title': _('Talks')}),
-                    # ('lightning-talk', {'title': _('Lightning Talk')}),
-                    # ('openspace', {'title': _('Open Spaces')}),
-                    # ('tutorial', {'title': _('Tutorial')}),
-                    # ('sprint', {'title': _('Sprint')}),
-                    # ('youngcoder', {'title': _('Young Coder')}),
+                    ('lightning-talk', {'title': _('Lightning Talk'), 'disable': True}),
+                    ('openspace', {'title': _('Open Spaces'), 'disable': True}),
+                    ('tutorial', {'title': _('Tutorial'), 'disable': True}),
+                    ('sprint', {'title': _('Sprint'), 'disable': True}),
+                    ('youngcoder', {'title': _('Young Coder'), 'disable': True}),
                 ])
             }
         ),
@@ -76,7 +76,7 @@ def default(request):
             'contribution', {
                 'title': _('Contribution'),
                 'submenu': OrderedDict([
-                    # ('about', {'title': _('About Contribution')}),
+                    ('about', {'title': _('About Contribution'), 'disable': True}),
                     ('cfp/guide', {'title': _('How to Submit a Proposal')}),
                     ('cfp', {'title': _('Proposing a talk')}),
                     ('review-talk-proposal',
@@ -85,7 +85,7 @@ def default(request):
                      {'title': _('Proposing a Tutorial'), 'disable': True}),
                     ('recommending-keynote',
                      {'title': _('Recommending Keynote'), 'disable': True}),
-                    # ('volunteer', {'title': _('Volunteer')}),
+                    ('volunteer', {'title': _('Volunteer'), 'disable': True}),
                     ('video-subtitle', {'title': _('Video Subtitle')}),
                 ])
             }
@@ -95,7 +95,7 @@ def default(request):
                 'title': _('Sponsor'),
                 'submenu': OrderedDict([
                     ('prospectus', {'title': _('Prospectus')}),
-                    ('benefit', {'title': _('Benefit')}),
+                    ('benefit', {'title': _('Benefit'), 'disable': True}),
                     ('join', {'title': _('Join as Sponsor')}),
                     ('faq', {'title': _('FAQ')}),
                     ('terms-of-sponsor', {'title': _('Terms of Sponsor')}),
