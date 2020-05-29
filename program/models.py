@@ -243,7 +243,8 @@ class Proposal(models.Model):
                                     ('PF', _('Python Core & Fundamental')),
                                     ('DS', _('Data Science')),
                                     ('etc', _('etc')),
-                                ))
+                                ),
+                                default='etc')
 
     def __str__(self):
         return self.title
