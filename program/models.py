@@ -229,6 +229,7 @@ class Proposal(models.Model):
 
     category = models.CharField(max_length=25,
                                 choices=(
+                                    ('', '---------'),
                                     ('PL', _('Python Library')),
                                     ('DM', _('Development Method with Python')),
                                     ('DA', _('Data Analytics')),
@@ -243,8 +244,7 @@ class Proposal(models.Model):
                                     ('PF', _('Python Core & Fundamental')),
                                     ('DS', _('Data Science')),
                                     ('etc', _('etc')),
-                                ),
-                                default='etc')
+                                ))
 
     def __str__(self):
         return self.title
