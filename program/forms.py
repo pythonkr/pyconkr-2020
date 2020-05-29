@@ -4,7 +4,7 @@ from crispy_forms.layout import Submit
 from django import forms
 from django.conf import settings
 from django_summernote.widgets import SummernoteInplaceWidget
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.core.files.images import get_image_dimensions
 from .models import Speaker, Program, Proposal, SprintProposal, TutorialProposal
 
