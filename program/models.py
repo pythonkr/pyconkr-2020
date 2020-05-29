@@ -227,6 +227,24 @@ class Proposal(models.Model):
                                 ),
                                 default='E')
 
+    category = models.CharField(max_length=25,
+                                choices=(
+                                    ('PL', _('Python Library')),
+                                    ('DM', _('Development Method with Python')),
+                                    ('DA', _('Data Analytics')),
+                                    ('LS', _('Life / Social')),
+                                    ('CV', _('Computer Vision')),
+                                    ('RE', _('Robotics / Embedded System')),
+                                    ('DG', _('Data Gathering')),
+                                    ('BC', _('Blockchain')),
+                                    ('PC', _('Python Community')),
+                                    ('WS', _('Web Service')),
+                                    ('DL', _('Deep Learning & AI')),
+                                    ('PF', _('Python Core & Fundamental')),
+                                    ('DS', _('Data Science')),
+                                    ('etc', _('etc')),
+                                ))
+
     def __str__(self):
         return self.title
 
