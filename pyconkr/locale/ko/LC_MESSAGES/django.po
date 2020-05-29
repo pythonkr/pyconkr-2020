@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 20:48+0900\n"
+"POT-Creation-Date: 2020-05-29 13:31+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -37,7 +37,7 @@ msgid "Read more"
 msgstr "더 보기"
 
 #: .\program\forms.py:19 .\program\forms.py:68 .\program\forms.py:90
-#: .\program\forms.py:121 .\program\forms.py:146
+#: .\program\forms.py:122 .\program\forms.py:147
 msgid "Submit"
 msgstr "제출"
 
@@ -65,7 +65,7 @@ msgstr "프로필"
 msgid "Additional information"
 msgstr "추가 정보"
 
-#: .\program\forms.py:77 .\program\forms.py:133 .\program\forms.py:157
+#: .\program\forms.py:77 .\program\forms.py:134 .\program\forms.py:158
 msgid "Title"
 msgstr "제목"
 
@@ -101,7 +101,7 @@ msgstr "자세한 설명 (필수)"
 msgid "Comment to reviewers (optional)"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
-#: .\program\forms.py:110 .\program\forms.py:161
+#: .\program\forms.py:110 .\program\forms.py:162
 msgid "Session difficulty"
 msgstr "세션 난이도"
 
@@ -109,31 +109,35 @@ msgstr "세션 난이도"
 msgid "Session duration"
 msgstr "세션 길이"
 
-#: .\program\forms.py:112 .\program\forms.py:134
+#: .\program\forms.py:112 .\program\forms.py:135
 #: .\pyconkr\templates\nav.html:78
 msgid "Language"
 msgstr "언어"
 
-#: .\program\forms.py:135
+#: .\program\forms.py:113
+msgid "Category"
+msgstr "분야"
+
+#: .\program\forms.py:136
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:49
 msgid "Project URL"
 msgstr "프로젝트 공식 URL"
 
-#: .\program\forms.py:136
+#: .\program\forms.py:137
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:41
 msgid "Project brief"
 msgstr "오픈소스 프로젝트에 대한 간단한 설명"
 
-#: .\program\forms.py:137
+#: .\program\forms.py:138
 msgid "Contribution description"
 msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
 
-#: .\program\forms.py:158
+#: .\program\forms.py:159
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "간단한 설명"
 
-#: .\program\forms.py:159 .\pyconkr\templates\pyconkr\proposal_detail.html:23
+#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\proposal_detail.html:23
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
@@ -154,17 +158,17 @@ msgstr ""
 "\" target=\"_blank\">http://lipis.github.io/bootstrap-social/</a>에서 확인하"
 "실 수 있습니다.</p>\""
 
-#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:244
+#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:262
 msgid "Beginner"
 msgstr "초급"
 
-#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:245
+#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:263
 msgid "Intermediate"
 msgstr "중급"
 
-#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:246
+#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:264
 msgid "Experienced"
-msgstr "상급"
+msgstr "고급"
 
 #: .\program\models.py:120 .\program\models.py:219
 msgid "25 mins"
@@ -174,12 +178,12 @@ msgstr "25분"
 msgid "40 mins"
 msgstr "40분"
 
-#: .\program\models.py:126 .\program\models.py:225 .\program\models.py:258
+#: .\program\models.py:126 .\program\models.py:225 .\program\models.py:276
 #: .\pyconkr\settings.py:150
 msgid "English"
 msgstr "영어"
 
-#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:259
+#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:277
 #: .\pyconkr\settings.py:149
 msgid "Korean"
 msgstr "한국어"
@@ -188,15 +192,71 @@ msgstr "한국어"
 msgid "Not arranged yet"
 msgstr "아직 결정되지 않았습니다."
 
-#: .\program\models.py:251
+#: .\program\models.py:232
+msgid "Python Library"
+msgstr ""
+
+#: .\program\models.py:233
+msgid "Development Method with Python"
+msgstr ""
+
+#: .\program\models.py:234
+msgid "Data Analytics"
+msgstr ""
+
+#: .\program\models.py:235
+msgid "Life / Social"
+msgstr ""
+
+#: .\program\models.py:236
+msgid "Computer Vision"
+msgstr ""
+
+#: .\program\models.py:237
+msgid "Robotics / Embedded System"
+msgstr ""
+
+#: .\program\models.py:238
+msgid "Data Gathering"
+msgstr ""
+
+#: .\program\models.py:239
+msgid "Blockchain"
+msgstr ""
+
+#: .\program\models.py:240
+msgid "Python Community"
+msgstr ""
+
+#: .\program\models.py:241
+msgid "Web Service"
+msgstr ""
+
+#: .\program\models.py:242
+msgid "Deep Learning & AI"
+msgstr ""
+
+#: .\program\models.py:243
+msgid "Python Core & Fundamental"
+msgstr ""
+
+#: .\program\models.py:244
+msgid "Data Science"
+msgstr ""
+
+#: .\program\models.py:245
+msgid "etc"
+msgstr "기타"
+
+#: .\program\models.py:269
 msgid "1 hour"
 msgstr "1시간"
 
-#: .\program\models.py:252
+#: .\program\models.py:270
 msgid "2 hours"
 msgstr "2시간"
 
-#: .\program\models.py:253
+#: .\program\models.py:271
 msgid "4 hours"
 msgstr "4시간"
 
@@ -294,8 +354,8 @@ msgstr "발표"
 msgid "Timetable"
 msgstr "시간표"
 
-#: .\pyconkr\context_processors.py:69 .\pyconkr\templates\base.html:64
-#: .\pyconkr\templates\index.html:43
+#: .\pyconkr\context_processors.py:69 .\pyconkr\templates\base.html:62
+#: .\pyconkr\templates\index.html:44
 msgid "Conference"
 msgstr "컨퍼런스"
 
@@ -313,7 +373,7 @@ msgid "Contribution"
 msgstr "기여하기"
 
 #: .\pyconkr\context_processors.py:80
-msgid "How to submit proposal"
+msgid "How to Submit a Proposal"
 msgstr "발표안 작성 가이드"
 
 #: .\pyconkr\context_processors.py:81
@@ -336,7 +396,7 @@ msgstr "키노트 연사 추천하기"
 msgid "Video Subtitle"
 msgstr "영상 자막"
 
-#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:87
+#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:88
 msgid "Sponsor"
 msgstr "후원사"
 
@@ -371,7 +431,7 @@ msgstr "파이콘 한국 2020 일회용 로그인 토큰"
 
 #: .\pyconkr\helper.py:12 .\pyconkr\templates\base.html:11
 #: .\pyconkr\templates\base.html:12 .\pyconkr\templates\base.html:13
-#: .\pyconkr\templates\base.html:62 .\pyconkr\templates\footer.html:6
+#: .\pyconkr\templates\base.html:60 .\pyconkr\templates\footer.html:6
 #: .\pyconkr\templates\mail\token_html.html:2
 msgid "PyCon Korea 2020"
 msgstr "파이콘 한국 2020"
@@ -381,15 +441,15 @@ msgstr "파이콘 한국 2020"
 msgid "base-og-description"
 msgstr "파이콘 한국 2020: 9월 26-27일"
 
-#: .\pyconkr\templates\base.html:64
+#: .\pyconkr\templates\base.html:62
 msgid "토"
 msgstr ""
 
-#: .\pyconkr\templates\base.html:64
+#: .\pyconkr\templates\base.html:62
 msgid "일"
 msgstr ""
 
-#: .\pyconkr\templates\base.html:84
+#: .\pyconkr\templates\base.html:82
 #: .\pyconkr\templates\pyconkr\sponsor_list.html:4
 msgid "Sponsors"
 msgstr "후원사 목록"
@@ -408,121 +468,117 @@ msgstr ""
 "파이썬 웹 프레임워크 <a href='https://www.djangoproject.com/'>Django</a>로 만"
 "들었습니다."
 
-#: .\pyconkr\templates\footer.html:13
-msgid "Stay connected"
-msgstr "더 알아보기"
-
-#: .\pyconkr\templates\index.html:18
+#: .\pyconkr\templates\index.html:17
 msgid "공지사항"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:26
+#: .\pyconkr\templates\index.html:27
 msgid "행사 상세"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:28
+#: .\pyconkr\templates\index.html:29
 msgid ""
 "파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입"
 "니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:29
+#: .\pyconkr\templates\index.html:30
 msgid "파이콘 한국 2020은 온라인으로 진행됩니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:30
+#: .\pyconkr\templates\index.html:31
 msgid "세부 운영 계획, 행사 상세 일정은 추후 안내 예정입니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:45
+#: .\pyconkr\templates\index.html:46
 msgid ""
 "파이썬 사용 사례와 지식을 공유하는 50여 개의 다양한 발표 세션이 열립니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:47
+#: .\pyconkr\templates\index.html:48
 msgid ""
 "컨퍼런스의 자세한 시간표는 프로그램 > 세부일정에서 추후에 확인하실 수 있습니"
 "다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:51
+#: .\pyconkr\templates\index.html:52
 msgid "이 외의 모든 공지사항은 공식 "
 msgstr ""
 
-#: .\pyconkr\templates\index.html:52 .\pyconkr\templates\index.html:86
+#: .\pyconkr\templates\index.html:53 .\pyconkr\templates\index.html:87
 msgid "페이스북"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:52
+#: .\pyconkr\templates\index.html:53
 msgid "과 "
 msgstr ""
 
-#: .\pyconkr\templates\index.html:53
+#: .\pyconkr\templates\index.html:54
 msgid "트위터"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:53
+#: .\pyconkr\templates\index.html:54
 msgid ", 이곳을 통해 공지될 예정입니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:58
+#: .\pyconkr\templates\index.html:59
 msgid "Slogan"
 msgstr "슬로건"
 
-#: .\pyconkr\templates\index.html:61
+#: .\pyconkr\templates\index.html:62
 msgid "이 곳에는 '파이썬'이라는 단 하나의 공통점으로 모이는 사람들이 있습니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:62
+#: .\pyconkr\templates\index.html:63
 msgid "이제 막 파이썬이 무엇인지 알게 된 사람들,"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:63
+#: .\pyconkr\templates\index.html:64
 msgid "파이썬으로 무언가를 만들고 연구하며 세상에 기여하고 있는 사람들,"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:64
+#: .\pyconkr\templates\index.html:65
 msgid "다른 이에게 파이썬을 더 널리 알리고 싶은 사람들까지."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:65
+#: .\pyconkr\templates\index.html:66
 msgid "이렇게 다양한 사람들이 모여있는 파이콘 한국에서"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:66
+#: .\pyconkr\templates\index.html:67
 msgid ""
 "우리는 서로의 경험담에 응원을 보내고, 울고 웃으며 많은 이야기를 나눕니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:67
+#: .\pyconkr\templates\index.html:68
 msgid "그렇게 파이콘 한국은 점점 깊어지고, 넓어지고, 단단해졌습니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:68
+#: .\pyconkr\templates\index.html:69
 msgid ""
 "올해도 어김없이 열릴 파이콘 한국을 통해<br>여러분의 세상이 한 발자국 더 넓어"
 "질 수 있기를 바랍니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:69
+#: .\pyconkr\templates\index.html:70
 msgid ""
 "이곳에 모인 우리는 함께 걸어갈 수 있는 힘을 가진 파이써니스타들이니까요."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:70
+#: .\pyconkr\templates\index.html:71
 msgid "We are Pythonistas."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:83
+#: .\pyconkr\templates\index.html:84
 msgid "문의 & 공식 계정"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:84
+#: .\pyconkr\templates\index.html:85
 msgid ""
 "파이콘 한국 2020에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:85
+#: .\pyconkr\templates\index.html:86
 msgid "Email"
 msgstr "이메일"
 
@@ -897,3 +953,6 @@ msgid ""
 "마지막으로, 우리는 웹 사이트 및 간단한 게임을 만들어 보면서 이 세상을 이해할 "
 "수 있는 더 넓은 시야를 갖게 될 것입니다."
 msgstr ""
+
+#~ msgid "Stay connected"
+#~ msgstr "더 알아보기"
