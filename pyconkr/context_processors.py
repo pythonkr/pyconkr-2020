@@ -43,7 +43,7 @@ def default(request):
                     ('visa-sponsing', {'title': _('Visa Sponsing'), 'disable': True}),
                     ('child-care', {'title': _('Child Care'), 'disable': True}),
                     ('speech2text', {
-                     'title': _('Speech to Text Translation'), 'disable': True}),
+                     'title': _('Speech to Text Translation')}),
                 ])
             },
         ),
