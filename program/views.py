@@ -442,8 +442,9 @@ class ProgramUpdate(UpdateView):
 def edit_proposal_available_checker(request):
     KST = datetime.timezone(datetime.timedelta(hours=9))
     now = datetime.datetime.now(tz=KST)
-    flag = False
+    flag = False    # 아래에 지정된 상황이 아니면 CFP Closed 상태
 
+    cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
     cfp_deadline = constance.config.CFP_DEADLINE.replace(tzinfo=KST)
     open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
     open_review_finish = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
@@ -453,9 +454,9 @@ def edit_proposal_available_checker(request):
         print('제출한 CFP가 있는 경우, 오픈리뷰 마감 후에는 수정 가능')
         flag = True
 
-    # CFP가 마감된 경우
-    elif cfp_deadline > now:
-        print("CFP 마감 상태")
+    # CFP가 접수중
+    elif cfp_open < now < cfp_deadline:
+        print("CFP 오픈 기간")
         flag = True
 
     return flag
