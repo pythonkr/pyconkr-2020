@@ -51,7 +51,7 @@ def default(request):
             'program', {
                 'title': _('Program'),
                 'submenu': OrderedDict([
-                    ('keynote', {'title': _('Keynotes')}),
+                    ('keynote', {'title': _('Keynotes'), 'disable': True}),
                     ('talks', {'title': _('Talks')}),
                     ('lightning-talk', {'title': _('Lightning Talk'), 'disable': True}),
                     ('openspace', {'title': _('Open Spaces'), 'disable': True}),
