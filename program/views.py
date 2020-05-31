@@ -419,8 +419,11 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
             return redirect('proposal')
 
         EDIT_AVAILABLE = edit_proposal_available_checker(request)
+        CFP_OPENED = is_proposal_opened(request)
 
-        if EDIT_AVAILABLE is False:
+        if CFP_OPENED == -1:
+            return redirect("/2020/error/unopened")
+        elif CFP_OPENED == 1 and EDIT_AVAILABLE is False:
             return redirect("/2020/error/closed/")
 
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)
@@ -444,19 +447,34 @@ def edit_proposal_available_checker(request):
     now = datetime.datetime.now(tz=KST)
     flag = False
 
-    cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
     cfp_deadline = constance.config.CFP_DEADLINE.replace(tzinfo=KST)
     open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
     open_review_finish = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
 
-    # CFP 마감 이후에 오픈리뷰를 시작한다는 가정
-    if open_review_finish < now and Proposal.objects.filter(user=request.user).exists():
+    # CFP 마감 후 오픈리뷰 시작 전
+    if cfp_deadline < now < open_review_start and Proposal.objects.filter(user=request.user).exists():
+        print('제출한 CFP가 있는 경우, 오픈리뷰 시작 전에는 수정 가능')
+        flag = True
+    # 오픈리뷰 종료 후
+    elif open_review_finish < now and Proposal.objects.filter(user=request.user).exists():
         print('제출한 CFP가 있는 경우, 오픈리뷰 마감 후에는 수정 가능')
         flag = True
 
-    # CFP가 접수중
-    elif cfp_open < now < cfp_deadline:
-        print("CFP 오픈 기간")
-        flag = True
+    return flag
+
+
+def is_proposal_opened(request):
+    KST = datetime.timezone(datetime.timedelta(hours=9))
+    now = datetime.datetime.now(tz=KST)
+    cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
+    cfp_deadline = constance.config.CFP_DEADLINE.replace(tzinfo=KST)
+    flag = 0
+
+    # CFP 오픈 이전
+    if cfp_open > now:
+        flag = -1
+    # CFP 마감 이후
+    elif now > cfp_deadline:
+        flag = 1
 
     return flag
