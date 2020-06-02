@@ -43,7 +43,7 @@ gunicorn pyconkr.wsgi:application \
     --max-requests 10000 \
     --max-requests-jitter 5 \
     -k gevent \
-    --log-level=info \
+    --log-level=debug \
 #    --log-file=/logs/gunicorn.log \
     --log-file=-
     --access-logfile=/logs/access.log
