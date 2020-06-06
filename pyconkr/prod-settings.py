@@ -52,6 +52,6 @@ AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 COMPRESS_OFFLINE = True
 LIBSASS_OUTPUT_STYLE = 'compressed'
-COMPRESS_URL = 'https://{}.s3.ap-northeast-2.amazonaws.com'.format(os.getenv('AWS_STORAGE_BUCKET_NAME'))
+COMPRESS_URL = 'https://{}.s3.ap-northeast-2.amazonaws.com/'.format(os.getenv('AWS_STORAGE_BUCKET_NAME'))
 STATIC_URL = COMPRESS_URL
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
