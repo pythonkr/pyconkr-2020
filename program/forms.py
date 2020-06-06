@@ -97,7 +97,7 @@ class ProposalForm(forms.ModelForm):
         fields = ('title', 'brief', 'desc', 'comment',
                   'difficulty', 'duration', 'language', 'category',)
         widgets = {
-            # 'desc': SummernoteInplaceWidget(), # template 적용을 위해 summernote 제외
+            'desc': SummernoteInplaceWidget(),
             'comment': SummernoteInplaceWidget(),
         }
 
