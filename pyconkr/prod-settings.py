@@ -32,6 +32,8 @@ for key in aws_env_keys:
     if not os.getenv(key):
         print(f'You should set {key}')
         exit(1)
+    else:
+        print('{}: {}'.format(key, os.getenv(key)))
 
 INSTALLED_APPS += (
     'collectfast',
@@ -50,4 +52,6 @@ AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 COMPRESS_OFFLINE = True
 LIBSASS_OUTPUT_STYLE = 'compressed'
+COMPRESS_URL = 'https://{}.s3.ap-northeast-2.amazonaws.com'.format(os.getenv('AWS_STORAGE_BUCKET_NAME'))
+STATIC_URL = COMPRESS_URL
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
