@@ -982,6 +982,7 @@ button {
 }
 
 .sticky-footer {
+  z-index: 500;
   position: fixed;
   bottom: 0;
   left: 0;
