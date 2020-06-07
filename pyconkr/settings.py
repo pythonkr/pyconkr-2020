@@ -1,5 +1,6 @@
 import datetime
 import os
+import sys
 
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -334,10 +335,11 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'INFO',
-            'filters': ['require_debug_true'],
+            'level': 'DEBUG',
+            # 'filters': ['require_debug_true'], # 임시
             'class': 'logging.StreamHandler',
-            'formatter': 'simple'
+            'formatter': 'simple',
+            'stream': sys.stdout
         },
     },
     'loggers': {

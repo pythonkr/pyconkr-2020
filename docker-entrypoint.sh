@@ -46,4 +46,6 @@ gunicorn pyconkr.wsgi:application \
     --log-level=debug \
 #    --log-file=/logs/gunicorn.log \
     --log-file=-
-    --access-logfile=/logs/access.log
+    --access-logfile=/logs/access.log \
+    --preload
+# https://stackoverflow.com/questions/12449172/how-to-debug-gunicorn-failure-issues-worker-failed-to-boot
