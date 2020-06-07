@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-07 18:22+0900\n"
+"POT-Creation-Date: 2020-06-07 22:10+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -391,7 +391,7 @@ msgstr "영코더"
 msgid "Timetable"
 msgstr "시간표"
 
-#: .\pyconkr\context_processors.py:69 .\pyconkr\templates\base.html:73
+#: .\pyconkr\context_processors.py:69 .\pyconkr\templates\base.html:63
 #: .\pyconkr\templates\index.html:44
 msgid "Conference"
 msgstr "컨퍼런스"
@@ -432,7 +432,7 @@ msgstr "자원봉사"
 msgid "Video Subtitle"
 msgstr "영상 자막"
 
-#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:88
+#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:89
 msgid "Sponsor"
 msgstr "후원사"
 
@@ -465,27 +465,31 @@ msgstr "로그인"
 msgid "PyCon Korea 2020 one-time login token"
 msgstr "파이콘 한국 2020 일회용 로그인 토큰"
 
-#: .\pyconkr\helper.py:12 .\pyconkr\templates\base.html:13
-#: .\pyconkr\templates\base.html:14 .\pyconkr\templates\base.html:15
-#: .\pyconkr\templates\base.html:71 .\pyconkr\templates\footer.html:6
+#: .\pyconkr\helper.py:12 .\pyconkr\templates\base.html:12
+#: .\pyconkr\templates\base.html:13 .\pyconkr\templates\base.html:14
+#: .\pyconkr\templates\base.html:61 .\pyconkr\templates\footer.html:6
 #: .\pyconkr\templates\mail\token_html.html:2
 msgid "PyCon Korea 2020"
 msgstr "파이콘 한국 2020"
 
-#: .\pyconkr\templates\base.html:18
+#: .\pyconkr\templates\base.html:17
 #: .\pyconkr\templates\flatpages\default.html:6
 msgid "base-og-description"
 msgstr "파이콘 한국 2020: 9월 26-27일"
 
-#: .\pyconkr\templates\base.html:73
+#: .\pyconkr\templates\base.html:63
+msgid "Online"
+msgstr "온라인"
+
+#: .\pyconkr\templates\base.html:63
 msgid "토"
 msgstr ""
 
-#: .\pyconkr\templates\base.html:73
+#: .\pyconkr\templates\base.html:63
 msgid "일"
 msgstr ""
 
-#: .\pyconkr\templates\base.html:93
+#: .\pyconkr\templates\base.html:83
 #: .\pyconkr\templates\pyconkr\sponsor_list.html:4
 msgid "Sponsors"
 msgstr "후원사 목록"
@@ -541,7 +545,7 @@ msgstr ""
 msgid "이 외의 모든 공지사항은 공식 "
 msgstr ""
 
-#: .\pyconkr\templates\index.html:53 .\pyconkr\templates\index.html:87
+#: .\pyconkr\templates\index.html:53 .\pyconkr\templates\index.html:88
 msgid "페이스북"
 msgstr ""
 
@@ -605,16 +609,21 @@ msgstr ""
 msgid "We are Pythonistas."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:84
-msgid "문의 & 공식 계정"
+#: .\pyconkr\templates\index.html:73
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:31
+msgid "수정하기"
 msgstr ""
 
 #: .\pyconkr\templates\index.html:85
+msgid "문의 & 공식 계정"
+msgstr ""
+
+#: .\pyconkr\templates\index.html:86
 msgid ""
 "파이콘 한국 2020에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:86
+#: .\pyconkr\templates\index.html:87
 msgid "Email"
 msgstr "이메일"
 
