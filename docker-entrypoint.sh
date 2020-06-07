@@ -44,9 +44,9 @@ gunicorn pyconkr.wsgi:application \
     --max-requests 10000 \
     --max-requests-jitter 5 \
     -k gevent \
-    --log-level=debug \
-#    --log-file=/logs/gunicorn.log \
-    --log-file=-
+    --log-level=info \
+    --log-file=/logs/gunicorn.log \
+#    --log-file=-
     --access-logfile=/logs/access.log \
-    --preload
+#    --preload
 # https://stackoverflow.com/questions/12449172/how-to-debug-gunicorn-failure-issues-worker-failed-to-boot
