@@ -58,4 +58,9 @@ COMPRESS_OFFLINE = True
 LIBSASS_OUTPUT_STYLE = 'compressed'
 COMPRESS_URL = 'https://{}.s3.amazonaws.com/'.format(os.getenv('AWS_STORAGE_BUCKET_NAME'))
 STATIC_URL = COMPRESS_URL
+
+# https://stackoverflow.com/questions/30801136/django-compressor-is-not-working-on-hosted-static-files-on-amazon-s3
+COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_STORAGE = STATICFILES_STORAGE
+
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
