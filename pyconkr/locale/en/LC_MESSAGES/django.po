@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-29 14:49+0900\n"
+"POT-Creation-Date: 2020-06-07 18:22+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -157,15 +157,15 @@ msgstr ""
 "social/\" target=\"_blank\">http://lipis.github.io/bootstrap-social/</a></p>"
 "\""
 
-#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:264
+#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:265
 msgid "Beginner"
 msgstr "Beginner"
 
-#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:265
+#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:266
 msgid "Intermediate"
 msgstr "Intermediate"
 
-#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:266
+#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:267
 msgid "Experienced"
 msgstr "Experienced"
 
@@ -177,13 +177,13 @@ msgstr "25 mins"
 msgid "40 mins"
 msgstr "40 mins"
 
-#: .\program\models.py:126 .\program\models.py:225 .\program\models.py:278
-#: .\pyconkr\settings.py:150
+#: .\program\models.py:126 .\program\models.py:227 .\program\models.py:279
+#: .\pyconkr\settings.py:153
 msgid "English"
 msgstr "English"
 
-#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:279
-#: .\pyconkr\settings.py:149
+#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:280
+#: .\pyconkr\settings.py:152
 msgid "Korean"
 msgstr "Korean"
 
@@ -191,71 +191,71 @@ msgstr "Korean"
 msgid "Not arranged yet"
 msgstr "Not arranged yet"
 
-#: .\program\models.py:233
+#: .\program\models.py:234
 msgid "Python Library"
 msgstr ""
 
-#: .\program\models.py:234
+#: .\program\models.py:235
 msgid "Development Method with Python"
 msgstr ""
 
-#: .\program\models.py:235
+#: .\program\models.py:236
 msgid "Data Analytics"
 msgstr ""
 
-#: .\program\models.py:236
+#: .\program\models.py:237
 msgid "Life / Social"
 msgstr ""
 
-#: .\program\models.py:237
+#: .\program\models.py:238
 msgid "Computer Vision"
 msgstr ""
 
-#: .\program\models.py:238
+#: .\program\models.py:239
 msgid "Robotics / Embedded System"
 msgstr ""
 
-#: .\program\models.py:239
+#: .\program\models.py:240
 msgid "Data Gathering"
 msgstr ""
 
-#: .\program\models.py:240
+#: .\program\models.py:241
 msgid "Blockchain"
 msgstr ""
 
-#: .\program\models.py:241
+#: .\program\models.py:242
 msgid "Python Community"
 msgstr ""
 
-#: .\program\models.py:242
+#: .\program\models.py:243
 msgid "Web Service"
 msgstr ""
 
-#: .\program\models.py:243
+#: .\program\models.py:244
 msgid "Deep Learning & AI"
 msgstr ""
 
-#: .\program\models.py:244
+#: .\program\models.py:245
 msgid "Python Core & Fundamental"
 msgstr ""
 
-#: .\program\models.py:245
+#: .\program\models.py:246
 msgid "Data Science"
 msgstr ""
 
-#: .\program\models.py:246
+#: .\program\models.py:247
 msgid "etc"
 msgstr "Etc."
 
-#: .\program\models.py:271
+#: .\program\models.py:272
 msgid "1 hour"
 msgstr "1 hour"
 
-#: .\program\models.py:272
+#: .\program\models.py:273
 msgid "2 hours"
 msgstr "2 hours"
 
-#: .\program\models.py:273
+#: .\program\models.py:274
 msgid "4 hours"
 msgstr "4 hours"
 
@@ -307,6 +307,10 @@ msgstr "About"
 msgid "About PyCon Korea 2020"
 msgstr "About PyCon Korea 2020"
 
+#: .\pyconkr\context_processors.py:29
+msgid "Venue"
+msgstr ""
+
 #: .\pyconkr\context_processors.py:30
 msgid "Important Dates"
 msgstr ""
@@ -331,6 +335,18 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
+#: .\pyconkr\context_processors.py:42
+msgid "Financial Aid"
+msgstr ""
+
+#: .\pyconkr\context_processors.py:43
+msgid "Visa Sponsing"
+msgstr ""
+
+#: .\pyconkr\context_processors.py:44
+msgid "Child Care"
+msgstr ""
+
 #: .\pyconkr\context_processors.py:46
 msgid "Speech to Text Translation"
 msgstr ""
@@ -349,26 +365,44 @@ msgstr "Keynotes"
 msgid "Talks"
 msgstr ""
 
-#: .\pyconkr\context_processors.py:66
-msgid "Timetable"
+#: .\pyconkr\context_processors.py:56
+msgid "Lightning Talk"
 msgstr ""
 
-#: .\pyconkr\context_processors.py:69 .\pyconkr\templates\base.html:62
-#: .\pyconkr\templates\index.html:44
-msgid "Conference"
+#: .\pyconkr\context_processors.py:57
+msgid "Open Spaces"
 msgstr ""
 
-#: .\pyconkr\context_processors.py:70
+#: .\pyconkr\context_processors.py:58 .\pyconkr\context_processors.py:70
 msgid "Tutorial"
 msgstr "Tutorial"
 
-#: .\pyconkr\context_processors.py:71
+#: .\pyconkr\context_processors.py:59 .\pyconkr\context_processors.py:71
 #: .\pyconkr\templates\pyconkr\sprintproposal_list.html:4
 msgid "Sprint"
 msgstr "Sprint"
 
+#: .\pyconkr\context_processors.py:60 .\pyconkr\templates\youngcoder.html:12
+msgid "Young Coder"
+msgstr "Young Coder"
+
+#: .\pyconkr\context_processors.py:66
+msgid "Timetable"
+msgstr ""
+
+#: .\pyconkr\context_processors.py:69 .\pyconkr\templates\base.html:73
+#: .\pyconkr\templates\index.html:44
+msgid "Conference"
+msgstr ""
+
 #: .\pyconkr\context_processors.py:77
 msgid "Contribution"
+msgstr "Contribution"
+
+#: .\pyconkr\context_processors.py:79
+#, fuzzy
+#| msgid "Contribution"
+msgid "About Contribution"
 msgstr "Contribution"
 
 #: .\pyconkr\context_processors.py:80
@@ -390,6 +424,10 @@ msgstr ""
 #: .\pyconkr\context_processors.py:87
 msgid "Recommending Keynote"
 msgstr "Recommending Keynote"
+
+#: .\pyconkr\context_processors.py:88
+msgid "Volunteer"
+msgstr ""
 
 #: .\pyconkr\context_processors.py:89
 msgid "Video Subtitle"
@@ -428,27 +466,27 @@ msgstr "Login"
 msgid "PyCon Korea 2020 one-time login token"
 msgstr "PyCon Korea 2020 one-time login token"
 
-#: .\pyconkr\helper.py:12 .\pyconkr\templates\base.html:11
-#: .\pyconkr\templates\base.html:12 .\pyconkr\templates\base.html:13
-#: .\pyconkr\templates\base.html:60 .\pyconkr\templates\footer.html:6
+#: .\pyconkr\helper.py:12 .\pyconkr\templates\base.html:13
+#: .\pyconkr\templates\base.html:14 .\pyconkr\templates\base.html:15
+#: .\pyconkr\templates\base.html:71 .\pyconkr\templates\footer.html:6
 #: .\pyconkr\templates\mail\token_html.html:2
 msgid "PyCon Korea 2020"
 msgstr "PyCon Korea 2020"
 
-#: .\pyconkr\templates\base.html:16
+#: .\pyconkr\templates\base.html:18
 #: .\pyconkr\templates\flatpages\default.html:6
 msgid "base-og-description"
 msgstr "PyCon Korea 2020: 26th-27th September"
 
-#: .\pyconkr\templates\base.html:62
+#: .\pyconkr\templates\base.html:73
 msgid "토"
 msgstr "Sat"
 
-#: .\pyconkr\templates\base.html:62
+#: .\pyconkr\templates\base.html:73
 msgid "일"
 msgstr "Sun"
 
-#: .\pyconkr\templates\base.html:82
+#: .\pyconkr\templates\base.html:93
 #: .\pyconkr\templates\pyconkr\sponsor_list.html:4
 msgid "Sponsors"
 msgstr "Sponsors"
@@ -790,8 +828,9 @@ msgstr "Comment to reviewers (optional)"
 msgid ""
 "📙제안서를 작성하시기 전에 <a href=\"https://pycon.kr/2020/contribution/cfp/"
 "guide/\" target=\"_blank\">발표안 작성 가이드</a>를 꼭 읽어주세요."
-msgstr "📙Please read <a href=\"https://pycon.kr/2020/contribution/cfp/"
-"guide/\" target=\"_blank\">the presentation guide</a> before writing your proposal."
+msgstr ""
+"📙Please read <a href=\"https://pycon.kr/2020/contribution/cfp/guide/\" "
+"target=\"_blank\">the presentation guide</a> before writing your proposal."
 
 #: .\pyconkr\templates\pyconkr\speaker_detail.html:4
 msgid "Speaker"
@@ -872,10 +911,6 @@ msgstr ""
 #: .\pyconkr\templates\schedule.html:154
 msgid "Schedule English Label"
 msgstr "English"
-
-#: .\pyconkr\templates\youngcoder.html:12
-msgid "Young Coder"
-msgstr "Young Coder"
 
 #: .\pyconkr\templates\youngcoder.html:57
 msgid "영코더란?"
