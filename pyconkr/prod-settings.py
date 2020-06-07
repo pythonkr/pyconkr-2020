@@ -46,7 +46,6 @@ INSTALLED_APPS += (
 AWS_DEFAULT_ACL = 'public-read'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'sass_processor.storage.SassS3Boto3Storage'
 COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
@@ -54,6 +53,10 @@ AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_REGION_NAME = 'ap-northeast-2'
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
+# Django-sass
+STATICFILES_STORAGE = 'sass_processor.storage.SassS3Boto3Storage'
+
+# Django-compressor
 COMPRESS_OFFLINE = True
 LIBSASS_OUTPUT_STYLE = 'compressed'
 COMPRESS_URL = 'https://{}.s3.amazonaws.com/'.format(os.getenv('AWS_STORAGE_BUCKET_NAME'))

@@ -5,8 +5,9 @@ yarn install
 
 echo "Collect static files"
 python manage.py compilemessages
+python manage.py compilescss
 python manage.py collectstatic --noinput &
-python manage.py compress --force
+#python manage.py compress --force
 
 echo "Apply database migrations"
 python manage.py makemigrations
