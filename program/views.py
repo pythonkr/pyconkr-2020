@@ -445,8 +445,9 @@ class ProgramUpdate(UpdateView):
 def edit_proposal_available_checker(request):
     KST = datetime.timezone(datetime.timedelta(hours=9))
     now = datetime.datetime.now(tz=KST)
-    flag = False
+    flag = False    # 아래에 지정된 상황이 아니면 CFP Closed 상태
 
+    cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
     cfp_deadline = constance.config.CFP_DEADLINE.replace(tzinfo=KST)
     open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
     open_review_finish = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)

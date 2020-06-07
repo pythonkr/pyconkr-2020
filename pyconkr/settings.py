@@ -1,5 +1,6 @@
 import datetime
 import os
+import sys
 
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -45,6 +46,8 @@ INSTALLED_APPS = (
     'django_csv_exports',
     'mail_templated',
     'import_export',
+    'sass_processor',
+    # 'compressor',
 ) + (
     # local apps
     'pyconkr',
@@ -332,16 +335,35 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'INFO',
-            'filters': ['require_debug_true'],
+            'level': 'DEBUG',
+            # 'filters': ['require_debug_true'], # 임시
             'class': 'logging.StreamHandler',
-            'formatter': 'simple'
+            'formatter': 'simple',
+            'stream': sys.stdout
         },
     },
     'loggers': {
         'django': {
+            'level': 'DEBUG',
             'handlers': ['console'],
             'propagate': True,
         },
     }
 }
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+# https://blog.jaeyoon.io/2017/10/django-sass.html
+SASS_PROCESSOR_ENABLED = True
+SASS_PROCESSOR_AUTO_INCLUDE = False
+
+SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
