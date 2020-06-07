@@ -47,7 +47,7 @@ INSTALLED_APPS = (
     'mail_templated',
     'import_export',
     'sass_processor',
-    'compressor',
+    # 'compressor',
 ) + (
     # local apps
     'pyconkr',
