@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-08 13:58+0900\n"
+"POT-Creation-Date: 2020-06-11 17:04+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -401,10 +401,8 @@ msgid "Contribution"
 msgstr "기여하기"
 
 #: .\pyconkr\context_processors.py:79
-#, fuzzy
-#| msgid "Contribution"
 msgid "About Contribution"
-msgstr "기여하기"
+msgstr "공헌 안내"
 
 #: .\pyconkr\context_processors.py:80
 msgid "How to Submit a Proposal"
@@ -416,7 +414,7 @@ msgstr "발표 제안하기"
 
 #: .\pyconkr\context_processors.py:83
 msgid "Review Talk Proposal"
-msgstr "튜토리얼 제안서"
+msgstr "발표 제안 검토하기"
 
 #: .\pyconkr\context_processors.py:85
 msgid "Proposing a Tutorial"
