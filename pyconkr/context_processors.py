@@ -84,7 +84,7 @@ def default(request):
                     ('proposing-tutorial',
                      {'title': _('Proposing a Tutorial'), 'disable': True}),
                     ('recommending-keynote',
-                     {'title': _('Recommending Keynote'), 'disable': True}),
+                     {'title': _('Recommending Keynote')}),
                     ('volunteer', {'title': _('Volunteer'), 'disable': True}),
                     ('video-subtitle', {'title': _('Video Subtitle')}),
                 ])
