@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags i18n %}
 
-{% block title %}{{ title|default:"발표 제안" }}{% endblock %}
+{% block title %}
+    {% trans "발표 제안" as dafault_title%}
+    {{ title|default: default_title}}
+{% endblock %}
 
 {% block head-include %}
 {{ form.media }}

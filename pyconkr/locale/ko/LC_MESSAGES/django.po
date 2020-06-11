@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-11 17:04+0900\n"
+"POT-Creation-Date: 2020-06-12 08:26+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -409,7 +409,7 @@ msgid "How to Submit a Proposal"
 msgstr "발표안 작성 가이드"
 
 #: .\pyconkr\context_processors.py:81
-msgid "Proposing a talk"
+msgid "Proposing a Talk"
 msgstr "발표 제안하기"
 
 #: .\pyconkr\context_processors.py:83
@@ -432,7 +432,7 @@ msgstr "자원봉사"
 msgid "Video Subtitle"
 msgstr "영상 자막"
 
-#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:89
+#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:88
 msgid "Sponsor"
 msgstr "후원사"
 
@@ -540,7 +540,7 @@ msgstr ""
 msgid "이 외의 모든 공지사항은 공식 "
 msgstr ""
 
-#: .\pyconkr\templates\index.html:53 .\pyconkr\templates\index.html:88
+#: .\pyconkr\templates\index.html:53 .\pyconkr\templates\index.html:87
 msgid "페이스북"
 msgstr ""
 
@@ -604,20 +604,16 @@ msgstr ""
 msgid "We are Pythonistas."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:73
-msgid "수정하기"
-msgstr ""
-
-#: .\pyconkr\templates\index.html:85
+#: .\pyconkr\templates\index.html:84
 msgid "문의 & 공식 계정"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:86
+#: .\pyconkr\templates\index.html:85
 msgid ""
 "파이콘 한국 2020에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:87
+#: .\pyconkr\templates\index.html:86
 msgid "Email"
 msgstr "이메일"
 
@@ -818,7 +814,11 @@ msgstr "최대 5개까지만 선택하실 수 있습니다."
 msgid "Comment to reviewers"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
-#: .\pyconkr\templates\pyconkr\proposal_form.html:12
+#: .\pyconkr\templates\pyconkr\proposal_form.html:5
+msgid "발표 제안"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\proposal_form.html:15
 msgid ""
 "📙제안서를 작성하시기 전에 <a href=\"https://pycon.kr/2020/contribution/cfp/"
 "guide/\" target=\"_blank\">발표안 작성 가이드</a>를 꼭 읽어주세요."
