@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-12 08:26+0900\n"
+"POT-Creation-Date: 2020-06-12 16:54+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -171,11 +171,11 @@ msgid "Experienced"
 msgstr "고급"
 
 #: .\program\models.py:120 .\program\models.py:219
-msgid "25 mins"
+msgid "25min"
 msgstr "25분"
 
 #: .\program\models.py:121 .\program\models.py:220
-msgid "40 mins"
+msgid "40min"
 msgstr "40분"
 
 #: .\program\models.py:126 .\program\models.py:227 .\program\models.py:279
@@ -818,7 +818,7 @@ msgstr "검토자에게 알리고 싶은 말 (선택)"
 msgid "발표 제안"
 msgstr ""
 
-#: .\pyconkr\templates\pyconkr\proposal_form.html:15
+#: .\pyconkr\templates\pyconkr\proposal_form.html:14
 msgid ""
 "📙제안서를 작성하시기 전에 <a href=\"https://pycon.kr/2020/contribution/cfp/"
 "guide/\" target=\"_blank\">발표안 작성 가이드</a>를 꼭 읽어주세요."
@@ -994,6 +994,3 @@ msgid ""
 "마지막으로, 우리는 웹 사이트 및 간단한 게임을 만들어 보면서 이 세상을 이해할 "
 "수 있는 더 넓은 시야를 갖게 될 것입니다."
 msgstr ""
-
-#~ msgid "Stay connected"
-#~ msgstr "더 알아보기"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-12 08:26+0900\n"
+"POT-Creation-Date: 2020-06-12 16:54+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -170,12 +170,12 @@ msgid "Experienced"
 msgstr "Experienced"
 
 #: .\program\models.py:120 .\program\models.py:219
-msgid "25 mins"
-msgstr "25 mins"
+msgid "25min"
+msgstr ""
 
 #: .\program\models.py:121 .\program\models.py:220
-msgid "40 mins"
-msgstr "40 mins"
+msgid "40min"
+msgstr ""
 
 #: .\program\models.py:126 .\program\models.py:227 .\program\models.py:279
 #: .\pyconkr\settings.py:150
@@ -827,7 +827,7 @@ msgstr "Comment to reviewers (optional)"
 msgid "발표 제안"
 msgstr "Proposing a Talk"
 
-#: .\pyconkr\templates\pyconkr\proposal_form.html:15
+#: .\pyconkr\templates\pyconkr\proposal_form.html:14
 msgid ""
 "📙제안서를 작성하시기 전에 <a href=\"https://pycon.kr/2020/contribution/cfp/"
 "guide/\" target=\"_blank\">발표안 작성 가이드</a>를 꼭 읽어주세요."
@@ -1040,15 +1040,6 @@ msgid ""
 msgstr ""
 "In the end, we will have a broader view of the world as we create websites "
 "and simple games."
-
-#~ msgid "Stay connected"
-#~ msgstr "Stay connected"
-
-#~ msgid "자세히 보기"
-#~ msgstr "Show detail"
-
-#~ msgid "날짜 미정"
-#~ msgstr "TBD"
 
 #~ msgid ""
 #~ "관심있는 오픈소스 프로젝트를 같은 장소에 모여 집중적으로 개발하는 자리입니"
