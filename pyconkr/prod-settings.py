@@ -2,10 +2,7 @@ from pyconkr.settings import *
 import os
 import requests
 
-if os.getenv('AWS_STORAGE_BUCKET_NAME') == 'pyconkr-dev':
-    DEBUG = True
-else:
-    DEBUG = False
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
