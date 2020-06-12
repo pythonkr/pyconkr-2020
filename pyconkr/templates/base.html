@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load i18n %}
+{% load sass_tags %}
 {% if LANGUAGE_CODE == 'en' %}
 <html lang="en">
 {% else %}
@@ -29,9 +30,9 @@
     <link href="{% static "components/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
     <link href="{% static "components/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
     <link href="{% static "components/bootstrap-social/bootstrap-social.css" %}" rel="stylesheet">
-    <link href="{% static "css/pyconkr.css" %}" rel="stylesheet">
-    <link href="{% static "css/pyconkr-media.css" %}" rel="stylesheet">
-    <link href="{% static 'css/pyconkr-teaser.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% sass_src "css/pyconkr.scss" %}" rel="stylesheet" type="text/css">
+    <link href="{% sass_src "css/pyconkr-teaser.scss" %}" rel="stylesheet" type="text/css">
+    <link href="{% sass_src "css/pyconkr-media.scss" %}" rel="stylesheet" type="text/css">
 
     {% block head-include %}
     {% endblock %}
@@ -59,7 +60,7 @@
             <h1>WE <span>ARE</span><br>PYTHONISTAS</h1>
             <h2>{% trans "PyCon Korea 2020" %}</h2>
             <p>
-                <span><b>{% trans "Conference" %}</b>  9/26({% trans "토" %}) - 9/27({% trans "일" %})</span>
+                <span><b>{% trans "Online" %} {% trans "Conference" %}</b>  9/26({% trans "토" %}) - 9/27({% trans "일" %})</span>
             </p>
 {#            <p><b>{% trans "Coex Grand Ballroom, Seoul" %}</b></p>#}
         </header>

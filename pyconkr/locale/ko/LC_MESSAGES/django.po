@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-12 08:26+0900\n"
+"POT-Creation-Date: 2020-06-07 22:10+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -179,12 +179,12 @@ msgid "40 mins"
 msgstr "40분"
 
 #: .\program\models.py:126 .\program\models.py:227 .\program\models.py:279
-#: .\pyconkr\settings.py:150
+#: .\pyconkr\settings.py:153
 msgid "English"
 msgstr "영어"
 
 #: .\program\models.py:127 .\program\models.py:226 .\program\models.py:280
-#: .\pyconkr\settings.py:149
+#: .\pyconkr\settings.py:152
 msgid "Korean"
 msgstr "한국어"
 
@@ -391,7 +391,7 @@ msgstr "영코더"
 msgid "Timetable"
 msgstr "시간표"
 
-#: .\pyconkr\context_processors.py:69 .\pyconkr\templates\base.html:62
+#: .\pyconkr\context_processors.py:69 .\pyconkr\templates\base.html:63
 #: .\pyconkr\templates\index.html:44
 msgid "Conference"
 msgstr "컨퍼런스"
@@ -402,19 +402,19 @@ msgstr "기여하기"
 
 #: .\pyconkr\context_processors.py:79
 msgid "About Contribution"
-msgstr "공헌 안내"
+msgstr "기여하기"
 
 #: .\pyconkr\context_processors.py:80
 msgid "How to Submit a Proposal"
 msgstr "발표안 작성 가이드"
 
 #: .\pyconkr\context_processors.py:81
-msgid "Proposing a Talk"
+msgid "Proposing a talk"
 msgstr "발표 제안하기"
 
 #: .\pyconkr\context_processors.py:83
 msgid "Review Talk Proposal"
-msgstr "발표 제안 검토하기"
+msgstr "튜토리얼 제안서"
 
 #: .\pyconkr\context_processors.py:85
 msgid "Proposing a Tutorial"
@@ -432,7 +432,7 @@ msgstr "자원봉사"
 msgid "Video Subtitle"
 msgstr "영상 자막"
 
-#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:88
+#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:89
 msgid "Sponsor"
 msgstr "후원사"
 
@@ -465,27 +465,31 @@ msgstr "로그인"
 msgid "PyCon Korea 2020 one-time login token"
 msgstr "파이콘 한국 2020 일회용 로그인 토큰"
 
-#: .\pyconkr\helper.py:12 .\pyconkr\templates\base.html:11
-#: .\pyconkr\templates\base.html:12 .\pyconkr\templates\base.html:13
-#: .\pyconkr\templates\base.html:60 .\pyconkr\templates\footer.html:6
+#: .\pyconkr\helper.py:12 .\pyconkr\templates\base.html:12
+#: .\pyconkr\templates\base.html:13 .\pyconkr\templates\base.html:14
+#: .\pyconkr\templates\base.html:61 .\pyconkr\templates\footer.html:6
 #: .\pyconkr\templates\mail\token_html.html:2
 msgid "PyCon Korea 2020"
 msgstr "파이콘 한국 2020"
 
-#: .\pyconkr\templates\base.html:16
+#: .\pyconkr\templates\base.html:17
 #: .\pyconkr\templates\flatpages\default.html:6
 msgid "base-og-description"
 msgstr "파이콘 한국 2020: 9월 26-27일"
 
-#: .\pyconkr\templates\base.html:62
+#: .\pyconkr\templates\base.html:63
+msgid "Online"
+msgstr "온라인"
+
+#: .\pyconkr\templates\base.html:63
 msgid "토"
 msgstr ""
 
-#: .\pyconkr\templates\base.html:62
+#: .\pyconkr\templates\base.html:63
 msgid "일"
 msgstr ""
 
-#: .\pyconkr\templates\base.html:82
+#: .\pyconkr\templates\base.html:83
 #: .\pyconkr\templates\pyconkr\sponsor_list.html:4
 msgid "Sponsors"
 msgstr "후원사 목록"
@@ -527,7 +531,8 @@ msgid "세부 운영 계획, 행사 상세 일정은 추후 안내 예정입니�
 msgstr ""
 
 #: .\pyconkr\templates\index.html:46
-msgid "파이썬 사용 사례와 지식을 공유하는 다양한 발표 세션이 열립니다."
+msgid ""
+"파이썬 사용 사례와 지식을 공유하는 50여 개의 다양한 발표 세션이 열립니다."
 msgstr ""
 
 #: .\pyconkr\templates\index.html:48
@@ -540,7 +545,7 @@ msgstr ""
 msgid "이 외의 모든 공지사항은 공식 "
 msgstr ""
 
-#: .\pyconkr\templates\index.html:53 .\pyconkr\templates\index.html:87
+#: .\pyconkr\templates\index.html:53 .\pyconkr\templates\index.html:88
 msgid "페이스북"
 msgstr ""
 
@@ -604,16 +609,21 @@ msgstr ""
 msgid "We are Pythonistas."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:84
-msgid "문의 & 공식 계정"
+#: .\pyconkr\templates\index.html:73
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:31
+msgid "수정하기"
 msgstr ""
 
 #: .\pyconkr\templates\index.html:85
+msgid "문의 & 공식 계정"
+msgstr ""
+
+#: .\pyconkr\templates\index.html:86
 msgid ""
 "파이콘 한국 2020에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:86
+#: .\pyconkr\templates\index.html:87
 msgid "Email"
 msgstr "이메일"
 
@@ -814,11 +824,7 @@ msgstr "최대 5개까지만 선택하실 수 있습니다."
 msgid "Comment to reviewers"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
-#: .\pyconkr\templates\pyconkr\proposal_form.html:5
-msgid "발표 제안"
-msgstr ""
-
-#: .\pyconkr\templates\pyconkr\proposal_form.html:15
+#: .\pyconkr\templates\pyconkr\proposal_form.html:12
 msgid ""
 "📙제안서를 작성하시기 전에 <a href=\"https://pycon.kr/2020/contribution/cfp/"
 "guide/\" target=\"_blank\">발표안 작성 가이드</a>를 꼭 읽어주세요."

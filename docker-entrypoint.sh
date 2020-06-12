@@ -5,7 +5,9 @@ yarn install
 
 echo "Collect static files"
 python manage.py compilemessages
+python manage.py compilescss
 python manage.py collectstatic --noinput &
+#python manage.py compress --force
 
 echo "Apply database migrations"
 python manage.py makemigrations
@@ -44,4 +46,7 @@ gunicorn pyconkr.wsgi:application \
     -k gevent \
     --log-level=info \
     --log-file=/logs/gunicorn.log \
-    --access-logfile=/logs/access.log
+#    --log-file=-
+    --access-logfile=/logs/access.log \
+#    --preload
+# https://stackoverflow.com/questions/12449172/how-to-debug-gunicorn-failure-issues-worker-failed-to-boot
