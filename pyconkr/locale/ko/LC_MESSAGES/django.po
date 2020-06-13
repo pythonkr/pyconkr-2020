@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 00:01+0900\n"
+"POT-Creation-Date: 2020-06-13 12:55+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -171,11 +171,11 @@ msgid "Experienced"
 msgstr "고급"
 
 #: .\program\models.py:120 .\program\models.py:219
-msgid "25 mins"
+msgid "25min"
 msgstr "25분"
 
 #: .\program\models.py:121 .\program\models.py:220
-msgid "40 mins"
+msgid "40min"
 msgstr "40분"
 
 #: .\program\models.py:126 .\program\models.py:227 .\program\models.py:279
@@ -402,14 +402,14 @@ msgstr "기여하기"
 
 #: .\pyconkr\context_processors.py:79
 msgid "About Contribution"
-msgstr "기여하기"
+msgstr "공헌 안내"
 
 #: .\pyconkr\context_processors.py:80
 msgid "How to Submit a Proposal"
 msgstr "발표안 작성 가이드"
 
 #: .\pyconkr\context_processors.py:81
-msgid "Proposing a talk"
+msgid "Proposing a Talk"
 msgstr "발표 제안하기"
 
 #: .\pyconkr\context_processors.py:83
@@ -819,7 +819,7 @@ msgstr "최대 5개까지만 선택하실 수 있습니다."
 msgid "Comment to reviewers"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:31
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
 msgid "수정하기"
 msgstr ""
 

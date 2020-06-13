@@ -117,8 +117,8 @@ class Program(models.Model):
 
     duration = models.CharField(max_length=1,
                                 choices=(
-                                    ('S', _('25 mins')),
-                                    ('L', _('40 mins')),
+                                    ('S', _('25min')),
+                                    ('L', _('40min')),
                                 ), default='S')
 
     language = models.CharField(max_length=1,
@@ -216,8 +216,8 @@ class Proposal(models.Model):
 
     duration = models.CharField(max_length=1,
                                 choices=(
-                                    ('S', _('25 mins')),
-                                    ('L', _('40 mins')),
+                                    ('S', _('25min')),
+                                    ('L', _('40min')),
                                 ))
 
     language = models.CharField(max_length=1,
