@@ -1048,15 +1048,6 @@ msgstr ""
 "In the end, we will have a broader view of the world as we create websites "
 "and simple games."
 
-#~ msgid "Stay connected"
-#~ msgstr "Stay connected"
-
-#~ msgid "자세히 보기"
-#~ msgstr "Show detail"
-
-#~ msgid "날짜 미정"
-#~ msgstr "TBD"
-
 #~ msgid ""
 #~ "관심있는 오픈소스 프로젝트를 같은 장소에 모여 집중적으로 개발하는 자리입니"
 #~ "다."
