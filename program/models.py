@@ -230,7 +230,6 @@ class Proposal(models.Model):
 
     category = models.CharField(max_length=25,
                                 choices=(
-                                    ('', '---------'),
                                     ('PL', _('Python Library')),
                                     ('DM', _('Development Method with Python')),
                                     ('DA', _('Data Analytics')),
@@ -246,7 +245,7 @@ class Proposal(models.Model):
                                     ('DS', _('Data Science')),
                                     ('etc', _('etc')),
                                 ),
-                                default='', null=True, blank=True)
+                                null=True, blank=True)
 
     def __str__(self):
         return self.title
