@@ -6,7 +6,7 @@ from django.conf import settings
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.utils.translation import ugettext_lazy as _
 from django.core.files.images import get_image_dimensions
-from .models import Speaker, Program, Proposal, SprintProposal, TutorialProposal
+from .models import Speaker, Program, Proposal, SprintProposal, TutorialProposal, ProgramCategory
 
 from constance import config
 
@@ -91,6 +91,7 @@ class ProposalForm(forms.ModelForm):
 
         self.fields['brief'].initial = config.CFP_BRIEF_TEMPLATE
         self.fields['desc'].initial = config.CFP_DESC_TEMPLATE
+        self.fields['category'].queryset = ProgramCategory.objects.filter(visible=True)
 
     class Meta:
         model = Proposal
