@@ -8,6 +8,7 @@ from django_summernote.admin import SummernoteModelAdmin
 from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 from modeltranslation.admin import TranslationAdmin
 from sorl.thumbnail.admin import AdminImageMixin
+from import_export.admin import ImportExportModelAdmin
 from .models import (Room, Program, ProgramTime, ProgramDate, ProgramCategory,
                      Speaker,  Preference, Proposal, TutorialProposal, SprintProposal,
                      TutorialCheckin, SprintCheckin)
@@ -38,7 +39,7 @@ class ProgramTimeAdmin(TranslationAdmin):
 admin.site.register(ProgramTime, ProgramTimeAdmin)
 
 
-class ProgramCategoryAdmin(TranslationAdmin):
+class ProgramCategoryAdmin(TranslationAdmin, ImportExportModelAdmin):
     list_display = ('id', 'name', 'slug',)
     list_editable = ('name', 'slug',)
 
