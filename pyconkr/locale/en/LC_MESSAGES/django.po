@@ -140,7 +140,7 @@ msgstr "Brief"
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
-msgstr "Detailed description (required)"
+msgstr "Detailed description"
 
 #: .\program\models.py:62
 msgid "help-text-for-speaker-info"
@@ -824,7 +824,7 @@ msgstr "Up to 5 items can be selected."
 
 #: .\pyconkr\templates\pyconkr\proposal_detail.html:28
 msgid "Comment to reviewers"
-msgstr "Comment to reviewers (optional)"
+msgstr "Comment to reviewers"
 
 #: .\pyconkr\templates\pyconkr\proposal_detail.html:33
 msgid "수정하기"
