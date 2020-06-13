@@ -393,7 +393,6 @@ class ProposalUpdate(SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProposalUpdate, self).get_context_data(**kwargs)
-        context['title'] = _("Proposal")
         return context
 
     def get_success_url(self):
@@ -459,6 +458,9 @@ def edit_proposal_available_checker(request):
     # 오픈리뷰 종료 후
     elif open_review_finish < now and Proposal.objects.filter(user=request.user).exists():
         print('제출한 CFP가 있는 경우, 오픈리뷰 마감 후에는 수정 가능')
+        flag = True
+    elif cfp_open < now < cfp_deadline:
+        print('CFP 제출 기간에는 수정 가능')
         flag = True
 
     return flag

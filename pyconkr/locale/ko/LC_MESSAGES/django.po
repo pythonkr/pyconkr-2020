@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-12 16:54+0900\n"
+"POT-Creation-Date: 2020-06-13 12:55+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -288,7 +288,7 @@ msgstr "튜토리얼 갱신"
 msgid "Tutorial proposal successfully created."
 msgstr "튜토리얼 제안을 제출하였습니다."
 
-#: .\program\views.py:374 .\program\views.py:396
+#: .\program\views.py:374
 msgid "Proposal"
 msgstr "발표안"
 
@@ -296,7 +296,7 @@ msgstr "발표안"
 msgid "Proposal successfully updated."
 msgstr "발표안이 수정되었습니다."
 
-#: .\program\views.py:407
+#: .\program\views.py:406
 msgid "Proposal successfully created."
 msgstr "발표안을 제출하였습니다."
 
@@ -402,14 +402,14 @@ msgstr "기여하기"
 
 #: .\pyconkr\context_processors.py:79
 msgid "About Contribution"
-msgstr "기여하기"
+msgstr "공헌 안내"
 
 #: .\pyconkr\context_processors.py:80
 msgid "How to Submit a Proposal"
 msgstr "발표안 작성 가이드"
 
 #: .\pyconkr\context_processors.py:81
-msgid "Proposing a talk"
+msgid "Proposing a Talk"
 msgstr "발표 제안하기"
 
 #: .\pyconkr\context_processors.py:83
@@ -432,7 +432,7 @@ msgstr "자원봉사"
 msgid "Video Subtitle"
 msgstr "영상 자막"
 
-#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:89
+#: .\pyconkr\context_processors.py:95 .\pyconkr\templates\index.html:88
 msgid "Sponsor"
 msgstr "후원사"
 
@@ -545,7 +545,7 @@ msgstr ""
 msgid "이 외의 모든 공지사항은 공식 "
 msgstr ""
 
-#: .\pyconkr\templates\index.html:53 .\pyconkr\templates\index.html:88
+#: .\pyconkr\templates\index.html:53 .\pyconkr\templates\index.html:87
 msgid "페이스북"
 msgstr ""
 
@@ -609,21 +609,16 @@ msgstr ""
 msgid "We are Pythonistas."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:73
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:31
-msgid "수정하기"
-msgstr ""
-
-#: .\pyconkr\templates\index.html:85
+#: .\pyconkr\templates\index.html:84
 msgid "문의 & 공식 계정"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:86
+#: .\pyconkr\templates\index.html:85
 msgid ""
 "파이콘 한국 2020에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:87
+#: .\pyconkr\templates\index.html:86
 msgid "Email"
 msgstr "이메일"
 
@@ -823,6 +818,10 @@ msgstr "최대 5개까지만 선택하실 수 있습니다."
 #: .\pyconkr\templates\pyconkr\proposal_detail.html:28
 msgid "Comment to reviewers"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
+
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
+msgid "수정하기"
+msgstr ""
 
 #: .\pyconkr\templates\pyconkr\proposal_form.html:5
 msgid "발표 제안"
