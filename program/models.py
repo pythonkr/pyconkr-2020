@@ -246,7 +246,7 @@ class Proposal(models.Model):
                                     ('DS', _('Data Science')),
                                     ('etc', _('etc')),
                                 ),
-                                default='')
+                                default='', null=True, blank=True)
 
     def __str__(self):
         return self.title
