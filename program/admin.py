@@ -40,8 +40,7 @@ admin.site.register(ProgramTime, ProgramTimeAdmin)
 
 
 class ProgramCategoryAdmin(TranslationAdmin, ImportExportModelAdmin):
-    list_display = ('id', 'name', 'slug',)
-    list_editable = ('name', 'slug',)
+    list_display = ('id', 'name', 'slug', 'visible',)
 
 
 admin.site.register(ProgramCategory, ProgramCategoryAdmin)
@@ -78,7 +77,7 @@ class ProposalAdminForm(forms.ModelForm):
 
 class ProposalAdmin(admin.ModelAdmin):
     form = ProposalAdminForm
-    list_display = ('user', 'title', 'difficulty', 'duration', 'language')
+    list_display = ('id', 'user', 'title', 'difficulty', 'duration', 'language', 'category')
 
 
 admin.site.register(Proposal, ProposalAdmin)
