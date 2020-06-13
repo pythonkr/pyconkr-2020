@@ -76,15 +76,15 @@ def default(request):
             'contribution', {
                 'title': _('Contribution'),
                 'submenu': OrderedDict([
-                    ('about', {'title': _('About Contribution'), 'disable': True}),
+                    ('about', {'title': _('About Contribution')}),
                     ('cfp/guide', {'title': _('How to Submit a Proposal')}),
                     ('cfp', {'title': _('Proposing a talk')}),
                     ('review-talk-proposal',
-                     {'title': _('Review Talk Proposal'), 'disable': True}),
+                     {'title': _('Review Talk Proposal')}),
                     ('proposing-tutorial',
                      {'title': _('Proposing a Tutorial'), 'disable': True}),
                     ('recommending-keynote',
-                     {'title': _('Recommending Keynote'), 'disable': True}),
+                     {'title': _('Recommending Keynote')}),
                     ('volunteer', {'title': _('Volunteer'), 'disable': True}),
                     ('video-subtitle', {'title': _('Video Subtitle')}),
                 ])
