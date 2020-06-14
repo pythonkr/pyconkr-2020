@@ -11,9 +11,11 @@ python manage.py collectstatic --noinput &
 
 echo "Apply database migrations"
 python manage.py makemigrations
+python manage.py migrate program 0002 --fake
 python manage.py migrate
 
 # For Debug
+echo ""
 echo "========== python manage.py showmigrations =========="
 python manage.py showmigrations
 echo ""

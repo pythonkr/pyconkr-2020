@@ -10,6 +10,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.AddField(
+            model_name='proposal',
+            name='category',
+            field=models.CharField(choices=[('', '---------'), ('PL', 'Python Library'), ('DM', 'Development Method with Python'), ('DA', 'Data Analytics'), ('LS', 'Life / Social'), ('CV', 'Computer Vision'), ('RE', 'Robotics / Embedded System'), ('DG', 'Data Gathering'), ('BC', 'Blockchain'), ('PC', 'Python Community'), ('WS', 'Web Service'), ('DL', 'Deep Learning & AI'), ('PF', 'Python Core & Fundamental'), ('DS', 'Data Science'), ('etc', 'etc')], default='', max_length=25),
+        ),
         migrations.AlterField(
             model_name='proposal',
             name='language',
