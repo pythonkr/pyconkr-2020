@@ -77,7 +77,7 @@ class ProposalAdminForm(forms.ModelForm):
 
 class ProposalAdmin(admin.ModelAdmin):
     form = ProposalAdminForm
-    list_display = ('id', 'user', 'title', 'difficulty', 'duration', 'language', 'category')
+    list_display = ('id', 'user', 'title', 'difficulty', 'duration', 'language')
 
 
 admin.site.register(Proposal, ProposalAdmin)
