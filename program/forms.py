@@ -91,11 +91,12 @@ class ProposalForm(forms.ModelForm):
 
         self.fields['brief'].initial = config.CFP_BRIEF_TEMPLATE
         self.fields['desc'].initial = config.CFP_DESC_TEMPLATE
+        self.fields['category'].queryset = ProgramCategory.objects.filter(visible=True)
 
     class Meta:
         model = Proposal
         fields = ('title', 'brief', 'desc', 'comment',
-                  'difficulty', 'duration', 'language',)
+                  'difficulty', 'duration', 'language', 'category',)
         widgets = {
             'desc': SummernoteInplaceWidget(),
             'comment': SummernoteInplaceWidget(),
@@ -110,6 +111,7 @@ class ProposalForm(forms.ModelForm):
             'difficulty': _('Session difficulty'),
             'duration': _('Session duration'),
             'language': _('Language'),
+            'category': _('Category'),
         }
 
 
