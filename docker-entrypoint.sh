@@ -35,6 +35,12 @@ touch /logs/gunicorn.log
 touch /logs/access.log
 tail -n 0 -f /logs/*.log &
 
+# For Debug
+echo "========== python manage.py showmigrations =========="
+python manage.py showmigrations
+echo ""
+echo ""
+
 echo "==== Starting server ====="
 gunicorn pyconkr.wsgi:application \
     --bind=0.0.0.0:8000 \
