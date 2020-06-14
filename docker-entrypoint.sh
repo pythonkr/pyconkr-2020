@@ -13,6 +13,12 @@ echo "Apply database migrations"
 python manage.py makemigrations
 python manage.py migrate
 
+# For Debug
+echo "========== python manage.py showmigrations =========="
+python manage.py showmigrations
+echo ""
+echo ""
+
 echo "Create admin user"
 CREATE_ADMIN_SOURCE="
 from django.contrib.auth.models import User
@@ -35,16 +41,10 @@ touch /logs/gunicorn.log
 touch /logs/access.log
 tail -n 0 -f /logs/*.log &
 
-# For Debug
-echo "========== python manage.py showmigrations =========="
-python manage.py showmigrations
-echo ""
-echo ""
-
 echo "==== Starting server ====="
 gunicorn pyconkr.wsgi:application \
     --bind=0.0.0.0:8000 \
-    --workers 4 \
+    --workers 1 \
 #    --threads 256 \
     --worker-connections=5000 \
     --max-requests 10000 \
