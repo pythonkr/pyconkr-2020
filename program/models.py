@@ -229,7 +229,7 @@ class Proposal(models.Model):
                                 default='')
 
     category = models.ForeignKey(
-        ProgramCategory, on_delete=models.SET_DEFAULT, null=True, blank=True, default='etc', to_field='slug')
+        ProgramCategory, on_delete=models.SET_DEFAULT, null=True, blank=True, default=14)
 
     def __str__(self):
         return self.title
