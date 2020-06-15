@@ -8,18 +8,21 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-{#<div class="sponsor">#}
-{#    <img src="{{ sponsor.logo_image.url }}" alt="{{ sponsor.name }}">#}
-{#    <ul class="list-group">#}
-{#        <li class="list-group-item">#}
-{#        <span class="glyphicon glyphicon-tag"></span> {{ sponsor.level }}#}
-{#        </li>#}
-{#        <li class="list-group-item">#}
-{#        <span class="glyphicon glyphicon-share-alt"></span> {{ sponsor.url|urlize }}#}
-{#        </li>#}
-{#    </ul>#}
-{#    <div>#}
-{#        {{ sponsor.desc|safe }}#}
-{#    </div>#}
-{#</div>#}
+    <div class="tiles">
+        <a class="tile" id="keystone" style="background-image: url('https://www.classian.co.kr/news/photo/202003/4420_6214_487.jpg')">
+          KeyStone
+        </a>
+        <a class="tile">
+            Sponsor
+        </a>
+        <a class="tile">
+            Sponsor
+        </a>
+        <a class="tile">
+            Sponsor
+        </a>
+        <a class="tile">
+            Sponsor
+        </a>
+    </div>
 {% endblock %}

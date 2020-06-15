@@ -1022,3 +1022,29 @@ a.a_btn {
     display: none;
   }
 }
+
+.tiles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border: 3px violet solid;
+}
+
+.tile {
+  width: 23%;
+  height: 10rem;
+  border: 1px solid black;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+
+  &#keystone {
+    width: 98%
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
