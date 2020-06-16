@@ -971,9 +971,15 @@ table td.header {
   font-weight: bold;
 }
 
+div.a_btn_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
 a.a_btn {
   font-size: 1rem;
-  width: 5rem;
+  width: auto;
   height: 2rem;
   border-radius: 5px;
   background-color: #0f4c81;
@@ -985,6 +991,13 @@ a.a_btn {
   text-decoration: none;
   color: aliceblue;
   cursor: pointer;
+  padding: 0 3px;
+
+  &.large {
+    height: 3rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
 }
 
 .sticky-footer {

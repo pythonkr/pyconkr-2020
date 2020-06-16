@@ -34,7 +34,7 @@
             {{ proposal.comment|safe }}
         </div>
         {% if EDIT_AVAILABLE %}
-            <div style="display: flex; justify-content: center; margin-top: 5rem;">
+            <div class="a_btn_container">
                 <a class="a_btn" href="{% url 'proposal-update' %}">{% trans "수정하기" %}</a>
             </div>
         {% endif %}
