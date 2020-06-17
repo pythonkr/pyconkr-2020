@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load staticfiles %}
 
 {#{% block head-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }}{% endblock %}#}
 {#{% block og-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }}{% endblock %}#}
@@ -9,20 +10,85 @@
 
 {% block content %}
     <div class="tiles">
-        <a class="tile" id="keystone" style="background-image: url('https://www.classian.co.kr/news/photo/202003/4420_6214_487.jpg')">
-          KeyStone
+        <a class="tile" id="keystone">
+            <div class="tile_container">
+                <div class="tile_img" style="background-image: url('{% static 'image/sponsor/line.png' %}')"></div>
+                <div class="tile_name">
+                    Line Plus
+                </div>
+            </div>
+        </a>
+        <a class="tile" id="diamond">
+            <div class="tile_container">
+                <div class="tile_img" style="background-image: url('{% static 'image/sponsor/delivery.png' %}')"></div>
+                <div class="tile_name">
+                    Delivery Hero Korea
+                </div>
+            </div>
+        </a>
+        <a class="tile" id="diamond">
+            <div class="tile_container">
+                <div class="tile_img" style="background-image: url('{% static 'image/sponsor/backsalad.png' %}')"></div>
+                <div class="tile_name">
+                    뱅크샐러드
+                </div>
+            </div>
+        </a>
+        <a class="tile" id="diamond">
+            <div class="tile_container">
+                <div class="tile_img" style="background-image: url('{% static 'image/sponsor/microsoft.png' %}')"></div>
+                <div class="tile_name">
+                    Microsoft
+                </div>
+            </div>
         </a>
         <a class="tile">
-            Sponsor
+            <div class="tile_container">
+                <div class="tile_img" style="background-image: url('{% static 'image/sponsor/cashwalk.png' %}')"></div>
+                <div class="tile_name">
+                    캐시워크 주식회사
+                </div>
+            </div>
         </a>
         <a class="tile">
-            Sponsor
+            <div class="tile_container">
+                <div class="tile_img" style="background-image: url('{% static 'image/sponsor/django_girls.png' %}')"></div>
+                <div class="tile_name">
+                    Django Girls
+                </div>
+            </div>
         </a>
         <a class="tile">
-            Sponsor
+            <div class="tile_container">
+                <div class="tile_img" style="background-image: url('{% static 'image/sponsor/jetbrains.png' %}')"></div>
+                <div class="tile_name">
+                    JetBrains
+                </div>
+            </div>
         </a>
         <a class="tile">
-            Sponsor
+            <div class="tile_container">
+                <div class="tile_img" style="background-image: url('{% static 'image/sponsor/mmt.jpg' %}')"></div>
+                <div class="tile_name">
+                    My Music Taste
+                </div>
+            </div>
+        </a>
+        <a class="tile">
+            <div class="tile_container">
+                <div class="tile_img" style="background-image: url('{% static 'image/sponsor/prnd.png' %}')"></div>
+                <div class="tile_name">
+                    피알앤디
+                </div>
+            </div>
+        </a>
+        <a class="tile">
+            <div class="tile_container">
+                <div class="tile_img" style="background-image: url('{% static 'image/sponsor/swhigh.png' %}')"></div>
+                <div class="tile_name">
+                    소프트웨어 마이스터 고등학교
+                </div>
+            </div>
         </a>
     </div>
 {% endblock %}
