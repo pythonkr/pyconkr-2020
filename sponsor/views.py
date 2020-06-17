@@ -49,10 +49,10 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         return super(SponsorUpdate, self).get(request, *args, **kwargs)
 
 
-class VirtualHall(DetailView):
-    template_name = "sponsor/virtual_hall_home.html"
+class VirtualBooth(DetailView):
+    template_name = "sponsor/virtual_booth_home.html"
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {
-            'title': _('Virtual Hall')
+            'title': _('Virtual Booth')
         })
