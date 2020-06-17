@@ -1024,11 +1024,13 @@ a.a_btn {
 }
 
 .tiles {
-  display: flex;
+  .tiles_keystone, .tiles_diamond, .tiles_startup {
+    width: 100%;
+    display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  // border: 3px violet solid;
+  }
 }
 
 .tile {
