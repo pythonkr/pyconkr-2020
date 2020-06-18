@@ -50,7 +50,7 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
 
 
 class VirtualBooth(ListView):
-    model = Sponsor
+    queryset = Sponsor.objects.filter(accepted=True)
     template_name = "sponsor/virtual_booth_home.html"
 
     def get_context_data(self, **kwargs):
