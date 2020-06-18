@@ -56,3 +56,13 @@ class VirtualBooth(DetailView):
         return render(request, self.template_name, {
             'title': _('Virtual Booth')
         })
+
+
+class VirtualBoothDetail(DetailView):
+    model = Sponsor
+    template_name = "sponsor/virtual_booth_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
+
+        return context
