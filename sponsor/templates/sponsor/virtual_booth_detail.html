@@ -2,14 +2,12 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{#{% block head-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }}{% endblock %}#}
-{#{% block og-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }}{% endblock %}#}
-{#{% block og-image %}{{ sponsor.logo_image.url }}{% endblock %}#}
-{#{% block nav %}{% include "nav.html" with title=sponsor.name %}{% endblock %}#}
+{% block head-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }} | Virtual Booth{% endblock %}
+{% block og-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }} | Virtual Booth{% endblock %}
+{% block og-image %}{{ sponsor.logo_image.url }}{% endblock %}
+{% block nav %}{% include "nav.html" with title=sponsor.name %}{% endblock %}
 {% block title %}{{ sponsor.name }}{% endblock %}
 
 {% block content %}
-    <div>
-        {{ sponsor.manager_email }}
-    </div>
+    {{ sponsor.virtual_hall_content|safe }}
 {% endblock %}
