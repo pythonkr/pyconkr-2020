@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
-from .models import Sponsor
+from .models import Sponsor, SponsorLevel
 from .forms import SponsorForm
 import constance
 import datetime
@@ -49,13 +49,20 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         return super(SponsorUpdate, self).get(request, *args, **kwargs)
 
 
-class VirtualBooth(DetailView):
+class VirtualBooth(ListView):
+    model = Sponsor
     template_name = "sponsor/virtual_booth_home.html"
 
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, {
-            'title': _('Virtual Booth')
-        })
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        keystone = SponsorLevel.objects.filter(slug='keystone')
+        diamond = SponsorLevel.objects.filter(slug='diamond')
+        start_up = SponsorLevel.objects.filter(slug='start_up')
+        context['keystone'] = keystone[0]
+        context['diamond'] = diamond[0]
+        context['start_up'] = start_up[0]
+        context['title'] = "Virtual Booth"
+        return context
 
 
 class VirtualBoothDetail(DetailView):
