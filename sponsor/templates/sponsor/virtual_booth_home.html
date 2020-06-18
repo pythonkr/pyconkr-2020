@@ -11,7 +11,7 @@
 {% block content %}
     <div class="tiles">
         <div class="tiles_keystone">
-            <a class="tile" id="keystone">
+            <a href="{% url 'virtual_booth' slug='line' %}"class="tile" id="keystone">
                 <div class="tile_container">
                     <div class="tile_img" style="background-image: url('{% static 'image/sponsor/line.png' %}')"></div>
                     <div class="tile_name">

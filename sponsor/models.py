@@ -63,7 +63,7 @@ class Sponsor(models.Model):
     class Meta:
         ordering = ['paid_at', 'id']
     slug = models.SlugField(max_length=100, null=True, blank=True,
-                            help_text='후원사 상세 페이지의 path로 사용됩니다')
+                            help_text='후원사 상세 페이지의 path로 사용됩니다.')
     creator = models.ForeignKey(User, on_delete=models.CASCADE,
                                 help_text=_('후원사를 등록한 유저'))
     name = models.CharField(max_length=255,
@@ -91,7 +91,7 @@ class Sponsor(models.Model):
     paid_at = models.DateTimeField(null=True, blank=True,
                                    help_text='후원금이 입금된 일시입니다. 아직 입금되지 않았을 경우 None이 들어갑니다.')
     submitted = models.BooleanField(default=False,
-                                    help_text='사용자가 제출했는지 여부를 저장합니다. 요청이 제출되면 준비위원회에서 검토하고 받아들일지를 결정합니다')
+                                    help_text='사용자가 제출했는지 여부를 저장합니다. 요청이 제출되면 준비위원회에서 검토하고 받아들일지를 결정합니다.')
     accepted = models.BooleanField(default=False,
                                    help_text='후원사로 확정되었을 경우 True로 설정됩니다.')
     created_at = models.DateTimeField(auto_now_add=True)
