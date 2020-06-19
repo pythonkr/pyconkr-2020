@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 12:55+0900\n"
+"POT-Creation-Date: 2020-06-19 13:37+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -36,7 +36,7 @@ msgid "Read more"
 msgstr "Read more"
 
 #: .\program\forms.py:19 .\program\forms.py:68 .\program\forms.py:90
-#: .\program\forms.py:122 .\program\forms.py:147
+#: .\program\forms.py:123 .\program\forms.py:148
 msgid "Submit"
 msgstr "Submit"
 
@@ -64,7 +64,7 @@ msgstr "Profile"
 msgid "Additional information"
 msgstr "Additional information"
 
-#: .\program\forms.py:77 .\program\forms.py:134 .\program\forms.py:158
+#: .\program\forms.py:77 .\program\forms.py:135 .\program\forms.py:159
 msgid "Title"
 msgstr "Title"
 
@@ -84,59 +84,59 @@ msgstr "Photography and recording is allowed."
 msgid "Description"
 msgstr "Description"
 
-#: .\program\forms.py:105
+#: .\program\forms.py:106
 msgid "Proposal title (required)"
 msgstr "Proposal title (required)"
 
-#: .\program\forms.py:106
+#: .\program\forms.py:107
 msgid "Brief (required)"
 msgstr "Brief (required)"
 
-#: .\program\forms.py:107
+#: .\program\forms.py:108
 msgid "Detailed description (required)"
 msgstr "Detailed description (required)"
 
-#: .\program\forms.py:108
+#: .\program\forms.py:109
 msgid "Comment to reviewers (optional)"
 msgstr "Comment to reviewers (optional)"
 
-#: .\program\forms.py:110 .\program\forms.py:162
+#: .\program\forms.py:111 .\program\forms.py:163
 msgid "Session difficulty"
 msgstr "Session difficulty"
 
-#: .\program\forms.py:111
+#: .\program\forms.py:112
 msgid "Session duration"
 msgstr "Session duration"
 
-#: .\program\forms.py:112 .\program\forms.py:135
+#: .\program\forms.py:113 .\program\forms.py:136
 #: .\pyconkr\templates\nav.html:78
 msgid "Language"
 msgstr "Language"
 
-#: .\program\forms.py:113
+#: .\program\forms.py:114
 msgid "Category"
 msgstr "Category"
 
-#: .\program\forms.py:136
+#: .\program\forms.py:137
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:49
 msgid "Project URL"
 msgstr "Official URL for project"
 
-#: .\program\forms.py:137
+#: .\program\forms.py:138
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:41
 msgid "Project brief"
 msgstr "Brief about project"
 
-#: .\program\forms.py:138
+#: .\program\forms.py:139
 msgid "Contribution description"
 msgstr "Describe about your contribution activity in this project."
 
-#: .\program\forms.py:159
+#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\proposal_detail.html:23
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "Brief"
 
-#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\proposal_detail.html:23
+#: .\program\forms.py:161 .\pyconkr\templates\pyconkr\proposal_detail.html:28
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
@@ -157,15 +157,15 @@ msgstr ""
 "social/\" target=\"_blank\">http://lipis.github.io/bootstrap-social/</a></p>"
 "\""
 
-#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:265
+#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:248
 msgid "Beginner"
 msgstr "Beginner"
 
-#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:266
+#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:249
 msgid "Intermediate"
 msgstr "Intermediate"
 
-#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:267
+#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:250
 msgid "Experienced"
 msgstr "Experienced"
 
@@ -177,12 +177,12 @@ msgstr ""
 msgid "40min"
 msgstr ""
 
-#: .\program\models.py:126 .\program\models.py:227 .\program\models.py:279
+#: .\program\models.py:126 .\program\models.py:227 .\program\models.py:262
 #: .\pyconkr\settings.py:153
 msgid "English"
 msgstr "English"
 
-#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:280
+#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:263
 #: .\pyconkr\settings.py:152
 msgid "Korean"
 msgstr "Korean"
@@ -191,71 +191,15 @@ msgstr "Korean"
 msgid "Not arranged yet"
 msgstr "Not arranged yet"
 
-#: .\program\models.py:234
-msgid "Python Library"
-msgstr ""
-
-#: .\program\models.py:235
-msgid "Development Method with Python"
-msgstr ""
-
-#: .\program\models.py:236
-msgid "Data Analytics"
-msgstr ""
-
-#: .\program\models.py:237
-msgid "Life / Social"
-msgstr ""
-
-#: .\program\models.py:238
-msgid "Computer Vision"
-msgstr ""
-
-#: .\program\models.py:239
-msgid "Robotics / Embedded System"
-msgstr ""
-
-#: .\program\models.py:240
-msgid "Data Gathering"
-msgstr ""
-
-#: .\program\models.py:241
-msgid "Blockchain"
-msgstr ""
-
-#: .\program\models.py:242
-msgid "Python Community"
-msgstr ""
-
-#: .\program\models.py:243
-msgid "Web Service"
-msgstr ""
-
-#: .\program\models.py:244
-msgid "Deep Learning & AI"
-msgstr ""
-
-#: .\program\models.py:245
-msgid "Python Core & Fundamental"
-msgstr ""
-
-#: .\program\models.py:246
-msgid "Data Science"
-msgstr ""
-
-#: .\program\models.py:247
-msgid "etc"
-msgstr "Etc."
-
-#: .\program\models.py:272
+#: .\program\models.py:255
 msgid "1 hour"
 msgstr "1 hour"
 
-#: .\program\models.py:273
+#: .\program\models.py:256
 msgid "2 hours"
 msgstr "2 hours"
 
-#: .\program\models.py:274
+#: .\program\models.py:257
 msgid "4 hours"
 msgstr "4 hours"
 
@@ -822,11 +766,11 @@ msgstr "Submit preferences"
 msgid "Up to 5 items can be selected."
 msgstr "Up to 5 items can be selected."
 
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:28
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
 msgid "Comment to reviewers"
 msgstr "Comment to reviewers"
 
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:38
 msgid "수정하기"
 msgstr "Edit"
 
@@ -1047,6 +991,9 @@ msgid ""
 msgstr ""
 "In the end, we will have a broader view of the world as we create websites "
 "and simple games."
+
+#~ msgid "etc"
+#~ msgstr "Etc."
 
 #~ msgid ""
 #~ "관심있는 오픈소스 프로젝트를 같은 장소에 모여 집중적으로 개발하는 자리입니"

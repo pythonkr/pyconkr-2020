@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 12:55+0900\n"
+"POT-Creation-Date: 2020-06-19 13:37+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,12 +23,12 @@ msgstr ""
 #: .\user\forms.py:31 .\user\forms.py:63
 #, python-format
 msgid "Maximum size is %(size)d MB"
-msgstr ""
+msgstr "최대 크기 %(size)d MB"
 
 #: .\user\forms.py:34 .\user\forms.py:73
 #, python-format
 msgid "Minimum dimension is %(width)d x %(height)d"
-msgstr ""
+msgstr "최소 해상도 %(width)d x %(height)d"
 
 #: .\user\forms.py:46
 msgid "Photo"
@@ -118,7 +118,7 @@ msgstr ""
 
 #: .\user\templates\user\profile_form.html:5 .\user\views.py:56
 msgid "Profile"
-msgstr ""
+msgstr "프로필"
 
 #: .\user\templates\user\social_signup_form.html:5
 msgid "Social Sign-up"
@@ -126,8 +126,8 @@ msgstr ""
 
 #: .\user\views.py:64
 msgid "Profile successfully updated."
-msgstr ""
+msgstr "프로필이 성공적으로 업데이트 되었습니다."
 
 #: .\user\views.py:76
 msgid "Update profile"
-msgstr ""
+msgstr "프로필 수정"

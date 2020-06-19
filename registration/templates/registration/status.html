@@ -7,9 +7,9 @@
     <div>
         <h3>{{ option.event_type }} {% trans "Registration status" %}</h3>
         {% if registration.payment_status == 'paid' %}
-            <div>{% trans "Registration is completed" %}</div>
+            <div>{% trans "Registration is completed." %}</div>
             <div>
-                <p>{% trans "Your registration is completed without any problems" %}</p>
+                <p>{% trans "Your registration is completed without any problems." %}</p>
             </div>
 
             <table class="table table-striped table-bordered">
@@ -145,7 +145,7 @@
                 </table>
             </div>
         {% else %}
-            <div>{% trans "There is no registration record" %}</div>
+            <div>{% trans "There is no registration record." %}</div>
             <div>
                 <p></p>
                 <a href="{% url 'registration_payment' %}">{% trans "Registration" %}</a>

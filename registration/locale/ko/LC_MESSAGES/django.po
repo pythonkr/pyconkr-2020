@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 12:55+0900\n"
+"POT-Creation-Date: 2020-06-19 13:37+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: woojing seok <woojing@pycon.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,7 +58,7 @@ msgstr "전화번호"
 #: .\registration\forms.py:33 .\registration\forms.py:58
 #: .\registration\forms.py:83
 msgid "Payment Method"
-msgstr "결제수단"
+msgstr "결제 수단"
 
 #: .\registration\forms.py:54
 msgid "Additional Funding KRW"
@@ -69,8 +69,6 @@ msgid "Title"
 msgstr "제목"
 
 #: .\registration\forms.py:82
-#, fuzzy
-#| msgid "E-mail"
 msgid "Email"
 msgstr "이메일"
 
@@ -106,7 +104,7 @@ msgstr "등록 완료"
 
 #: .\registration\templates\registration\status.html:12
 msgid "Your registration is completed without any problems"
-msgstr "등록되었습니다"
+msgstr "등록되었습니다."
 
 #: .\registration\templates\registration\status.html:21
 #: .\registration\templates\registration\status.html:102
@@ -180,7 +178,7 @@ msgstr "결제 확인됨"
 
 #: .\registration\templates\registration\status.html:148
 msgid "There is no registration record"
-msgstr "등록 기록이 없습니다"
+msgstr "등록 기록이 없습니다."
 
 #: .\registration\views.py:57
 msgid "Registration Status"

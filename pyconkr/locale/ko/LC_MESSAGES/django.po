@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 12:55+0900\n"
+"POT-Creation-Date: 2020-06-19 13:37+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -37,7 +37,7 @@ msgid "Read more"
 msgstr "더 보기"
 
 #: .\program\forms.py:19 .\program\forms.py:68 .\program\forms.py:90
-#: .\program\forms.py:122 .\program\forms.py:147
+#: .\program\forms.py:123 .\program\forms.py:148
 msgid "Submit"
 msgstr "제출"
 
@@ -65,7 +65,7 @@ msgstr "프로필"
 msgid "Additional information"
 msgstr "추가 정보"
 
-#: .\program\forms.py:77 .\program\forms.py:134 .\program\forms.py:158
+#: .\program\forms.py:77 .\program\forms.py:135 .\program\forms.py:159
 msgid "Title"
 msgstr "제목"
 
@@ -85,59 +85,59 @@ msgstr "촬영, 녹화가 가능합니다."
 msgid "Description"
 msgstr "설명"
 
-#: .\program\forms.py:105
+#: .\program\forms.py:106
 msgid "Proposal title (required)"
 msgstr "세션 제목 (필수)"
 
-#: .\program\forms.py:106
+#: .\program\forms.py:107
 msgid "Brief (required)"
 msgstr "간략한 설명 (필수)"
 
-#: .\program\forms.py:107
+#: .\program\forms.py:108
 msgid "Detailed description (required)"
 msgstr "자세한 설명 (필수)"
 
-#: .\program\forms.py:108
+#: .\program\forms.py:109
 msgid "Comment to reviewers (optional)"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
-#: .\program\forms.py:110 .\program\forms.py:162
+#: .\program\forms.py:111 .\program\forms.py:163
 msgid "Session difficulty"
 msgstr "세션 난이도"
 
-#: .\program\forms.py:111
+#: .\program\forms.py:112
 msgid "Session duration"
 msgstr "세션 길이"
 
-#: .\program\forms.py:112 .\program\forms.py:135
+#: .\program\forms.py:113 .\program\forms.py:136
 #: .\pyconkr\templates\nav.html:78
 msgid "Language"
 msgstr "언어"
 
-#: .\program\forms.py:113
+#: .\program\forms.py:114
 msgid "Category"
 msgstr "분야"
 
-#: .\program\forms.py:136
+#: .\program\forms.py:137
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:49
 msgid "Project URL"
 msgstr "프로젝트 공식 URL"
 
-#: .\program\forms.py:137
+#: .\program\forms.py:138
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:41
 msgid "Project brief"
 msgstr "오픈소스 프로젝트에 대한 간단한 설명"
 
-#: .\program\forms.py:138
+#: .\program\forms.py:139
 msgid "Contribution description"
 msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
 
-#: .\program\forms.py:159
+#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\proposal_detail.html:23
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "간단한 설명"
 
-#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\proposal_detail.html:23
+#: .\program\forms.py:161 .\pyconkr\templates\pyconkr\proposal_detail.html:28
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
@@ -158,15 +158,15 @@ msgstr ""
 "\" target=\"_blank\">http://lipis.github.io/bootstrap-social/</a>에서 확인하"
 "실 수 있습니다.</p>\""
 
-#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:265
+#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:248
 msgid "Beginner"
 msgstr "초급"
 
-#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:266
+#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:249
 msgid "Intermediate"
 msgstr "중급"
 
-#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:267
+#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:250
 msgid "Experienced"
 msgstr "고급"
 
@@ -178,12 +178,12 @@ msgstr "25분"
 msgid "40min"
 msgstr "40분"
 
-#: .\program\models.py:126 .\program\models.py:227 .\program\models.py:279
+#: .\program\models.py:126 .\program\models.py:227 .\program\models.py:262
 #: .\pyconkr\settings.py:153
 msgid "English"
 msgstr "영어"
 
-#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:280
+#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:263
 #: .\pyconkr\settings.py:152
 msgid "Korean"
 msgstr "한국어"
@@ -192,71 +192,15 @@ msgstr "한국어"
 msgid "Not arranged yet"
 msgstr "아직 결정되지 않았습니다."
 
-#: .\program\models.py:234
-msgid "Python Library"
-msgstr ""
-
-#: .\program\models.py:235
-msgid "Development Method with Python"
-msgstr ""
-
-#: .\program\models.py:236
-msgid "Data Analytics"
-msgstr ""
-
-#: .\program\models.py:237
-msgid "Life / Social"
-msgstr ""
-
-#: .\program\models.py:238
-msgid "Computer Vision"
-msgstr ""
-
-#: .\program\models.py:239
-msgid "Robotics / Embedded System"
-msgstr ""
-
-#: .\program\models.py:240
-msgid "Data Gathering"
-msgstr ""
-
-#: .\program\models.py:241
-msgid "Blockchain"
-msgstr ""
-
-#: .\program\models.py:242
-msgid "Python Community"
-msgstr ""
-
-#: .\program\models.py:243
-msgid "Web Service"
-msgstr ""
-
-#: .\program\models.py:244
-msgid "Deep Learning & AI"
-msgstr ""
-
-#: .\program\models.py:245
-msgid "Python Core & Fundamental"
-msgstr ""
-
-#: .\program\models.py:246
-msgid "Data Science"
-msgstr ""
-
-#: .\program\models.py:247
-msgid "etc"
-msgstr "기타"
-
-#: .\program\models.py:272
+#: .\program\models.py:255
 msgid "1 hour"
 msgstr "1시간"
 
-#: .\program\models.py:273
+#: .\program\models.py:256
 msgid "2 hours"
 msgstr "2시간"
 
-#: .\program\models.py:274
+#: .\program\models.py:257
 msgid "4 hours"
 msgstr "4시간"
 
@@ -414,7 +358,7 @@ msgstr "발표 제안하기"
 
 #: .\pyconkr\context_processors.py:83
 msgid "Review Talk Proposal"
-msgstr "튜토리얼 제안서"
+msgstr "발표 제안 검토하기"
 
 #: .\pyconkr\context_processors.py:85
 msgid "Proposing a Tutorial"
@@ -815,11 +759,11 @@ msgstr "선호도 등록하기"
 msgid "Up to 5 items can be selected."
 msgstr "최대 5개까지만 선택하실 수 있습니다."
 
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:28
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
 msgid "Comment to reviewers"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:38
 msgid "수정하기"
 msgstr ""
 
@@ -1003,3 +947,6 @@ msgid ""
 "마지막으로, 우리는 웹 사이트 및 간단한 게임을 만들어 보면서 이 세상을 이해할 "
 "수 있는 더 넓은 시야를 갖게 될 것입니다."
 msgstr ""
+
+#~ msgid "etc"
+#~ msgstr "기타"
