@@ -96,7 +96,7 @@ class ProposalForm(forms.ModelForm):
     class Meta:
         model = Proposal
         fields = ('title', 'brief', 'desc', 'comment',
-                  'difficulty', 'duration', 'language', 'category')
+                  'difficulty', 'duration', 'language', 'category',)
         widgets = {
             'desc': SummernoteInplaceWidget(),
             'comment': SummernoteInplaceWidget(),

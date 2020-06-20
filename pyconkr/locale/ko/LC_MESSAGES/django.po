@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 13:37+0900\n"
+"POT-Creation-Date: 2020-06-18 15:59+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -132,12 +132,12 @@ msgstr "오픈소스 프로젝트에 대한 간단한 설명"
 msgid "Contribution description"
 msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
 
-#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\proposal_detail.html:23
+#: .\program\forms.py:159 .\pyconkr\templates\pyconkr\proposal_detail.html:22
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "간단한 설명"
 
-#: .\program\forms.py:161 .\pyconkr\templates\pyconkr\proposal_detail.html:28
+#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\proposal_detail.html:27
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
@@ -399,6 +399,10 @@ msgstr "FAQ"
 #: .\pyconkr\context_processors.py:101
 msgid "Terms of Sponsor"
 msgstr "후원사 약관"
+
+#: .\pyconkr\context_processors.py:102
+msgid "Virtual Booth"
+msgstr ""
 
 #: .\pyconkr\forms.py:23 .\pyconkr\templates\login_notvalidtoken.html:7
 #: .\pyconkr\templates\nav.html:72 .\pyconkr\views.py:54
@@ -759,11 +763,11 @@ msgstr "선호도 등록하기"
 msgid "Up to 5 items can be selected."
 msgstr "최대 5개까지만 선택하실 수 있습니다."
 
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:32
 msgid "Comment to reviewers"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:38
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:37
 msgid "수정하기"
 msgstr ""
 

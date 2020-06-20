@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 13:37+0900\n"
+"POT-Creation-Date: 2020-06-18 15:59+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,59 +17,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\sponsor\forms.py:26
+#: .\sponsor\forms.py:25
 msgid "후원사 등급"
 msgstr "Sponsor Level"
 
-#: .\sponsor\forms.py:27
+#: .\sponsor\forms.py:26
 msgid "로고 이미지"
 msgstr "Logo Image"
 
+#: .\sponsor\forms.py:27
+msgid "후원사 이름 (한글)"
+msgstr "Sponsor Name (Korean)"
+
 #: .\sponsor\forms.py:28
-msgid "후원사 이름(한글)"
-msgstr "Sponsor Name(Korean)"
+msgid "후원사 이름 (영문)"
+msgstr "Sponsor Name (English)"
 
 #: .\sponsor\forms.py:29
-msgid "후원사 이름(영문)"
-msgstr "Sponsor Name(English)"
-
-#: .\sponsor\forms.py:30
 msgid "후원사 홈페이지 주소"
 msgstr "Sponsor Homepage Url"
 
+#: .\sponsor\forms.py:30
+msgid "후원사 소개 (한글)"
+msgstr "Sponsor Description (Korean)"
+
 #: .\sponsor\forms.py:31
-msgid "후원사 소개(한글)"
-msgstr "Sponsor Description(Korean)"
+msgid "후원사 소개 (영문)"
+msgstr "Sponsor Description (English)"
 
 #: .\sponsor\forms.py:32
-msgid "후원사 소개(영문)"
-msgstr "Sponsor Description(English)"
-
-#: .\sponsor\forms.py:33
 msgid "후원 담당자 이름"
 msgstr "Name of person in charge of sponsorship"
 
-#: .\sponsor\forms.py:34
+#: .\sponsor\forms.py:33
 msgid "후원 담당자 이메일"
 msgstr "Email of person in charge of sponsorship"
 
-#: .\sponsor\forms.py:35
+#: .\sponsor\forms.py:34
 msgid "후원사 사업자 등록 번호"
 msgstr "Business Registration Number"
 
-#: .\sponsor\forms.py:36
+#: .\sponsor\forms.py:35
 msgid "후원사 사업자 등록증"
 msgstr "Business Registration File"
 
-#: .\sponsor\forms.py:37
-msgid "추가로 문의할 점"
-msgstr "More questions"
-
-#: .\sponsor\forms.py:44
+#: .\sponsor\forms.py:42
 msgid "Save"
 msgstr ""
 
-#: .\sponsor\forms.py:45
+#: .\sponsor\forms.py:43
 msgid "Submit"
 msgstr ""
 
@@ -133,11 +129,8 @@ msgstr "It is the logo image of the sponsor that is displayed on the homepage."
 
 #: .\sponsor\models.py:90
 msgid ""
-"파이콘 한국 준비위원회에게 행사나 후원 관련해 전달할 내용을 추가로 기입합니"
-"다. 이 내용은 홈페이지에 게시되지 않습니다."
-msgstr ""
-"Enter the contents you want to ask to PyCon Korea Organizing Teamabout the "
-"event or sponsorship.This content will not be posted on the homepage."
+"Virtual booth에 들어가는 내용입니다. 홈페이지의 virtual booth에 게시됩니다."
+msgstr "It is the content for Virtual booth. It'd be displayed on the virtual booth on the homepage."
 
 #: .\sponsor\templates\sponsor\sponsor_detail.html:4
 #: .\sponsor\templates\sponsor\sponsor_detail.html:5
@@ -180,3 +173,17 @@ msgid ""
 msgstr ""
 "Sponsor Invitation Period is {} ~ {}. Please look forward to the PyCon Korea "
 "to be held again next year."
+
+#: .\sponsor\views.py:57
+msgid "Virtual Booth"
+msgstr ""
+
+#~ msgid "추가로 문의할 점"
+#~ msgstr "More questions"
+
+#~ msgid ""
+#~ "파이콘 한국 준비위원회에게 행사나 후원 관련해 전달할 내용을 추가로 기입합"
+#~ "니다. 이 내용은 홈페이지에 게시되지 않습니다."
+#~ msgstr ""
+#~ "Enter the contents you want to ask to PyCon Korea Organizing Teamabout "
+#~ "the event or sponsorship.This content will not be posted on the homepage."

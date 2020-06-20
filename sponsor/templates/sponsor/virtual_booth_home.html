@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{#{% block head-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }}{% endblock %}#}
+{#{% block og-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }}{% endblock %}#}
+{#{% block og-image %}{{ sponsor.logo_image.url }}{% endblock %}#}
+{#{% block nav %}{% include "nav.html" with title=sponsor.name %}{% endblock %}#}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="tiles">
+        <div class="tiles_keystone">
+            {% for sponsor in object_list %}
+                {% if sponsor.level == keystone %}
+                    <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="keystone">
+                        <div class="tile_container">
+                            <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
+                            <div class="tile_name">
+                                {{ sponsor.name }}
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="tiles_diamond">
+            {% for sponsor in object_list %}
+                {% if sponsor.level == diamond %}
+                    <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="diamond">
+                        <div class="tile_container">
+                            <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
+                            <div class="tile_name">
+                                {{ sponsor.name }}
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="tiles_startup">
+            {% for sponsor in object_list %}
+                {% if sponsor.level == start_up %}
+                    <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile">
+                        <div class="tile_container">
+                            <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
+                            <div class="tile_name">
+                                {{ sponsor.name }}
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

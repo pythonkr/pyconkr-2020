@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
-from .models import Sponsor
-from .forms import SponsorForm
+from django.urls import reverse
+from .models import Sponsor, SponsorLevel
+from .forms import SponsorForm, VirtualBoothUpdateForm
 import constance
 import datetime
 KST = datetime.timezone(datetime.timedelta(hours=9))
@@ -47,3 +48,45 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
                 'content': _('모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요').format(
                     opening.strftime("%Y-%m-%d %H:%M"), deadline.strftime("%Y-%m-%d %H:%M"))})
         return super(SponsorUpdate, self).get(request, *args, **kwargs)
+
+
+class VirtualBooth(ListView):
+    queryset = Sponsor.objects.filter(accepted=True)
+    template_name = "sponsor/virtual_booth_home.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        keystone = SponsorLevel.objects.filter(slug='keystone')
+        diamond = SponsorLevel.objects.filter(slug='diamond')
+        start_up = SponsorLevel.objects.filter(slug='start_up')
+        context['keystone'] = keystone[0]
+        context['diamond'] = diamond[0]
+        context['start_up'] = start_up[0]
+        context['title'] = "Virtual Booth"
+        return context
+
+
+class VirtualBoothDetail(DetailView):
+    model = Sponsor
+    template_name = "sponsor/virtual_booth_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
+
+        return context
+
+
+class VirtualBoothUpdate(UpdateView):
+    form_class = VirtualBoothUpdateForm
+    model = Sponsor
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = _('Virtual booth 내용 수정하기')
+        context['content'] = Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at=None)
+        return context
+
+    def get_success_url(self):
+        slug = Sponsor.objects.get(creator=self.request.user, accepted=True, paid_at=None).slug
+
+        return reverse('virtual_booth', kwargs={'slug': slug})

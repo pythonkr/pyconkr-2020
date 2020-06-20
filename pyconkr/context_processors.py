@@ -99,6 +99,7 @@ def default(request):
                     ('join', {'title': _('Join as Sponsor')}),
                     ('faq', {'title': _('FAQ')}),
                     ('terms-of-sponsor', {'title': _('Terms of Sponsor')}),
+                    ('virtual_booth', {'title': _('Virtual Booth')}),
                 ])
             }
         )

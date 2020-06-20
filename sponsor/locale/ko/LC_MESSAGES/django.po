@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 13:37+0900\n"
+"POT-Creation-Date: 2020-06-18 15:59+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,59 +16,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\sponsor\forms.py:26
+#: .\sponsor\forms.py:25
 msgid "후원사 등급"
 msgstr "후원사 등급"
 
-#: .\sponsor\forms.py:27
+#: .\sponsor\forms.py:26
 msgid "로고 이미지"
 msgstr ""
 
+#: .\sponsor\forms.py:27
+msgid "후원사 이름 (한글)"
+msgstr ""
+
 #: .\sponsor\forms.py:28
-msgid "후원사 이름(한글)"
+msgid "후원사 이름 (영문)"
 msgstr ""
 
 #: .\sponsor\forms.py:29
-msgid "후원사 이름(영문)"
-msgstr ""
-
-#: .\sponsor\forms.py:30
 msgid "후원사 홈페이지 주소"
 msgstr ""
 
+#: .\sponsor\forms.py:30
+msgid "후원사 소개 (한글)"
+msgstr ""
+
 #: .\sponsor\forms.py:31
-msgid "후원사 소개(한글)"
+msgid "후원사 소개 (영문)"
 msgstr ""
 
 #: .\sponsor\forms.py:32
-msgid "후원사 소개(영문)"
-msgstr ""
-
-#: .\sponsor\forms.py:33
 msgid "후원 담당자 이름"
 msgstr ""
 
-#: .\sponsor\forms.py:34
+#: .\sponsor\forms.py:33
 msgid "후원 담당자 이메일"
 msgstr ""
 
-#: .\sponsor\forms.py:35
+#: .\sponsor\forms.py:34
 msgid "후원사 사업자 등록 번호"
 msgstr ""
 
-#: .\sponsor\forms.py:36
+#: .\sponsor\forms.py:35
 msgid "후원사 사업자 등록증"
 msgstr ""
 
-#: .\sponsor\forms.py:37
-msgid "추가로 문의할 점"
-msgstr ""
-
-#: .\sponsor\forms.py:44
+#: .\sponsor\forms.py:42
 msgid "Save"
 msgstr ""
 
-#: .\sponsor\forms.py:45
+#: .\sponsor\forms.py:43
 msgid "Submit"
 msgstr "제출하기"
 
@@ -118,8 +114,7 @@ msgstr ""
 
 #: .\sponsor\models.py:90
 msgid ""
-"파이콘 한국 준비위원회에게 행사나 후원 관련해 전달할 내용을 추가로 기입합니"
-"다. 이 내용은 홈페이지에 게시되지 않습니다."
+"Virtual booth에 들어가는 내용입니다. 홈페이지의 virtual booth에 게시됩니다."
 msgstr ""
 
 #: .\sponsor\templates\sponsor\sponsor_detail.html:4
@@ -156,6 +151,10 @@ msgstr ""
 #: .\sponsor\views.py:47
 msgid ""
 "모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요"
+msgstr ""
+
+#: .\sponsor\views.py:57
+msgid "Virtual Booth"
 msgstr ""
 
 #~ msgid "Temporarily Save"
