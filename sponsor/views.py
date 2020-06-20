@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, redirect
 from django.views.generic import ListView, DetailView, UpdateView
+from django.views import View
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.urls import reverse
@@ -18,6 +19,17 @@ class SponsorDetail(DetailView):
     model = Sponsor
 
 
+class SponsorProposal(View):
+    def get(self, request):
+        has_submitted_sponsor = Sponsor.objects.filter(creator=request.user).exists()
+
+        if has_submitted_sponsor is True:
+            sponsor_obj = Sponsor.objects.get(creator=request.user)
+            return redirect('sponsor_detail', sponsor_obj.slug)
+        else:
+            return redirect('sponsor_propose')
+
+
 class SponsorUpdate(SuccessMessageMixin, UpdateView):
     form_class = SponsorForm
     template_name = "sponsor/sponsor_form.html"
@@ -26,6 +38,8 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
 
     def get_object(self, queryset=None):
         sponsor, _ = Sponsor.objects.get_or_create(creator=self.request.user)
+        self.SLUG = sponsor.slug
+
         return sponsor
 
     def get(self, request, *args, **kwargs):
@@ -48,6 +62,9 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
                 'content': _('모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요').format(
                     opening.strftime("%Y-%m-%d %H:%M"), deadline.strftime("%Y-%m-%d %H:%M"))})
         return super(SponsorUpdate, self).get(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse('sponsor', kwargs={'slug': self.SLUG})
 
 
 class VirtualBooth(ListView):
