@@ -4,8 +4,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.urls import reverse
 from .models import (Program, ProgramCategory, Preference,
-                     Speaker, Room, Proposal, TutorialProposal, SprintProposal)
-from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, ProgramForm
+                     Speaker, Room, Proposal, OpenReview, TutorialProposal, SprintProposal)
+from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, OpenReviewForm, ProgramForm
 
 import constance
 import datetime
@@ -430,6 +430,29 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
     def get_success_url(self):
         new_cfp_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('proposal')
+
+
+class OpenReviewCreate(SuccessMessageMixin, CreateView):
+    form_class = OpenReviewForm
+    template_name = "pyconkr/openreview_form.html"
+    success_message = _("Open Review successfully created.")
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.save()
+        return super(OpenReviewCreate, self).form_valid(form)
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.profile.name == '':
+            return redirect('profile_edit')
+
+        if OpenReview.objects.filter(user=request.user).exists():
+            return redirect('review-talk-proposal')
+
+        return super(OpenReviewCreate, self).dispatch(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse('review-talk-proposal')
 
 
 class ProgramUpdate(UpdateView):
