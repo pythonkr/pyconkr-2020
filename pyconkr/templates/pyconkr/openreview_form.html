@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}
+    {% trans "발표 제안 검토하기" %}
+{% endblock %}
+
+{% block content %}
+<div class="alert alert-warning" role="alert">
+  출력 테스트
+</div>
+
+{% crispy form %}
+
+{% endblock %}
