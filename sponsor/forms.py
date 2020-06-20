@@ -50,3 +50,21 @@ class SponsorForm(forms.ModelForm):
     def form_valid(self, form):
         if self.request.POST['submit'] == 'save':
             return super(SongEditView, self).form_valid(form)
+
+
+class VirtualBoothUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Sponsor
+        fields = ('virtual_booth_content',)
+        labels = {
+            'virtual_booth_content': _('Virtual booth content')
+        }
+        widgets = {
+            'virtual_booth_content': SummernoteInplaceWidget(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(VirtualBoothUpdateForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Submit')))

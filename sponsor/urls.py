@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-from sponsor.views import SponsorList, SponsorDetail, SponsorUpdate, VirtualBooth, VirtualBoothDetail
+from sponsor.views import SponsorList, SponsorDetail, SponsorUpdate, VirtualBooth, VirtualBoothDetail, VirtualBoothUpdate
 
 
 from django.contrib import admin
@@ -15,5 +15,7 @@ urlpatterns = [
     path('virtual_booth/',
          VirtualBooth.as_view(), name='virtual_booth_home'),
     re_path(r'^virtual_booth/(?P<slug>\w+)/$',
-            VirtualBoothDetail.as_view(), name='virtual_booth')
+            VirtualBoothDetail.as_view(), name='virtual_booth'),
+    re_path(r'^virtual_booth/(?P<slug>\w+)/edit/',
+            VirtualBoothUpdate.as_view(), name='virtual_booth_update')
 ]
