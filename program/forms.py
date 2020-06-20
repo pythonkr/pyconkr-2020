@@ -91,6 +91,7 @@ class ProposalForm(forms.ModelForm):
 
         self.fields['brief'].initial = config.CFP_BRIEF_TEMPLATE
         self.fields['desc'].initial = config.CFP_DESC_TEMPLATE
+        self.fields['category'].queryset = ProgramCategory.objects.filter(visible=True)
 
     class Meta:
         model = Proposal

@@ -16,6 +16,7 @@
             <span class="label label-info">{{ proposal.get_difficulty_display }}</span>
             <span class="label label-info">{{ proposal.get_duration_display }}</span>
             <span class="label label-info">{{ proposal.get_language_display }}</span>
+            <span class="label label-info">{{ proposal.category }}</span>
         </p>
         <br>
         <div>
@@ -33,7 +34,7 @@
             {{ proposal.comment|safe }}
         </div>
         {% if EDIT_AVAILABLE %}
-            <div style="display: flex; justify-content: center; margin-top: 5rem;">
+            <div class="a_btn_container">
                 <a class="a_btn" href="{% url 'proposal-update' %}">{% trans "수정하기" %}</a>
             </div>
         {% endif %}

@@ -36,7 +36,7 @@ msgid "Read more"
 msgstr "Read more"
 
 #: .\program\forms.py:19 .\program\forms.py:68 .\program\forms.py:90
-#: .\program\forms.py:122 .\program\forms.py:147
+#: .\program\forms.py:123 .\program\forms.py:148
 msgid "Submit"
 msgstr "Submit"
 
@@ -64,7 +64,7 @@ msgstr "Profile"
 msgid "Additional information"
 msgstr "Additional information"
 
-#: .\program\forms.py:77 .\program\forms.py:134 .\program\forms.py:158
+#: .\program\forms.py:77 .\program\forms.py:135 .\program\forms.py:159
 msgid "Title"
 msgstr "Title"
 
@@ -84,50 +84,50 @@ msgstr "Photography and recording is allowed."
 msgid "Description"
 msgstr "Description"
 
-#: .\program\forms.py:105
+#: .\program\forms.py:106
 msgid "Proposal title (required)"
 msgstr "Proposal title (required)"
 
-#: .\program\forms.py:106
+#: .\program\forms.py:107
 msgid "Brief (required)"
 msgstr "Brief (required)"
 
-#: .\program\forms.py:107
+#: .\program\forms.py:108
 msgid "Detailed description (required)"
 msgstr "Detailed description (required)"
 
-#: .\program\forms.py:108
+#: .\program\forms.py:109
 msgid "Comment to reviewers (optional)"
 msgstr "Comment to reviewers (optional)"
 
-#: .\program\forms.py:110 .\program\forms.py:162
+#: .\program\forms.py:111 .\program\forms.py:163
 msgid "Session difficulty"
 msgstr "Session difficulty"
 
-#: .\program\forms.py:111
+#: .\program\forms.py:112
 msgid "Session duration"
 msgstr "Session duration"
 
-#: .\program\forms.py:112 .\program\forms.py:135
+#: .\program\forms.py:113 .\program\forms.py:136
 #: .\pyconkr\templates\nav.html:78
 msgid "Language"
 msgstr "Language"
 
-#: .\program\forms.py:113
+#: .\program\forms.py:114
 msgid "Category"
 msgstr "Category"
 
-#: .\program\forms.py:136
+#: .\program\forms.py:137
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:49
 msgid "Project URL"
 msgstr "Official URL for project"
 
-#: .\program\forms.py:137
+#: .\program\forms.py:138
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:41
 msgid "Project brief"
 msgstr "Brief about project"
 
-#: .\program\forms.py:138
+#: .\program\forms.py:139
 msgid "Contribution description"
 msgstr "Describe about your contribution activity in this project."
 
