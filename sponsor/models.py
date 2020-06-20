@@ -86,7 +86,7 @@ class Sponsor(models.Model):
                            help_text=_('파이콘 홈페이지에 공개되는 후원사 홈페이지 주소입니다.'))
     logo_image = SorlImageField(upload_to=logo_image_upload_to, null=True, blank=True,
                                 help_text=_('홈페이지에 공개되는 후원사 로고 이미지입니다.'))
-    virtual_hall_content = models.TextField(null=True, blank=True,
+    virtual_booth_content = models.TextField(null=True, blank=True,
                                     help_text=_('Virtual booth에 들어가는 내용입니다. 홈페이지의 virtual booth에 게시됩니다.'))
     paid_at = models.DateTimeField(null=True, blank=True,
                                    help_text='후원금이 입금된 일시입니다. 아직 입금되지 않았을 경우 None이 들어갑니다.')
