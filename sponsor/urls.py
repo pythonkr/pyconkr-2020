@@ -19,5 +19,7 @@ urlpatterns = [
     path('virtual_booth/',
          VirtualBooth.as_view(), name='virtual_booth_home'),
     re_path(r'^virtual_booth/(?P<slug>\w+)/$',
-            VirtualBoothDetail.as_view(), name='virtual_booth')
+            VirtualBoothDetail.as_view(), name='virtual_booth'),
+    re_path(r'^virtual_booth/(?P<slug>\w+)/edit/',
+            VirtualBoothUpdate.as_view(), name='virtual_booth_update')
 ]

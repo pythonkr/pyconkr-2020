@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 15:59+0900\n"
+"POT-Creation-Date: 2020-06-20 18:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,11 +97,11 @@ msgid "Registration status"
 msgstr ""
 
 #: .\registration\templates\registration\status.html:10
-msgid "Registration is completed"
+msgid "Registration is completed."
 msgstr ""
 
 #: .\registration\templates\registration\status.html:12
-msgid "Your registration is completed without any problems"
+msgid "Your registration is completed without any problems."
 msgstr ""
 
 #: .\registration\templates\registration\status.html:21
@@ -173,7 +173,7 @@ msgid "Payment checked"
 msgstr ""
 
 #: .\registration\templates\registration\status.html:148
-msgid "There is no registration record"
+msgid "There is no registration record."
 msgstr ""
 
 #: .\registration\views.py:57

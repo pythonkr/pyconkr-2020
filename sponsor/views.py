@@ -3,8 +3,9 @@ from django.views.generic import ListView, DetailView, UpdateView
 from django.views import View
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
+from django.urls import reverse
 from .models import Sponsor, SponsorLevel
-from .forms import SponsorForm
+from .forms import SponsorForm, VirtualBoothUpdateForm
 import constance
 import datetime
 KST = datetime.timezone(datetime.timedelta(hours=9))
@@ -90,3 +91,19 @@ class VirtualBoothDetail(DetailView):
         context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
 
         return context
+
+
+class VirtualBoothUpdate(UpdateView):
+    form_class = VirtualBoothUpdateForm
+    model = Sponsor
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = _('Virtual booth 내용 수정하기')
+        context['content'] = Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at=None)
+        return context
+
+    def get_success_url(self):
+        slug = Sponsor.objects.get(creator=self.request.user, accepted=True, paid_at=None).slug
+
+        return reverse('virtual_booth', kwargs={'slug': slug})
