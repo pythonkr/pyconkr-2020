@@ -47,7 +47,7 @@ def index(request):
 
 @login_required
 def status(request, option_id):
-    option = get(id=option_id)
+    option = Option.objects.get(id=option_id)
     registrations = Registration.objects.filter(
         user=request.user, option=option)
 
@@ -143,7 +143,7 @@ def certificates_tutorial(request):
 
 @login_required
 def payment(request, option_id):
-    product = get(id=option_id)
+    product = Option.objects.get(id=option_id)
 
     if not product.is_opened:
         return redirect('registration_index')
@@ -201,7 +201,7 @@ def payment(request, option_id):
 
 @staff_member_required
 def registrations(request, option_id):
-    option = get(id=option_id)
+    option = Option.objects.get(id=option_id)
     registrations = Registration.objects.filter(
         option=option, payment_status__in=['paid'])
 
@@ -233,7 +233,7 @@ def payment_process(request):
     payment_logger.debug(request.POST)
 
     try:
-        product = get(id=request.POST.get('option'))
+        product = Option.objects.get(id=request.POST.get('option'))
     except Option.DoesNotExist:
         return redirect('registration_index')
 
@@ -342,7 +342,8 @@ def payment_process(request):
 
             iamport.pay_onetime(**iamport_params)
 
-            confirm = iamport
+            confirm = iamport.find_by_merchant_uid(
+                post_data.get('merchant_uid'))
 
             # 결제한 금액과 Form에 입력된 결제 금액들이 다를 때
             if confirm['amount'] != product.price + registration.additional_price:
@@ -380,7 +381,8 @@ def payment_process(request):
             )
             iamport.pay_foreign(**iamport_params)
 
-            confirm = iamport
+            confirm = iamport.find_by_merchant_uid(
+                post_data.get('merchant_uid'))
 
             # 결제한 금액과 Form에 입력된 결제 금액들이 다를 때
             if confirm['amount'] != product.price + registration.additional_price:
@@ -537,7 +539,8 @@ def manual_payment_process(request):
         )
 
         imp_client.pay_onetime(**imp_params)
-        confirm = imp_client
+        confirm = imp_client.find_by_merchant_uid(
+            request.POST.get('merchant_uid'))
 
         if confirm['amount'] != mp.price:
             return render_io_error("amount is not same as product.price. it will be canceled")
@@ -691,7 +694,7 @@ def issue_submit(request):
         return HttpResponseBadRequest('invalid form value')
 
     user_id = user_data.cleaned_data['user_id']
-    registration = get(payment_status='paid',
+    registration = Registration.objects.get(payment_status='paid',
                                             id=user_id)
     issue = IssueTicket(
         registration=registration,
