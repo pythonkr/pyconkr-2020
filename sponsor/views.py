@@ -36,14 +36,12 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발송드리도록 하겠습니다.")
 
     def get_object(self, queryset=None):
-        print('get_object')
         sponsor, _ = Sponsor.objects.get_or_create(creator=self.request.user)
         self.SLUG = sponsor.slug
 
         return sponsor
 
     def get(self, request, *args, **kwargs):
-        print("get")
         opening = constance.config.CFS_OPEN.astimezone(KST)
         deadline = constance.config.CFS_DEADLINE.astimezone(KST)
         now = datetime.datetime.now(tz=KST)
