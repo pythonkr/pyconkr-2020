@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 15:59+0900\n"
+"POT-Creation-Date: 2020-06-20 18:09+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -131,12 +131,12 @@ msgstr "Brief about project"
 msgid "Contribution description"
 msgstr "Describe about your contribution activity in this project."
 
-#: .\program\forms.py:159 .\pyconkr\templates\pyconkr\proposal_detail.html:22
+#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\proposal_detail.html:23
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "Brief"
 
-#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\proposal_detail.html:27
+#: .\program\forms.py:161 .\pyconkr\templates\pyconkr\proposal_detail.html:28
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
@@ -770,11 +770,11 @@ msgstr "Submit preferences"
 msgid "Up to 5 items can be selected."
 msgstr "Up to 5 items can be selected."
 
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:32
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
 msgid "Comment to reviewers"
 msgstr "Comment to reviewers"
 
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:37
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:38
 msgid "수정하기"
 msgstr "Edit"
 
