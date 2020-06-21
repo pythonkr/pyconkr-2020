@@ -92,6 +92,9 @@ class VirtualBoothDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
+        is_editable = Sponsor.objects.filter(
+            creator=self.request.user, accepted=True, paid_at__isnull=False).exists()
+        context['EDITABLE'] = is_editable
 
         return context
 
