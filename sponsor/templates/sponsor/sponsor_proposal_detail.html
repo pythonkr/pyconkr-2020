@@ -13,7 +13,9 @@
     <hr>
     <div>
         <h4>{% trans "Sponsor description" %}</h4>
-        {{ sponsor.desc|safe }}
+        {% autoescape off %}
+            {{ sponsor.desc|default_if_none:"<br>" }}
+        {% endautoescape %}
     </div>
     <hr>
     <div>
@@ -33,14 +35,16 @@
     <hr>
     <div>
         <h4>{% trans "Sponsor url" %}</h4>
-        {{ sponsor.url }}
+        {{ sponsor.url|default_if_none:"<br>" }}
     </div>
     <hr>
     <div>
         <h4>{% trans "Sponsor logo image" %}</h4>
-        <div style="display: flex; justify-content: center">
-            <img src="{{ sponsor.business_registration_file.url }}" alt="{{ sponsor.name }}" width="50%">
-        </div>
+        {% if sponsor.logo_image %}
+            <div style="display: flex; justify-content: center">
+                <img src="{{ sponsor.logo_image.url }}" alt="{{ sponsor.name }}" width="50%">
+            </div>
+        {% endif %}
     </div>
     <div class="a_btn_container">
         <a class="a_btn" href="{% url 'sponsor_proposal_edit' %}">{% trans "수정하기" %}</a>

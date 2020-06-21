@@ -16,11 +16,13 @@ class SponsorLevelChoiceField(ModelChoiceField):
 class SponsorForm(forms.ModelForm):
     class Meta:
         model = Sponsor
-        fields = ('level', 'logo_image', 'name_ko', 'name_en',
-                  'url', 'manager_name', 'manager_email',
+        fields = ('name_ko', 'name_en', 'level', 'manager_name', 'manager_email',
                   'business_registration_number', 'business_registration_file',
-                  'desc_ko', 'desc_en',)
-
+                  'url', 'logo_image', 'desc_ko', 'desc_en',)
+        widgets = {
+            'desc_ko': SummernoteInplaceWidget(),
+            'desc_en': SummernoteInplaceWidget(),
+        }
         labels = {
             'level': _('후원사 등급'),
             'logo_image': _('로고 이미지'),
