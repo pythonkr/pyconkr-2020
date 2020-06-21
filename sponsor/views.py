@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView, UpdateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView
 from django.views import View
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
@@ -43,6 +43,44 @@ class SponsorProposalDetail(DetailView):
         return super().get(request, *args, **kwargs)
 
 
+class SponsorCreate(SuccessMessageMixin, CreateView):
+    model = Sponsor
+    form_class = SponsorForm
+    template_name = "sponsor/sponsor_form.html"
+    success_message = _(
+        "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발송드리도록 하겠습니다.")
+
+    def form_valid(self, form):
+        form.instance.creator = self.request.user
+        form.save()
+        return super(SponsorCreate, self).form_valid(form)
+
+    def get(self, request, *args, **kwargs):
+        has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
+
+        if has_submitted_cfs is True:
+            return redirect('sponsor_proposal_detail')
+
+        opening = constance.config.CFS_OPEN.astimezone(KST)
+        deadline = constance.config.CFS_DEADLINE.astimezone(KST)
+        now = datetime.datetime.now(tz=KST)
+
+        if now < opening:
+            return render(request, 'simple.html', {
+                'title': _('후원사 모집이 아직 시작되지 않았습니다.🤖'),
+                'content': _('모집 기간은 {} ~ {} 이니 일정에 참고해주세요.').format(
+                    opening.strftime("%Y-%m-%d %H:%M"), deadline.strftime("%Y-%m-%d %H:%M"))})
+        if now > deadline:
+            return render(request, 'simple.html', {
+                'title': _('후원사 모집이 종료되었습니다.🤖'),
+                'content': _('모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요').format(
+                    opening.strftime("%Y-%m-%d %H:%M"), deadline.strftime("%Y-%m-%d %H:%M"))})
+        return super(SponsorCreate, self).get(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse('sponsor_proposal_detail')
+
+
 class SponsorUpdate(SuccessMessageMixin, UpdateView):
     form_class = SponsorForm
     template_name = "sponsor/sponsor_form.html"
@@ -50,7 +88,7 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발송드리도록 하겠습니다.")
 
     def get_object(self, queryset=None):
-        sponsor, _ = Sponsor.objects.get_or_create(creator=self.request.user)
+        sponsor, _ = Sponsor.objects.get(creator=self.request.user)
         self.SLUG = sponsor.slug
 
         return sponsor

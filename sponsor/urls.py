@@ -1,6 +1,6 @@
 from django.urls import path, re_path
 from django.contrib.auth.decorators import login_required
-from sponsor.views import SponsorList, SponsorDetail, SponsorProposalDetail, SponsorUpdate, \
+from sponsor.views import SponsorList, SponsorCreate, SponsorDetail, SponsorProposalDetail, SponsorUpdate, \
     VirtualBooth, VirtualBoothDetail, VirtualBoothUpdate
 
 
@@ -14,7 +14,7 @@ urlpatterns = [
     re_path(r'^detail/(?P<slug>\w+)/$',
             SponsorDetail.as_view(), name='sponsor_detail'),
     re_path('join/',
-            login_required(SponsorProposalDetail.as_view()), name='sponsor_propose'),
+            login_required(SponsorCreate.as_view()), name='sponsor_propose'),
     # 최초생성 및 갱신
     path('update/',
          SponsorUpdate.as_view(), name='join_sponsor'),
