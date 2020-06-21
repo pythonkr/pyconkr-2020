@@ -27,7 +27,7 @@ class SponsorProposal(View):
             sponsor_obj = Sponsor.objects.get(creator=request.user)
             return redirect('sponsor_detail', sponsor_obj.slug)
         else:
-            return redirect('sponsor_propose')
+            return redirect('join_sponsor')
 
 
 class SponsorUpdate(SuccessMessageMixin, UpdateView):
