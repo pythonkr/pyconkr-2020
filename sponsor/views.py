@@ -99,11 +99,10 @@ class VirtualBoothDetail(DetailView):
 class VirtualBoothUpdate(UpdateView):
     form_class = VirtualBoothUpdateForm
     model = Sponsor
+    template_name = "sponsor/virtual_booth_update.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = _('Virtual booth 내용 수정하기')
-        context['content'] = Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at=None)
         return context
 
     def get_success_url(self):
