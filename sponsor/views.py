@@ -39,7 +39,7 @@ class SponsorProposalDetail(DetailView):
         has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
 
         if not has_submitted_cfs:
-            return reverse('join_sponsor')
+            return redirect('join_sponsor')
 
         return super().get(request, *args, **kwargs)
 

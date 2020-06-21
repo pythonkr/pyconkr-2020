@@ -10,7 +10,7 @@ admin.autodiscover()
 urlpatterns = [
     path('list/',
          SponsorList.as_view(), name='sponsors'),
-    re_path(r'detail/$', SponsorProposalDetail.as_view(), name='sponsor_proposal_detail'),
+    re_path('join/detail/', SponsorProposalDetail.as_view(), name='sponsor_proposal_detail'),
     re_path(r'^detail/(?P<slug>\w+)/$',
             SponsorDetail.as_view(), name='sponsor_detail'),
     re_path('join/',
