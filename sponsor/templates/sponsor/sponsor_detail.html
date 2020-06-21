@@ -21,5 +21,8 @@
     <div>
         {{ sponsor.desc|safe }}
     </div>
+    <div class="a_btn_container">
+        <a class="a_btn" href="{% url 'sponsor_proposal_edit' %}">{% trans "수정하기" %}</a>
+    </div>
 </div>
 {% endblock %}
