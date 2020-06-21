@@ -34,7 +34,6 @@ class SponsorProposalDetail(DetailView):
         return context
 
     def get(self, request, *args, **kwargs):
-        print("스폰서")
         has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
 
         if not has_submitted_cfs:
@@ -88,8 +87,7 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발송드리도록 하겠습니다.")
 
     def get_object(self, queryset=None):
-        sponsor, _ = Sponsor.objects.get(creator=self.request.user)
-        self.SLUG = sponsor.slug
+        sponsor = Sponsor.objects.get(creator=self.request.user)
 
         return sponsor
 
