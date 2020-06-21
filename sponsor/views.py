@@ -76,9 +76,12 @@ class VirtualBooth(ListView):
         keystone = SponsorLevel.objects.filter(slug='keystone')
         diamond = SponsorLevel.objects.filter(slug='diamond')
         start_up = SponsorLevel.objects.filter(slug='start_up')
-        context['keystone'] = keystone[0]
-        context['diamond'] = diamond[0]
-        context['start_up'] = start_up[0]
+        try:
+            context['keystone'] = keystone[0]
+            context['diamond'] = diamond[0]
+            context['start_up'] = start_up[0]
+        except IndexError:
+            pass
         context['title'] = "Virtual Booth"
         return context
 
