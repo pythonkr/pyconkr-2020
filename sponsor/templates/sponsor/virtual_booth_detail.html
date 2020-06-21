@@ -4,7 +4,7 @@
 
 {% block head-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }} | Virtual Booth{% endblock %}
 {% block og-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }} | Virtual Booth{% endblock %}
-{% block og-image %}{{ sponsor.logo_image.url }}{% endblock %}
+{#{% block og-image %}{{ sponsor.logo_image.url }}{% endblock %}#}
 {% block nav %}{% include "nav.html" with title=sponsor.name %}{% endblock %}
 {% block title %}{{ sponsor.name }}{% endblock %}
 
