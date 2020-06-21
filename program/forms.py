@@ -101,13 +101,11 @@ class ProposalForm(forms.ModelForm):
             'desc': SummernoteInplaceWidget(),
             'comment': SummernoteInplaceWidget(),
         }
-
         labels = {
             'title': _('Proposal title (required)'),
             'brief': _('Brief (required)'),
             'desc': _('Detailed description (required)'),
             'comment': _('Comment to reviewers (optional)'),
-
             'difficulty': _('Session difficulty'),
             'duration': _('Session duration'),
             'language': _('Language'),

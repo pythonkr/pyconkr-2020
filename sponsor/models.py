@@ -87,7 +87,7 @@ class Sponsor(models.Model):
     logo_image = SorlImageField(upload_to=logo_image_upload_to, null=True, blank=True,
                                 help_text=_('홈페이지에 공개되는 후원사 로고 이미지입니다.'))
     virtual_booth_content = models.TextField(null=True, blank=True,
-                                    help_text=_('Virtual booth에 들어가는 내용입니다. 홈페이지의 virtual booth에 게시됩니다.'))
+                                             help_text=_('Virtual booth에 들어가는 내용입니다. 홈페이지의 virtual booth에 게시됩니다.'))
     submitted = models.BooleanField(default=False,
                                     help_text='사용자가 제출했는지 여부를 저장합니다. 요청이 제출되면 준비위원회에서 검토하고 받아들일지를 결정합니다.')
     accepted = models.BooleanField(default=False,
