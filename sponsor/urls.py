@@ -1,6 +1,7 @@
 from django.urls import path, re_path
 from django.contrib.auth.decorators import login_required
-from sponsor.views import SponsorList, SponsorProposal, SponsorDetail, SponsorUpdate, VirtualBooth, VirtualBoothDetail
+from sponsor.views import SponsorList, SponsorProposal, SponsorDetail, SponsorUpdate, \
+    VirtualBooth, VirtualBoothDetail, VirtualBoothUpdate
 
 
 from django.contrib import admin
