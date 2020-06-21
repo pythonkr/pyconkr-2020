@@ -91,27 +91,6 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
 
         return sponsor
 
-    def get(self, request, *args, **kwargs):
-        opening = constance.config.CFS_OPEN.astimezone(KST)
-        deadline = constance.config.CFS_DEADLINE.astimezone(KST)
-        now = datetime.datetime.now(tz=KST)
-        has_accepted_sponsor = Sponsor.objects.filter(
-            creator=request.user, accepted=True).exists()
-        form = self.form_class(initial=self.initial)
-        if has_accepted_sponsor:
-            return render(request, self.template_name, {'form': form})
-        if now < opening:
-            return render(request, 'simple.html', {
-                'title': _('후원사 모집이 아직 시작되지 않았습니다.🤖'),
-                'content': _('모집 기간은 {} ~ {} 이니 일정에 참고해주세요.').format(
-                    opening.strftime("%Y-%m-%d %H:%M"), deadline.strftime("%Y-%m-%d %H:%M"))})
-        if now > deadline:
-            return render(request, 'simple.html', {
-                'title': _('후원사 모집이 종료되었습니다.🤖'),
-                'content': _('모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요').format(
-                    opening.strftime("%Y-%m-%d %H:%M"), deadline.strftime("%Y-%m-%d %H:%M"))})
-        return super(SponsorUpdate, self).get(request, *args, **kwargs)
-
     def get_success_url(self):
         # slack.new_cfs_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('sponsor_proposal_detail')
