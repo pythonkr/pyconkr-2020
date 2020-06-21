@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ sponsor.name }}{% endblock %}
+
+{% block content %}
+<div class="row sponsor-proposal-detail">
+    <div>
+        <h4>{% trans "Sponsor level" %}</h4>
+        {{ sponsor.level }}
+    </div>
+    <hr>
+    <div>
+        <h4>{% trans "Sponsor description" %}</h4>
+        {{ sponsor.desc|safe }}
+    </div>
+    <hr>
+    <div>
+        <h4>{% trans "Manager name" %}</h4>
+        {{ sponsor.manager_name }}
+    </div>
+    <hr>
+    <div>
+        <h4>{% trans "Manager email" %}</h4>
+        {{ sponsor.manager_email }}
+    </div>
+    <hr>
+    <div>
+        <h4>{% trans "Business registration number" %}</h4>
+        {{ sponsor.business_registration_number }}
+    </div>
+    <hr>
+    <div>
+        <h4>{% trans "Sponsor url" %}</h4>
+        {{ sponsor.url }}
+    </div>
+    <hr>
+    <div>
+        <h4>{% trans "Sponsor logo image" %}</h4>
+        <div style="display: flex; justify-content: center">
+            <img src="{{ sponsor.business_registration_file.url }}" alt="{{ sponsor.name }}" width="50%">
+        </div>
+    </div>
+    <hr>
+    <div class="a_btn_container">
+        <a class="a_btn" href="{% url 'join_sponsor' %}">{% trans "수정하기" %}</a>
+    </div>
+</div>
+{% endblock %}

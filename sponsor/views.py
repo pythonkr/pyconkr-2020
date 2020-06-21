@@ -24,14 +24,13 @@ class SponsorDetail(DetailView):
 class SponsorProposalDetail(DetailView):
     # URL에 PK, SLUG가 포함되지 않고, DetailView 사용
     # https://chriskief.com/2012/12/29/django-generic-detailview-without-a-pk-or-slug/
-    template_name = 'sponsor/sponsor_detail.html'
+    template_name = 'sponsor/sponsor_proposal_detail.html'
 
     def get_object(self, queryset=None):
         return get_object_or_404(Sponsor, creator=self.request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['is_proposal_detail'] = True
         return context
 
     def get(self, request, *args, **kwargs):
