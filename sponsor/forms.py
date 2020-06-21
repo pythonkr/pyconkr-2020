@@ -55,12 +55,13 @@ class SponsorForm(forms.ModelForm):
 class VirtualBoothUpdateForm(forms.ModelForm):
     class Meta:
         model = Sponsor
-        fields = ('virtual_booth_content',)
+        fields = ('virtual_booth_content_ko', 'virtual_booth_content_en',)
         labels = {
             'virtual_booth_content': _('Virtual booth content')
         }
         widgets = {
-            'virtual_booth_content': SummernoteInplaceWidget(),
+            'virtual_booth_content_ko': SummernoteInplaceWidget(),
+            'virtual_booth_content_en': SummernoteInplaceWidget(),
         }
 
     def __init__(self, *args, **kwargs):

@@ -5,7 +5,7 @@ from .models import (
 
 
 class SponsorTranslationOptions(TranslationOptions):
-    fields = ('name', 'desc',)
+    fields = ('name', 'desc', 'virtual_booth_content',)
 
 
 translator.register(Sponsor, SponsorTranslationOptions)
