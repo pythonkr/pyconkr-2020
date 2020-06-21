@@ -1,17 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 
-{% block head-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }} | Virtual Booth{% endblock %}
-{% block og-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }} | Virtual Booth{% endblock %}
-{% block og-image %}{{ sponsor.logo_image.url }}{% endblock %}
-{% block nav %}{% include "nav.html" with title=sponsor.name %}{% endblock %}
-{% block title %}{{ sponsor.name }}{% endblock %}
+{% block title %}{% trans 'Virtual booth 내용 수정하기' %}{% endblock %}
 
 {% block content %}
-    {{ sponsor.virtual_booth_content|safe }}
-
-    <div class="a_btn_container">
-      <a class="a_btn" href="{% url 'virtual_booth_update' slug=sponsor.slug %}">{% trans "수정하기" %}</a>
-    </div>
+{% crispy form %}
 {% endblock %}
