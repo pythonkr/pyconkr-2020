@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView
 from django.views import View
 from django.contrib.messages.views import SuccessMessageMixin
@@ -8,6 +8,8 @@ from .models import Sponsor, SponsorLevel
 from .forms import SponsorForm, VirtualBoothUpdateForm
 import constance
 import datetime
+from program import slack
+
 KST = datetime.timezone(datetime.timedelta(hours=9))
 
 
@@ -19,15 +21,27 @@ class SponsorDetail(DetailView):
     model = Sponsor
 
 
-class SponsorProposal(View):
-    def get(self, request):
-        has_submitted_sponsor = Sponsor.objects.filter(creator=request.user).exists()
+class SponsorProposalDetail(DetailView):
+    # URL에 PK, SLUG가 포함되지 않고, DetailView 사용
+    # https://chriskief.com/2012/12/29/django-generic-detailview-without-a-pk-or-slug/
+    template_name = 'sponsor/sponsor_detail.html'
 
-        if has_submitted_sponsor is True:
-            sponsor_obj = Sponsor.objects.get(creator=request.user)
-            return redirect('sponsor_detail', sponsor_obj.slug)
-        else:
-            return redirect('join_sponsor')
+    def get_object(self, queryset=None):
+        return get_object_or_404(Sponsor, creator=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_proposal_detail'] = True
+        return context
+
+    def get(self, request, *args, **kwargs):
+        print("스폰서")
+        has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
+
+        if not has_submitted_cfs:
+            return reverse('join_sponsor')
+
+        return super().get(request, *args, **kwargs)
 
 
 class SponsorUpdate(SuccessMessageMixin, UpdateView):
@@ -64,7 +78,8 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         return super(SponsorUpdate, self).get(request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse('sponsor', kwargs={'slug': self.SLUG})
+        # slack.new_cfs_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
+        return reverse('sponsor_proposal_detail')
 
 
 class VirtualBooth(ListView):
