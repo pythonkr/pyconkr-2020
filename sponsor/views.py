@@ -97,7 +97,7 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
 
 
 class VirtualBooth(ListView):
-    queryset = Sponsor.objects.filter(accepted=True)
+    queryset = Sponsor.objects.filter(accepted=True, paid_at__isnull=False)
     template_name = "sponsor/virtual_booth_home.html"
 
     def get_context_data(self, **kwargs):
@@ -121,6 +121,9 @@ class VirtualBoothDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
+        is_editable = Sponsor.objects.filter(
+            creator=self.request.user, accepted=True, paid_at__isnull=False).exists()
+        context['EDITABLE'] = is_editable
 
         return context
 
@@ -128,11 +131,10 @@ class VirtualBoothDetail(DetailView):
 class VirtualBoothUpdate(UpdateView):
     form_class = VirtualBoothUpdateForm
     model = Sponsor
+    template_name = "sponsor/virtual_booth_update.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = _('Virtual booth 내용 수정하기')
-        context['content'] = Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at=None)
         return context
 
     def get_success_url(self):
