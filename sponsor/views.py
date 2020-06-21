@@ -26,20 +26,19 @@ class SponsorProposalDetail(DetailView):
     # https://chriskief.com/2012/12/29/django-generic-detailview-without-a-pk-or-slug/
     template_name = 'sponsor/sponsor_proposal_detail.html'
 
+    def get(self, request, *args, **kwargs):
+        has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
+        if not has_submitted_cfs:
+            return redirect('sponsor_propose')
+
+        return super().get(request, *args, **kwargs)
+
     def get_object(self, queryset=None):
         return get_object_or_404(Sponsor, creator=self.request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-
-    def get(self, request, *args, **kwargs):
-        has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
-
-        if not has_submitted_cfs:
-            return redirect('sponsor_proposal_edit')
-
-        return super().get(request, *args, **kwargs)
 
 
 class SponsorCreate(SuccessMessageMixin, CreateView):
@@ -85,6 +84,13 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
     template_name = "sponsor/sponsor_form.html"
     success_message = _(
         "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발송드리도록 하겠습니다.")
+
+    def get(self, request, *args, **kwargs):
+        has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
+        if not has_submitted_cfs:
+            return redirect('sponsor_propose')
+
+        return super().get(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
         sponsor = Sponsor.objects.get(creator=self.request.user)
