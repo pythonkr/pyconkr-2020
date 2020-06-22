@@ -38,6 +38,20 @@
                 {% endif %}
             {% endfor %}
         </div>
+        <div class="tiles_sapphire">
+            {% for sponsor in object_list %}
+                {% if sponsor.level == sapphire and sponsor.logo_image %}
+                    <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="sapphire">
+                        <div class="tile_container">
+                            <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
+                            <div class="tile_name">
+                                {{ sponsor.name }}
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
         <div class="tiles_startup">
             {% for sponsor in object_list %}
                 {% if sponsor.level == start_up and sponsor.logo_image %}

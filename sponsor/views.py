@@ -110,10 +110,12 @@ class VirtualBooth(ListView):
         context = super().get_context_data(**kwargs)
         keystone = SponsorLevel.objects.filter(slug='keystone')
         diamond = SponsorLevel.objects.filter(slug='diamond')
+        sapphire = SponsorLevel.objects.filter(slug='sapphire')
         start_up = SponsorLevel.objects.filter(slug='start_up')
         try:
             context['keystone'] = keystone[0]
             context['diamond'] = diamond[0]
+            context['sapphire'] = sapphire[0]
             context['start_up'] = start_up[0]
         except IndexError:
             pass

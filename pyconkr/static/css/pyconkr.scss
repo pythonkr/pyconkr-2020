@@ -1037,12 +1037,15 @@ a.a_btn {
 }
 
 .tiles {
-  .tiles_keystone, .tiles_diamond, .tiles_startup {
+  .tiles_keystone,
+  .tiles_diamond,
+  .tiles_sapphire,
+  .tiles_startup {
     width: 100%;
     display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
 }
 
@@ -1088,8 +1091,9 @@ a.a_btn {
     }
   }
 
-  &#diamond {
-    width: 32%
+  &#diamond,
+  &#sapphire {
+    width: 32%;
   }
 
   &:hover {
