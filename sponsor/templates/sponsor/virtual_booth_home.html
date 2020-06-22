@@ -12,7 +12,7 @@
     <div class="tiles">
         <div class="tiles_keystone">
             {% for sponsor in object_list %}
-                {% if sponsor.level == keystone %}
+                {% if sponsor.level == keystone and sponsor.logo_image %}
                     <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="keystone">
                         <div class="tile_container">
                             <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
@@ -26,7 +26,7 @@
         </div>
         <div class="tiles_diamond">
             {% for sponsor in object_list %}
-                {% if sponsor.level == diamond %}
+                {% if sponsor.level == diamond and sponsor.logo_image %}
                     <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="diamond">
                         <div class="tile_container">
                             <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
@@ -40,7 +40,7 @@
         </div>
         <div class="tiles_startup">
             {% for sponsor in object_list %}
-                {% if sponsor.level == start_up %}
+                {% if sponsor.level == start_up and sponsor.logo_image %}
                     <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile">
                         <div class="tile_container">
                             <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
