@@ -4,7 +4,7 @@
         <h3>{{ lvl.name }}</h3>
         <ul>
             {% for sponsor in lvl.sponsor_set.all %}
-                {% if sponsor.logo_image %}
+                {% if sponsor.logo_image and sponsor.paid_at is not None %}
                     <li class="sponsor-{{ lvl.order }}">
                         <a href="{% url "sponsor_detail" slug=sponsor.slug %}">
                             <img src="{{ sponsor.logo_image.url }}" alt="{{ sponsor.name }}">
