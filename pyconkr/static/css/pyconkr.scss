@@ -451,8 +451,13 @@ input[type="file"] {
   }
 
   .sponsor-4 {
-    width: 35%;
+    width: 30%;
     max-width: 300px;
+  }
+
+  .sponsor-5 {
+    width: 25%;
+    max-width: 280px;
   }
 }
 
@@ -1040,7 +1045,7 @@ a.a_btn {
   .tiles_keystone,
   .tiles_diamond,
   .tiles_sapphire,
-  .tiles_startup {
+  .tiles_start_up {
     width: 100%;
     display: flex;
     flex-direction: row;
