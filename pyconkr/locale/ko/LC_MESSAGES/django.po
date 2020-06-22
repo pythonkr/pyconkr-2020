@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-20 18:09+0900\n"
+"POT-Creation-Date: 2020-06-22 11:50+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -28,7 +28,7 @@ msgstr "목록으로"
 #: .\announcement\templates\announcement\announcement_list.html:6
 #: .\pyconkr\templates\pyconkr\program_list.html:6
 #: .\pyconkr\templates\pyconkr\speaker_list.html:9
-#: .\pyconkr\templates\schedule.html:10 .\pyconkr\templates\sponsors.html:22
+#: .\pyconkr\templates\schedule.html:10 .\pyconkr\templates\sponsors.html:17
 msgid "Ready for content"
 msgstr "준비 중입니다."
 
@@ -37,7 +37,7 @@ msgid "Read more"
 msgstr "더 보기"
 
 #: .\program\forms.py:19 .\program\forms.py:68 .\program\forms.py:90
-#: .\program\forms.py:123 .\program\forms.py:148
+#: .\program\forms.py:121 .\program\forms.py:146
 msgid "Submit"
 msgstr "제출"
 
@@ -65,7 +65,7 @@ msgstr "프로필"
 msgid "Additional information"
 msgstr "추가 정보"
 
-#: .\program\forms.py:77 .\program\forms.py:135 .\program\forms.py:159
+#: .\program\forms.py:77 .\program\forms.py:133 .\program\forms.py:157
 msgid "Title"
 msgstr "제목"
 
@@ -85,59 +85,59 @@ msgstr "촬영, 녹화가 가능합니다."
 msgid "Description"
 msgstr "설명"
 
-#: .\program\forms.py:106
+#: .\program\forms.py:105
 msgid "Proposal title (required)"
 msgstr "세션 제목 (필수)"
 
-#: .\program\forms.py:107
+#: .\program\forms.py:106
 msgid "Brief (required)"
 msgstr "간략한 설명 (필수)"
 
-#: .\program\forms.py:108
+#: .\program\forms.py:107
 msgid "Detailed description (required)"
 msgstr "자세한 설명 (필수)"
 
-#: .\program\forms.py:109
+#: .\program\forms.py:108
 msgid "Comment to reviewers (optional)"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
-#: .\program\forms.py:111 .\program\forms.py:163
+#: .\program\forms.py:109 .\program\forms.py:161
 msgid "Session difficulty"
 msgstr "세션 난이도"
 
-#: .\program\forms.py:112
+#: .\program\forms.py:110
 msgid "Session duration"
 msgstr "세션 길이"
 
-#: .\program\forms.py:113 .\program\forms.py:136
+#: .\program\forms.py:111 .\program\forms.py:134
 #: .\pyconkr\templates\nav.html:78
 msgid "Language"
 msgstr "언어"
 
-#: .\program\forms.py:114
+#: .\program\forms.py:112
 msgid "Category"
 msgstr "분야"
 
-#: .\program\forms.py:137
+#: .\program\forms.py:135
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:49
 msgid "Project URL"
 msgstr "프로젝트 공식 URL"
 
-#: .\program\forms.py:138
+#: .\program\forms.py:136
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:41
 msgid "Project brief"
 msgstr "오픈소스 프로젝트에 대한 간단한 설명"
 
-#: .\program\forms.py:139
+#: .\program\forms.py:137
 msgid "Contribution description"
 msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
 
-#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\proposal_detail.html:23
+#: .\program\forms.py:158 .\pyconkr\templates\pyconkr\proposal_detail.html:23
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "간단한 설명"
 
-#: .\program\forms.py:161 .\pyconkr\templates\pyconkr\proposal_detail.html:28
+#: .\program\forms.py:159 .\pyconkr\templates\pyconkr\proposal_detail.html:28
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
