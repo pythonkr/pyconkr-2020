@@ -15,7 +15,7 @@
                 {% if sponsor.level == keystone and sponsor.logo_image %}
                     <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="keystone">
                         <div class="tile_container">
-                            <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
+                            <div class="tile_img" style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
                             <div class="tile_name">
                                 {{ sponsor.name }}
                             </div>
@@ -29,7 +29,7 @@
                 {% if sponsor.level == diamond and sponsor.logo_image %}
                     <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="diamond">
                         <div class="tile_container">
-                            <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
+                            <div class="tile_img" style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
                             <div class="tile_name">
                                 {{ sponsor.name }}
                             </div>
@@ -43,7 +43,7 @@
                 {% if sponsor.level == sapphire and sponsor.logo_image %}
                     <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="sapphire">
                         <div class="tile_container">
-                            <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
+                            <div class="tile_img" style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
                             <div class="tile_name">
                                 {{ sponsor.name }}
                             </div>
@@ -57,7 +57,7 @@
                 {% if sponsor.level == start_up and sponsor.logo_image %}
                     <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile">
                         <div class="tile_container">
-                            <div class="tile_img" style="background-image: url('{{ MEDIA_URL }}{{ sponsor.logo_image }}')"></div>
+                            <div class="tile_img" style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
                             <div class="tile_name">
                                 {{ sponsor.name }}
                             </div>
