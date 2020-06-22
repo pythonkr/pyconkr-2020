@@ -1,6 +1,5 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView
-from django.views import View
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.urls import reverse
@@ -13,7 +12,7 @@ from program import slack
 KST = datetime.timezone(datetime.timedelta(hours=9))
 
 
-class SponsorList(ListView):
+class SponsorDetail(DetailView):
     model = Sponsor
 
 
@@ -22,8 +21,6 @@ class SponsorDetail(DetailView):
 
 
 class SponsorProposalDetail(DetailView):
-    # URL에 PK, SLUG가 포함되지 않고, DetailView 사용
-    # https://chriskief.com/2012/12/29/django-generic-detailview-without-a-pk-or-slug/
     template_name = 'sponsor/sponsor_proposal_detail.html'
 
     def get(self, request, *args, **kwargs):
