@@ -2,69 +2,24 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{#{% block head-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }}{% endblock %}#}
-{#{% block og-title %}{{ block.super }} {% trans "Sponsor" %} | {{ sponsor.name }}{% endblock %}#}
-{#{% block og-image %}{{ sponsor.logo_image.url }}{% endblock %}#}
-{#{% block nav %}{% include "nav.html" with title=sponsor.name %}{% endblock %}#}
+{% block og-title %}{{ block.super }} Virtual booth{% endblock %}
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
     <div class="tiles">
-        <div class="tiles_keystone">
-            {% for sponsor in object_list %}
-                {% if sponsor.level == keystone and sponsor.logo_image %}
-                    <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="keystone">
-                        <div class="tile_container">
-                            <div class="tile_img" style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
-                            <div class="tile_name">
-                                {{ sponsor.name }}
-                            </div>
-                        </div>
-                    </a>
-                {% endif %}
+        {% for lvl in levels %}
+            {% for sponsor in lvl.sponsor_set.all %}
+                    <div class="tiles_{{ lvl.slug }}">
+                        {% if sponsor.logo_image %}
+                            <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="{{ lvl.slug }}">
+                                <div class="tile_container">
+                                    <div class="tile_img" style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
+                                    <div class="tile_name">{{ sponsor.name }}</div>
+                                </div>
+                            </a>
+                        {% endif %}
+                    </div>
             {% endfor %}
-        </div>
-        <div class="tiles_diamond">
-            {% for sponsor in object_list %}
-                {% if sponsor.level == diamond and sponsor.logo_image %}
-                    <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="diamond">
-                        <div class="tile_container">
-                            <div class="tile_img" style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
-                            <div class="tile_name">
-                                {{ sponsor.name }}
-                            </div>
-                        </div>
-                    </a>
-                {% endif %}
-            {% endfor %}
-        </div>
-        <div class="tiles_sapphire">
-            {% for sponsor in object_list %}
-                {% if sponsor.level == sapphire and sponsor.logo_image %}
-                    <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="sapphire">
-                        <div class="tile_container">
-                            <div class="tile_img" style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
-                            <div class="tile_name">
-                                {{ sponsor.name }}
-                            </div>
-                        </div>
-                    </a>
-                {% endif %}
-            {% endfor %}
-        </div>
-        <div class="tiles_startup">
-            {% for sponsor in object_list %}
-                {% if sponsor.level == start_up and sponsor.logo_image %}
-                    <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile">
-                        <div class="tile_container">
-                            <div class="tile_img" style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
-                            <div class="tile_name">
-                                {{ sponsor.name }}
-                            </div>
-                        </div>
-                    </a>
-                {% endif %}
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}
