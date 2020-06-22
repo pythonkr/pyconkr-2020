@@ -99,6 +99,8 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         return sponsor
 
     def get_success_url(self):
+        # TODO sponsor_detail에서 수정 후 sponsor_proposal_detail 페이지로 가지 않고 sponsor_detail로 가게
+        # TODO sponsor_proposal_detail에서 수정했다면 다시 sponsor_proposal_detail로
         # slack.new_cfs_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('sponsor_proposal_detail')
 
