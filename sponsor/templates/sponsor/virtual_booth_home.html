@@ -8,6 +8,7 @@
 {% block content %}
     <div class="tiles">
         {% for lvl in levels %}
+            {% if lvl.order < 5 %}
             {% for sponsor in lvl.sponsor_set.all %}
                     <div class="tiles_{{ lvl.slug }}">
                         {% if sponsor.logo_image %}
@@ -20,6 +21,7 @@
                         {% endif %}
                     </div>
             {% endfor %}
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}

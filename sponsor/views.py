@@ -127,6 +127,14 @@ class VirtualBoothDetail(DetailView):
     model = Sponsor
     template_name = "sponsor/virtual_booth_detail.html"
 
+    def get(self, request, *args, **kwargs):
+        level = Sponsor.objects.get(slug=self.kwargs['slug']).level
+        has_virtual_booth = SponsorLevel.objects.get(name=level).order < 5
+        if not has_virtual_booth:
+            return redirect('virtual_booth_home')
+
+        return super().get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
         is_editable = Sponsor.objects.filter(
