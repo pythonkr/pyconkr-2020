@@ -25,8 +25,8 @@ admin.site.register(Sponsor, SponsorAdmin)
 
 
 class SponsorLevelAdmin(SummernoteModelAdmin, TranslationAdmin):
-    list_display = ('id', 'order', 'name', 'slug',)
-    list_editable = ('order', 'name', 'slug',)
+    list_display = ('id', 'order', 'name', 'slug', 'price', 'limit',)
+    list_editable = ('order', 'slug',)
     ordering = ('order',)
     search_fields = ('name',)
 
