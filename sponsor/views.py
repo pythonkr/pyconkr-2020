@@ -15,9 +15,13 @@ KST = datetime.timezone(datetime.timedelta(hours=9))
 class SponsorDetail(DetailView):
     model = Sponsor
 
+    def get_context_data(self, **kwargs):
+        context = super(SponsorDetail, self).get_context_data(**kwargs)
+        is_editable = Sponsor.objects.filter(
+            creator=self.request.user, accepted=True, paid_at__isnull=False, slug=self.kwargs['slug']).exists()
+        context['EDITABLE'] = is_editable
 
-class SponsorDetail(DetailView):
-    model = Sponsor
+        return context
 
 
 class SponsorProposalDetail(DetailView):
@@ -125,6 +129,11 @@ class VirtualBoothDetail(DetailView):
     template_name = "sponsor/virtual_booth_detail.html"
 
     def get(self, request, *args, **kwargs):
+        is_visible = Sponsor.objects.get(creator=self.request.user).accepted and \
+                     Sponsor.objects.get(creator=self.request.user).paid_at is not None
+        if not is_visible:
+            return redirect('virtual_booth_home')
+
         level = Sponsor.objects.get(slug=self.kwargs['slug']).level
         has_virtual_booth = SponsorLevel.objects.get(name=level).order < 5
         if not has_virtual_booth:
@@ -135,7 +144,7 @@ class VirtualBoothDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
         is_editable = Sponsor.objects.filter(
-            creator=self.request.user, accepted=True, paid_at__isnull=False).exists()
+            creator=self.request.user, accepted=True, paid_at__isnull=False, slug=self.kwargs['slug']).exists()
         context['EDITABLE'] = is_editable
 
         return context

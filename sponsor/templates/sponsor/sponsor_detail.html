@@ -17,10 +17,14 @@
         </li>
     </ul>
     <div>
-        {{ sponsor.desc|safe }}
+        {% autoescape off %}
+            {{ sponsor.desc|default_if_none:"<br>" }}
+        {% endautoescape %}
     </div>
-    <div class="a_btn_container">
-        <a class="a_btn" href="{% url 'sponsor_proposal_edit' %}">{% trans "수정하기" %}</a>
-    </div>
+    {% if EDITABLE %}
+        <div class="a_btn_container">
+            <a class="a_btn" href="{% url 'sponsor_proposal_edit' %}">{% trans "수정하기" %}</a>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

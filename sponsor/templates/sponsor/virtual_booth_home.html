@@ -10,7 +10,7 @@
             {% if lvl.order < 5 %}
             {% for sponsor in lvl.sponsor_set.all %}
                     <div class="tiles_{{ lvl.slug }}">
-                        {% if sponsor.logo_image %}
+                        {% if sponsor.logo_image and sponsor.paid_at is not None%}
                             <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile" id="{{ lvl.slug }}">
                                 <div class="tile_container">
                                     <div class="tile_img" style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
