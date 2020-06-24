@@ -81,7 +81,7 @@
     <div class="container">
         <div class="sponsors">
         <h2>{% trans "Sponsors" %}</h2>
-        {% include "sponsors.html" %}
+        {% include "sponsors.html" with paid_level=paid_level %}
         </div>
     </div>
     {% endblock %}
