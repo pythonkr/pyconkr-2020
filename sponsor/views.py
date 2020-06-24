@@ -91,7 +91,25 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         if not has_submitted_cfs:
             return redirect('sponsor_propose')
 
+        # sponsor_detail 페이지에서 온 경우 go_proposal=0
+        # sponsor_proposal_detail에서 온 경우 go_proposal=1
+        self.go_proposal = request.GET['go_proposal']
+
         return super().get(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        self.go_proposal = request.GET['go_proposal']
+        return super().post(request, *args, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['go_proposal'] = self.go_proposal
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['go_proposal'] = self.go_proposal
+        return context
 
     def get_object(self, queryset=None):
         sponsor = Sponsor.objects.get(creator=self.request.user)
@@ -99,10 +117,11 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         return sponsor
 
     def get_success_url(self):
-        # TODO sponsor_detail에서 수정 후 sponsor_proposal_detail 페이지로 가지 않고 sponsor_detail로 가게
-        # TODO sponsor_proposal_detail에서 수정했다면 다시 sponsor_proposal_detail로
         # slack.new_cfs_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
-        return reverse('sponsor_proposal_detail')
+        if self.go_proposal == '1':
+            return reverse('sponsor_proposal_detail')
+        else:
+            return reverse('sponsor_detail', kwargs={'slug': self.object.slug})
 
 
 class VirtualBooth(ListView):

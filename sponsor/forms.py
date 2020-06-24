@@ -1,3 +1,4 @@
+from django.shortcuts import reverse
 from django import forms
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.utils.translation import ugettext as _
@@ -37,12 +38,13 @@ class SponsorForm(forms.ModelForm):
             'business_registration_file': _('후원사 사업자 등록증'),
         }
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, go_proposal, *args, **kwargs):
         super(SponsorForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('save', _('Save')))
         self.helper.add_input(Submit('submit', _('Submit')))
+        self.helper.form_action = reverse('sponsor_proposal_edit') + '?go_proposal={}'.format(go_proposal)
 
         self.fields['name_ko'].required = True
         self.fields['name_ko'].required = True
@@ -51,7 +53,7 @@ class SponsorForm(forms.ModelForm):
 
     def form_valid(self, form):
         if self.request.POST['submit'] == 'save':
-            return super(SongEditView, self).form_valid(form)
+            return super(SponsorForm, self).form_valid(form)
 
 
 class VirtualBoothUpdateForm(forms.ModelForm):
