@@ -76,6 +76,11 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
                     opening.strftime("%Y-%m-%d %H:%M"), deadline.strftime("%Y-%m-%d %H:%M"))})
         return super(SponsorCreate, self).get(request, *args, **kwargs)
 
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.helper.form_action = reverse('sponsor_propose')
+        return form
+
     def get_success_url(self):
         return reverse('sponsor_proposal_detail')
 
@@ -101,10 +106,10 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         self.go_proposal = request.GET['go_proposal']
         return super().post(request, *args, **kwargs)
 
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['go_proposal'] = self.go_proposal
-        return kwargs
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.helper.form_action = reverse('sponsor_proposal_edit') + '?go_proposal={}'.format(self.go_proposal)
+        return form
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

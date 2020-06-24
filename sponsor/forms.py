@@ -44,7 +44,6 @@ class SponsorForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('save', _('Save')))
         self.helper.add_input(Submit('submit', _('Submit')))
-        self.helper.form_action = reverse('sponsor_proposal_edit') + '?go_proposal={}'.format(go_proposal)
 
         self.fields['name_ko'].required = True
         self.fields['name_ko'].required = True
