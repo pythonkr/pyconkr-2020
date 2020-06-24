@@ -306,6 +306,7 @@ CONSTANCE_CONFIG = {
     'OPEN_REVIEW_FINISH': (datetime.datetime(2000, 1, 1, tzinfo=KST), '오픈 리뷰 마감 시점'),
     'CFS_OPEN': (datetime.datetime(2000, 1, 1), '후원사 모집 오픈'),
     'CFS_DEADLINE': (datetime.datetime(2000, 1, 1), '후원사 모집 종료'),
+    'CFS_NOTI_CHANNEL': ('#bot-test', 'CFS 등록시, 홈페이지에서 파준위 슬랙으로 알림을 보낼 채널'),
     'CFP_BRIEF_TEMPLATE': ('', 'CFP 간략한 설명 템플릿'),
     'CFP_DESC_TEMPLATE': ('', 'CFP 자세한 설명 템플릿')
 }

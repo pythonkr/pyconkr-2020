@@ -82,6 +82,7 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
         return form
 
     def get_success_url(self):
+        slack.new_cfs_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
         return reverse('sponsor_proposal_detail')
 
 

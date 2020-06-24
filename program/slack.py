@@ -5,6 +5,7 @@ from constance import config
 
 token = config.SLACK_TOKEN
 CFP_CHANNEL = config.SLACK_CHANNEL
+CFS_CHANNEL = config.CFS_NOTI_CHANNEL
 
 
 def new_cfp_registered(hostname, pk, title):
@@ -60,7 +61,7 @@ def new_cfs_registered(hostname, pk, title):
         }
 
         slack.chat.post_message(
-            CFP_CHANNEL, text=text, attachments=[attachment],
+            CFS_CHANNEL, text=text, attachments=[attachment],
             username='cfp-bot', icon_emoji=':female_mage:')
 
 
@@ -79,5 +80,5 @@ def cfs_updated(hostname, pk, title):
         }
 
         slack.chat.post_message(
-            CFP_CHANNEL, text=text, attachments=[attachment], icon_emoji=':female_mage:'
+            CFS_CHANNEL, text=text, attachments=[attachment], icon_emoji=':female_mage:'
         )
