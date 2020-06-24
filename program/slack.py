@@ -50,7 +50,7 @@ def new_cfs_registered(hostname, pk, title):
     if token:
         slack = Slacker(token)
         # color: danger(red), good(green)
-        text = '안녕, 나는 알려주길 좋아하는 CFP-BOT! 새로운 스폰서 신청이 있어 AWS에서 따라왔지!'
+        text = '안녕, 나는 알려주길 좋아하는 CFS-BOT! 새로운 스폰서 신청이 있어 AWS에서 따라왔지!'
         # url = URL_TEMPLATE.format(pk)
         url = hostname + reverse('admin:sponsor_sponsor_change', args=(pk,))
 
@@ -69,7 +69,7 @@ def cfs_updated(hostname, pk, title):
     if token:
         slack = Slacker(token)
         # color: danger(red), good(green)
-        text = '안녕, 나는 알려주길 좋아하는 CFP-BOT! 신청한 스폰서 내용 중 바뀐게 있어 AWS에서 따라왔지!'
+        text = '안녕, 나는 알려주길 좋아하는 CFS-BOT! 신청한 스폰서 내용 중 바뀐게 있어 AWS에서 따라왔지!'
         # url = URL_TEMPLATE.format(pk)
         url = hostname + reverse('admin:sponsor_sponsor_change', args=(pk,))
 
