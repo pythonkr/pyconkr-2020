@@ -1,3 +1,4 @@
+from django.shortcuts import reverse
 from django import forms
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.utils.translation import ugettext as _
@@ -51,7 +52,7 @@ class SponsorForm(forms.ModelForm):
 
     def form_valid(self, form):
         if self.request.POST['submit'] == 'save':
-            return super(SongEditView, self).form_valid(form)
+            return super(SponsorForm, self).form_valid(form)
 
 
 class VirtualBoothUpdateForm(forms.ModelForm):

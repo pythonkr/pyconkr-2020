@@ -76,7 +76,13 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
                     opening.strftime("%Y-%m-%d %H:%M"), deadline.strftime("%Y-%m-%d %H:%M"))})
         return super(SponsorCreate, self).get(request, *args, **kwargs)
 
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.helper.form_action = reverse('sponsor_propose')
+        return form
+
     def get_success_url(self):
+        slack.new_cfs_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
         return reverse('sponsor_proposal_detail')
 
 
@@ -91,7 +97,25 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         if not has_submitted_cfs:
             return redirect('sponsor_propose')
 
+        # sponsor_detail 페이지에서 온 경우 go_proposal=0
+        # sponsor_proposal_detail에서 온 경우 go_proposal=1
+        self.go_proposal = request.GET['go_proposal']
+
         return super().get(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        self.go_proposal = request.GET['go_proposal']
+        return super().post(request, *args, **kwargs)
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.helper.form_action = reverse('sponsor_proposal_edit') + '?go_proposal={}'.format(self.go_proposal)
+        return form
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['go_proposal'] = self.go_proposal
+        return context
 
     def get_object(self, queryset=None):
         sponsor = Sponsor.objects.get(creator=self.request.user)
@@ -99,8 +123,11 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         return sponsor
 
     def get_success_url(self):
-        # slack.new_cfs_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
-        return reverse('sponsor_proposal_detail')
+        slack.cfs_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
+        if self.go_proposal == '1':
+            return reverse('sponsor_proposal_detail')
+        else:
+            return reverse('sponsor_detail', kwargs={'slug': self.object.slug})
 
 
 class VirtualBooth(ListView):
