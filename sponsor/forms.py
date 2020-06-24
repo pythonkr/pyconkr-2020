@@ -38,7 +38,7 @@ class SponsorForm(forms.ModelForm):
             'business_registration_file': _('후원사 사업자 등록증'),
         }
 
-    def __init__(self, go_proposal, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(SponsorForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
