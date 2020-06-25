@@ -95,7 +95,7 @@ def default(request):
                 'title': _('Sponsor'),
                 'submenu': OrderedDict([
                     ('prospectus', {'title': _('Prospectus')}),
-                    ('benefit', {'title': _('Benefit'), 'disable': True}),
+                    ('benefit', {'title': _('Benefit')}),
                     ('join', {'title': _('Join as Sponsor')}),
                     ('faq', {'title': _('FAQ')}),
                     ('terms-of-sponsor', {'title': _('Terms of Sponsor')}),
