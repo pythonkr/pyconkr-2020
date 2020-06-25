@@ -1,5 +1,6 @@
 {% load i18n %}
 <div class="sponsors">
+{% if paid_level %}
     {% for lvl in levels %}
         {% if lvl in paid_level %}
         <h3>{{ lvl.name }}</h3>
@@ -15,7 +16,8 @@
             {% endfor %}
         </ul>
         {% endif %}
-    {% empty %}
-        <h4 class="text-center">{% trans "Ready for content" %}</h4>
     {% endfor %}
+{% else %}
+    <h4 class="text-center">{% trans "Ready for content" %}</h4>
+{% endif %}
 </div>
