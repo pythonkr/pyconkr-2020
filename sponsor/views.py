@@ -137,6 +137,7 @@ class VirtualBooth(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = "Virtual Booth"
+        context['is_empty'] = not Sponsor.objects.filter(accepted=True, paid_at__isnull=False).exists()
 
         return context
 

@@ -6,6 +6,9 @@
 
 {% block content %}
     <div class="tiles">
+    {% if is_empty %}
+        <h4 class="text-center">{% trans "Ready for content" %}</h4>
+    {% else %}
         {% for lvl in levels %}
             {% if lvl.order < 5 %}
             {% for sponsor in lvl.sponsor_set.all %}
@@ -22,5 +25,6 @@
             {% endfor %}
             {% endif %}
         {% endfor %}
+    {% endif %}
     </div>
 {% endblock %}
