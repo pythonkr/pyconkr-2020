@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-22 11:50+0900\n"
+"POT-Creation-Date: 2020-06-26 11:58+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -27,7 +27,7 @@ msgstr "Back to list"
 #: .\announcement\templates\announcement\announcement_list.html:6
 #: .\pyconkr\templates\pyconkr\program_list.html:6
 #: .\pyconkr\templates\pyconkr\speaker_list.html:9
-#: .\pyconkr\templates\schedule.html:10 .\pyconkr\templates\sponsors.html:17
+#: .\pyconkr\templates\schedule.html:10 .\pyconkr\templates\sponsors.html:21
 msgid "Ready for content"
 msgstr "Ready for content"
 
@@ -404,7 +404,7 @@ msgid "Virtual Booth"
 msgstr ""
 
 #: .\pyconkr\forms.py:23 .\pyconkr\templates\login_notvalidtoken.html:7
-#: .\pyconkr\templates\nav.html:72 .\pyconkr\views.py:54
+#: .\pyconkr\templates\nav.html:72 .\pyconkr\views.py:61
 msgid "Login"
 msgstr "Login"
 
