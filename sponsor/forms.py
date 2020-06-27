@@ -42,8 +42,7 @@ class SponsorForm(forms.ModelForm):
         super(SponsorForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('save', _('Save')))
-        self.helper.add_input(Submit('submit', _('Submit')))
+        # 제출버튼은 VIew에서 추가 (저장, 제출 버튼 분리 목적)
 
         self.fields['name_ko'].required = True
         self.fields['name_en'].required = True
