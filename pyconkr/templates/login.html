@@ -14,4 +14,9 @@
     <a class="btn btn-block btn-social btn-lg btn-facebook"  href="{% url 'facebook_login' %}">
         <i class="fa fa-facebook"></i> {% trans "Sign in with Facebook" %}</a>
 </p>
+<div class="alert alert-warning" role="alert">
+    {% trans '회원가입을 통해 본 서비스의 회원이 될 경우, <a href="https://www.pycon.kr/2020/terms-of-service/" target="_blank">서비스 이용 약관</a> 및 관련 운영 정책을 동의하신 것으로 봅니다.' %}
+    <br />
+    {% trans '회원가입, 발표 제안, 후원사 신청이 제출되면 <a href="https://www.pycon.kr/2020/privacy-policy/" target="_blank">개인정보 처리 방침</a>에 동의한 것으로 간주됩니다.' %}
+</div>
 {% endblock %}
