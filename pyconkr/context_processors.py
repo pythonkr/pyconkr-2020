@@ -7,7 +7,7 @@ from django.db.models import Count
 from django.utils.translation import ugettext_lazy as _
 
 from pyconkr.models import Banner
-from sponsor.models import SponsorLevel
+from sponsor.models import SponsorLevel, Sponsor
 from program.models import Speaker
 
 
@@ -18,6 +18,10 @@ def default(request):
     if settings.FORCE_SCRIPT_NAME:
         url = url[len(settings.FORCE_SCRIPT_NAME):]
     base_content = FlatPage.objects.filter(url=url).first()
+    paid_sponsor = Sponsor.objects.filter(accepted=True, paid_at__isnull=False)
+    paid_levels = []
+    for sponsor in paid_sponsor:
+        paid_levels.append(sponsor.level)
 
     submenu = None
     menu = OrderedDict([
@@ -133,6 +137,7 @@ def default(request):
         'title': title,
         'domain': settings.DOMAIN,
         'base_content': base_content.content if base_content else '',
+        'paid_levels': paid_levels,
     }
     return c
 

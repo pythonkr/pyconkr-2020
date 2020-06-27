@@ -9,7 +9,7 @@ from django import template
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.utils.translation import ugettext as _
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from announcement.models import Announcement
 from registration.models import Registration, Option, CONFERENCE_REGISTRATION_PATRON
 from sponsor.models import Sponsor
@@ -19,15 +19,9 @@ User = get_user_model()
 
 
 def index(request):
-    paid_sponsor = Sponsor.objects.filter(accepted=True, paid_at__isnull=False)
-    paid_level = []
-    for sponsor in paid_sponsor:
-        paid_level.append(sponsor.level)
-
     return render(request, 'index.html', {
         'index': True,
         'recent_announcements': Announcement.objects.filter(active=True),
-        'paid_level': paid_level,
     })
 
 

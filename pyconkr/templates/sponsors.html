@@ -1,8 +1,8 @@
 {% load i18n %}
 <div class="sponsors">
-{% if paid_level %}
+{% if paid_levels %}
     {% for lvl in levels %}
-        {% if lvl in paid_level %}
+        {% if lvl in paid_levels %}
         <h3>{{ lvl.name }}</h3>
         <ul>
             {% for sponsor in lvl.sponsor_set.all %}
