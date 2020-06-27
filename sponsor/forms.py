@@ -1,7 +1,7 @@
 from django.shortcuts import reverse
 from django import forms
 from django_summernote.widgets import SummernoteInplaceWidget
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from .models import Sponsor, SponsorLevel
@@ -46,7 +46,7 @@ class SponsorForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', _('Submit')))
 
         self.fields['name_ko'].required = True
-        self.fields['name_ko'].required = True
+        self.fields['name_en'].required = True
         self.fields['level'] = SponsorLevelChoiceField(
             queryset=SponsorLevel.objects.filter(visible=True))
 
