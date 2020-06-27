@@ -36,7 +36,7 @@
             <ul class="list-group">
             {% for sponsor in sponsors %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="{% url 'sponsor' sponsor.id %}">
+                    <a href="{% url 'sponsor_proposal_detail' %}">
                         {% if sponsor.accepted %}
                             [{% trans '스폰서 확정' %}]
                         {% elif sponsor.submitted %}
@@ -45,10 +45,9 @@
                             [{% trans '임시 저장' %}]
                         {% endif %}
                         {{ sponsor.name }}({{ sponsor.level.name }})
-                        
                     </a>
-                    <a href="{% url 'join_sponsor' %}">
-                    <span class="badge badge-primary badge-pill">{% trans '수정하기' %}</span>
+                    <a href="{% url 'sponsor_proposal_edit' %}?go_proposal=1">
+                        <span class="badge badge-primary badge-pill">{% trans '수정하기' %}</span>
                     </a>
                     {% comment %} <a class='badge'><i class="fa fa-pencil-square-o"></i></a> {% endcomment %}
                 </li>
