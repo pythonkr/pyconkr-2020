@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-26 11:58+0900\n"
+"POT-Creation-Date: 2020-06-27 16:30+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,7 +112,7 @@ msgstr ""
 msgid "임시 저장"
 msgstr ""
 
-#: .\user\templates\user\profile_detail.html:51
+#: .\user\templates\user\profile_detail.html:50
 msgid "수정하기"
 msgstr ""
 

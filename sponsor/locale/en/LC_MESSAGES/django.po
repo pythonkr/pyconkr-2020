@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-26 11:58+0900\n"
+"POT-Creation-Date: 2020-06-27 16:30+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -159,6 +159,15 @@ msgstr ""
 "Please be sure to read the sponsor prospectus before submitting your "
 "proposal."
 
+#: .\sponsor\templates\sponsor\sponsor_form.html:16
+msgid ""
+"후원사 신청을 제출하실 경우, <a href=\"https://pycon.kr/2020/sponsor/terms-"
+"of-sponsor/\" target=\"_blank\">후원사 약관</a>을 동의하신 것으로 봅니다."
+msgstr ""
+"If you submit a sponsorship application, we assume that you have accepted "
+"the <a href=\"https://pycon.kr/en/2020/sponsor/terms-of-sponsor/\" target="
+"\"_blank\">Terms of Sponsors</a>."
+
 #: .\sponsor\templates\sponsor\sponsor_proposal_detail.html:10
 msgid "Sponsor level"
 msgstr ""
@@ -187,7 +196,7 @@ msgstr ""
 msgid "Sponsor logo image"
 msgstr ""
 
-#: .\sponsor\templates\sponsor\virtual_booth_home.html:25
+#: .\sponsor\templates\sponsor\virtual_booth_home.html:10
 msgid "Ready for content"
 msgstr ""
 
