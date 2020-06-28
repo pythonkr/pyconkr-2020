@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-27 16:30+0900\n"
+"POT-Creation-Date: 2020-06-28 23:27+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,61 +16,66 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\sponsor\forms.py:28
-msgid "후원사 등급"
-msgstr "후원사 등급"
-
-#: .\sponsor\forms.py:29
-msgid "로고 이미지"
+#: .\sponsor\forms.py:15
+msgid "마감"
 msgstr ""
 
-#: .\sponsor\forms.py:30
-msgid "후원사 이름 (한글)"
+#: .\sponsor\forms.py:30 .\sponsor\forms.py:51
+msgid "후원사 등급"
 msgstr ""
 
 #: .\sponsor\forms.py:31
-msgid "후원사 이름 (영문)"
+msgid "로고 이미지"
 msgstr ""
 
 #: .\sponsor\forms.py:32
-msgid "후원사 홈페이지 주소"
+msgid "후원사 이름 (한글)"
 msgstr ""
 
 #: .\sponsor\forms.py:33
-msgid "후원사 소개 (한글)"
+msgid "후원사 이름 (영문)"
 msgstr ""
 
 #: .\sponsor\forms.py:34
-msgid "후원사 소개 (영문)"
+msgid "후원사 홈페이지 주소"
 msgstr ""
 
 #: .\sponsor\forms.py:35
-msgid "후원 담당자 이름"
+msgid "후원사 소개 (한글)"
 msgstr ""
 
 #: .\sponsor\forms.py:36
-msgid "후원 담당자 이메일"
+msgid "후원사 소개 (영문)"
 msgstr ""
 
 #: .\sponsor\forms.py:37
-msgid "후원사 사업자 등록 번호"
+msgid "후원 담당자 이름"
 msgstr ""
 
 #: .\sponsor\forms.py:38
+msgid "후원 담당자 이메일"
+msgstr ""
+
+#: .\sponsor\forms.py:39
+msgid "후원사 사업자 등록 번호"
+msgstr ""
+
+#: .\sponsor\forms.py:40
 msgid "후원사 사업자 등록증"
 msgstr ""
 
-#: .\sponsor\forms.py:45
-msgid "Save"
+#: .\sponsor\forms.py:53 .\sponsor\models.py:73
+msgid ""
+"후원을 원하시는 등급을 선택해주십시오. 모두 판매된 등급은 선택할 수 없습니다."
 msgstr ""
 
-#: .\sponsor\forms.py:46 .\sponsor\forms.py:74
-msgid "Submit"
-msgstr "제출하기"
-
-#: .\sponsor\forms.py:63
+#: .\sponsor\forms.py:65
 msgid "Virtual booth content"
 msgstr "Virtual booth 내용"
+
+#: .\sponsor\forms.py:76 .\sponsor\views.py:103 .\sponsor\views.py:154
+msgid "Submit"
+msgstr "제출하기"
 
 #: .\sponsor\models.py:68
 msgid "후원사를 등록한 유저"
@@ -78,11 +83,6 @@ msgstr ""
 
 #: .\sponsor\models.py:70
 msgid "후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다."
-msgstr ""
-
-#: .\sponsor\models.py:73
-msgid ""
-"후원을 원하시는 등급을 선택해주십시오. 모두 판매된 등급은 선택할 수 없습니다."
 msgstr ""
 
 #: .\sponsor\models.py:75
@@ -176,6 +176,10 @@ msgstr "후원사 홈페이지 주소"
 msgid "Sponsor logo image"
 msgstr "후원사 로고 이미지"
 
+#: .\sponsor\templates\sponsor\sponsor_proposal_detail.html:52
+msgid "제출하기"
+msgstr ""
+
 #: .\sponsor\templates\sponsor\virtual_booth_home.html:10
 msgid "Ready for content"
 msgstr "준비 중입니다."
@@ -184,28 +188,32 @@ msgstr "준비 중입니다."
 msgid "Virtual booth 내용 수정하기"
 msgstr ""
 
-#: .\sponsor\views.py:50 .\sponsor\views.py:93
+#: .\sponsor\views.py:58 .\sponsor\views.py:117
 msgid ""
 "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발"
 "송드리도록 하겠습니다."
 msgstr ""
 
-#: .\sponsor\views.py:69
+#: .\sponsor\views.py:78
 msgid "후원사 모집이 아직 시작되지 않았습니다.🤖"
 msgstr ""
 
-#: .\sponsor\views.py:70
+#: .\sponsor\views.py:79
 msgid "모집 기간은 {} ~ {} 이니 일정에 참고해주세요."
 msgstr ""
 
-#: .\sponsor\views.py:74
+#: .\sponsor\views.py:83
 msgid "후원사 모집이 종료되었습니다.🤖"
 msgstr ""
 
-#: .\sponsor\views.py:75
+#: .\sponsor\views.py:84
 msgid ""
 "모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요"
 msgstr ""
+
+#: .\sponsor\views.py:102 .\sponsor\views.py:150
+msgid "Save"
+msgstr "저장"
 
 #~ msgid "Temporarily Save"
 #~ msgstr "임시저장"

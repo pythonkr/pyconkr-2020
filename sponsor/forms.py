@@ -12,7 +12,7 @@ from django.forms import ModelChoiceField
 class SponsorLevelChoiceField(ModelChoiceField):
     def label_from_instance(self, obj):
         if obj.current_remaining_number == 0:
-            return f'{obj.name} ({_("마감")})'
+            return "{name} ({msg})".format(name=obj.name, msg=_("마감"))
         return f'{obj.name} ({obj.current_remaining_number}/{obj.limit})'
 
 
