@@ -29,8 +29,8 @@ class SponsorProposalDetail(DetailView):
     template_name = 'sponsor/sponsor_proposal_detail.html'
 
     def get(self, request, *args, **kwargs):
-        has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
-        if not has_submitted_cfs:
+        has_written_cfs = Sponsor.objects.filter(creator=self.request.user).exists()
+        if not has_written_cfs:
             return redirect('sponsor_propose')
 
         return super().get(request, *args, **kwargs)
