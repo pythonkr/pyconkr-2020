@@ -1,3 +1,4 @@
+from crispy_forms.layout import Submit, Button
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -28,9 +29,16 @@ class SponsorProposalDetail(DetailView):
     template_name = 'sponsor/sponsor_proposal_detail.html'
 
     def get(self, request, *args, **kwargs):
-        has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
-        if not has_submitted_cfs:
+        written_cfs = Sponsor.objects.filter(creator=self.request.user)
+        if not written_cfs.exists():
             return redirect('sponsor_propose')
+
+        # 제출상태로 변경처리
+        if request.GET.get('submit') == '1':
+            cfs_obj = written_cfs.get()
+            cfs_obj.submitted = True
+            cfs_obj.save()
+            return redirect('sponsor_proposal_detail')  # GET params 생략을 위한 redirect 처리
 
         return super().get(request, *args, **kwargs)
 
@@ -51,6 +59,7 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.creator = self.request.user
+        form.instance.submitted = self.is_submitted
         form.save()
         return super(SponsorCreate, self).form_valid(form)
 
@@ -76,13 +85,28 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
                     opening.strftime("%Y-%m-%d %H:%M"), deadline.strftime("%Y-%m-%d %H:%M"))})
         return super(SponsorCreate, self).get(request, *args, **kwargs)
 
+    def post(self, request, *args, **kwargs):
+        # submit get Parameter 기본값 설정
+        if request.GET.get('submit') is None or request.GET['submit'] == '0':
+            self.is_submitted = False
+        elif request.GET['submit'] == '1':
+            self.is_submitted = True
+
+        return super().post(request, *args, **kwargs)
+
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
-        form.helper.form_action = reverse('sponsor_propose')
+        save_btn_url = reverse('sponsor_propose') + '?submit=0'
+        submit_btn_url = reverse('sponsor_propose') + '?submit=1'
+
+        form.helper.add_input(Submit('save', _('Save'), formaction=save_btn_url))
+        form.helper.add_input(Submit('submit', _('Submit'), formaction=submit_btn_url))
+
         return form
 
     def get_success_url(self):
-        slack.new_cfs_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
+        if self.object.submitted is True:
+            slack.new_cfs_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
         return reverse('sponsor_proposal_detail')
 
 
@@ -103,13 +127,32 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
 
         return super().get(request, *args, **kwargs)
 
+    def form_valid(self, form):
+        if self.is_submitted is True:
+            form.instance.submitted = True
+        form.save()
+        return super(SponsorUpdate, self).form_valid(form)
+
     def post(self, request, *args, **kwargs):
         self.go_proposal = request.GET['go_proposal']
+
+        # submit get Parameter 기본값 설정
+        if request.GET.get('submit') is None or request.GET['submit'] == '0':
+            self.is_submitted = False
+        elif request.GET['submit'] == '1':
+            self.is_submitted = True
+
         return super().post(request, *args, **kwargs)
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
-        form.helper.form_action = reverse('sponsor_proposal_edit') + '?go_proposal={}'.format(self.go_proposal)
+        save_btn_url = reverse('sponsor_proposal_edit') + '?go_proposal={}&submit=0'.format(self.go_proposal)
+        form.helper.add_input(Submit('save', _('Save'), formaction=save_btn_url))
+
+        if self.object.submitted is False:
+            submit_btn_url = reverse('sponsor_proposal_edit') + '?&go_proposal={}&submit=1'.format(self.go_proposal)
+            form.helper.add_input(Submit('submit', _('Submit'), formaction=submit_btn_url))
+
         return form
 
     def get_context_data(self, **kwargs):
@@ -119,7 +162,6 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
 
     def get_object(self, queryset=None):
         sponsor = Sponsor.objects.get(creator=self.request.user)
-
         return sponsor
 
     def get_success_url(self):

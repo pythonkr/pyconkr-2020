@@ -997,11 +997,20 @@ a.a_btn {
   color: aliceblue;
   cursor: pointer;
   padding: 0 1rem;
+  margin: 0 10px;
 
   &.large {
     height: 3rem;
     font-size: 1.25rem;
     font-weight: 700;
+  }
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
   }
 }
 
