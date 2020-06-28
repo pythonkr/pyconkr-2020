@@ -42,12 +42,13 @@ class SponsorForm(forms.ModelForm):
         super(SponsorForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        # 제출버튼은 VIew에서 추가 (저장, 제출 버튼 분리 목적)
+        # 제출 버튼은 View에서 추가 (저장, 제출 버튼 분리 목적)
 
         self.fields['name_ko'].required = True
         self.fields['name_en'].required = True
-        self.fields['level'] = SponsorLevelChoiceField(
-            queryset=SponsorLevel.objects.filter(visible=True))
+        self.fields['level'] = SponsorLevelChoiceField(label=_('후원사 등급'),
+                                                       queryset=SponsorLevel.objects.filter(visible=True),
+                                                       help_text=_('후원을 원하시는 등급을 선택해주십시오. 모두 판매된 등급은 선택할 수 없습니다.'))
 
     def form_valid(self, form):
         if self.request.POST['submit'] == 'save':
