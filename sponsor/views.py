@@ -120,13 +120,29 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
 
         return super().get(request, *args, **kwargs)
 
+    def form_valid(self, form):
+        if self.is_submitted is True:
+            form.instance.submitted = True
+        form.save()
+        return super(SponsorUpdate, self).form_valid(form)
+
     def post(self, request, *args, **kwargs):
         self.go_proposal = request.GET['go_proposal']
+
+        # submit get Parameter 기본값 설정
+        if request.GET.get('submit') is None or request.GET['submit'] == '0':
+            self.is_submitted = False
+        elif request.GET['submit'] == '1':
+            self.is_submitted = True
+
         return super().post(request, *args, **kwargs)
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
-        submit_btn_url = reverse('sponsor_proposal_edit') + '?&go_proposal={}'.format(self.go_proposal)
+        save_btn_url = reverse('sponsor_proposal_edit') + '?go_proposal={}&submit=0'.format(self.go_proposal)
+        submit_btn_url = reverse('sponsor_proposal_edit') + '?&go_proposal={}&submit=1'.format(self.go_proposal)
+
+        form.helper.add_input(Submit('save', _('Save'), formaction=save_btn_url))
         form.helper.add_input(Submit('submit', _('Submit'), formaction=submit_btn_url))
         return form
 
