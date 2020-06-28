@@ -48,6 +48,9 @@
     </div>
     <div class="a_btn_container">
         <a class="a_btn" href="{% url 'sponsor_proposal_edit' %}?go_proposal=1">{% trans "수정하기" %}</a>
+        {% if not sponsor.submitted %}
+            <a class="a_btn" href="{% url 'sponsor_propose' %}?submit=1">{% trans "제출하기" %}</a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
