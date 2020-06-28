@@ -32,7 +32,7 @@ class SponsorLevel(models.Model):
 
     @property
     def current_remaining_number(self):
-        return self.limit - self.accepted_count
+        return 0 if self.limit - self.accepted_count < 0 else self.limit - self.accepted_count
 
     @property
     def paid_count(self):
