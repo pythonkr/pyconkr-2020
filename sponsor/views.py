@@ -29,9 +29,16 @@ class SponsorProposalDetail(DetailView):
     template_name = 'sponsor/sponsor_proposal_detail.html'
 
     def get(self, request, *args, **kwargs):
-        has_written_cfs = Sponsor.objects.filter(creator=self.request.user).exists()
-        if not has_written_cfs:
+        written_cfs = Sponsor.objects.filter(creator=self.request.user)
+        if not written_cfs.exists():
             return redirect('sponsor_propose')
+
+        # 제출상태로 변경처리
+        if request.GET.get('submit') == '1':
+            cfs_obj = written_cfs.get()
+            cfs_obj.submitted = True
+            cfs_obj.save()
+            return redirect('sponsor_proposal_detail')  # GET params 생략을 위한 redirect 처리
 
         return super().get(request, *args, **kwargs)
 
