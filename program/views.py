@@ -5,6 +5,8 @@ from django.views.generic import ListView, DetailView, UpdateView, CreateView, T
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.urls import reverse
+from django.views.generic.edit import ModelFormMixin
+
 from .models import (Program, ProgramCategory, Preference,
                      Speaker, Room, Proposal, OpenReview, TutorialProposal, SprintProposal)
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
@@ -444,19 +446,24 @@ class OpenReviewList(TemplateView):
 
         if form.is_valid():
             category_id = form.cleaned_data['name']
-            nums = 4
-            ids = Proposal.objects.filter(category__id=category_id).values_list('id', flat=True)
-            if len(ids) < nums:
-                for proposal in Proposal.objects.filter(category__id=category_id):
-                    review = OpenReview(proposal=proposal, user=request.user)
-                    review.save()
-            else:
-                selected_ids = random.sample(list(ids), 4)
-                for proposal in Proposal.objects.filter(id__in=selected_ids):
-                    review = OpenReview(proposal=proposal, user=request.user)
-                    review.save()
+            ids = Proposal.objects\
+                .filter(category__id=category_id)\
+                .exclude(user=request.user)\
+                .values_list('id', flat=True)
+
+            if len(ids) < 1:
+                additional_context = {
+                    'message': _('not exits....')
+                }
+
+            selected_ids = random.sample(list(ids), min(len(ids), 4))
+            for proposal in Proposal.objects.filter(id__in=selected_ids):
+                review = OpenReview(proposal=proposal, user=request.user)
+                review.save()
 
         context = self.get_context_data()
+        # TODO: 다른 카테고리 선택하도록 유도 메세지 출력
+        # context.update(**additional_context)
         return render(request, self.template_name, context)
 
     def get_context_data(self, **kwargs):
