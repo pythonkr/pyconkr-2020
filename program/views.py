@@ -1,11 +1,16 @@
+import random
+
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView, UpdateView, CreateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.urls import reverse
+from django.views.generic.edit import ModelFormMixin
+
 from .models import (Program, ProgramCategory, Preference,
-                     Speaker, Room, Proposal, TutorialProposal, SprintProposal)
-from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, ProgramForm
+                     Speaker, Room, Proposal, OpenReview, TutorialProposal, SprintProposal)
+from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
+                    OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm
 
 import constance
 import datetime
@@ -62,6 +67,7 @@ class PreferenceList(SuccessMessageMixin, ListView):
         random.shuffle(programs)
 
         context['programs'] = programs
+
         return context
 
 
@@ -428,8 +434,58 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
-        new_cfp_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
+        new_cfp_register(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('proposal')
+
+
+class OpenReviewList(TemplateView):
+    template_name = "pyconkr/openreview_list.html"
+
+    def post(self, request, *args, **kwargs):
+        form = OpenReviewCategoryForm(request.POST)
+
+        if form.is_valid():
+            category_id = form.cleaned_data['name']
+            ids = Proposal.objects\
+                .filter(category__id=category_id)\
+                .exclude(user=request.user)\
+                .values_list('id', flat=True)
+
+            if len(ids) < 1:
+                additional_context = {
+                    'message': _('not exits....')
+                }
+
+            selected_ids = random.sample(list(ids), min(len(ids), 4))
+            for proposal in Proposal.objects.filter(id__in=selected_ids):
+                review = OpenReview(proposal=proposal, user=request.user)
+                review.save()
+
+        context = self.get_context_data()
+        # TODO: 다른 카테고리 선택하도록 유도 메세지 출력
+        # context.update(**additional_context)
+        return render(request, self.template_name, context)
+
+    def get_context_data(self, **kwargs):
+        context = super(OpenReviewList, self).get_context_data(**kwargs)
+        if OpenReview.objects.filter(user=self.request.user).exists():
+            context['reviews'] = OpenReview.objects.filter(user=self.request.user).all()
+        else:
+            context['select_category'] = OpenReviewCategoryForm()
+        return context
+
+
+class OpenReviewUpdate(UpdateView):
+    model = OpenReview
+    form_class = OpenReviewCommentForm
+    template_name = "pyconkr/openreview_form.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(OpenReviewUpdate, self).get_context_data(**kwargs)
+        return context
+
+    def get_success_url(self):
+        return reverse('openreview-list')
 
 
 class ProgramUpdate(UpdateView):

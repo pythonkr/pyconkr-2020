@@ -1,12 +1,13 @@
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit, Button
 
 from django import forms
 from django.conf import settings
+from django.forms import Select
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.utils.translation import ugettext_lazy as _
 from django.core.files.images import get_image_dimensions
-from .models import Speaker, Program, Proposal, SprintProposal, TutorialProposal, ProgramCategory
+from .models import Speaker, Program, Proposal, OpenReview, SprintProposal, TutorialProposal, ProgramCategory
 
 from constance import config
 
@@ -159,4 +160,36 @@ class TutorialProposalForm(forms.ModelForm):
             'desc': _('Detailed description'),
 
             'difficulty': _('Session difficulty'),
+        }
+
+
+class OpenReviewCategoryForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(OpenReviewCategoryForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Submit')))
+
+    class Meta:
+        model = ProgramCategory
+        fields = ('name', )
+        widgets = {
+            'name': Select(choices=((c.id, c.name) for c in ProgramCategory.objects.filter(visible=True)))
+        }
+
+
+class OpenReviewCommentForm(forms.ModelForm):
+    comment = forms.CharField(min_length=20, max_length=2000, widget=forms.Textarea())
+
+    def __init__(self, *args, **kwargs):
+        super(OpenReviewCommentForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Submit')))
+
+    class Meta:
+        model = OpenReview
+        fields = ('comment', )
+        labels = {
+            'comment': _('Comment')
         }

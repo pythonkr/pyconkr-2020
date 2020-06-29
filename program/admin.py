@@ -8,10 +8,10 @@ from django_summernote.admin import SummernoteModelAdmin
 from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 from modeltranslation.admin import TranslationAdmin
 from sorl.thumbnail.admin import AdminImageMixin
-from import_export.admin import ImportExportModelAdmin
+from import_export.admin import ImportExportModelAdmin, ImportMixin
 from .models import (Room, Program, ProgramTime, ProgramDate, ProgramCategory,
-                     Speaker,  Preference, Proposal, TutorialProposal, SprintProposal,
-                     TutorialCheckin, SprintCheckin)
+                     Speaker, Preference, Proposal, TutorialProposal, SprintProposal,
+                     TutorialCheckin, SprintCheckin, OpenReview)
 
 
 class RoomAdmin(SummernoteModelAdmin, TranslationAdmin):
@@ -75,7 +75,7 @@ class ProposalAdminForm(forms.ModelForm):
         }
 
 
-class ProposalAdmin(admin.ModelAdmin):
+class ProposalAdmin(ImportMixin, admin.ModelAdmin):
     form = ProposalAdminForm
     list_display = ('id', 'user', 'title', 'difficulty', 'duration', 'language', 'category')
 
@@ -132,4 +132,15 @@ class SprintCheckinAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'sprint',)
 
 
+class OpenReviewAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', )
+
+    def title(self, o):
+        return o.proposal.title
+
+    def user(self, o):
+        return o.user.name
+
+
 admin.site.register(SprintCheckin, SprintCheckinAdmin)
+admin.site.register(OpenReview, OpenReviewAdmin)

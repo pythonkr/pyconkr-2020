@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}
+{% trans "발표 제안 검토하기" %}
+{% endblock %}
+
+{% block content %}
+{% if reviews %}
+    {% for review in reviews %}
+    <section>
+        <h4>{% trans "Title" %}</h4>
+        <a href="{% url 'openreview-update' review.id %}">{{ review.proposal.title }}</a>
+        {% if review.has_comment %}
+            <span>&#10003;</span>
+        {% endif %}
+        <hr />
+    </section>
+    {% endfor %}
+{% else %}
+{% crispy select_category %}
+{% endif %}
+{% endblock %}

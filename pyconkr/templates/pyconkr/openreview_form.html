@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}
+{% trans "발표 제안 검토하기" %}
+{% endblock %}
+
+{% block content %}
+<div>
+    <h4>{% trans "Title" %}</h4>
+    <strong>{{ object.proposal.title }}</strong>
+    <hr />
+    <h4>{% trans "Brief" %}</h4>
+    <p>{{ object.proposal.brief|linebreaks }}</p>
+    <hr />
+    <h4>{% trans "Detailed description" %}</h4>
+    <p>{{ object.proposal.desc|safe }}</p>
+    <hr />
+    {% if object.proposal.comment %}
+        <h4>{% trans "Comment to reviewers" %}</h4>
+        <p>{{ object.proposal.comment|safe }}</p>
+        <hr />
+    {% endif %}
+    {% crispy form %}
+</div>
+{% endblock %}
