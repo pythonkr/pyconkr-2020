@@ -237,10 +237,12 @@ class Proposal(models.Model):
 
 class OpenReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
     proposal = models.ForeignKey(Proposal, on_delete=models.CASCADE)
-
     comment = models.TextField(max_length=2000)
+
+    @property
+    def has_comment(self):
+        return len(self.comment) > 0
 
     def __str__(self):
         return self.proposal.title

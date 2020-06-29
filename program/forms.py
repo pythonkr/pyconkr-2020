@@ -181,20 +181,17 @@ class OpenReviewCategoryForm(forms.ModelForm):
 
 
 class OpenReviewCommentForm(forms.ModelForm):
+    comment = forms.CharField(min_length=20, max_length=2000, widget=forms.Textarea())
+
     def __init__(self, *args, **kwargs):
         super(OpenReviewCommentForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Button('previous', _('Previous')))
         self.helper.add_input(Submit('submit', _('Submit')))
 
     class Meta:
         model = OpenReview
-        fields = ('proposal', 'comment')
-        widgets = {
-            'comment': SummernoteInplaceWidget()
-        }
+        fields = ('comment', )
         labels = {
-            'proposal': _('Proposal'),
             'comment': _('Comment')
         }

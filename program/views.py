@@ -468,6 +468,19 @@ class OpenReviewList(TemplateView):
         return context
 
 
+class OpenReviewUpdate(UpdateView):
+    model = OpenReview
+    form_class = OpenReviewCommentForm
+    template_name = "pyconkr/openreview_form.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(OpenReviewUpdate, self).get_context_data(**kwargs)
+        return context
+
+    def get_success_url(self):
+        return reverse('openreview-list')
+
+
 class ProgramUpdate(UpdateView):
     model = Program
     form_class = ProgramForm
