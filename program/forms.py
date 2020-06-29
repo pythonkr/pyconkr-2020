@@ -1,8 +1,9 @@
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit, Button
 
 from django import forms
 from django.conf import settings
+from django.forms import Select
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.utils.translation import ugettext_lazy as _
 from django.core.files.images import get_image_dimensions
@@ -164,20 +165,36 @@ class TutorialProposalForm(forms.ModelForm):
         }
 
 
-class OpenReviewForm(forms.ModelForm):
+class OpenReviewCategoryForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        super(OpenReviewForm, self).__init__(*args, **kwargs)
+        super(OpenReviewCategoryForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', _('Submit')))
 
-        self.fields['category'].queryset = ProgramCategory.objects.filter(visible=True)
+    class Meta:
+        model = ProgramCategory
+        fields = ('name', )
+        widgets = {
+            'name': Select(choices=((c.id, c.name) for c in ProgramCategory.objects.filter(visible=True)))
+        }
+
+
+class OpenReviewCommentForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(OpenReviewCommentForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Button('previous', _('Previous')))
+        self.helper.add_input(Submit('submit', _('Submit')))
 
     class Meta:
         model = OpenReview
-        fields = ('category', 'comment')
-
+        fields = ('proposal', 'comment')
+        widgets = {
+            'comment': SummernoteInplaceWidget()
+        }
         labels = {
-            'category': _('Category'),
-            'comment': _('Comment'),
+            'proposal': _('Proposal'),
+            'comment': _('Comment')
         }

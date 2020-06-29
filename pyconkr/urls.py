@@ -14,7 +14,7 @@ from .views import PatronList
 from .views import redirect_to_cfp_form
 
 from program.views import ProposalCreate
-from program.views import OpenReviewCreate
+from program.views import OpenReviewForm
 
 from django.contrib import admin
 admin.autodiscover()
@@ -49,7 +49,7 @@ urlpatterns += i18n_patterns(
     # cfp (contribution의 하위 url에 두기위해 별도로 기술)
     re_path(r'^2020/contribution/cfp/$', login_required(redirect_to_cfp_form)),
     re_path(r'^2020/contribution/review-talk-proposal/$',
-            login_required(OpenReviewCreate.as_view()), name='review-talk-proposal'),
+            login_required(OpenReviewForm.as_view()), name='review-talk-proposal'),
 
     # for flatpages
     re_path(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),

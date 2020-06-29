@@ -1,11 +1,14 @@
+import random
+
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView, UpdateView, CreateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.urls import reverse
 from .models import (Program, ProgramCategory, Preference,
                      Speaker, Room, Proposal, OpenReview, TutorialProposal, SprintProposal)
-from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, OpenReviewForm, ProgramForm
+from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
+                    OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm
 
 import constance
 import datetime
@@ -62,6 +65,7 @@ class PreferenceList(SuccessMessageMixin, ListView):
         random.shuffle(programs)
 
         context['programs'] = programs
+
         return context
 
 
@@ -428,31 +432,40 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
-        new_cfp_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
+        new_cfp_registere(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('proposal')
 
 
-class OpenReviewCreate(SuccessMessageMixin, CreateView):
-    form_class = OpenReviewForm
+class OpenReviewForm(TemplateView):
     template_name = "pyconkr/openreview_form.html"
-    success_message = _("Open Review successfully created.")
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        form.save()
-        return super(OpenReviewCreate, self).form_valid(form)
+    def post(self, request, *args, **kwargs):
+        form = OpenReviewCategoryForm(request.POST)
 
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.profile.name == '':
-            return redirect('profile_edit')
+        if form.is_valid():
+            category_id = form.cleaned_data['name']
+            nums = 4
+            ids = Proposal.objects.filter(category__id=category_id).values_list('id', flat=True)
+            if len(ids) < nums:
+                for proposal in Proposal.objects.filter(category__id=category_id):
+                    review = OpenReview(proposal=proposal, user=request.user)
+                    review.save()
+            else:
+                selected_ids = random.sample(list(ids), 4)
+                for proposal in Proposal.objects.filter(id__in=selected_ids):
+                    review = OpenReview(proposal=proposal, user=request.user)
+                    review.save()
 
-        if OpenReview.objects.filter(user=request.user).exists():
-            return redirect('review-talk-proposal')
+        context = self.get_context_data()
+        return render(request, self.template_name, context)
 
-        return super(OpenReviewCreate, self).dispatch(request, *args, **kwargs)
-
-    def get_success_url(self):
-        return reverse('review-talk-proposal')
+    def get_context_data(self, **kwargs):
+        context = super(OpenReviewForm, self).get_context_data(**kwargs)
+        if OpenReview.objects.filter(user=self.request.user).exists():
+            context['reviews'] = OpenReview.objects.filter(user=self.request.user).all()
+        else:
+            context['select_category'] = OpenReviewCategoryForm()
+        return context
 
 
 class ProgramUpdate(UpdateView):

@@ -236,12 +236,14 @@ class Proposal(models.Model):
 
 
 class OpenReview(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    category = models.ForeignKey(
-        ProgramCategory, on_delete=models.SET_DEFAULT, default=14)
+    proposal = models.ForeignKey(Proposal, on_delete=models.CASCADE)
 
     comment = models.TextField(max_length=2000)
+
+    def __str__(self):
+        return self.proposal.title
 
 
 class TutorialProposal(models.Model):

@@ -30,5 +30,5 @@ class UserAdmin(BaseUserAdmin):
     actions = (send_test_mail,)
 
 
-admin.site.unregister(User)
-admin.site.register(User, UserAdmin)
+# admin.site.register(User, UserAdmin)
+# admin.site.register(Profile)
