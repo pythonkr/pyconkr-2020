@@ -436,8 +436,8 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return reverse('proposal')
 
 
-class OpenReviewForm(TemplateView):
-    template_name = "pyconkr/openreview_form.html"
+class OpenReviewList(TemplateView):
+    template_name = "pyconkr/openreview_list.html"
 
     def post(self, request, *args, **kwargs):
         form = OpenReviewCategoryForm(request.POST)
