@@ -13,8 +13,8 @@ from .views import login, logout
 from .views import PatronList
 from .views import redirect_to_cfp_form
 
-from program.views import ProposalCreate
-from program.views import OpenReviewForm
+from program.views import ProposalCreate, OpenReviewUpdate
+from program.views import OpenReviewList
 
 from django.contrib import admin
 admin.autodiscover()

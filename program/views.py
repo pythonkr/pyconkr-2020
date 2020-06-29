@@ -432,7 +432,7 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
-        new_cfp_registere(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
+        new_cfp_register(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('proposal')
 
 
@@ -460,7 +460,7 @@ class OpenReviewList(TemplateView):
         return render(request, self.template_name, context)
 
     def get_context_data(self, **kwargs):
-        context = super(OpenReviewForm, self).get_context_data(**kwargs)
+        context = super(OpenReviewList, self).get_context_data(**kwargs)
         if OpenReview.objects.filter(user=self.request.user).exists():
             context['reviews'] = OpenReview.objects.filter(user=self.request.user).all()
         else:
