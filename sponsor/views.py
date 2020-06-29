@@ -165,7 +165,7 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         return sponsor
 
     def get_success_url(self):
-        slack.cfs_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
+        # slack.cfs_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
         if self.go_proposal == '1':
             return reverse('sponsor_proposal_detail')
         else:
