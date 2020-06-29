@@ -34,6 +34,16 @@
     <link href="{% sass_src "css/pyconkr-teaser.scss" %}" rel="stylesheet" type="text/css">
     <link href="{% sass_src "css/pyconkr-media.scss" %}" rel="stylesheet" type="text/css">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137343905-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137343905-1');
+    </script>
+
     {% block head-include %}
     {% endblock %}
 </head>
