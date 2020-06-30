@@ -4,14 +4,12 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib.flatpages import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.contrib.auth.decorators import login_required
 from django.urls import path, re_path
 from django.views.generic.base import TemplateView
 
 from .views import index, robots
 from .views import login, logout
 from .views import PatronList
-from .views import redirect_to_cfp_form
 
 from program.views import ProposalCreate
 
@@ -44,9 +42,6 @@ urlpatterns += i18n_patterns(
 
     # for rosetta
     re_path(r'^2020/rosetta/', include('rosetta.urls')),
-
-    # cfp (contribution의 하위 url에 두기위해 별도로 기술)
-    re_path(r'^2020/contribution/cfp/$', login_required(redirect_to_cfp_form)),
 
     # for flatpages
     re_path(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),
