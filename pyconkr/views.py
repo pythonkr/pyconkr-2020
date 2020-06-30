@@ -80,3 +80,7 @@ def error_page_404(request, exception):
 def error_page_500(request):
     # return HttpResponse(request, 'test')
     return render(request, 'base.html', {'title': '현재 작업 중입니다.', 'base_content': '잠시 후 다시 시도해주세요.'})
+
+
+def redirect_to_cfp_form(request):
+    return redirect('propose')
