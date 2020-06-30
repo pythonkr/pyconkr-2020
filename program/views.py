@@ -7,10 +7,10 @@ from django.utils.translation import ugettext as _
 from django.urls import reverse
 from django.views.generic.edit import ModelFormMixin
 
-from .models import (Program, ProgramCategory, Preference,
-                     Speaker, Room, Proposal, OpenReview, TutorialProposal, SprintProposal)
+from .models import Program, ProgramCategory, Preference, Speaker, Room, Proposal, OpenReview, \
+    TutorialProposal, SprintProposal
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
-                    OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm
+    OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm
 
 import constance
 import datetime
@@ -434,7 +434,7 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
-        new_cfp_register(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
+        new_cfp_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('proposal')
 
 
