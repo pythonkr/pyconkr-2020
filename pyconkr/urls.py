@@ -11,7 +11,6 @@ from django.views.generic.base import TemplateView
 from .views import index, robots
 from .views import login, logout
 from .views import PatronList
-from .views import redirect_to_cfp_form
 
 from program.views import ProposalCreate, OpenReviewUpdate
 from program.views import OpenReviewList
