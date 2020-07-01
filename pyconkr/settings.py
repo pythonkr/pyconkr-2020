@@ -205,7 +205,6 @@ SOCIALACCOUNT_ADAPTER = 'user.adapter.SocialAdapter'
 SOCIALACCOUNT_FORMS = {
     'signup': 'user.forms.SocialSignupForm'
 }
-ACCOUNT_SESSION_REMEMBER  = True
 
 if os.getenv('EMAIL_HOST_USER'):
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
