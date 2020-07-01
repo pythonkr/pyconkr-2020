@@ -438,6 +438,25 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return reverse('proposal')
 
 
+class OpenReviewHome(ListView):
+    template_name = "pyconkr/openreview_home.html"
+    model = ProgramCategory
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        now = datetime.datetime.now(tz=KST)
+        review_start_at = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
+        review_finish_at = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
+
+        context['review_start_at'] = review_start_at
+        context['review_finish_at'] = review_finish_at
+        context['is_review_able'] = review_start_at < now < review_finish_at
+
+        return context
+
+
 class OpenReviewList(TemplateView):
     template_name = "pyconkr/openreview_list.html"
 
