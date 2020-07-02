@@ -472,7 +472,7 @@ class OpenReviewList(TemplateView):
 
             if len(ids) < 1:
                 additional_context = {
-                    'message': _('not exits....')
+                    'message': _('There are no proposals in this category.')
                 }
 
             selected_ids = random.sample(list(ids), min(len(ids), 4))
