@@ -181,6 +181,16 @@ class VirtualBooth(ListView):
         context['title'] = "Virtual Booth"
         context['is_empty'] = not Sponsor.objects.filter(accepted=True, paid_at__isnull=False).exists()
 
+        managers = []
+        for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
+            managers.append(sponsor.creator)
+
+        context['is_manager'] = self.request.user in managers
+
+        now = datetime.date.today()
+        virtual_booth_open_at = datetime.date(2020, 9, 21)
+        context['is_opened'] = virtual_booth_open_at <= now
+
         return context
 
 
