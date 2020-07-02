@@ -9,6 +9,7 @@ from .forms import SponsorForm, VirtualBoothUpdateForm
 import constance
 import datetime
 from program import slack
+from django.contrib.auth.models import User
 
 KST = datetime.timezone(datetime.timedelta(hours=9))
 
@@ -184,6 +185,8 @@ class VirtualBooth(ListView):
         managers = []
         for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
             managers.append(sponsor.creator)
+        for super_user in User.objects.filter(is_staff=True):
+            managers.append(super_user)
 
         context['is_manager'] = self.request.user in managers
 
