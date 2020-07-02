@@ -395,11 +395,11 @@ msgstr "후원사"
 
 #: .\pyconkr\context_processors.py:101
 msgid "Prospectus"
-msgstr "후원 안내"
+msgstr "후원사 안내"
 
 #: .\pyconkr\context_processors.py:102
 msgid "Benefit"
-msgstr "후원 혜택"
+msgstr "후원사 혜택 설명"
 
 #: .\pyconkr\context_processors.py:103
 msgid "Join as Sponsor"
