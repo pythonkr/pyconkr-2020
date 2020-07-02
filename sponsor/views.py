@@ -202,8 +202,13 @@ class VirtualBoothDetail(DetailView):
     template_name = "sponsor/virtual_booth_detail.html"
 
     def get(self, request, *args, **kwargs):
-        is_visible = Sponsor.objects.get(creator=self.request.user).accepted and \
-                     Sponsor.objects.get(creator=self.request.user).paid_at is not None
+        managers = []
+        for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
+            managers.append(sponsor.creator)
+        for super_user in User.objects.filter(is_staff=True):
+            managers.append(super_user)
+
+        is_visible = self.request.user in managers
         if not is_visible:
             return redirect('virtual_booth_home')
 
