@@ -37,7 +37,7 @@ class SponsorProposalHome(ListView):
             if level.limit - Sponsor.objects.filter(level=level, accepted=True).__len__() <= 0:
                 level_remain[level.name] = _("마감")
             else:
-                level_remain[level.name] = "{remain}/{limit}".format(remain=level.limit - Sponsor.objects.filter(level=level).__len__(), limit=level.limit)
+                level_remain[level.name] = "{remain}/{limit}".format(remain=level.limit - Sponsor.objects.filter(level=level, accepted=True).__len__(), limit=level.limit)
         context['remains'] = level_remain
 
         KST = datetime.timezone(datetime.timedelta(hours=9))
