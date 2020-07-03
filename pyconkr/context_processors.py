@@ -100,7 +100,7 @@ def default(request):
                 'submenu': OrderedDict([
                     ('prospectus', {'title': _('Prospectus')}),
                     ('benefit', {'title': _('Benefit')}),
-                    ('join', {'title': _('Join as Sponsor')}),
+                    ('join/home', {'title': _('Join as Sponsor')}),
                     ('faq', {'title': _('FAQ')}),
                     ('terms-of-sponsor', {'title': _('Terms of Sponsor')}),
                     ('virtual_booth', {'title': _('Virtual Booth')}),
