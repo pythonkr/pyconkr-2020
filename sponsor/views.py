@@ -26,6 +26,27 @@ class SponsorDetail(DetailView):
         return context
 
 
+class SponsorProposalHome(ListView):
+    model = SponsorLevel
+    template_name = 'sponsor/sponsor_proposal_home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        level_remain = dict()
+        for level in SponsorLevel.objects.filter(order__lte=4):
+            if level.limit - Sponsor.objects.filter(level=level).__len__() == 0:
+                level_remain[level.name] = _("마감")
+            else:
+                level_remain[level.name] = "{remain}/{limit}".format(remain=level.limit - Sponsor.objects.filter(level=level).__len__(), limit=level.limit)
+        context['remains'] = level_remain
+
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        context['CFS_start_at'] = constance.config.CFS_OPEN.replace(tzinfo=KST)
+        context['CFS_finish_at'] = constance.config.CFS_DEADLINE.replace(tzinfo=KST)
+
+        return context
+
+
 class SponsorProposalDetail(DetailView):
     template_name = 'sponsor/sponsor_proposal_detail.html'
 
