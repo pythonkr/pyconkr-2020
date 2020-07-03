@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-02 12:58+0900\n"
+"POT-Creation-Date: 2020-07-03 17:31+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\sponsor\forms.py:15
+#: .\sponsor\forms.py:15 .\sponsor\views.py:38
 msgid "마감"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Virtual booth content"
 msgstr "Virtual booth 내용"
 
-#: .\sponsor\forms.py:76 .\sponsor\views.py:104 .\sponsor\views.py:155
+#: .\sponsor\forms.py:76 .\sponsor\views.py:125 .\sponsor\views.py:176
 msgid "Submit"
 msgstr "제출하기"
 
@@ -135,6 +135,8 @@ msgid "수정하기"
 msgstr ""
 
 #: .\sponsor\templates\sponsor\sponsor_form.html:5
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:4
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:96
 msgid "후원사로 참여하기"
 msgstr ""
 
@@ -180,6 +182,104 @@ msgstr "후원사 로고 이미지"
 msgid "제출하기"
 msgstr ""
 
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:7
+msgid "일정"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:16
+msgid "후원사 모집 시작"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:22
+msgid "후원사 모집 종료"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:29
+msgid "등급별 잔여 구좌수"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:33
+msgid "등급"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:37
+msgid "커뮤니티"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:38
+msgid "출판사"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:41
+msgid "잔여 구좌수"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:45
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:46
+msgid "제한 없음"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:52
+msgid "선정 절차"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:55
+msgid ""
+"후원사 신청 이후 선정 절차는 아래와 같으며, 관련 안내는 파이콘 홈페이지 또는 "
+"이메일로 진행됩니다."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:59
+msgid "후원사에서 파이콘 한국 홈페이지를 통해 후원사 신청을 합니다."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:62
+msgid ""
+"파이콘 한국 준비위원회에서 접수해주신 신청서에 대해 필수 정보 중 빠지거나 잘"
+"못 기입된 정보가 있는지 확인합니다."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:66
+msgid ""
+"빠지거나 잘못 기입된 정보가 있는 경우에는 추가적인 정보나 수정을 요청할 수 있"
+"습니다."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:70
+msgid ""
+"후원사 신청서에 대한 검토가 끝나면 후원 금액을 입금할 계좌를 안내해드립니다."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:74
+msgid "표기된 후원 금액은 <b>부가세가 포함되지 않은</b> 금액입니다."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:77
+#, python-format
+msgid ""
+"후원금을 입금하실 때에는 <b>부가세 10%%를 가산</b>하여 입금해주셔야 합니다."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:81
+msgid ""
+"후원 금액이 정상적으로 입금된 것을 준비위원회에서 확인하면 후원사로 확정됩니"
+"다."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:84
+msgid ""
+"전자세금계산서가 우선적으로 필요하신 경우 전자세금계산서 발행용 이메일 주소"
+"를 기록하여 계산서 발행을 요청해주시기 바랍니다."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:90
+msgid "📙제안서를 작성하시기 전에 후원사 모집 안내를 꼭 읽어주세요."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:100
+msgid "문의"
+msgstr ""
+
 #: .\sponsor\templates\sponsor\virtual_booth_home.html:10
 msgid "Virtual booth는 9월 21일 월요일에 참가자들에게 공개됩니다."
 msgstr ""
@@ -199,30 +299,30 @@ msgstr "준비 중입니다."
 msgid "Virtual booth 내용 수정하기"
 msgstr ""
 
-#: .\sponsor\views.py:59 .\sponsor\views.py:118
+#: .\sponsor\views.py:80 .\sponsor\views.py:139
 msgid ""
 "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발"
 "송드리도록 하겠습니다."
 msgstr ""
 
-#: .\sponsor\views.py:79
+#: .\sponsor\views.py:100
 msgid "후원사 모집이 아직 시작되지 않았습니다.🤖"
 msgstr ""
 
-#: .\sponsor\views.py:80
+#: .\sponsor\views.py:101
 msgid "모집 기간은 {} ~ {} 이니 일정에 참고해주세요."
 msgstr ""
 
-#: .\sponsor\views.py:84
+#: .\sponsor\views.py:105
 msgid "후원사 모집이 종료되었습니다.🤖"
 msgstr ""
 
-#: .\sponsor\views.py:85
+#: .\sponsor\views.py:106
 msgid ""
 "모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요"
 msgstr ""
 
-#: .\sponsor\views.py:103 .\sponsor\views.py:151
+#: .\sponsor\views.py:124 .\sponsor\views.py:172
 msgid "Save"
 msgstr "저장"
 
