@@ -34,7 +34,7 @@ class SponsorProposalHome(ListView):
         context = super().get_context_data(**kwargs)
         level_remain = dict()
         for level in SponsorLevel.objects.filter(order__lte=4):
-            if level.limit - Sponsor.objects.filter(level=level).__len__() <= 0:
+            if level.limit - Sponsor.objects.filter(level=level, accepted=True).__len__() <= 0:
                 level_remain[level.name] = _("마감")
             else:
                 level_remain[level.name] = "{remain}/{limit}".format(remain=level.limit - Sponsor.objects.filter(level=level).__len__(), limit=level.limit)
