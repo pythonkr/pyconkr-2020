@@ -441,21 +441,6 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
 class OpenReviewList(TemplateView):
     template_name = "pyconkr/openreview_list.html"
 
-    def get(self, request, *args, **kwargs):
-        # 현재시간
-        KST = datetime.timezone(datetime.timedelta(hours=9))
-        now = datetime.datetime.now(tz=KST)
-
-        open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
-        open_review_deadline = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
-
-        if now < open_review_start:
-            return redirect('/2020/error/unopened')
-        elif open_review_start < now < open_review_deadline:
-            return super().get(request, *args, **kwargs)
-        else:
-            return redirect('/2020/error/closed/')
-
     def post(self, request, *args, **kwargs):
         form = OpenReviewCategoryForm(request.POST)
 
@@ -494,6 +479,16 @@ class OpenReviewUpdate(UpdateView):
     model = OpenReview
     form_class = OpenReviewCommentForm
     template_name = "pyconkr/openreview_form.html"
+
+    def get(self, request, *args, **kwargs):
+        open_review_flag = is_open_review_opened()
+
+        if open_review_flag == -1:
+            return redirect('/2020/error/unopened')
+        elif open_review_flag == 0:
+            return super().get(request, *args, **kwargs)
+        else:
+            return redirect('/2020/error/closed/')
 
     def get_context_data(self, **kwargs):
         context = super(OpenReviewUpdate, self).get_context_data(**kwargs)
@@ -552,3 +547,19 @@ def is_proposal_opened(request):
         flag = 1
 
     return flag
+
+
+def is_open_review_opened():
+    # 현재시간
+    KST = datetime.timezone(datetime.timedelta(hours=9))
+    now = datetime.datetime.now(tz=KST)
+
+    open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
+    open_review_deadline = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
+
+    if now < open_review_start:
+        return -1
+    elif open_review_start < now < open_review_deadline:
+        return 0
+    else:
+        return 1
