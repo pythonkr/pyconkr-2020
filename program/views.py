@@ -441,6 +441,21 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
 class OpenReviewList(TemplateView):
     template_name = "pyconkr/openreview_list.html"
 
+    def get(self, request, *args, **kwargs):
+        # 현재시간
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        now = datetime.datetime.now(tz=KST)
+
+        open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
+        open_review_deadline = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
+
+        if now < open_review_start:
+            return redirect('/2020/error/unopened')
+        elif open_review_start < now < open_review_deadline:
+            return super().get(request, *args, **kwargs)
+        else:
+            return redirect('/2020/error/closed/')
+
     def post(self, request, *args, **kwargs):
         form = OpenReviewCategoryForm(request.POST)
 
