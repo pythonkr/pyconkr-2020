@@ -272,19 +272,19 @@ msgstr "After reviewing the sponsorship application, we will guide you to the ac
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:74
 msgid "표기된 후원 금액은 <b>부가세가 포함되지 않은</b> 금액입니다."
-msgstr "The sponsored amount shown is <b>tax not included</b>."
+msgstr "The sponsored amount shown <b>does not include tax</b>."
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:77
 #, python-format
 msgid ""
 "후원금을 입금하실 때에는 <b>부가세 10%%를 가산</b>하여 입금해주셔야 합니다."
-msgstr "When depositing donations, you must <b>add 10% VAT</b>."
+msgstr "When depositing donations, you must <b>add 10%% VAT</b>."
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:81
 msgid ""
 "후원 금액이 정상적으로 입금된 것을 준비위원회에서 확인하면 후원사로 확정됩니"
 "다."
-msgstr ""
+msgstr "If we confirms that the amount of the sponsorship has been successfully deposited, it will be confirmed as the sponsor."
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:84
 msgid ""
