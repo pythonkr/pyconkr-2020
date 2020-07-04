@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 23:26+0900\n"
+"POT-Creation-Date: 2020-07-03 17:31+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -35,112 +35,121 @@ msgstr "Ready for content"
 msgid "Read more"
 msgstr "Read more"
 
-#: .\program\forms.py:19 .\program\forms.py:68 .\program\forms.py:90
-#: .\program\forms.py:121 .\program\forms.py:146
+#: .\program\forms.py:20 .\program\forms.py:69 .\program\forms.py:91
+#: .\program\forms.py:122 .\program\forms.py:147 .\program\forms.py:171
+#: .\program\forms.py:188
 msgid "Submit"
 msgstr "Submit"
 
-#: .\program\forms.py:20 .\program\forms.py:45
+#: .\program\forms.py:21 .\program\forms.py:46
 #, python-format
 msgid "Maximum size is %(size)d MB"
 msgstr "Maximum size is %(size)d MB"
 
-#: .\program\forms.py:23 .\program\forms.py:55
+#: .\program\forms.py:24 .\program\forms.py:56
 #, python-format
 msgid "Minimum dimension is %(width)d x %(height)d"
 msgstr ""
 
-#: .\program\forms.py:34
+#: .\program\forms.py:35
 msgid "Photo"
 msgstr "Photo"
 
-#: .\program\forms.py:35 .\pyconkr\templates\nav.html:54
+#: .\program\forms.py:36 .\pyconkr\templates\nav.html:54
 #: .\pyconkr\templates\nav.html:66
 #: .\pyconkr\templates\pyconkr\speaker_detail.html:17
 msgid "Profile"
 msgstr "Profile"
 
-#: .\program\forms.py:36
+#: .\program\forms.py:37
 msgid "Additional information"
 msgstr "Additional information"
 
-#: .\program\forms.py:77 .\program\forms.py:133 .\program\forms.py:157
+#: .\program\forms.py:78 .\program\forms.py:134 .\program\forms.py:158
+#: .\pyconkr\templates\pyconkr\openreview_form.html:10
+#: .\pyconkr\templates\pyconkr\openreview_list.html:12
 msgid "Title"
 msgstr "Title"
 
-#: .\program\forms.py:78
+#: .\program\forms.py:79
 msgid "Slide URL"
 msgstr "Presentation slides URL"
 
-#: .\program\forms.py:79
+#: .\program\forms.py:80
 msgid "Video URL"
 msgstr "Presentation video URL"
 
-#: .\program\forms.py:80 .\pyconkr\templates\pyconkr\program_detail.html:54
+#: .\program\forms.py:81 .\pyconkr\templates\pyconkr\program_detail.html:54
 msgid "Photography and recording is allowed."
 msgstr "Photography and recording is allowed."
 
-#: .\program\forms.py:81 .\pyconkr\templates\pyconkr\program_detail.html:73
+#: .\program\forms.py:82 .\pyconkr\templates\pyconkr\program_detail.html:73
 msgid "Description"
 msgstr "Description"
 
-#: .\program\forms.py:105
+#: .\program\forms.py:106
 msgid "Proposal title (required)"
 msgstr "Proposal title (required)"
 
-#: .\program\forms.py:106
+#: .\program\forms.py:107
 msgid "Brief (required)"
 msgstr "Brief (required)"
 
-#: .\program\forms.py:107
+#: .\program\forms.py:108
 msgid "Detailed description (required)"
 msgstr "Detailed description (required)"
 
-#: .\program\forms.py:108
+#: .\program\forms.py:109
 msgid "Comment to reviewers (optional)"
 msgstr "Comment to reviewers (optional)"
 
-#: .\program\forms.py:109 .\program\forms.py:161
+#: .\program\forms.py:110 .\program\forms.py:162
 msgid "Session difficulty"
 msgstr "Session difficulty"
 
-#: .\program\forms.py:110
+#: .\program\forms.py:111
 msgid "Session duration"
 msgstr "Session duration"
 
-#: .\program\forms.py:111 .\program\forms.py:134
+#: .\program\forms.py:112 .\program\forms.py:135
 #: .\pyconkr\templates\nav.html:78
 msgid "Language"
 msgstr "Language"
 
-#: .\program\forms.py:112
+#: .\program\forms.py:113
 msgid "Category"
 msgstr "Category"
 
-#: .\program\forms.py:135
+#: .\program\forms.py:136
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:49
 msgid "Project URL"
 msgstr "Official URL for project"
 
-#: .\program\forms.py:136
+#: .\program\forms.py:137
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:41
 msgid "Project brief"
 msgstr "Brief about project"
 
-#: .\program\forms.py:137
+#: .\program\forms.py:138
 msgid "Contribution description"
 msgstr "Describe about your contribution activity in this project."
 
-#: .\program\forms.py:158 .\pyconkr\templates\pyconkr\proposal_detail.html:23
+#: .\program\forms.py:159 .\pyconkr\templates\pyconkr\openreview_form.html:13
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:23
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "Brief"
 
-#: .\program\forms.py:159 .\pyconkr\templates\pyconkr\proposal_detail.html:28
+#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\openreview_form.html:16
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:28
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
 msgstr "Detailed description"
+
+#: .\program\forms.py:194
+msgid "Comment"
+msgstr ""
 
 #: .\program\models.py:62
 msgid "help-text-for-speaker-info"
@@ -157,15 +166,15 @@ msgstr ""
 "social/\" target=\"_blank\">http://lipis.github.io/bootstrap-social/</a></p>"
 "\""
 
-#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:248
+#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:261
 msgid "Beginner"
 msgstr "Beginner"
 
-#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:249
+#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:262
 msgid "Intermediate"
 msgstr "Intermediate"
 
-#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:250
+#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:263
 msgid "Experienced"
 msgstr "Experienced"
 
@@ -177,12 +186,12 @@ msgstr ""
 msgid "40min"
 msgstr ""
 
-#: .\program\models.py:126 .\program\models.py:227 .\program\models.py:262
+#: .\program\models.py:126 .\program\models.py:227 .\program\models.py:275
 #: .\pyconkr\settings.py:153
 msgid "English"
 msgstr "English"
 
-#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:263
+#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:276
 #: .\pyconkr\settings.py:152
 msgid "Korean"
 msgstr "Korean"
@@ -191,57 +200,61 @@ msgstr "Korean"
 msgid "Not arranged yet"
 msgstr "Not arranged yet"
 
-#: .\program\models.py:255
+#: .\program\models.py:268
 msgid "1 hour"
 msgstr "1 hour"
 
-#: .\program\models.py:256
+#: .\program\models.py:269
 msgid "2 hours"
 msgstr "2 hours"
 
-#: .\program\models.py:257
+#: .\program\models.py:270
 msgid "4 hours"
 msgstr "4 hours"
 
-#: .\program\views.py:53
+#: .\program\views.py:58
 msgid "Preferences are successfully updated."
 msgstr "Preferences are successfully updated."
 
-#: .\program\views.py:229
+#: .\program\views.py:235
 msgid "Sprint proposal successfully updated."
 msgstr "Sprint proposal successfully updated."
 
-#: .\program\views.py:236
+#: .\program\views.py:242
 msgid "Update sprint"
 msgstr "Update sprint"
 
-#: .\program\views.py:258
+#: .\program\views.py:264
 msgid "Sprint proposal successfully created."
 msgstr "Sprint proposal successfully created."
 
-#: .\program\views.py:281
+#: .\program\views.py:287
 msgid "Tutorial proposal successfully updated."
 msgstr "Tutorial proposal successfully updated."
 
-#: .\program\views.py:289
+#: .\program\views.py:295
 msgid "Update tutorial"
 msgstr "Update tutorial"
 
-#: .\program\views.py:342
+#: .\program\views.py:348
 msgid "Tutorial proposal successfully created."
 msgstr "Tutorial proposal successfully created."
 
-#: .\program\views.py:374
+#: .\program\views.py:380
 msgid "Proposal"
 msgstr "Proposal"
 
-#: .\program\views.py:383
+#: .\program\views.py:389
 msgid "Proposal successfully updated."
 msgstr "Proposal successfully updated."
 
-#: .\program\views.py:406
+#: .\program\views.py:412
 msgid "Proposal successfully created."
 msgstr "Proposal successfully created."
+
+#: .\program\views.py:475
+msgid "There are no proposals in this category."
+msgstr ""
 
 #: .\pyconkr\context_processors.py:30
 msgid "About"
@@ -334,7 +347,7 @@ msgstr "Young Coder"
 msgid "Timetable"
 msgstr ""
 
-#: .\pyconkr\context_processors.py:73 .\pyconkr\templates\base.html:63
+#: .\pyconkr\context_processors.py:73 .\pyconkr\templates\base.html:73
 #: .\pyconkr\templates\index.html:44
 msgid "Conference"
 msgstr ""
@@ -414,7 +427,7 @@ msgstr "PyCon Korea 2020 one-time login token"
 
 #: .\pyconkr\helper.py:12 .\pyconkr\templates\base.html:12
 #: .\pyconkr\templates\base.html:13 .\pyconkr\templates\base.html:14
-#: .\pyconkr\templates\base.html:61 .\pyconkr\templates\footer.html:6
+#: .\pyconkr\templates\base.html:71 .\pyconkr\templates\footer.html:6
 #: .\pyconkr\templates\mail\token_html.html:2
 msgid "PyCon Korea 2020"
 msgstr "PyCon Korea 2020"
@@ -424,19 +437,19 @@ msgstr "PyCon Korea 2020"
 msgid "base-og-description"
 msgstr "PyCon Korea 2020: 26th-27th September"
 
-#: .\pyconkr\templates\base.html:63
+#: .\pyconkr\templates\base.html:73
 msgid "Online"
 msgstr ""
 
-#: .\pyconkr\templates\base.html:63
+#: .\pyconkr\templates\base.html:73
 msgid "토"
 msgstr "Sat"
 
-#: .\pyconkr\templates\base.html:63
+#: .\pyconkr\templates\base.html:73
 msgid "일"
 msgstr "Sun"
 
-#: .\pyconkr\templates\base.html:83
+#: .\pyconkr\templates\base.html:93
 #: .\pyconkr\templates\pyconkr\sponsor_list.html:4
 msgid "Sponsors"
 msgstr "Sponsors"
@@ -593,24 +606,22 @@ msgstr "Sign in with Facebook"
 
 #: .\pyconkr\templates\login.html:18
 msgid ""
-"회원가입을 통해 본 서비스의 회원이 될 경우, <a href=\"https://www.pycon."
-"kr/2020/terms-of-service/\" target=\"_blank\">서비스 이용 약관</a> 및 관련 운"
-"영 정책을 동의하신 것으로 봅니다."
+"회원가입을 통해 본 서비스의 회원이 될 경우, <a href=\"/2020/terms-of-service/"
+"\" target=\"_blank\">서비스 이용 약관</a> 및 관련 운영 정책을 동의하신 것으"
+"로 봅니다."
 msgstr ""
 "If you become a member of this service through login registration, you are "
-"deemed to have agreed to <a href=\"https://www.pycon.kr/en/2020/terms-of-"
-"service/\" target=\"_blank\">the terms of service</a> and related operating "
-"policies."
+"deemed to have agreed to <a href=\"/en/2020/terms-of-service/\" target="
+"\"_blank\">the terms of service</a> and related operating policies."
 
 #: .\pyconkr\templates\login.html:20
 msgid ""
-"회원가입, 발표 제안, 후원사 신청이 제출되면 <a href=\"https://www.pycon."
-"kr/2020/privacy-policy/\" target=\"_blank\">개인정보 처리 방침</a>에 동의한 "
-"것으로 간주됩니다."
+"회원가입, 발표 제안, 후원사 신청이 제출되면 <a href=\"/2020/privacy-policy/"
+"\" target=\"_blank\">개인정보 처리 방침</a>에 동의한 것으로 간주됩니다."
 msgstr ""
 "If you become a member of this website or submit CFP, CFS, you are "
-"considered to have agreed to <a href=\"https://www.pycon.kr/en/2020/privacy-"
-"policy/\" target=\"_blank\">the privacy policy</a>."
+"considered to have agreed to <a href=\"/en/2020/privacy-policy/\" target="
+"\"_blank\">the privacy policy</a>."
 
 #: .\pyconkr\templates\login_mailsent.html:5
 msgid ""
@@ -712,6 +723,41 @@ msgstr "Programs"
 msgid "Logout"
 msgstr "Logout"
 
+#: .\pyconkr\templates\pyconkr\openreview_form.html:5
+#: .\pyconkr\templates\pyconkr\openreview_home.html:5
+#: .\pyconkr\templates\pyconkr\openreview_list.html:5
+msgid "발표 제안 검토하기"
+msgstr "Review Talk Proposal"
+
+#: .\pyconkr\templates\pyconkr\openreview_form.html:20
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
+msgid "Comment to reviewers"
+msgstr "Comment to reviewers"
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:10
+msgid ""
+"누구나 파이콘 한국 2020에 제출된 발표 제안 내용들을 검토하고 의견을 남겨주실 "
+"수 있습니다."
+msgstr ""
+"Anyone can review and comment on the presentation proposals submitted to "
+"PyCon Korea 2020."
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:13
+msgid "여러분의 손으로 풍성한 파이콘 한국을 만들어주세요 :)"
+msgstr "Make PyCon Korea 2020 with your hands :)"
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:16
+msgid "일정"
+msgstr "Schedule"
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:21
+msgid "문의"
+msgstr "Contact"
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:26
+msgid "검토하기"
+msgstr "Review CFP"
+
 #: .\pyconkr\templates\pyconkr\patron_list.html:7
 msgid "개인 후원자 목록"
 msgstr "Patrons"
@@ -791,10 +837,6 @@ msgstr "Submit preferences"
 msgid "Up to 5 items can be selected."
 msgstr "Up to 5 items can be selected."
 
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
-msgid "Comment to reviewers"
-msgstr "Comment to reviewers"
-
 #: .\pyconkr\templates\pyconkr\proposal_detail.html:38
 msgid "수정하기"
 msgstr "Edit"
@@ -805,11 +847,11 @@ msgstr "Proposing a Talk"
 
 #: .\pyconkr\templates\pyconkr\proposal_form.html:14
 msgid ""
-"📙제안서를 작성하시기 전에 <a href=\"https://pycon.kr/2020/contribution/cfp/"
-"guide/\" target=\"_blank\">발표안 작성 가이드</a>를 꼭 읽어주세요."
+"📙제안서를 작성하시기 전에 <a href=\"/2020/contribution/cfp/guide/\" target="
+"\"_blank\">발표안 작성 가이드</a>를 꼭 읽어주세요."
 msgstr ""
-"📙Please read <a href=\"https://pycon.kr/2020/contribution/cfp/guide/\" "
-"target=\"_blank\">the presentation guide</a> before writing your proposal."
+"📙Please read <a href=\"/2020/contribution/cfp/guide/\" target=\"_blank\">the "
+"presentation guide</a> before writing your proposal."
 
 #: .\pyconkr\templates\pyconkr\speaker_detail.html:4
 msgid "Speaker"

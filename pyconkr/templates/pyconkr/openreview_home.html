@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "발표 제안 검토하기" %}
+{% endblock %}
+
+{% block content %}
+<p>
+  {% trans "누구나 파이콘 한국 2020에 제출된 발표 제안 내용들을 검토하고 의견을 남겨주실 수 있습니다." %}
+</p>
+<p>
+  {% trans "여러분의 손으로 풍성한 파이콘 한국을 만들어주세요 :)" %}
+</p>
+
+<h2>{% trans "일정" %}</h2>
+<p>
+{{ review_start_at }} - {{ review_finish_at }}
+</p>
+
+<h2>{% trans "문의" %}</h2>
+<p><a href="mailto:program@pycon.kr" target="_blank">program@pycon.kr</a></p>
+
+{% if is_review_able %}
+<div class="a_btn_container">
+  <a class="a_btn large" href="{% url 'openreview-list' %}">{% trans "검토하기" %}</a>
+</div>
+{% endif %}
+{% endblock %}

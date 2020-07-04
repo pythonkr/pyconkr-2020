@@ -7,10 +7,10 @@ from django.utils.translation import ugettext as _
 from django.urls import reverse
 from django.views.generic.edit import ModelFormMixin
 
-from .models import (Program, ProgramCategory, Preference,
-                     Speaker, Room, Proposal, OpenReview, TutorialProposal, SprintProposal)
+from .models import Program, ProgramCategory, Preference, Speaker, Room, Proposal, OpenReview, \
+    TutorialProposal, SprintProposal
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
-                    OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm
+    OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm
 
 import constance
 import datetime
@@ -434,8 +434,27 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         return super(ProposalCreate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
-        new_cfp_register(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
+        new_cfp_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('proposal')
+
+
+class OpenReviewHome(ListView):
+    template_name = "pyconkr/openreview_home.html"
+    model = ProgramCategory
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        now = datetime.datetime.now(tz=KST)
+        review_start_at = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
+        review_finish_at = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
+
+        context['review_start_at'] = review_start_at
+        context['review_finish_at'] = review_finish_at
+        context['is_review_able'] = review_start_at < now < review_finish_at
+
+        return context
 
 
 class OpenReviewList(TemplateView):
@@ -453,7 +472,7 @@ class OpenReviewList(TemplateView):
 
             if len(ids) < 1:
                 additional_context = {
-                    'message': _('not exits....')
+                    'message': _('There are no proposals in this category.')
                 }
 
             selected_ids = random.sample(list(ids), min(len(ids), 4))

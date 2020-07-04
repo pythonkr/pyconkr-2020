@@ -1,6 +1,6 @@
 from django.urls import path, re_path
 from django.contrib.auth.decorators import login_required
-from sponsor.views import SponsorCreate, SponsorDetail, SponsorProposalDetail, SponsorUpdate, \
+from sponsor.views import SponsorCreate, SponsorDetail, SponsorProposalHome, SponsorProposalDetail, SponsorUpdate, \
     VirtualBooth, VirtualBoothDetail, VirtualBoothUpdate
 
 
@@ -8,7 +8,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = [
-    path('join/',
+    path('join/home/',
+         SponsorProposalHome.as_view(), name='sponsor_propose_home'),
+    path('join/form/',
          login_required(SponsorCreate.as_view()), name='sponsor_propose'),
     path('join/detail/',
          SponsorProposalDetail.as_view(), name='sponsor_proposal_detail'),

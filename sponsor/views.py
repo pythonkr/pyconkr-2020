@@ -9,6 +9,7 @@ from .forms import SponsorForm, VirtualBoothUpdateForm
 import constance
 import datetime
 from program import slack
+from django.contrib.auth.models import User
 
 KST = datetime.timezone(datetime.timedelta(hours=9))
 
@@ -21,6 +22,27 @@ class SponsorDetail(DetailView):
         is_editable = Sponsor.objects.filter(
             creator=self.request.user, accepted=True, paid_at__isnull=False, slug=self.kwargs['slug']).exists()
         context['EDITABLE'] = is_editable
+
+        return context
+
+
+class SponsorProposalHome(ListView):
+    model = SponsorLevel
+    template_name = 'sponsor/sponsor_proposal_home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        level_remain = dict()
+        for level in SponsorLevel.objects.filter(order__lte=4):
+            if level.limit - Sponsor.objects.filter(level=level, accepted=True).__len__() <= 0:
+                level_remain[level.name] = _("마감")
+            else:
+                level_remain[level.name] = "{remain}/{limit}".format(remain=level.limit - Sponsor.objects.filter(level=level, accepted=True).__len__(), limit=level.limit)
+        context['remains'] = level_remain
+
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        context['CFS_start_at'] = constance.config.CFS_OPEN.replace(tzinfo=KST)
+        context['CFS_finish_at'] = constance.config.CFS_DEADLINE.replace(tzinfo=KST)
 
         return context
 
@@ -181,6 +203,18 @@ class VirtualBooth(ListView):
         context['title'] = "Virtual Booth"
         context['is_empty'] = not Sponsor.objects.filter(accepted=True, paid_at__isnull=False).exists()
 
+        managers = []
+        for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
+            managers.append(sponsor.creator)
+        for super_user in User.objects.filter(is_staff=True):
+            managers.append(super_user)
+
+        context['is_manager'] = self.request.user in managers
+
+        now = datetime.date.today()
+        virtual_booth_open_at = datetime.date(2020, 9, 21)
+        context['is_opened'] = virtual_booth_open_at <= now
+
         return context
 
 
@@ -189,8 +223,13 @@ class VirtualBoothDetail(DetailView):
     template_name = "sponsor/virtual_booth_detail.html"
 
     def get(self, request, *args, **kwargs):
-        is_visible = Sponsor.objects.get(creator=self.request.user).accepted and \
-                     Sponsor.objects.get(creator=self.request.user).paid_at is not None
+        managers = []
+        for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
+            managers.append(sponsor.creator)
+        for super_user in User.objects.filter(is_staff=True):
+            managers.append(super_user)
+
+        is_visible = self.request.user in managers
         if not is_visible:
             return redirect('virtual_booth_home')
 

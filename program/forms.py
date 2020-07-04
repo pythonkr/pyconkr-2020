@@ -173,9 +173,9 @@ class OpenReviewCategoryForm(forms.ModelForm):
     class Meta:
         model = ProgramCategory
         fields = ('name', )
-        widgets = {
-            'name': Select(choices=((c.id, c.name) for c in ProgramCategory.objects.filter(visible=True)))
-        }
+        # widgets = {
+        #     'name': Select(choices=((c.id, c.name) for c in ProgramCategory.objects.filter(visible=True)))
+        # }
 
 
 class OpenReviewCommentForm(forms.ModelForm):

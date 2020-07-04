@@ -11,10 +11,9 @@ from django.views.generic.base import TemplateView
 from .views import index, robots
 from .views import login, logout
 from .views import PatronList
-from .views import redirect_to_cfp_form
 
 from program.views import ProposalCreate, OpenReviewUpdate
-from program.views import OpenReviewList
+from program.views import OpenReviewList, OpenReviewHome
 
 from django.contrib import admin
 admin.autodiscover()
@@ -47,10 +46,11 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/rosetta/', include('rosetta.urls')),
 
     # cfp (contribution의 하위 url에 두기위해 별도로 기술)
-    re_path(r'^2020/contribution/cfp/$', login_required(redirect_to_cfp_form)),
     re_path(r'^2020/contribution/review-talk-proposal/$',
+            OpenReviewHome.as_view(), name='openreview'),
+    re_path(r'^2020/contribution/review-talk-proposal/set/$',
             login_required(OpenReviewList.as_view()), name='openreview-list'),
-    re_path(r'^2020/contribution/review-talk-proposal/(?P<pk>\d+)$',
+    re_path(r'^2020/contribution/review-talk-proposal/review/(?P<pk>\d+)$',
             login_required(OpenReviewUpdate.as_view()), name='openreview-update'),
 
     # for flatpages
