@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-03 17:31+0900\n"
+"POT-Creation-Date: 2020-07-05 20:02+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -187,12 +187,12 @@ msgid "40min"
 msgstr ""
 
 #: .\program\models.py:126 .\program\models.py:227 .\program\models.py:275
-#: .\pyconkr\settings.py:153
+#: .\pyconkr\settings.py:150
 msgid "English"
 msgstr "English"
 
 #: .\program\models.py:127 .\program\models.py:226 .\program\models.py:276
-#: .\pyconkr\settings.py:152
+#: .\pyconkr\settings.py:149
 msgid "Korean"
 msgstr "Korean"
 
@@ -464,7 +464,21 @@ msgstr "PyCon Korea 2020 is a product of PyCon Korea Organizing Team."
 
 #: .\pyconkr\templates\footer.html:9
 msgid "Powered by Django"
-msgstr "Powered by <a href='https://www.djangoproject.com/' target='_blank'>Django</a>"
+msgstr ""
+"Powered by <a href='https://www.djangoproject.com/' target='_blank'>Django</"
+"a>"
+
+#: .\pyconkr\templates\footer.html:12
+msgid "서비스 이용 약관"
+msgstr "<a href='/en/2020/terms-of-service/'>Terms of Service</a>"
+
+#: .\pyconkr\templates\footer.html:14
+msgid "개인정보 처리 방침"
+msgstr "<a href='/en/2020/privacy-policy/'>Privacy Protection Policy</a>"
+
+#: .\pyconkr\templates\footer.html:16
+msgid "소식 받아보기"
+msgstr ""
 
 #: .\pyconkr\templates\index.html:17
 msgid "공지사항"

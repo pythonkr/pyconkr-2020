@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-03 17:31+0900\n"
+"POT-Creation-Date: 2020-07-05 20:02+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -188,12 +188,12 @@ msgid "40min"
 msgstr "40분"
 
 #: .\program\models.py:126 .\program\models.py:227 .\program\models.py:275
-#: .\pyconkr\settings.py:153
+#: .\pyconkr\settings.py:150
 msgid "English"
 msgstr "영어"
 
 #: .\program\models.py:127 .\program\models.py:226 .\program\models.py:276
-#: .\pyconkr\settings.py:152
+#: .\pyconkr\settings.py:149
 msgid "Korean"
 msgstr "한국어"
 
@@ -466,8 +466,20 @@ msgstr "파이콘 한국 2020은 파이콘 한국 준비위원회가 만들고 �
 #: .\pyconkr\templates\footer.html:9
 msgid "Powered by Django"
 msgstr ""
-"파이썬 웹 프레임워크 <a href='https://www.djangoproject.com/' target='_blank'>Django</a>로 만"
-"들었습니다."
+"파이썬 웹 프레임워크 <a href='https://www.djangoproject.com/' "
+"target='_blank'>Django</a>로 만들었습니다."
+
+#: .\pyconkr\templates\footer.html:12
+msgid "서비스 이용 약관"
+msgstr "<a href='/2020/terms-of-service/'>서비스 이용 약관</a>"
+
+#: .\pyconkr\templates\footer.html:14
+msgid "개인정보 처리 방침"
+msgstr "<a href='/2020/privacy-policy/'>개인정보 처리 방침</a>"
+
+#: .\pyconkr\templates\footer.html:16
+msgid "소식 받아보기"
+msgstr ""
 
 #: .\pyconkr\templates\index.html:17
 msgid "공지사항"
