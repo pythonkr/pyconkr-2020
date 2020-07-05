@@ -11,7 +11,7 @@ admin.site.register(Mailing, MailingAdmin)
 
 
 class NewsLetterAdmin(admin.ModelAdmin):
-    list_display = ('email_address', 'email_hash')
+    list_display = ('email_address',)
 
 
 admin.site.register(NewsLetter, NewsLetterAdmin)
