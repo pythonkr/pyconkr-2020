@@ -522,19 +522,19 @@ def edit_proposal_available_checker(request):
     flag = False    # 아래에 지정된 상황이 아니면 CFP Closed 상태
 
     cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
-    cfp_deadline = constance.config.CFP_DEADLINE.replace(tzinfo=KST)
+    cfp_close = constance.config.CFP_CLOSE.replace(tzinfo=KST)
     open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
     open_review_finish = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
 
     # CFP 마감 후 오픈리뷰 시작 전
-    if cfp_deadline < now < open_review_start and Proposal.objects.filter(user=request.user).exists():
+    if cfp_close < now < open_review_start and Proposal.objects.filter(user=request.user).exists():
         print('제출한 CFP가 있는 경우, 오픈리뷰 시작 전에는 수정 가능')
         flag = True
     # 오픈리뷰 종료 후
     elif open_review_finish < now and Proposal.objects.filter(user=request.user).exists():
         print('제출한 CFP가 있는 경우, 오픈리뷰 마감 후에는 수정 가능')
         flag = True
-    elif cfp_open < now < cfp_deadline:
+    elif cfp_open < now < cfp_close:
         print('CFP 제출 기간에는 수정 가능')
         flag = True
 
@@ -545,14 +545,14 @@ def is_proposal_opened(request):
     KST = datetime.timezone(datetime.timedelta(hours=9))
     now = datetime.datetime.now(tz=KST)
     cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
-    cfp_deadline = constance.config.CFP_DEADLINE.replace(tzinfo=KST)
+    cfp_close = constance.config.CFP_CLOSE.replace(tzinfo=KST)
     flag = 0
 
     # CFP 오픈 이전
     if cfp_open > now:
         flag = -1
     # CFP 마감 이후
-    elif now > cfp_deadline:
+    elif now > cfp_close:
         flag = 1
 
     return flag

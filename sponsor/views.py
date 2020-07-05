@@ -42,7 +42,7 @@ class SponsorProposalHome(ListView):
 
         KST = datetime.timezone(datetime.timedelta(hours=9))
         context['CFS_start_at'] = constance.config.CFS_OPEN.replace(tzinfo=KST)
-        context['CFS_finish_at'] = constance.config.CFS_DEADLINE.replace(tzinfo=KST)
+        context['CFS_finish_at'] = constance.config.CFS_CLOSE.replace(tzinfo=KST)
 
         return context
 
@@ -92,7 +92,7 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
             return redirect('sponsor_proposal_detail')
 
         opening = constance.config.CFS_OPEN.astimezone(KST)
-        deadline = constance.config.CFS_DEADLINE.astimezone(KST)
+        deadline = constance.config.CFS_CLOSE.astimezone(KST)
         now = datetime.datetime.now(tz=KST)
 
         if now < opening:

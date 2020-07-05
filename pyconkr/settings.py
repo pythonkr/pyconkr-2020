@@ -8,7 +8,6 @@ from django.utils.translation import ugettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -24,46 +23,46 @@ ALLOWED_HOSTS = []
 SITE_ID = 1
 
 INSTALLED_APPS = (
-    # django apps
-    'modeltranslation',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.sites',
-    'django.contrib.staticfiles',
-    'django.contrib.flatpages',
-    'django.contrib.humanize',
-) + (
-    # third-party apps
-    'django_summernote',
-    'rosetta',
-    'crispy_forms',
-    'sorl.thumbnail',
-    'constance',
-    'constance.backends.database',
-    'django_csv_exports',
-    'mail_templated',
-    'import_export',
-    'sass_processor',
-    # 'compressor',
-) + (
-    # local apps
-    'pyconkr',
-    'announcement',
-    'user',
-    'sponsor',
-    'program',
-    'registration',
-) + (
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.twitter',
-)
+                     # django apps
+                     'modeltranslation',
+                     'django.contrib.admin',
+                     'django.contrib.auth',
+                     'django.contrib.contenttypes',
+                     'django.contrib.sessions',
+                     'django.contrib.messages',
+                     'django.contrib.sites',
+                     'django.contrib.staticfiles',
+                     'django.contrib.flatpages',
+                     'django.contrib.humanize',
+                 ) + (
+                     # third-party apps
+                     'django_summernote',
+                     'rosetta',
+                     'crispy_forms',
+                     'sorl.thumbnail',
+                     'constance',
+                     'constance.backends.database',
+                     'django_csv_exports',
+                     'mail_templated',
+                     'import_export',
+                     'sass_processor',
+                     # 'compressor',
+                 ) + (
+                     # local apps
+                     'pyconkr',
+                     'announcement',
+                     'user',
+                     'sponsor',
+                     'program',
+                     'registration',
+                 ) + (
+                     'allauth',
+                     'allauth.account',
+                     'allauth.socialaccount',
+                     'allauth.socialaccount.providers.facebook',
+                     'allauth.socialaccount.providers.github',
+                     'allauth.socialaccount.providers.twitter',
+                 )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -104,9 +103,7 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'pyconkr.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -215,7 +212,6 @@ if os.getenv('EMAIL_HOST_USER'):
     EMAIL_PORT = 587
     DEFAULT_FROM_EMAIL = 'PyCon Korea <pyconkr@pycon.kr>'
 
-
 DOMAIN = ''
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
@@ -251,7 +247,6 @@ SUMMERNOTE_CONFIG = {
         static_url('css/pyconkr.css'),
     ),
 }
-
 
 # ACCOUNT_UNIQUE_EMAIL = False
 SOCIALACCOUNT_PROVIDERS = {
@@ -291,6 +286,8 @@ KST = datetime.timezone(datetime.timedelta(hours=9))
 
 CONSTANCE_CONFIG = {
     'SLACK_TOKEN': ('', '홈페이지에서 파준위 슬랙으로 알림을 보내기 위한 토큰'),
+    'SLACK_CHANNEL': ('#bot-test', '홈페이지에서 파준위 슬랙으로 알림을 보낼 채널'),
+    'CFS_NOTI_CHANNEL': ('#bot-test', 'CFS 등록시, 홈페이지에서 파준위 슬랙으로 알림을 보낼 채널'),
     'TOTAL_TICKET': (1800, '판매할 전체 티켓 수량'),
     'IMP_DOM_USER_CODE': ('', '아임포트 국내용 유저 번호'),
     'IMP_DOM_API_KEY': ('', '아임포트 국내용 API KEY'),
@@ -299,16 +296,24 @@ CONSTANCE_CONFIG = {
     'IMP_INTL_API_KEY': ('', '아임포트 해외용 API KEY'),
     'IMP_INTL_API_SECRET': ('', '아임포트 해외용 API SECRET'),
     'SHOW_SLIDE_DATA': (False, 'Show slide data on schedule table and program detail'),
-    'SLACK_CHANNEL': ('#bot-test', '홈페이지에서 파준위 슬랙으로 알림을 보낼 채널'),
     'CFP_OPEN': (datetime.datetime(2000, 1, 1), 'CFP 오픈'),
-    'CFP_DEADLINE': (datetime.datetime(2000, 1, 1, tzinfo=KST), 'CFP 마감기간'),
+    'CFP_CLOSE': (datetime.datetime(2000, 1, 1, tzinfo=KST), 'CFP 마감기간'),
     'OPEN_REVIEW_START': (datetime.datetime(2000, 1, 1, tzinfo=KST), '오픈 리뷰 시작 시점'),
     'OPEN_REVIEW_FINISH': (datetime.datetime(2000, 1, 1, tzinfo=KST), '오픈 리뷰 마감 시점'),
     'CFS_OPEN': (datetime.datetime(2000, 1, 1), '후원사 모집 오픈'),
-    'CFS_DEADLINE': (datetime.datetime(2000, 1, 1), '후원사 모집 종료'),
-    'CFS_NOTI_CHANNEL': ('#bot-test', 'CFS 등록시, 홈페이지에서 파준위 슬랙으로 알림을 보낼 채널'),
+    'CFS_CLOSE': (datetime.datetime(2000, 1, 1), '후원사 모집 종료'),
     'CFP_BRIEF_TEMPLATE': ('', 'CFP 간략한 설명 템플릿'),
     'CFP_DESC_TEMPLATE': ('', 'CFP 자세한 설명 템플릿')
+}
+
+CONSTANCE_CONFIG_FIELDSETS = {
+    'SLACK': ('SLACK_CHANNEL', 'CFS_NOTI_CHANNEL', 'SLACK_TOKEN'),
+    'IMPORT': ('IMP_DOM_USER_CODE', 'IMP_DOM_API_KEY', 'IMP_DOM_API_SECRET',
+               'IMP_INTL_USER_CODE', 'IMP_INTL_API_KEY', 'IMP_INTL_API_SECRET',),
+    'Schedule': ('CFP_OPEN', 'CFP_CLOSE', 'OPEN_REVIEW_START', 'OPEN_REVIEW_FINISH', 'CFS_OPEN', 'CFS_CLOSE',),
+    'Template': ('CFP_BRIEF_TEMPLATE', 'CFP_DESC_TEMPLATE',),
+    '기타': ('TOTAL_TICKET', 'SHOW_SLIDE_DATA',)
+
 }
 
 # For supporting i18n of django modules
