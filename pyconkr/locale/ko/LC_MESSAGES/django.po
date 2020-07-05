@@ -466,7 +466,7 @@ msgstr "파이콘 한국 2020은 파이콘 한국 준비위원회가 만들고 �
 #: .\pyconkr\templates\footer.html:9
 msgid "Powered by Django"
 msgstr ""
-"파이썬 웹 프레임워크 <a href='https://www.djangoproject.com/'>Django</a>로 만"
+"파이썬 웹 프레임워크 <a href='https://www.djangoproject.com/' target='_blank'>Django</a>로 만"
 "들었습니다."
 
 #: .\pyconkr\templates\index.html:17

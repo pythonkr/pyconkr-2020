@@ -464,7 +464,7 @@ msgstr "PyCon Korea 2020 is a product of PyCon Korea Organizing Team."
 
 #: .\pyconkr\templates\footer.html:9
 msgid "Powered by Django"
-msgstr "Powered by Django"
+msgstr "Powered by <a href='https://www.djangoproject.com/' target='_blank'>Django</a>"
 
 #: .\pyconkr\templates\index.html:17
 msgid "공지사항"
