@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'sponsor',
     'program',
     'registration',
+    'mailing',
 ) + (
     'allauth',
     'allauth.account',
@@ -368,3 +369,4 @@ SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
+
