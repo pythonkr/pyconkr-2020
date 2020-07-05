@@ -20,14 +20,14 @@ class RoomAdmin(SummernoteModelAdmin, TranslationAdmin):
     search_fields = ('name',)
 
 
-admin.site.register(Room, RoomAdmin)
+# admin.site.register(Room, RoomAdmin)
 
 
 class ProgramDateAdmin(admin.ModelAdmin):
     list_display = ('id', 'day',)
 
 
-admin.site.register(ProgramDate, ProgramDateAdmin)
+# admin.site.register(ProgramDate, ProgramDateAdmin)
 
 
 class ProgramTimeAdmin(TranslationAdmin):
@@ -36,7 +36,7 @@ class ProgramTimeAdmin(TranslationAdmin):
     ordering = ('begin',)
 
 
-admin.site.register(ProgramTime, ProgramTimeAdmin)
+# admin.site.register(ProgramTime, ProgramTimeAdmin)
 
 
 class ProgramCategoryAdmin(TranslationAdmin, ImportExportModelAdmin):
@@ -51,7 +51,7 @@ class ProgramAdmin(SummernoteModelAdmin, TranslationAdmin):
                     'pdf_url', 'get_speakers', 'category', 'is_recordable',)
     list_editable = ('name', 'category', 'is_recordable',)
     ordering = ('id',)
-    filter_horizontal = ('times', )
+    filter_horizontal = ('times',)
     search_fields = ('name', 'speakers__name', 'desc',)
 
 
@@ -62,7 +62,7 @@ class PreferenceAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'program',)
 
 
-admin.site.register(Preference, PreferenceAdmin)
+# admin.site.register(Preference, PreferenceAdmin)
 
 
 class ProposalAdminForm(forms.ModelForm):
@@ -77,7 +77,7 @@ class ProposalAdminForm(forms.ModelForm):
 
 class ProposalAdmin(ImportMixin, admin.ModelAdmin):
     form = ProposalAdminForm
-    list_display = ('id', 'user', 'title', 'difficulty', 'duration', 'language', 'category')
+    list_display = ('user', 'title', 'difficulty', 'duration', 'language', 'category',)
 
 
 admin.site.register(Proposal, ProposalAdmin)
@@ -96,10 +96,10 @@ class TutorialProposalAdminForm(forms.ModelForm):
 class TutorialProposalAdmin(admin.ModelAdmin):
     form = TutorialProposalAdminForm
     list_display = ('user', 'title', 'difficulty', 'duration', 'language', 'capacity',
-                    'begin_date', 'begin_time', 'end_date', 'end_time', )
+                    'begin_date', 'begin_time', 'end_date', 'end_time',)
 
 
-admin.site.register(TutorialProposal, TutorialProposalAdmin)
+# admin.site.register(TutorialProposal, TutorialProposalAdmin)
 
 
 class SprintProposalAdminForm(forms.ModelForm):
@@ -118,22 +118,24 @@ class SprintProposalAdmin(admin.ModelAdmin):
                     'project_brief', 'contribution_desc')
 
 
-admin.site.register(SprintProposal, SprintProposalAdmin)
+# admin.site.register(SprintProposal, SprintProposalAdmin)
 
 
 class TutorialCheckinAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'tutorial',)
 
 
-admin.site.register(TutorialCheckin, TutorialCheckinAdmin)
+# admin.site.register(TutorialCheckin, TutorialCheckinAdmin)
 
 
 class SprintCheckinAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'sprint',)
 
 
+# admin.site.register(SprintCheckin, SprintCheckinAdmin)
+
 class OpenReviewAdmin(admin.ModelAdmin):
-    list_display = ('title', 'user', )
+    list_display = ('title', 'user',)
 
     def title(self, o):
         return o.proposal.title
@@ -142,5 +144,4 @@ class OpenReviewAdmin(admin.ModelAdmin):
         return o.user.name
 
 
-admin.site.register(SprintCheckin, SprintCheckinAdmin)
 admin.site.register(OpenReview, OpenReviewAdmin)
