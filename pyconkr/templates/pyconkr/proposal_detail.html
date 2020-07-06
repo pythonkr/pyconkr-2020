@@ -32,10 +32,11 @@
             <h4>{% trans "Comment to reviewers" %}</h4>
             {{ proposal.comment|safe }}
         </div>
-        {% if EDIT_AVAILABLE %}
-            <div class="a_btn_container">
+        <div class="a_btn_container">
+            <a class="a_btn" href="{% url 'proposal-list' %}">{% trans "목록 보기" %}</a>
+            {% if EDIT_AVAILABLE %}
                 <a class="a_btn" href="{% url 'proposal-update' proposal.id %}">{% trans "수정하기" %}</a>
-            </div>
-        {% endif %}
+            {% endif %}
+        </div>
 </div>
 {% endblock %}
