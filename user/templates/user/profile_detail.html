@@ -30,6 +30,22 @@
                 <div>{{ profile.bio|safe }}</div>
             </div>
         </div>
+
+        {% if proposals %}
+            <h3>{% trans '발표 제안 내역' %}</h3>
+            <div>
+                <ul class="list-group">
+                {% for proposal in proposals %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'proposal' proposal.id %}">
+                        {{ proposal.title }}
+                    </a>
+                </li>
+            {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
         {% if sponsors %}
         <h3>{% trans '후원사 신청 내역' %}</h3>
         <div>
@@ -55,7 +71,7 @@
             </ul>
         </div>
         {% endif %}
-        
+
         {% comment %} <hr>
         <h3>{% trans 'My Tickets' %}</h3>
         <div>

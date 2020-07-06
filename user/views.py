@@ -35,7 +35,7 @@ class ProfileDetail(DetailView):
             payment_status__in=['paid', 'ready']
         ).exists()
         context['sponsors'] = Sponsor.objects.filter(creator=self.request.user)
-            creator=self.request.user)
+        context['proposals'] = Proposal.objects.filter(user=self.request.user)
         context['tickets'] = Registration.objects.filter(user=self.request.user, payment_status__in=['paid', 'ready'])
         context['joined_sprint'] = SprintCheckin.objects.filter(user=self.request.user)
         context['cancelled_tickets'] = Registration.objects.filter(user=self.request.user, payment_status='cancelled')
