@@ -441,6 +441,8 @@ class ProposalDetail(DetailView):
     def dispatch(self, request, *args, **kwargs):
         if not Proposal.objects.filter(user=request.user).exists():
             return redirect('proposal-list')
+        if Proposal.objects.get(id=self.kwargs['pk']).user != self.request.user:
+            return redirect('proposal-list')
         return super(ProposalDetail, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
