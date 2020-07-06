@@ -1,41 +1,23 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load thumbnail %}
-{% load crispy_forms_tags %}
+
+{% block title %}
+{% trans "발표 제안 목록" %}
+{% endblock %}
 
 {% block content %}
-<div class="row proposal-detail">
-        <h3>
-            {{ proposal.title }}
-            {% if EDIT_AVAILABLE %}
-                <a href="{% url 'proposal-update' %}"><i class="fa fa-pencil-square-o"></i></a>
-            {% endif %}
-        </h3>
-        <p>
-            <span class="label label-info">{{ proposal.get_difficulty_display }}</span>
-            <span class="label label-info">{{ proposal.get_duration_display }}</span>
-            <span class="label label-info">{{ proposal.get_language_display }}</span>
-            <span class="label label-info">{{ proposal.category }}</span>
-        </p>
-        <br>
-        <div>
-            <h4>{% trans "Brief" %}</h4>
-            {{ proposal.brief|linebreaks }}
-        </div>
-        <hr>
-        <div>
-            <h4>{% trans "Detailed description" %}</h4>
-            {{ proposal.desc|safe }}
-        </div>
-        <hr>
-        <div>
-            <h4>{% trans "Comment to reviewers" %}</h4>
-            {{ proposal.comment|safe }}
-        </div>
-        {% if EDIT_AVAILABLE %}
-            <div class="a_btn_container">
-                <a class="a_btn" href="{% url 'proposal-update' %}">{% trans "수정하기" %}</a>
-            </div>
-        {% endif %}
-</div>
+    <div>
+        <ul class="list-group">
+        {% for proposal in proposals %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{% url 'proposal' proposal.id %}">
+                    {{ proposal.title }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="a_btn_container">
+      <a class="a_btn large" href="{% url 'propose' %}">{% trans "새로운 발표 제안하기" %}</a>
+    </div>
 {% endblock %}
