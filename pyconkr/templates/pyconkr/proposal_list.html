@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row proposal-detail">
+        <h3>
+            {{ proposal.title }}
+            {% if EDIT_AVAILABLE %}
+                <a href="{% url 'proposal-update' %}"><i class="fa fa-pencil-square-o"></i></a>
+            {% endif %}
+        </h3>
+        <p>
+            <span class="label label-info">{{ proposal.get_difficulty_display }}</span>
+            <span class="label label-info">{{ proposal.get_duration_display }}</span>
+            <span class="label label-info">{{ proposal.get_language_display }}</span>
+            <span class="label label-info">{{ proposal.category }}</span>
+        </p>
+        <br>
+        <div>
+            <h4>{% trans "Brief" %}</h4>
+            {{ proposal.brief|linebreaks }}
+        </div>
+        <hr>
+        <div>
+            <h4>{% trans "Detailed description" %}</h4>
+            {{ proposal.desc|safe }}
+        </div>
+        <hr>
+        <div>
+            <h4>{% trans "Comment to reviewers" %}</h4>
+            {{ proposal.comment|safe }}
+        </div>
+        {% if EDIT_AVAILABLE %}
+            <div class="a_btn_container">
+                <a class="a_btn" href="{% url 'proposal-update' %}">{% trans "수정하기" %}</a>
+            </div>
+        {% endif %}
+</div>
+{% endblock %}

@@ -200,7 +200,7 @@ class Preference(models.Model):
 
 
 class Proposal(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     title = models.CharField(max_length=255)
     brief = models.TextField(max_length=1000)
