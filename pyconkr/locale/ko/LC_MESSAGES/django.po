@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 20:02+0900\n"
+"POT-Creation-Date: 2020-07-06 19:30+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -136,13 +136,13 @@ msgid "Contribution description"
 msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
 
 #: .\program\forms.py:159 .\pyconkr\templates\pyconkr\openreview_form.html:13
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:23
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:22
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "간단한 설명"
 
 #: .\program\forms.py:160 .\pyconkr\templates\pyconkr\openreview_form.html:16
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:28
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:27
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
@@ -241,19 +241,19 @@ msgstr "튜토리얼 갱신"
 msgid "Tutorial proposal successfully created."
 msgstr "튜토리얼 제안을 제출하였습니다."
 
-#: .\program\views.py:380
-msgid "Proposal"
-msgstr "발표안"
-
-#: .\program\views.py:389
-msgid "Proposal successfully updated."
-msgstr "발표안이 수정되었습니다."
-
-#: .\program\views.py:412
+#: .\program\views.py:370
 msgid "Proposal successfully created."
 msgstr "발표안을 제출하였습니다."
 
-#: .\program\views.py:475
+#: .\program\views.py:420
+msgid "Proposal successfully updated."
+msgstr "발표안이 수정되었습니다."
+
+#: .\program\views.py:450
+msgid "Proposal"
+msgstr "발표안"
+
+#: .\program\views.py:490
 msgid "There are no proposals in this category."
 msgstr "선택하신 카테고리에 발표 제안이 없습니다."
 
@@ -476,10 +476,6 @@ msgstr "<a href='/2020/terms-of-service/'>서비스 이용 약관</a>"
 #: .\pyconkr\templates\footer.html:14
 msgid "개인정보 처리 방침"
 msgstr "<a href='/2020/privacy-policy/'>개인정보 처리 방침</a>"
-
-#: .\pyconkr\templates\footer.html:16
-msgid "소식 받아보기"
-msgstr ""
 
 #: .\pyconkr\templates\index.html:17
 msgid "공지사항"
@@ -731,7 +727,7 @@ msgid "발표 제안 검토하기"
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\openreview_form.html:20
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:32
 msgid "Comment to reviewers"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
@@ -834,6 +830,10 @@ msgstr "선호도 등록하기"
 msgid "Up to 5 items can be selected."
 msgstr "최대 5개까지만 선택하실 수 있습니다."
 
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:36
+msgid "목록 보기"
+msgstr ""
+
 #: .\pyconkr\templates\pyconkr\proposal_detail.html:38
 msgid "수정하기"
 msgstr ""
@@ -846,6 +846,14 @@ msgstr ""
 msgid ""
 "📙제안서를 작성하시기 전에 <a href=\"/2020/contribution/cfp/guide/\" target="
 "\"_blank\">발표안 작성 가이드</a>를 꼭 읽어주세요."
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\proposal_list.html:5
+msgid "발표 제안 목록"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\proposal_list.html:21
+msgid "새로운 발표 제안하기"
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\speaker_detail.html:4

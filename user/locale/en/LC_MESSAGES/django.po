@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 20:02+0900\n"
+"POT-Creation-Date: 2020-07-06 19:30+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,27 +109,31 @@ msgstr ""
 "Enter your required information and accept the terms to complete your signup."
 "🤖"
 
-#: .\user\templates\user\profile_detail.html:34
+#: .\user\templates\user\profile_detail.html:35
+msgid "발표 제안 내역"
+msgstr "Call for Proposal"
+
+#: .\user\templates\user\profile_detail.html:50
 msgid "후원사 신청 내역"
 msgstr "Sponsor Application"
 
-#: .\user\templates\user\profile_detail.html:41
+#: .\user\templates\user\profile_detail.html:57
 msgid "스폰서 확정"
 msgstr "Accepted"
 
-#: .\user\templates\user\profile_detail.html:43
+#: .\user\templates\user\profile_detail.html:59
 msgid "신청서 제출"
 msgstr "Submitted"
 
-#: .\user\templates\user\profile_detail.html:45
+#: .\user\templates\user\profile_detail.html:61
 msgid "임시 저장"
 msgstr "Temporarily Saved"
 
-#: .\user\templates\user\profile_detail.html:50
+#: .\user\templates\user\profile_detail.html:66
 msgid "수정하기"
 msgstr "Edit"
 
-#: .\user\templates\user\profile_form.html:5 .\user\views.py:56
+#: .\user\templates\user\profile_form.html:5 .\user\views.py:43
 msgid "Profile"
 msgstr ""
 
@@ -137,10 +141,10 @@ msgstr ""
 msgid "Social Sign-up"
 msgstr ""
 
-#: .\user\views.py:64
+#: .\user\views.py:51
 msgid "Profile successfully updated."
 msgstr ""
 
-#: .\user\views.py:76
+#: .\user\views.py:63
 msgid "Update profile"
 msgstr ""
