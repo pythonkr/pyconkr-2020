@@ -259,6 +259,4 @@ class VirtualBoothUpdate(UpdateView):
         return context
 
     def get_success_url(self):
-        slug = Sponsor.objects.get(creator=self.request.user, accepted=True, paid_at__isnull=False).slug
-
-        return reverse('virtual_booth', kwargs={'slug': slug})
+        return reverse('virtual_booth', kwargs={'slug': self.object.slug})
