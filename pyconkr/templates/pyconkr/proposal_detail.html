@@ -5,11 +5,10 @@
 
 {% block content %}
 <div class="row proposal-detail">
-    {% if request.user.proposal %}
         <h3>
             {{ proposal.title }}
             {% if EDIT_AVAILABLE %}
-                <a href="{% url 'proposal-update' %}"><i class="fa fa-pencil-square-o"></i></a>
+                <a href="{% url 'proposal-update' proposal.id %}"><i class="fa fa-pencil-square-o"></i></a>
             {% endif %}
         </h3>
         <p>
@@ -33,11 +32,11 @@
             <h4>{% trans "Comment to reviewers" %}</h4>
             {{ proposal.comment|safe }}
         </div>
-        {% if EDIT_AVAILABLE %}
-            <div class="a_btn_container">
-                <a class="a_btn" href="{% url 'proposal-update' %}">{% trans "수정하기" %}</a>
-            </div>
-        {% endif %}
-    {% endif %}
+        <div class="a_btn_container">
+            <a class="a_btn" href="{% url 'proposal-list' %}">{% trans "목록 보기" %}</a>
+            {% if EDIT_AVAILABLE %}
+                <a class="a_btn" href="{% url 'proposal-update' proposal.id %}">{% trans "수정하기" %}</a>
+            {% endif %}
+        </div>
 </div>
 {% endblock %}

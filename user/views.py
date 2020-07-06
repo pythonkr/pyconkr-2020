@@ -34,25 +34,12 @@ class ProfileDetail(DetailView):
             user=self.request.user,
             payment_status__in=['paid', 'ready']
         ).exists()
-        context['sponsors'] = Sponsor.objects.filter(
-            creator=self.request.user)
-        context['has_sponsor'] = Sponsor.objects.filter(
-            creator=self.request.user).exists()
-        has_proposal = Proposal.objects.filter(user=self.request.user).exists()
-        has_sprint = SprintProposal.objects.filter(
-            user=self.request.user).exists()
-        has_tutorial = TutorialProposal.objects.filter(
-            user=self.request.user).exists()
-        context['tickets'] = Registration.objects.filter(
-            user=self.request.user, payment_status__in=['paid', 'ready'])
-        context['joined_sprint'] = SprintCheckin.objects.filter(
-            user=self.request.user)
-        context['cancelled_tickets'] = Registration.objects.filter(
-            user=self.request.user, payment_status='cancelled')
+        context['sponsors'] = Sponsor.objects.filter(creator=self.request.user)
+        context['proposals'] = Proposal.objects.filter(user=self.request.user)
+        context['tickets'] = Registration.objects.filter(user=self.request.user, payment_status__in=['paid', 'ready'])
+        context['joined_sprint'] = SprintCheckin.objects.filter(user=self.request.user)
+        context['cancelled_tickets'] = Registration.objects.filter(user=self.request.user, payment_status='cancelled')
         context['is_registered'] = is_registered
-        context['has_proposal'] = has_proposal
-        context['has_tutorial'] = has_tutorial
-        context['has_sprint'] = has_sprint
         context['title'] = _("Profile")
 
         return context

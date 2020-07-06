@@ -364,48 +364,6 @@ class TutorialProposalCreate(SuccessMessageMixin, CreateView):
         return reverse('tutorial', args=(self.object.id,))
 
 
-class ProposalDetail(DetailView):
-    template_name = "pyconkr/proposal_detail.html"
-
-    def get_object(self, queryset=None):
-        return get_object_or_404(Proposal, pk=self.request.user.proposal.pk)
-
-    def dispatch(self, request, *args, **kwargs):
-        if not Proposal.objects.filter(user=request.user).exists():
-            return redirect('propose')
-        return super(ProposalDetail, self).dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super(ProposalDetail, self).get_context_data(**kwargs)
-        context['title'] = _("Proposal")
-        context['EDIT_AVAILABLE'] = edit_proposal_available_checker(self.request)
-        return context
-
-
-class ProposalUpdate(SuccessMessageMixin, UpdateView):
-    model = Proposal
-    form_class = ProposalForm
-    template_name = "pyconkr/proposal_form.html"
-    success_message = _("Proposal successfully updated.")
-
-    def get_object(self, queryset=None):
-        return get_object_or_404(Proposal, pk=self.request.user.proposal.pk)
-
-    def dispatch(self, request, *args, **kwargs):
-        if edit_proposal_available_checker(request) is False:
-            return redirect("/2020/error/closed/")
-
-        return super(ProposalUpdate, self).dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super(ProposalUpdate, self).get_context_data(**kwargs)
-        return context
-
-    def get_success_url(self):
-        cfp_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
-        return reverse('proposal')
-
-
 class ProposalCreate(SuccessMessageMixin, CreateView):
     form_class = ProposalForm
     template_name = "pyconkr/proposal_form.html"
@@ -416,12 +374,12 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
         form.save()
         return super(ProposalCreate, self).form_valid(form)
 
+    def get(self, request, *args, **kwargs):
+        return super(ProposalCreate, self).get(request, *args, **kwargs)
+
     def dispatch(self, request, *args, **kwargs):
         if request.user.profile.name == '':
             return redirect('profile_edit')
-
-        if Proposal.objects.filter(user=request.user).exists():
-            return redirect('proposal')
 
         EDIT_AVAILABLE = edit_proposal_available_checker(request)
         CFP_OPENED = is_proposal_opened(request)
@@ -435,7 +393,64 @@ class ProposalCreate(SuccessMessageMixin, CreateView):
 
     def get_success_url(self):
         new_cfp_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
-        return reverse('proposal')
+        return reverse('proposal-list')
+
+
+class ProposalList(ListView):
+    model = Proposal
+    template_name = "pyconkr/proposal_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ProposalList, self).get_context_data(**kwargs)
+        context['proposals'] = Proposal.objects.filter(user=self.request.user)
+
+        return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not Proposal.objects.filter(user=self.request.user).exists():
+            return redirect('propose')
+
+        return super(ProposalList, self).dispatch(request, *args, **kwargs)
+
+
+class ProposalUpdate(SuccessMessageMixin, UpdateView):
+    model = Proposal
+    form_class = ProposalForm
+    template_name = "pyconkr/proposal_form.html"
+    success_message = _("Proposal successfully updated.")
+
+    def dispatch(self, request, *args, **kwargs):
+        if edit_proposal_available_checker(request) is False:
+            return redirect("/2020/error/closed/")
+
+        return super(ProposalUpdate, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(ProposalUpdate, self).get_context_data(**kwargs)
+        return context
+
+    def get_success_url(self):
+        cfp_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
+        return reverse('proposal', kwargs={'pk': self.object.id})
+
+
+class ProposalDetail(DetailView):
+    model = Proposal
+    template_name = "pyconkr/proposal_detail.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        if not Proposal.objects.filter(user=request.user).exists():
+            return redirect('proposal-list')
+        if Proposal.objects.get(id=self.kwargs['pk']).user != self.request.user:
+            return redirect('proposal-list')
+        return super(ProposalDetail, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(ProposalDetail, self).get_context_data(**kwargs)
+        context['title'] = _("Proposal")
+        context['proposal'] = Proposal.objects.get(user=self.request.user, id=self.kwargs['pk'])
+        context['EDIT_AVAILABLE'] = edit_proposal_available_checker(self.request)
+        return context
 
 
 class OpenReviewHome(ListView):
