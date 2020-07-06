@@ -431,7 +431,7 @@ class ProposalUpdate(SuccessMessageMixin, UpdateView):
 
     def get_success_url(self):
         cfp_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
-        return reverse('proposal-list')
+        return reverse('proposal', kwargs={'pk': self.object.id})
 
 
 class ProposalDetail(DetailView):
