@@ -1052,12 +1052,6 @@ a.a_btn {
   }
 }
 
-@media (max-width: 768px) {
-  .sticky-footer {
-    display: none;
-  }
-}
-
 .tiles {
   .tiles_keystone,
   .tiles_diamond,
@@ -1117,9 +1111,9 @@ a.a_btn {
     width: 32%;
   }
 
-   &#sapphire {
-     width: 23%
-   }
+  &#sapphire {
+    width: 23%;
+  }
 
   &:hover {
     text-decoration: none;
