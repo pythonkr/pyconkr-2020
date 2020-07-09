@@ -78,11 +78,11 @@ class Sponsor(models.Model):
         '준비위원회와 후원과 관련된 논의를 진행할 담당자의 이름을 입력해주십시오.'))
     manager_email = models.CharField(
         max_length=100, help_text=_('입력하신 메일로 후원과 관련된 안내 메일이나 문의를 보낼 예정입니다. 후원 담당자의 이메일 주소를 입력해주십시오.'))
-    business_registration_number = models.CharField(max_length=100,
+    business_registration_number = models.CharField(max_length=100, null=True, blank=True,
                                                     help_text=_('후원사 사업자 등록번호입니다. 세금 계산서 발급에 사용됩니다.'))
-    business_registration_file = models.FileField(
-        upload_to=registration_file_upload_to,
-        help_text=_('후원사 사업자 등록증 스캔본입니다. 세금 계산서 발급에 사용됩니다.'))
+    business_registration_file = models.FileField(null=True, blank=True,
+                                                  upload_to=registration_file_upload_to,
+                                                  help_text=_('후원사 사업자 등록증 스캔본입니다. 세금 계산서 발급에 사용됩니다.'))
     url = models.CharField(max_length=255, null=True, blank=True,
                            help_text=_('파이콘 홈페이지에 공개되는 후원사 홈페이지 주소입니다.'))
     logo_image = SorlImageField(upload_to=logo_image_upload_to, null=True, blank=True,
