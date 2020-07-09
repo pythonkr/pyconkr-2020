@@ -62,6 +62,7 @@ def logo_image_upload_to(instance, filename):
 class Sponsor(models.Model):
     class Meta:
         ordering = ['paid_at', 'id']
+
     slug = models.SlugField(max_length=100, null=True, blank=True,
                             help_text='후원사 상세 페이지의 path로 사용됩니다.')
     creator = models.ForeignKey(User, on_delete=models.CASCADE,
