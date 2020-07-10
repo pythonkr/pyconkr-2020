@@ -15,13 +15,13 @@
       <td class="header">
         {% trans "후원사 모집 시작" %}
       </td>
-      <td>{{ CFS_start_at }}</td>
+      <td>{{ CFS_start_at|date:_("Y년 F j일 (D) H:i") }}</td>
     </tr>
     <tr>
       <td class="header">
         {% trans "후원사 모집 종료" %}
       </td>
-      <td>{{ CFS_finish_at }}</td>
+      <td>{{ CFS_finish_at|date:_("Y년 F j일 (D) H:i") }}</td>
     </tr>
   </tbody>
 </table>

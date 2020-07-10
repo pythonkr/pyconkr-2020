@@ -15,7 +15,7 @@
 
 <h2>{% trans "일정" %}</h2>
 <p>
-{{ review_start_at }} - {{ review_finish_at }}
+{{ review_start_at|date:_("Y년 F j일 (D) H:i") }} - {{ review_finish_at|date:_("Y년 F j일 (D) H:i") }}
 </p>
 
 <h2>{% trans "문의" %}</h2>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-06 19:30+0900\n"
+"POT-Creation-Date: 2020-07-10 15:05+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgstr "Business Registration Number"
 msgid "후원사 사업자 등록증"
 msgstr "Business Registration File"
 
-#: .\sponsor\forms.py:53 .\sponsor\models.py:73
+#: .\sponsor\forms.py:53 .\sponsor\models.py:74
 msgid ""
 "후원을 원하시는 등급을 선택해주십시오. 모두 판매된 등급은 선택할 수 없습니다."
 msgstr ""
@@ -80,26 +80,26 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: .\sponsor\models.py:68
+#: .\sponsor\models.py:69
 msgid "후원사를 등록한 유저"
 msgstr "User who applied sponsorship"
 
-#: .\sponsor\models.py:70
+#: .\sponsor\models.py:71
 msgid "후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다."
 msgstr "The name of sponsor. It can be name of service or company"
 
-#: .\sponsor\models.py:75
+#: .\sponsor\models.py:76
 msgid "후원사 설명입니다. 이 설명은 홈페이지에 게시됩니다."
 msgstr "The description of sponsor. It will be posted on the homepage."
 
-#: .\sponsor\models.py:77
+#: .\sponsor\models.py:78
 msgid ""
 "준비위원회와 후원과 관련된 논의를 진행할 담당자의 이름을 입력해주십시오."
 msgstr ""
 "Please enter the name of the person in charge who will discuss the "
 "sponsorship with the PyCon Korea Organizing Team."
 
-#: .\sponsor\models.py:79
+#: .\sponsor\models.py:80
 msgid ""
 "입력하신 메일로 후원과 관련된 안내 메일이나 문의를 보낼 예정입니다. 후원 담당"
 "자의 이메일 주소를 입력해주십시오."
@@ -107,29 +107,29 @@ msgstr ""
 "Please enter the email of the person in charge who will discuss the "
 "sponsorship with the PyCon Korea Organizing Team."
 
-#: .\sponsor\models.py:81
+#: .\sponsor\models.py:82
 msgid "후원사 사업자 등록번호입니다. 세금 계산서 발급에 사용됩니다."
 msgstr ""
 "Business Registration Number of Sponsor. Sponsor Business Registration "
 "Number. It is used to issue tax invoices."
 
-#: .\sponsor\models.py:84
+#: .\sponsor\models.py:85
 msgid "후원사 사업자 등록증 스캔본입니다. 세금 계산서 발급에 사용됩니다."
 msgstr ""
 "Scan file of sponsor's business registration. It is used to issue tax "
 "invoices."
 
-#: .\sponsor\models.py:86
+#: .\sponsor\models.py:87
 msgid "파이콘 홈페이지에 공개되는 후원사 홈페이지 주소입니다."
 msgstr ""
 "This is the url of the sponsor's homepage that will be displayed on the "
 "PyCon Korea homepage."
 
-#: .\sponsor\models.py:88
+#: .\sponsor\models.py:89
 msgid "홈페이지에 공개되는 후원사 로고 이미지입니다."
 msgstr "It is the logo image of the sponsor that is displayed on the homepage."
 
-#: .\sponsor\models.py:90
+#: .\sponsor\models.py:91
 msgid ""
 "Virtual booth에 들어가는 내용입니다. 홈페이지의 virtual booth에 게시됩니다."
 msgstr ""
@@ -209,6 +209,11 @@ msgstr "Schedule"
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:16
 msgid "후원사 모집 시작"
 msgstr "Sponsor Invitation Open"
+
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:18
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:24
+msgid "Y년 F j일 (D) H:i"
+msgstr "F jS (D) H:i"
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:22
 msgid "후원사 모집 종료"
@@ -364,6 +369,9 @@ msgstr ""
 #: .\sponsor\views.py:124 .\sponsor\views.py:172
 msgid "Save"
 msgstr ""
+
+#~ msgid "Y년"
+#~ msgstr "Y"
 
 #~ msgid "추가로 문의할 점"
 #~ msgstr "More questions"
