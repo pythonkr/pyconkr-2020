@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-06 19:30+0900\n"
+"POT-Creation-Date: 2020-07-10 15:05+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -759,6 +759,10 @@ msgstr "Make PyCon Korea 2020 with your hands :)"
 #: .\pyconkr\templates\pyconkr\openreview_home.html:16
 msgid "일정"
 msgstr "Schedule"
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:18
+msgid "Y년 F j일 (D) H:i"
+msgstr "F jS (D) H:i"
 
 #: .\pyconkr\templates\pyconkr\openreview_home.html:21
 msgid "문의"
