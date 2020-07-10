@@ -23,46 +23,46 @@ ALLOWED_HOSTS = []
 SITE_ID = 1
 
 INSTALLED_APPS = (
-                     # django apps
-                     'modeltranslation',
-                     'django.contrib.admin',
-                     'django.contrib.auth',
-                     'django.contrib.contenttypes',
-                     'django.contrib.sessions',
-                     'django.contrib.messages',
-                     'django.contrib.sites',
-                     'django.contrib.staticfiles',
-                     'django.contrib.flatpages',
-                     'django.contrib.humanize',
-                 ) + (
-                     # third-party apps
-                     'django_summernote',
-                     'rosetta',
-                     'crispy_forms',
-                     'sorl.thumbnail',
-                     'constance',
-                     'constance.backends.database',
-                     'django_csv_exports',
-                     'mail_templated',
-                     'import_export',
-                     'sass_processor',
-                     # 'compressor',
-                 ) + (
-                     # local apps
-                     'pyconkr',
-                     'announcement',
-                     'user',
-                     'sponsor',
-                     'program',
-                     'registration',
-                 ) + (
-                     'allauth',
-                     'allauth.account',
-                     'allauth.socialaccount',
-                     'allauth.socialaccount.providers.facebook',
-                     'allauth.socialaccount.providers.github',
-                     'allauth.socialaccount.providers.twitter',
-                 )
+    # django apps
+    'modeltranslation',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.sites',
+    'django.contrib.staticfiles',
+    'django.contrib.flatpages',
+    'django.contrib.humanize',
+) + (
+    # third-party apps
+    'django_summernote',
+    'rosetta',
+    'crispy_forms',
+    'sorl.thumbnail',
+    'constance',
+    'constance.backends.database',
+    'django_csv_exports',
+    'mail_templated',
+    'import_export',
+    'sass_processor',
+    # 'compressor',
+) + (
+    # local apps
+    'pyconkr',
+    'announcement',
+    'user',
+    'sponsor',
+    'program',
+    'registration',
+) + (
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.twitter',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -303,14 +303,16 @@ CONSTANCE_CONFIG = {
     'CFS_OPEN': (datetime.datetime(2000, 1, 1), '후원사 모집 오픈'),
     'CFS_CLOSE': (datetime.datetime(2000, 1, 1), '후원사 모집 종료'),
     'CFP_BRIEF_TEMPLATE': ('', 'CFP 간략한 설명 템플릿'),
-    'CFP_DESC_TEMPLATE': ('', 'CFP 자세한 설명 템플릿')
+    'CFP_DESC_TEMPLATE': ('', 'CFP 자세한 설명 템플릿'),
+    'VIRTUAL_BOOTH_OPEN': (datetime.datetime(2020, 9, 21, tzinfo=KST), '스폰서 Virtual Booth 공개'),
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {
     'SLACK': ('SLACK_CHANNEL', 'CFS_NOTI_CHANNEL', 'SLACK_TOKEN'),
     'IMPORT': ('IMP_DOM_USER_CODE', 'IMP_DOM_API_KEY', 'IMP_DOM_API_SECRET',
                'IMP_INTL_USER_CODE', 'IMP_INTL_API_KEY', 'IMP_INTL_API_SECRET',),
-    'Schedule': ('CFP_OPEN', 'CFP_CLOSE', 'OPEN_REVIEW_START', 'OPEN_REVIEW_FINISH', 'CFS_OPEN', 'CFS_CLOSE',),
+    'Talk Schedule': ('CFP_OPEN', 'CFP_CLOSE', 'OPEN_REVIEW_START', 'OPEN_REVIEW_FINISH', ),
+    'Sponsor Schedule': ('CFS_OPEN', 'CFS_CLOSE', 'VIRTUAL_BOOTH_OPEN'),
     'Template': ('CFP_BRIEF_TEMPLATE', 'CFP_DESC_TEMPLATE',),
     '기타': ('TOTAL_TICKET', 'SHOW_SLIDE_DATA',)
 
