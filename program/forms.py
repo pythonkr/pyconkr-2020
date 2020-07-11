@@ -3,7 +3,7 @@ from crispy_forms.layout import Submit, Button
 
 from django import forms
 from django.conf import settings
-from django.forms import ModelChoiceField
+from django.forms import ModelChoiceField, ChoiceField
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.utils.translation import ugettext_lazy as _
 from django.core.files.images import get_image_dimensions
@@ -163,7 +163,7 @@ class TutorialProposalForm(forms.ModelForm):
         }
 
 
-class CateogryChoiceField(ModelChoiceField):
+class CategoryChoiceField(ModelChoiceField):
     def label_from_instance(self, obj):
         return f'{obj.name}'
 
@@ -179,19 +179,15 @@ class OpenReviewCategoryForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('next', _('Next')))
-        self.fields['category'] = CateogryChoiceField(label=_('카테고리'),
+        self.fields['category'] = CategoryChoiceField(label=_('카테고리'),
                                                       queryset=ProgramCategory.objects.filter(visible=True).exclude(proposal=None),
                                                       help_text=_('카테고리를 선택하세요.')
                                                       )
-        self.fields['language'] = LanguageChoiceField(label=_('언어'),
-                                                      queryset='',
-                                                      choices=(
-                                                          ('', '---------'),
-                                                          ('K', _('Korean')),
-                                                          ('E', _('English')),
-                                                      ),
-                                                      help_text=_('카테고리를 선택하세요.')
-                                                      )
+        self.fields['language'] = ChoiceField(choices=(
+            ('N', '상관 없음'),
+            ('K', 'Korean'),
+            ('E', 'English'),
+        ))
 
     class Meta:
         model = OpenReview
