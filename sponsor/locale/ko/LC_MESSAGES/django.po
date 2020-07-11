@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-10 15:05+0900\n"
+"POT-Creation-Date: 2020-07-11 18:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\sponsor\forms.py:15 .\sponsor\views.py:38
+#: .\sponsor\forms.py:15 .\sponsor\views.py:39
 msgid "마감"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Virtual booth content"
 msgstr "Virtual booth 내용"
 
-#: .\sponsor\forms.py:76 .\sponsor\views.py:125 .\sponsor\views.py:176
+#: .\sponsor\forms.py:76 .\sponsor\views.py:132 .\sponsor\views.py:189
 msgid "Submit"
 msgstr "제출하기"
 
@@ -304,30 +304,30 @@ msgstr "준비 중입니다."
 msgid "Virtual booth 내용 수정하기"
 msgstr ""
 
-#: .\sponsor\views.py:80 .\sponsor\views.py:139
+#: .\sponsor\views.py:84 .\sponsor\views.py:147
 msgid ""
 "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발"
 "송드리도록 하겠습니다."
 msgstr ""
 
-#: .\sponsor\views.py:100
+#: .\sponsor\views.py:105
 msgid "후원사 모집이 아직 시작되지 않았습니다.🤖"
 msgstr ""
 
-#: .\sponsor\views.py:101
+#: .\sponsor\views.py:106
 msgid "모집 기간은 {} ~ {} 이니 일정에 참고해주세요."
 msgstr ""
 
-#: .\sponsor\views.py:105
+#: .\sponsor\views.py:110
 msgid "후원사 모집이 종료되었습니다.🤖"
 msgstr ""
 
-#: .\sponsor\views.py:106
+#: .\sponsor\views.py:111
 msgid ""
 "모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요"
 msgstr ""
 
-#: .\sponsor\views.py:124 .\sponsor\views.py:172
+#: .\sponsor\views.py:130 .\sponsor\views.py:183
 msgid "Save"
 msgstr "저장"
 
