@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import get_user_model
 from registration.models import Option
 from django.urls import reverse
+
 User = get_user_model()
 
 
@@ -339,3 +340,22 @@ class SprintCheckin(models.Model):
 
     class Meta:
         unique_together = ('user', 'sprint')
+
+
+class LightningTalk(models.Model):
+    class Meta:
+        ordering = ['accepted_at', ]
+
+    day = models.IntegerField(choices=(
+        (1, _('토요일')),
+        (2, _('일요일')),
+    ))
+    name = models.CharField(max_length=255, null=True)
+    owner = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+    submitted_at = models.DateTimeField(null=True, blank=True)
+    accepted_at = models.DateTimeField(null=True, blank=True)
+    slide_url = models.CharField(max_length=511, null=True)
+    comment = models.TextField(blank=True, default='')
+
+    def __str__(self):
+        return self.name
