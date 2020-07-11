@@ -10,7 +10,7 @@ from django.views.generic.edit import ModelFormMixin
 from .models import Program, ProgramCategory, Preference, Speaker, Room, Proposal, OpenReview, \
     TutorialProposal, SprintProposal
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
-    OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm
+    OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm, LightningTalkForm
 
 import constance
 import datetime
@@ -592,3 +592,32 @@ def is_proposal_opened(request):
         flag = 1
 
     return flag
+
+
+class LightningTalkCreate(CreateView):
+    form_class = LightningTalkForm
+    template_name = "pyconkr/lightning_talk_form.html"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.save()
+        return super(LightningTalkCreate, self).form_valid(form)
+
+    def get(self, request, *args, **kwargs):
+        return super(LightningTalkCreate, self).get(request, *args, **kwargs)
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.profile.name == '':
+            return redirect('profile_edit')
+
+        # 라톡이 열리지 않았을 때 redirect
+        # if CFP_OPENED == -1:
+        #     return redirect("/2020/error/unopened")
+        # elif CFP_OPENED == 1 and EDIT_AVAILABLE is False:
+        #     return redirect("/2020/error/closed/")
+
+        return super(LightningTalkCreate, self).dispatch(request, *args, **kwargs)
+
+    def get_success_url(self):
+        new_cfp_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
+        return reverse('proposal-list')

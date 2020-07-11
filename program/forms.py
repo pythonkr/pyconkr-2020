@@ -7,7 +7,7 @@ from django.forms import Select
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.utils.translation import ugettext_lazy as _
 from django.core.files.images import get_image_dimensions
-from .models import Speaker, Program, Proposal, OpenReview, SprintProposal, TutorialProposal, ProgramCategory
+from .models import Speaker, Program, Proposal, OpenReview, SprintProposal, TutorialProposal, ProgramCategory, LightningTalk
 
 from constance import config
 
@@ -192,4 +192,22 @@ class OpenReviewCommentForm(forms.ModelForm):
         fields = ('comment', )
         labels = {
             'comment': _('Comment')
+        }
+
+
+class LightningTalkForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(LightningTalkForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Submit')))
+
+    class Meta:
+        model = LightningTalk
+        fields = ('name', 'slide_url', 'day', 'comment',)
+        labels = {
+            'name': _('발표자 이름'),
+            'slide_url': _('발표 슬라이드 URL'),
+            'day': _('발표 요일'),
+            'comment': _('준비위원회에게 남기고 싶은 말'),
         }
