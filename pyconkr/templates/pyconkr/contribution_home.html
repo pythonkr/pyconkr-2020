@@ -23,7 +23,7 @@
         <tbody>
         <tr>
             <th>{% trans "발표안 제안" %}</th>
-            <td>{{ cfp_open|date:"n월 j일 (D)" }} - {{ cfp_close|date:"n월 j일 (D)" }}</td>
+            <td>{{ cfp_open|date:_("n월 j일 (D)") }} - {{ cfp_close|date:_("n월 j일 (D)") }}</td>
             {% if now < cfp_open %}
                 <td>{% trans "준비 중입니다." %}</td>
                 <td><a class="endBtn" href="/2020/contribution/cfp/">{% trans "준비 중" %}</a></td>
@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <th>{% trans "키노트 발표자 추천" %}</th>
-            <td>{{ keynote_start_at|date:"n월 j일 (D)" }} - {{ keynote_end_at|date:"n월 j일 (D)" }}</td>
+            <td>{{ keynote_start_at|date:_("n월 j일 (D)") }} - {{ keynote_end_at|date:_("n월 j일 (D)") }}</td>
             {% if now < keynote_start_at %}
                 <td>{% trans "준비 중입니다." %}</td>
                 <td><a class="endBtn" href="/2020/contribution/recommending-keynote/">{% trans "준비 중" %}</a></td>
@@ -51,7 +51,7 @@
         </tr>
         <tr>
             <th>{% trans "발표 제안 검토하기" %}</th>
-            <td>{{ review_start_at|date:"n월 j일 (D)" }} - {{ review_finish_at|date:"n월 j일 (D)" }}</td>
+            <td>{{ review_start_at|date:_("n월 j일 (D)") }} - {{ review_finish_at|date:_("n월 j일 (D)") }}</td>
             {% if now < review_start_at %}
                 <td>{% trans "준비 중입니다." %}</td>
                 <td><a class="endBtn" href="/2020/contribution/review-talk-proposal/">{% trans "준비 중" %}</a></td>
@@ -65,7 +65,7 @@
         </tr>
         <tr>
             <th>{% trans "라이트닝 토크 신청" %}</th>
-            <td>{{ lightning_talk_open|date:"n월 j일 (D)" }} - {{ lightning_talk_close|date:"n월 j일 (D)" }}</td>
+            <td>{{ lightning_talk_open|date:_("n월 j일 (D)") }} - {{ lightning_talk_close|date:_("n월 j일 (D)") }}</td>
             {% if now < lightning_talk_open %}
                 <td>{% trans "준비 중입니다." %}</td>
                 <td><a class="endBtn" href="">{% trans "준비 중" %}</a></td>

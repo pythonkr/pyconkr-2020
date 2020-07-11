@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-11 18:11+0900\n"
+"POT-Creation-Date: 2020-07-11 20:23+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -752,6 +752,13 @@ msgstr ""
 #: .\pyconkr\templates\pyconkr\contribution_home.html:25
 msgid "발표안 제안"
 msgstr "Proposing a Talk"
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:26
+#: .\pyconkr\templates\pyconkr\contribution_home.html:40
+#: .\pyconkr\templates\pyconkr\contribution_home.html:54
+#: .\pyconkr\templates\pyconkr\contribution_home.html:68
+msgid "n월 j일 (D)"
+msgstr "F jS (D)"
 
 #: .\pyconkr\templates\pyconkr\contribution_home.html:28
 #: .\pyconkr\templates\pyconkr\contribution_home.html:42
