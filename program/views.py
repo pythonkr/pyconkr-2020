@@ -18,6 +18,28 @@ import datetime
 from program.slack import new_cfp_registered, cfp_updated
 
 
+class ContributionHome(TemplateView):
+    template_name = "program/contribution_home.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        now = datetime.datetime.now(tz=KST)
+        context['cfp_open'] = constance.config.CFP_OPEN.replace(tzinfo=KST)
+        context['cfp_close'] = constance.config.CFP_CLOSE.replace(tzinfo=KST)
+        context['keynote_start_at'] = constance.config.KEYNOTE_RECOMMEND_OPEN.replace(tzinfo=KST)
+        context['keynote_end_at'] = constance.config.KEYNOTE_RECOMMEND_CLOSE.replace(tzinfo=KST)
+        context['review_start_at'] = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
+        context['review_finish_at'] = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
+        context['lightning_talk_open'] = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
+        context['lightning_talk_close'] = constance.config.LIGHTNING_TALK_CLOSE.replace(
+            tzinfo=KST)
+        context['now'] = now
+
+        return context
+
+
 class ProgramList(ListView):
     model = ProgramCategory
     template_name = "pyconkr/program_list.html"
@@ -130,7 +152,7 @@ def schedule(request):
                     wide[d][t][r] = None
 
             if len(narrow[d][t]) == 0:
-                del(narrow[d][t])
+                del (narrow[d][t])
 
     contexts = {
         'wide': wide,
@@ -194,8 +216,8 @@ class SprintProposalDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(SprintProposalDetail, self).get_context_data(**kwargs)
         checkin_ids = \
-            SprintCheckin.objects.filter(sprint=self.object).\
-            order_by('id').values_list('id', flat=True)
+            SprintCheckin.objects.filter(sprint=self.object). \
+                order_by('id').values_list('id', flat=True)
         limit_bar_id = 65539
         checkins = SprintCheckin.objects.filter(sprint=self.object)
         attendees = []
@@ -209,11 +231,11 @@ class SprintProposalDetail(DetailView):
                                   })
             else:
                 attendees.append({'name': x.user.profile.name if x.user.profile.name != '' else
-                                  x.user.email.split('@')[0],
+                x.user.email.split('@')[0],
                                   'picture': x.user.profile.image,
                                   'registered':
-                                  Registration.objects.filter(user=x.user,
-                                                              payment_status='paid').exists(),
+                                      Registration.objects.filter(user=x.user,
+                                                                  payment_status='paid').exists(),
                                   'waiting': True if x.id > limit_bar_id else False
                                   })
         context['attendees'] = attendees
@@ -308,17 +330,17 @@ class TutorialProposalDetail(DetailView):
                         self).get_context_data(**kwargs)
         capacity = self.object.capacity
         checkin_ids = \
-            TutorialCheckin.objects.filter(tutorial=self.object).\
-            order_by('id').values_list('id', flat=True)
+            TutorialCheckin.objects.filter(tutorial=self.object). \
+                order_by('id').values_list('id', flat=True)
         limit_bar_id = 65539
         if capacity < len(checkin_ids):
-            limit_bar_id = checkin_ids[capacity-1]
+            limit_bar_id = checkin_ids[capacity - 1]
         attendees = [{'name': x.user.profile.name if x.user.profile.name != '' else
-                      x.user.email.split('@')[0],
+        x.user.email.split('@')[0],
                       'picture': x.user.profile.image,
                       'registered':
-                      Registration.objects.filter(user=x.user,
-                                                  payment_status='paid').exists(),
+                          Registration.objects.filter(user=x.user,
+                                                      payment_status='paid').exists(),
                       'waiting': True if x.id > limit_bar_id else False
                       } for x in TutorialCheckin.objects.filter(tutorial=self.object)]
         context['attendees'] = attendees
@@ -334,7 +356,7 @@ class TutorialProposalDetail(DetailView):
             context['option'] = self.object.option
 
         if not self.request.user.is_anonymous:
-            registration = Registration.objects.active_tutorial()\
+            registration = Registration.objects.active_tutorial() \
                 .filter(option=self.object.option, user=self.request.user, payment_status__in=['paid', 'ready'])
             if registration.exists():
                 context['is_registered'] = True
@@ -453,9 +475,8 @@ class ProposalDetail(DetailView):
         return context
 
 
-class OpenReviewHome(ListView):
+class OpenReviewHome(TemplateView):
     template_name = "pyconkr/openreview_home.html"
-    model = ProgramCategory
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -480,9 +501,9 @@ class OpenReviewList(TemplateView):
 
         if form.is_valid():
             category_id = form.cleaned_data['name']
-            ids = Proposal.objects\
-                .filter(category__id=category_id)\
-                .exclude(user=request.user)\
+            ids = Proposal.objects \
+                .filter(category__id=category_id) \
+                .exclude(user=request.user) \
                 .values_list('id', flat=True)
 
             if len(ids) < 1:
@@ -534,7 +555,7 @@ class ProgramUpdate(UpdateView):
 def edit_proposal_available_checker(request):
     KST = datetime.timezone(datetime.timedelta(hours=9))
     now = datetime.datetime.now(tz=KST)
-    flag = False    # 아래에 지정된 상황이 아니면 CFP Closed 상태
+    flag = False  # 아래에 지정된 상황이 아니면 CFP Closed 상태
 
     cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
     cfp_close = constance.config.CFP_CLOSE.replace(tzinfo=KST)
