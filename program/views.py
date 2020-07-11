@@ -19,7 +19,7 @@ from program.slack import new_cfp_registered, cfp_updated
 
 
 class ContributionHome(TemplateView):
-    template_name = "program/contribution_home.html"
+    template_name = "pyconkr/contribution_home.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
