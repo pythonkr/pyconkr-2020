@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-11 18:07+0900\n"
+"POT-Creation-Date: 2020-07-11 18:11+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -792,7 +792,7 @@ msgstr "Closed"
 #: .\pyconkr\templates\pyconkr\contribution_home.html:49
 #: .\pyconkr\templates\pyconkr\contribution_home.html:63
 #: .\pyconkr\templates\pyconkr\contribution_home.html:77
-msgid "마감"
+msgid "종료"
 msgstr "Closed"
 
 #: .\pyconkr\templates\pyconkr\contribution_home.html:39
@@ -1156,6 +1156,9 @@ msgid ""
 msgstr ""
 "In the end, we will have a broader view of the world as we create websites "
 "and simple games."
+
+#~ msgid "마감"
+#~ msgstr "Closed"
 
 #~ msgid "etc"
 #~ msgstr "Etc."

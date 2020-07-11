@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-11 18:07+0900\n"
+"POT-Creation-Date: 2020-07-11 18:11+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -777,7 +777,7 @@ msgstr ""
 #: .\pyconkr\templates\pyconkr\contribution_home.html:49
 #: .\pyconkr\templates\pyconkr\contribution_home.html:63
 #: .\pyconkr\templates\pyconkr\contribution_home.html:77
-msgid "마감"
+msgid "종료"
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\contribution_home.html:39
