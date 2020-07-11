@@ -3,7 +3,7 @@ from crispy_forms.layout import Submit, Button
 
 from django import forms
 from django.conf import settings
-from django.forms import Select
+from django.forms import ModelChoiceField
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.utils.translation import ugettext_lazy as _
 from django.core.files.images import get_image_dimensions
@@ -163,19 +163,43 @@ class TutorialProposalForm(forms.ModelForm):
         }
 
 
+class CateogryChoiceField(ModelChoiceField):
+    def label_from_instance(self, obj):
+        return f'{obj.name}'
+
+
+class LanguageChoiceField(ModelChoiceField):
+    def label_from_instance(self, obj):
+        return f'{obj}'
+
+
 class OpenReviewCategoryForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(OpenReviewCategoryForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', _('Submit')))
+        self.helper.add_input(Submit('next', _('Next')))
+        self.fields['category'] = CateogryChoiceField(label=_('카테고리'),
+                                                      queryset=ProgramCategory.objects.filter(visible=True).exclude(proposal=None),
+                                                      help_text=_('카테고리를 선택하세요.')
+                                                      )
+        self.fields['language'] = LanguageChoiceField(label=_('언어'),
+                                                      queryset='',
+                                                      choices=(
+                                                          ('', '---------'),
+                                                          ('K', _('Korean')),
+                                                          ('E', _('English')),
+                                                      ),
+                                                      help_text=_('카테고리를 선택하세요.')
+                                                      )
 
     class Meta:
-        model = ProgramCategory
-        fields = ('name', )
-        # widgets = {
-        #     'name': Select(choices=((c.id, c.name) for c in ProgramCategory.objects.filter(visible=True)))
-        # }
+        model = OpenReview
+        fields = ('category', 'language')
+        labels = {
+            'category': _('카테고리 이름'),
+            'language': _('언어')
+        }
 
 
 class OpenReviewCommentForm(forms.ModelForm):
@@ -185,7 +209,7 @@ class OpenReviewCommentForm(forms.ModelForm):
         super(OpenReviewCommentForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', _('Submit')))
+        self.helper.add_input(Submit('save', _('Save')))
 
     class Meta:
         model = OpenReview

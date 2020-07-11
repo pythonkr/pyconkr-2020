@@ -463,26 +463,19 @@ class OpenReviewList(TemplateView):
     def post(self, request, *args, **kwargs):
         form = OpenReviewCategoryForm(request.POST)
 
-        if form.is_valid():
-            category_id = form.cleaned_data['name']
+        if form.is_valid() and not OpenReview.objects.filter(user=request.user):
+            category_id = form.cleaned_data['name'].id
             ids = Proposal.objects\
                 .filter(category__id=category_id)\
                 .exclude(user=request.user)\
                 .values_list('id', flat=True)
-
-            if len(ids) < 1:
-                additional_context = {
-                    'message': _('There are no proposals in this category.')
-                }
-
             selected_ids = random.sample(list(ids), min(len(ids), 4))
+
             for proposal in Proposal.objects.filter(id__in=selected_ids):
                 review = OpenReview(proposal=proposal, user=request.user)
                 review.save()
 
         context = self.get_context_data()
-        # TODO: 다른 카테고리 선택하도록 유도 메세지 출력
-        # context.update(**additional_context)
         return render(request, self.template_name, context)
 
     def get_context_data(self, **kwargs):
