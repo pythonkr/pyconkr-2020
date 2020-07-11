@@ -13,9 +13,10 @@ from .views import login, logout
 from .views import PatronList
 
 from program.views import ProposalCreate, OpenReviewUpdate
-from program.views import OpenReviewList, OpenReviewHome
+from program.views import OpenReviewList, OpenReviewHome, ContributionHome
 
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = [
@@ -39,13 +40,13 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/about/patron/$',
             PatronList.as_view(), name='patrons'),
 
-
     re_path(r'^2020/registration/', include('registration.urls')),
 
     # for rosetta
     re_path(r'^2020/rosetta/', include('rosetta.urls')),
 
     # cfp (contribution의 하위 url에 두기위해 별도로 기술)
+    re_path(r'^2020/contribution/about/$', ContributionHome.as_view()),
     re_path(r'^2020/contribution/review-talk-proposal/$',
             OpenReviewHome.as_view(), name='openreview'),
     re_path(r'^2020/contribution/review-talk-proposal/set/$',
