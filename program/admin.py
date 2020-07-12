@@ -11,7 +11,7 @@ from sorl.thumbnail.admin import AdminImageMixin
 from import_export.admin import ImportExportModelAdmin, ImportMixin
 from .models import (Room, Program, ProgramTime, ProgramDate, ProgramCategory,
                      Speaker, Preference, Proposal, TutorialProposal, SprintProposal,
-                     TutorialCheckin, SprintCheckin, OpenReview)
+                     TutorialCheckin, SprintCheckin, OpenReview, LightningTalk)
 
 
 class RoomAdmin(SummernoteModelAdmin, TranslationAdmin):
@@ -145,3 +145,17 @@ class OpenReviewAdmin(admin.ModelAdmin):
 
 
 admin.site.register(OpenReview, OpenReviewAdmin)
+
+
+class LightningTalkAdminForm(forms.ModelForm):
+    class Meta:
+        model = LightningTalk
+        fields = '__all__'
+
+
+class LightningTalkAdmin(admin.ModelAdmin):
+    form = LightningTalkAdminForm
+    list_display = ('owner', 'title', 'day', 'accepted', 'created_at')
+
+
+admin.site.register(LightningTalk, LightningTalkAdmin)

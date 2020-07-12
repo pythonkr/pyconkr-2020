@@ -9,6 +9,7 @@ from .views import ProposalCreate, ProposalUpdate, ProposalDetail, ProposalList
 from .views import schedule, youngcoder, child_care, tutorial_join, sprint_join
 
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = [
