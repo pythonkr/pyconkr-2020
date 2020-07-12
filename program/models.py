@@ -344,18 +344,19 @@ class SprintCheckin(models.Model):
 
 class LightningTalk(models.Model):
     class Meta:
-        ordering = ['accepted_at', ]
+        ordering = ['created_at', ]
 
+    title = models.CharField(max_length=255, null=True, help_text='라이트닝 토크 제목')
+    owner = models.OneToOneField(User, blank=True, null=True, on_delete=models.SET_NULL)
+    slide_url = models.CharField(max_length=511, null=True)
     day = models.IntegerField(choices=(
         (1, _('토요일')),
         (2, _('일요일')),
     ))
-    name = models.CharField(max_length=255, null=True)
-    owner = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
-    submitted_at = models.DateTimeField(null=True, blank=True)
-    accepted_at = models.DateTimeField(null=True, blank=True)
-    slide_url = models.CharField(max_length=511, null=True)
     comment = models.TextField(blank=True, default='')
 
+    accepted = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
-        return self.name
+        return self.title
