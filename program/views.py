@@ -8,7 +8,7 @@ from django.urls import reverse
 from django.views.generic.edit import ModelFormMixin
 
 from .models import Program, ProgramCategory, Preference, Speaker, Room, Proposal, OpenReview, \
-    TutorialProposal, SprintProposal
+    TutorialProposal, SprintProposal, LightningTalk
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
     OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm, LightningTalkForm
 
@@ -594,12 +594,37 @@ def is_proposal_opened(request):
     return flag
 
 
+def is_lightning_talk_proposable(request):
+    KST = datetime.timezone(datetime.timedelta(hours=9))
+    now = datetime.datetime.now(tz=KST)
+    LT_open_at = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
+    LT_close_at = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
+    if LT_open_at < now < LT_close_at:
+        return True
+    else:
+        return False
+
+
+class LightningTalkHome(TemplateView):
+    template_name = "pyconkr/lightning_talk_home.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        context['LT_open_at'] = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
+        context['LT_close_at'] = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
+        context['is_proposable'] = is_lightning_talk_proposable(self.request)
+
+        return context
+
+
 class LightningTalkCreate(CreateView):
     form_class = LightningTalkForm
     template_name = "pyconkr/lightning_talk_form.html"
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        form.instance.owner = self.request.user
         form.save()
         return super(LightningTalkCreate, self).form_valid(form)
 
@@ -610,14 +635,51 @@ class LightningTalkCreate(CreateView):
         if request.user.profile.name == '':
             return redirect('profile_edit')
 
-        # 라톡이 열리지 않았을 때 redirect
-        # if CFP_OPENED == -1:
-        #     return redirect("/2020/error/unopened")
-        # elif CFP_OPENED == 1 and EDIT_AVAILABLE is False:
-        #     return redirect("/2020/error/closed/")
+        if not is_lightning_talk_proposable(self.request):
+            return redirect('lightning-talk')
+
+        if LightningTalk.objects.filter(owner=self.request.user).exists():
+            return redirect('lightning-talk-detail')
 
         return super(LightningTalkCreate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
-        new_cfp_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
-        return reverse('proposal-list')
+        return reverse('lightning-talk-detail')
+
+
+class LightningTalkDetail(TemplateView):
+    template_name = "pyconkr/lightning_talk_detail.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        if not LightningTalk.objects.filter(owner=self.request.user).exists():
+            return redirect('lightning-talk')
+        return super(LightningTalkDetail, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(LightningTalkDetail, self).get_context_data(**kwargs)
+        context['title'] = _("Lightning Talk Proposal")
+        context['talk'] = LightningTalk.objects.get(owner=self.request.user)
+        context['is_editable'] = is_lightning_talk_proposable(self.request)
+        return context
+
+
+class LightningTalkUpdate(UpdateView):
+    model = LightningTalk
+    form_class = LightningTalkForm
+    template_name = "pyconkr/lightning_talk_form.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        if not LightningTalk.objects.filter(owner=self.request.user).exists() or not is_lightning_talk_proposable(
+                self.request):
+            return redirect('lightning-talk')
+        if LightningTalk.objects.get(id=self.kwargs['pk']).owner != self.request.user:
+            return redirect('lightning-talk')
+
+        return super(LightningTalkUpdate, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(LightningTalkUpdate, self).get_context_data(**kwargs)
+        return context
+
+    def get_success_url(self):
+        return reverse('lightning-talk-detail')

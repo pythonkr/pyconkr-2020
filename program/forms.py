@@ -204,9 +204,9 @@ class LightningTalkForm(forms.ModelForm):
 
     class Meta:
         model = LightningTalk
-        fields = ('name', 'slide_url', 'day', 'comment',)
+        fields = ('title', 'slide_url', 'day', 'comment',)
         labels = {
-            'name': _('발표자 이름'),
+            'title': _('발표 제목'),
             'slide_url': _('발표 슬라이드 URL'),
             'day': _('발표 요일'),
             'comment': _('준비위원회에게 남기고 싶은 말'),

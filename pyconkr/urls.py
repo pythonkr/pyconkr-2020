@@ -12,8 +12,8 @@ from .views import index, robots
 from .views import login, logout
 from .views import PatronList
 
-from program.views import ProposalCreate, OpenReviewUpdate
-from program.views import OpenReviewList, OpenReviewHome, ContributionHome
+from program.views import ProposalCreate, OpenReviewUpdate, OpenReviewList, OpenReviewHome, ContributionHome, \
+    LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate
 
 from django.contrib import admin
 
@@ -53,6 +53,14 @@ urlpatterns += i18n_patterns(
             login_required(OpenReviewList.as_view()), name='openreview-list'),
     re_path(r'^2020/contribution/review-talk-proposal/review/(?P<pk>\d+)$',
             login_required(OpenReviewUpdate.as_view()), name='openreview-update'),
+    re_path(r'^2020/contribution/lightning-talk/home/$',
+            login_required(LightningTalkHome.as_view()), name='lightning-talk'),
+    re_path(r'^2020/contribution/lightning-talk/propose/$',
+            login_required(LightningTalkCreate.as_view()), name='lightning-talk-propose'),
+    re_path(r'^2020/contribution/lightning-talk/detail/$',
+            login_required(LightningTalkDetail.as_view()), name='lightning-talk-detail'),
+    re_path(r'^2020/contribution/lightning-talk/edit/(?P<pk>\d+)$',
+            login_required(LightningTalkUpdate.as_view()), name='lightning-talk-edit'),
 
     # for flatpages
     re_path(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),
