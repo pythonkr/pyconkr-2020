@@ -3,7 +3,7 @@ from crispy_forms.layout import Submit, Button
 
 from django import forms
 from django.conf import settings
-from django.forms import ModelChoiceField, ChoiceField
+from django.forms import ModelChoiceField, ChoiceField, HiddenInput
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.shortcuts import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -179,7 +179,7 @@ class OpenReviewLanguageForm(forms.Form):
         super(OpenReviewLanguageForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.form_action = reverse()+'?lang='
+        # self.helper.form_action = reverse()+'?lang='
         self.helper.add_input(Submit('next', _('Next')))
         self.fields['language'] = ChoiceField(choices=(
                                               ('N', '상관 없음'),
@@ -204,6 +204,7 @@ class OpenReviewCategoryForm(forms.ModelForm):
                                                       queryset=ProgramCategory.objects.filter(visible=True).exclude(proposal=None),
                                                       help_text=_('카테고리를 선택하세요.')
                                                       )
+        # 이전 폼에서 선택한 언어정보 저장용 Hidden input 생성 (View에서 helper를 이용해 추가)
 
     class Meta:
         model = OpenReview

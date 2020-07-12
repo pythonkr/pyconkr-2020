@@ -7,6 +7,8 @@ from django.utils.translation import ugettext as _
 from django.urls import reverse
 from django.views.generic.edit import ModelFormMixin
 
+from crispy_forms.layout import Hidden
+
 from .models import Program, ProgramCategory, Preference, Speaker, Room, Proposal, OpenReview, \
     TutorialProposal, SprintProposal
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
@@ -459,21 +461,31 @@ class OpenReviewHome(ListView):
 
 class OpenReviewList(TemplateView):
     template_name = "pyconkr/openreview_list.html"
-    is_language = False
+    is_language = True  # 최초 시작시 언어 선택폼 부터 출력
+    selected_language = None
 
     def post(self, request, *args, **kwargs):
         language_form = OpenReviewLanguageForm(request.POST)
         category_form = OpenReviewCategoryForm(request.POST)
 
+        # 언어선택폼 처리의 경우
+        if language_form.is_valid():
+            self.is_language = False    # 다음 페이지에서는 카테코리 선택 폼을 출력
+            self.selected_language = language_form.cleaned_data['language']
+
+        # 카테고리 지정 폼을 처리하는 경우, 이미 지정된 오픈리뷰가 없는 경우
         if category_form.is_valid() and not OpenReview.objects.filter(user=request.user):
             category_id = category_form.cleaned_data['category'].id
-            language = language_form.cleaned_data['language']
+
             ids = Proposal.objects\
-                .filter(category__id=category_id, language=language)\
+                .filter(category__id=category_id, language=request.POST['selected_language'])\
                 .exclude(user=request.user)\
                 .values_list('id', flat=True)
+
+            # 랜덤 추출
             selected_ids = random.sample(list(ids), min(len(ids), 4))
 
+            # 추출건 저장
             for proposal in Proposal.objects.filter(id__in=selected_ids):
                 review = OpenReview(proposal=proposal, user=request.user)
                 review.save()
@@ -483,14 +495,23 @@ class OpenReviewList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(OpenReviewList, self).get_context_data(**kwargs)
-        if not self.is_language:
+        if self.is_language is True:
             context['is_language'] = True
+        else:
+            context['is_language'] = False
 
+        # 이미 리뷰할 CFP가 지정된 경우
         if OpenReview.objects.filter(user=self.request.user).exists():
             context['reviews'] = OpenReview.objects.filter(user=self.request.user).all()
         else:
+            # 언어선택 폼
             context['select_language'] = OpenReviewLanguageForm()
-            context['select_category'] = OpenReviewCategoryForm()
+
+            # 카테고리 선택 폼
+            category_form = OpenReviewCategoryForm()
+            category_form.helper.add_input(Hidden(name='selected_language', value=self.selected_language))
+
+            context['select_category'] = category_form
         return context
 
 
