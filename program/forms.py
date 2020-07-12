@@ -5,6 +5,7 @@ from django import forms
 from django.conf import settings
 from django.forms import ModelChoiceField, ChoiceField
 from django_summernote.widgets import SummernoteInplaceWidget
+from django.shortcuts import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.core.files.images import get_image_dimensions
 from .models import Speaker, Program, Proposal, OpenReview, SprintProposal, TutorialProposal, ProgramCategory
@@ -173,6 +174,26 @@ class LanguageChoiceField(ModelChoiceField):
         return f'{obj}'
 
 
+class OpenReviewLanguageForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(OpenReviewLanguageForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.form_action = reverse()+'?lang='
+        self.helper.add_input(Submit('next', _('Next')))
+        self.fields['language'] = ChoiceField(choices=(
+                                              ('N', '상관 없음'),
+                                              ('K', 'Korean'),
+                                              ('E', 'English'),
+                                              ))
+
+    class Meta:
+        fields = ('language',)
+        labels = {
+            'language': _('언어'),
+        }
+
+
 class OpenReviewCategoryForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(OpenReviewCategoryForm, self).__init__(*args, **kwargs)
@@ -183,18 +204,12 @@ class OpenReviewCategoryForm(forms.ModelForm):
                                                       queryset=ProgramCategory.objects.filter(visible=True).exclude(proposal=None),
                                                       help_text=_('카테고리를 선택하세요.')
                                                       )
-        self.fields['language'] = ChoiceField(choices=(
-            ('N', '상관 없음'),
-            ('K', 'Korean'),
-            ('E', 'English'),
-        ))
 
     class Meta:
         model = OpenReview
-        fields = ('category', 'language')
+        fields = ('category',)
         labels = {
             'category': _('카테고리 이름'),
-            'language': _('언어')
         }
 
 

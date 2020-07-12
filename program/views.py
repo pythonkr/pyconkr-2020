@@ -10,7 +10,7 @@ from django.views.generic.edit import ModelFormMixin
 from .models import Program, ProgramCategory, Preference, Speaker, Room, Proposal, OpenReview, \
     TutorialProposal, SprintProposal
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
-    OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm
+    OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, ProgramForm
 
 import constance
 import datetime
@@ -459,14 +459,17 @@ class OpenReviewHome(ListView):
 
 class OpenReviewList(TemplateView):
     template_name = "pyconkr/openreview_list.html"
+    is_language = False
 
     def post(self, request, *args, **kwargs):
-        form = OpenReviewCategoryForm(request.POST)
+        language_form = OpenReviewLanguageForm(request.POST)
+        category_form = OpenReviewCategoryForm(request.POST)
 
-        if form.is_valid() and not OpenReview.objects.filter(user=request.user):
-            category_id = form.cleaned_data['name'].id
+        if category_form.is_valid() and not OpenReview.objects.filter(user=request.user):
+            category_id = category_form.cleaned_data['category'].id
+            language = language_form.cleaned_data['language']
             ids = Proposal.objects\
-                .filter(category__id=category_id)\
+                .filter(category__id=category_id, language=language)\
                 .exclude(user=request.user)\
                 .values_list('id', flat=True)
             selected_ids = random.sample(list(ids), min(len(ids), 4))
@@ -480,9 +483,13 @@ class OpenReviewList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(OpenReviewList, self).get_context_data(**kwargs)
+        if not self.is_language:
+            context['is_language'] = True
+
         if OpenReview.objects.filter(user=self.request.user).exists():
             context['reviews'] = OpenReview.objects.filter(user=self.request.user).all()
         else:
+            context['select_language'] = OpenReviewLanguageForm()
             context['select_category'] = OpenReviewCategoryForm()
         return context
 

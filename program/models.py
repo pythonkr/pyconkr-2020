@@ -239,13 +239,6 @@ class OpenReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     proposal = models.ForeignKey(Proposal, on_delete=models.CASCADE)
     comment = models.TextField(max_length=2000)
-    language = models.CharField(max_length=1,
-                                choices=(
-                                    ('', '---------'),
-                                    ('K', _('Korean')),
-                                    ('E', _('English')),
-                                ),
-                                default='')
     category = models.ForeignKey(ProgramCategory, on_delete=models.CASCADE, null=True, blank=True)
 
     @property

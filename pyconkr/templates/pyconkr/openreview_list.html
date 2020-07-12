@@ -8,7 +8,9 @@
 {% block content %}
 
 {% if not reviews %}
-    {% crispy select_category %}
+
+        {% crispy select_category %}
+
 {% endif %}
 
 {% if reviews %}
