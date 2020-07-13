@@ -4,7 +4,7 @@
 
 ## Contribution
 
-pyconkr-api contribution을 제출할 때에는 반드시 다음 [가이드라인](./.github/CONTRIBUTING.md)을 따라주세요.
+Contribution을 제출할 때는 반드시 다음 [가이드라인](./.github/CONTRIBUTING.md)을 따라주세요.
 
 ## Requirements
 
