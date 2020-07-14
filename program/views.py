@@ -534,7 +534,7 @@ class OpenReviewList(TemplateView):
 
             # 추출건 저장
             for proposal in Proposal.objects.filter(id__in=selected_ids):
-                review = OpenReview(proposal=proposal, user=request.user)
+                review = OpenReview(proposal=proposal, user=request.user, category_id=category_id)
                 review.save()
 
         context = self.get_context_data()
