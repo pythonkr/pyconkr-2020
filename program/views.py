@@ -514,6 +514,7 @@ class OpenReviewList(TemplateView):
         # 카테고리 지정 폼을 처리하는 경우, 이미 지정된 오픈리뷰가 없는 경우
         if category_form.is_valid() and not OpenReview.objects.filter(user=request.user):
             category_id = category_form.cleaned_data['category'].id
+            language = request.POST['selected_language']
 
             if request.POST['selected_language'] == 'N':
                 ids = Proposal.objects \
@@ -522,7 +523,7 @@ class OpenReviewList(TemplateView):
                     .values_list('id', flat=True)
             else:
                 ids = Proposal.objects \
-                    .filter(category_id=category_id, language=request.POST['selected_language']) \
+                    .filter(category_id=category_id, language=language) \
                     .exclude(user=request.user) \
                     .values_list('id', flat=True)
             if not ids.exists():
