@@ -38,11 +38,13 @@
         </section>
         {% endfor %}
     </div>
-    {% if all_reviewed %}
-        <div class="a_btn_container">
-            <a class="a_btn" href="{% url 'openreview-result' %}">{% trans "제출하기" %}</a>
-        </div>
-    {% endif %}
+    <div class="a_btn_container">
+        {% if all_reviewed %}
+        <a class="a_btn" href="{% url 'openreview-result' %}">{% trans "제출하기" %}</a>
+        {% else %}
+        <a class="a_btn disable" href="#">{% trans "제출하기" %}</a>
+        {% endif %}
+    </div>
 {% endif %}
 
 {% endblock %}
