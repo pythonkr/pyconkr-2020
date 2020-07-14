@@ -16,7 +16,7 @@
 {% endif %}
 
 {% if reviews %}
-    <p>본인에게 할당된 cfp에 대한 리뷰를 작성해주세요. 모든 리뷰를 작성해야 최종 저장이 됩니다.</p>
+    <p>본인에게 할당된 CFP에 대한 리뷰를 작성해주세요. 모든 리뷰를 작성해야 최종 저장이 됩니다.</p>
     <div style="padding: 20px 0;">
         {% for review in reviews %}
         <section>
@@ -29,6 +29,11 @@
         </section>
         {% endfor %}
     </div>
+    {% if all_reviewed %}
+        <div class="a_btn_container">
+            <a class="a_btn" href="{% url 'openreview-result' %}">{% trans "제출하기" %}</a>
+        </div>
+    {% endif %}
 {% endif %}
 
 {% endblock %}

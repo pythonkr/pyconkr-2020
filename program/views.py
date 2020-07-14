@@ -455,6 +455,7 @@ class OpenReviewHome(ListView):
         context['review_start_at'] = review_start_at
         context['review_finish_at'] = review_finish_at
         context['is_review_able'] = review_start_at < now < review_finish_at
+        context['is_submitted'] = OpenReview.objects.filter(user=self.request.user, submitted=True).exists()
 
         return context
 
@@ -518,6 +519,13 @@ class OpenReviewList(TemplateView):
             category_form.helper.add_input(Hidden(name='selected_language', value=self.selected_language))
 
             context['select_category'] = category_form
+
+        # 모든 리뷰를 작성했는지 확인
+        for review in OpenReview.objects.filter(user=self.request.user):
+            if review.comment == "":
+                context['all_reviewed'] = False
+        context['all_reviewed'] = True
+
         return context
 
 

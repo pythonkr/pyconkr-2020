@@ -13,9 +13,10 @@ from .views import login, logout
 from .views import PatronList
 
 from program.views import ProposalCreate, OpenReviewUpdate
-from program.views import OpenReviewList, OpenReviewHome
+from program.views import OpenReviewList, OpenReviewHome, OpenReviewResult
 
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = [
@@ -39,7 +40,6 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/about/patron/$',
             PatronList.as_view(), name='patrons'),
 
-
     re_path(r'^2020/registration/', include('registration.urls')),
 
     # for rosetta
@@ -52,6 +52,8 @@ urlpatterns += i18n_patterns(
             login_required(OpenReviewList.as_view()), name='openreview-list'),
     re_path(r'^2020/contribution/review-talk-proposal/review/(?P<pk>\d+)$',
             login_required(OpenReviewUpdate.as_view()), name='openreview-update'),
+    re_path(r'^2020/contribution/review-talk-proposal/review/result$',
+            login_required(OpenReviewResult.as_view()), name='openreview-result'),
 
     # for flatpages
     re_path(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),

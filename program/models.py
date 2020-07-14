@@ -240,6 +240,7 @@ class OpenReview(models.Model):
     proposal = models.ForeignKey(Proposal, on_delete=models.CASCADE)
     comment = models.TextField(max_length=2000)
     category = models.ForeignKey(ProgramCategory, on_delete=models.CASCADE, null=True, blank=True)
+    submitted = models.BooleanField(default=False)
 
     @property
     def has_comment(self):
