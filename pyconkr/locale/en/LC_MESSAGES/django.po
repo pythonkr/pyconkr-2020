@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-11 20:23+0900\n"
+"POT-Creation-Date: 2020-07-13 19:40+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -37,7 +37,7 @@ msgstr "Read more"
 
 #: .\program\forms.py:20 .\program\forms.py:69 .\program\forms.py:91
 #: .\program\forms.py:122 .\program\forms.py:147 .\program\forms.py:171
-#: .\program\forms.py:188
+#: .\program\forms.py:188 .\program\forms.py:203
 msgid "Submit"
 msgstr "Submit"
 
@@ -72,6 +72,7 @@ msgid "Title"
 msgstr "Title"
 
 #: .\program\forms.py:79
+#: .\pyconkr\templates\pyconkr\lightning_talk_detail.html:11
 msgid "Slide URL"
 msgstr "Presentation slides URL"
 
@@ -151,7 +152,23 @@ msgstr "Detailed description"
 msgid "Comment"
 msgstr ""
 
-#: .\program\models.py:62
+#: .\program\forms.py:209
+msgid "발표 제목"
+msgstr "Title"
+
+#: .\program\forms.py:210
+msgid "발표 슬라이드 URL"
+msgstr "Slide URL"
+
+#: .\program\forms.py:211
+msgid "발표 요일"
+msgstr "Day of the Week"
+
+#: .\program\forms.py:212
+msgid "준비위원회에게 남기고 싶은 말"
+msgstr "Comment to reviewers"
+
+#: .\program\models.py:63
 msgid "help-text-for-speaker-info"
 msgstr ""
 "<p>Add your personal pages in JSON format.</p>\n"
@@ -166,51 +183,59 @@ msgstr ""
 "social/\" target=\"_blank\">http://lipis.github.io/bootstrap-social/</a></p>"
 "\""
 
-#: .\program\models.py:113 .\program\models.py:212 .\program\models.py:261
+#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:262
 msgid "Beginner"
 msgstr "Beginner"
 
-#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:262
+#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:263
 msgid "Intermediate"
 msgstr "Intermediate"
 
-#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:263
+#: .\program\models.py:116 .\program\models.py:215 .\program\models.py:264
 msgid "Experienced"
 msgstr "Experienced"
 
-#: .\program\models.py:120 .\program\models.py:219
+#: .\program\models.py:121 .\program\models.py:220
 msgid "25min"
 msgstr ""
 
-#: .\program\models.py:121 .\program\models.py:220
+#: .\program\models.py:122 .\program\models.py:221
 msgid "40min"
 msgstr ""
 
-#: .\program\models.py:126 .\program\models.py:227 .\program\models.py:275
+#: .\program\models.py:127 .\program\models.py:228 .\program\models.py:276
 #: .\pyconkr\settings.py:150
 msgid "English"
 msgstr "English"
 
-#: .\program\models.py:127 .\program\models.py:226 .\program\models.py:276
+#: .\program\models.py:128 .\program\models.py:227 .\program\models.py:277
 #: .\pyconkr\settings.py:149
 msgid "Korean"
 msgstr "Korean"
 
-#: .\program\models.py:188
+#: .\program\models.py:189
 msgid "Not arranged yet"
 msgstr "Not arranged yet"
 
-#: .\program\models.py:268
+#: .\program\models.py:269
 msgid "1 hour"
 msgstr "1 hour"
 
-#: .\program\models.py:269
+#: .\program\models.py:270
 msgid "2 hours"
 msgstr "2 hours"
 
-#: .\program\models.py:270
+#: .\program\models.py:271
 msgid "4 hours"
 msgstr "4 hours"
+
+#: .\program\models.py:353
+msgid "토요일"
+msgstr "Saturday"
+
+#: .\program\models.py:354
+msgid "일요일"
+msgstr "Sunday"
 
 #: .\program\views.py:80
 msgid "Preferences are successfully updated."
@@ -254,6 +279,10 @@ msgstr "Proposal"
 
 #: .\program\views.py:511
 msgid "There are no proposals in this category."
+msgstr ""
+
+#: .\program\views.py:660
+msgid "Lightning Talk Proposal"
 msgstr ""
 
 #: .\pyconkr\context_processors.py:30
@@ -373,7 +402,8 @@ msgid "Review Talk Proposal"
 msgstr ""
 
 #: .\pyconkr\context_processors.py:89
-msgid "Proposing a Tutorial"
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:5
+msgid "Proposing a Lightning Talk"
 msgstr ""
 
 #: .\pyconkr\context_processors.py:91
@@ -818,15 +848,21 @@ msgid "라이트닝 토크 신청"
 msgstr "Proposing a Lightning Talk"
 
 #: .\pyconkr\templates\pyconkr\contribution_home.html:84
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:21
 #: .\pyconkr\templates\pyconkr\openreview_home.html:21
 msgid "문의"
 msgstr "Contact"
 
-#: .\pyconkr\templates\pyconkr\openreview_form.html:20
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:32
-msgid "Comment to reviewers"
-msgstr "Comment to reviewers"
+#: .\pyconkr\templates\pyconkr\lightning_talk_detail.html:16
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:38
+msgid "수정하기"
+msgstr "Edit"
 
+#: .\pyconkr\templates\pyconkr\lightning_talk_form.html:5
+msgid "라이트닝 토크 신청하기"
+msgstr "Proposing a Lightning Talk"
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:10
 #: .\pyconkr\templates\pyconkr\openreview_home.html:10
 msgid ""
 "누구나 파이콘 한국 2020에 제출된 발표 제안 내용들을 검토하고 의견을 남겨주실 "
@@ -835,17 +871,29 @@ msgstr ""
 "Anyone can review and comment on the presentation proposals submitted to "
 "PyCon Korea 2020."
 
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:13
 #: .\pyconkr\templates\pyconkr\openreview_home.html:13
 msgid "여러분의 손으로 풍성한 파이콘 한국을 만들어주세요 :)"
 msgstr "Make PyCon Korea 2020 with your hands :)"
 
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:16
 #: .\pyconkr\templates\pyconkr\openreview_home.html:16
 msgid "일정"
 msgstr "Schedule"
 
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
 #: .\pyconkr\templates\pyconkr\openreview_home.html:18
 msgid "Y년 F j일 (D) H:i"
 msgstr "F jS (D) H:i"
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:26
+msgid "신청하기"
+msgstr "Apply"
+
+#: .\pyconkr\templates\pyconkr\openreview_form.html:20
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:32
+msgid "Comment to reviewers"
+msgstr "Comment to reviewers"
 
 #: .\pyconkr\templates\pyconkr\openreview_home.html:26
 msgid "검토하기"
@@ -933,10 +981,6 @@ msgstr "Up to 5 items can be selected."
 #: .\pyconkr\templates\pyconkr\proposal_detail.html:36
 msgid "목록 보기"
 msgstr "Show list"
-
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:38
-msgid "수정하기"
-msgstr "Edit"
 
 #: .\pyconkr\templates\pyconkr\proposal_form.html:5
 msgid "발표 제안"
