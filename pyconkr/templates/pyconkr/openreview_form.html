@@ -15,12 +15,6 @@
     <hr />
     <h4>{% trans "Detailed description" %}</h4>
     <p>{{ object.proposal.desc|safe }}</p>
-    <hr />
-    {% if object.proposal.comment %}
-        <h4>{% trans "Comment to reviewers" %}</h4>
-        <p>{{ object.proposal.comment|safe }}</p>
-        <hr />
-    {% endif %}
     {% crispy form %}
 </div>
 {% endblock %}
