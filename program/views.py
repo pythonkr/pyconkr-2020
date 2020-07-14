@@ -132,7 +132,7 @@ def schedule(request):
                     wide[d][t][r] = None
 
             if len(narrow[d][t]) == 0:
-                del(narrow[d][t])
+                del (narrow[d][t])
 
     contexts = {
         'wide': wide,
@@ -196,8 +196,8 @@ class SprintProposalDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(SprintProposalDetail, self).get_context_data(**kwargs)
         checkin_ids = \
-            SprintCheckin.objects.filter(sprint=self.object).\
-            order_by('id').values_list('id', flat=True)
+            SprintCheckin.objects.filter(sprint=self.object). \
+                order_by('id').values_list('id', flat=True)
         limit_bar_id = 65539
         checkins = SprintCheckin.objects.filter(sprint=self.object)
         attendees = []
@@ -211,11 +211,11 @@ class SprintProposalDetail(DetailView):
                                   })
             else:
                 attendees.append({'name': x.user.profile.name if x.user.profile.name != '' else
-                                  x.user.email.split('@')[0],
+                x.user.email.split('@')[0],
                                   'picture': x.user.profile.image,
                                   'registered':
-                                  Registration.objects.filter(user=x.user,
-                                                              payment_status='paid').exists(),
+                                      Registration.objects.filter(user=x.user,
+                                                                  payment_status='paid').exists(),
                                   'waiting': True if x.id > limit_bar_id else False
                                   })
         context['attendees'] = attendees
@@ -310,17 +310,17 @@ class TutorialProposalDetail(DetailView):
                         self).get_context_data(**kwargs)
         capacity = self.object.capacity
         checkin_ids = \
-            TutorialCheckin.objects.filter(tutorial=self.object).\
-            order_by('id').values_list('id', flat=True)
+            TutorialCheckin.objects.filter(tutorial=self.object). \
+                order_by('id').values_list('id', flat=True)
         limit_bar_id = 65539
         if capacity < len(checkin_ids):
-            limit_bar_id = checkin_ids[capacity-1]
+            limit_bar_id = checkin_ids[capacity - 1]
         attendees = [{'name': x.user.profile.name if x.user.profile.name != '' else
-                      x.user.email.split('@')[0],
+        x.user.email.split('@')[0],
                       'picture': x.user.profile.image,
                       'registered':
-                      Registration.objects.filter(user=x.user,
-                                                  payment_status='paid').exists(),
+                          Registration.objects.filter(user=x.user,
+                                                      payment_status='paid').exists(),
                       'waiting': True if x.id > limit_bar_id else False
                       } for x in TutorialCheckin.objects.filter(tutorial=self.object)]
         context['attendees'] = attendees
@@ -336,7 +336,7 @@ class TutorialProposalDetail(DetailView):
             context['option'] = self.object.option
 
         if not self.request.user.is_anonymous:
-            registration = Registration.objects.active_tutorial()\
+            registration = Registration.objects.active_tutorial() \
                 .filter(option=self.object.option, user=self.request.user, payment_status__in=['paid', 'ready'])
             if registration.exists():
                 context['is_registered'] = True
@@ -538,6 +538,23 @@ class OpenReviewUpdate(UpdateView):
         return reverse('openreview-list')
 
 
+class OpenReviewResult(ListView):
+    model = OpenReview
+    template_name = "pyconkr/openreview_result.html"
+
+    def get(self, request, *args, **kwargs):
+        reviews = OpenReview.objects.filter(user=self.request.user)
+        for review in reviews:
+            if review.comment == "":
+                return redirect('openreview')
+
+        for review in reviews:
+            review.submitted = True
+            review.save()
+
+        return super().get(request, *args, **kwargs)
+
+
 class ProgramUpdate(UpdateView):
     model = Program
     form_class = ProgramForm
@@ -550,7 +567,7 @@ class ProgramUpdate(UpdateView):
 def edit_proposal_available_checker(request):
     KST = datetime.timezone(datetime.timedelta(hours=9))
     now = datetime.datetime.now(tz=KST)
-    flag = False    # 아래에 지정된 상황이 아니면 CFP Closed 상태
+    flag = False  # 아래에 지정된 상황이 아니면 CFP Closed 상태
 
     cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
     cfp_deadline = constance.config.CFP_DEADLINE.replace(tzinfo=KST)
