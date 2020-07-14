@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 19:40+0900\n"
+"POT-Creation-Date: 2020-07-14 15:58+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -35,136 +35,165 @@ msgstr "Ready for content"
 msgid "Read more"
 msgstr "Read more"
 
-#: .\program\forms.py:20 .\program\forms.py:69 .\program\forms.py:91
-#: .\program\forms.py:122 .\program\forms.py:147 .\program\forms.py:171
-#: .\program\forms.py:188 .\program\forms.py:203
+#: .\program\forms.py:21 .\program\forms.py:70 .\program\forms.py:92
+#: .\program\forms.py:123 .\program\forms.py:148 .\program\forms.py:240
 msgid "Submit"
 msgstr "Submit"
 
-#: .\program\forms.py:21 .\program\forms.py:46
+#: .\program\forms.py:22 .\program\forms.py:47
 #, python-format
 msgid "Maximum size is %(size)d MB"
 msgstr "Maximum size is %(size)d MB"
 
-#: .\program\forms.py:24 .\program\forms.py:56
+#: .\program\forms.py:25 .\program\forms.py:57
 #, python-format
 msgid "Minimum dimension is %(width)d x %(height)d"
 msgstr ""
 
-#: .\program\forms.py:35
+#: .\program\forms.py:36
 msgid "Photo"
 msgstr "Photo"
 
-#: .\program\forms.py:36 .\pyconkr\templates\nav.html:54
+#: .\program\forms.py:37 .\pyconkr\templates\nav.html:54
 #: .\pyconkr\templates\nav.html:66
 #: .\pyconkr\templates\pyconkr\speaker_detail.html:17
 msgid "Profile"
 msgstr "Profile"
 
-#: .\program\forms.py:37
+#: .\program\forms.py:38
 msgid "Additional information"
 msgstr "Additional information"
 
-#: .\program\forms.py:78 .\program\forms.py:134 .\program\forms.py:158
+#: .\program\forms.py:79 .\program\forms.py:135 .\program\forms.py:159
 #: .\pyconkr\templates\pyconkr\openreview_form.html:10
-#: .\pyconkr\templates\pyconkr\openreview_list.html:12
+#: .\pyconkr\templates\pyconkr\openreview_list.html:32
 msgid "Title"
 msgstr "Title"
 
-#: .\program\forms.py:79
+#: .\program\forms.py:80
 #: .\pyconkr\templates\pyconkr\lightning_talk_detail.html:11
 msgid "Slide URL"
 msgstr "Presentation slides URL"
 
-#: .\program\forms.py:80
+#: .\program\forms.py:81
 msgid "Video URL"
 msgstr "Presentation video URL"
 
-#: .\program\forms.py:81 .\pyconkr\templates\pyconkr\program_detail.html:54
+#: .\program\forms.py:82 .\pyconkr\templates\pyconkr\program_detail.html:54
 msgid "Photography and recording is allowed."
 msgstr "Photography and recording is allowed."
 
-#: .\program\forms.py:82 .\pyconkr\templates\pyconkr\program_detail.html:73
+#: .\program\forms.py:83 .\pyconkr\templates\pyconkr\program_detail.html:73
 msgid "Description"
 msgstr "Description"
 
-#: .\program\forms.py:106
+#: .\program\forms.py:107
 msgid "Proposal title (required)"
 msgstr "Proposal title (required)"
 
-#: .\program\forms.py:107
+#: .\program\forms.py:108
 msgid "Brief (required)"
 msgstr "Brief (required)"
 
-#: .\program\forms.py:108
+#: .\program\forms.py:109
 msgid "Detailed description (required)"
 msgstr "Detailed description (required)"
 
-#: .\program\forms.py:109
+#: .\program\forms.py:110
 msgid "Comment to reviewers (optional)"
 msgstr "Comment to reviewers (optional)"
 
-#: .\program\forms.py:110 .\program\forms.py:162
+#: .\program\forms.py:111 .\program\forms.py:163
 msgid "Session difficulty"
 msgstr "Session difficulty"
 
-#: .\program\forms.py:111
+#: .\program\forms.py:112
 msgid "Session duration"
 msgstr "Session duration"
 
-#: .\program\forms.py:112 .\program\forms.py:135
+#: .\program\forms.py:113 .\program\forms.py:136
 #: .\pyconkr\templates\nav.html:78
 msgid "Language"
 msgstr "Language"
 
-#: .\program\forms.py:113
+#: .\program\forms.py:114
 msgid "Category"
 msgstr "Category"
 
-#: .\program\forms.py:136
+#: .\program\forms.py:137
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:49
 msgid "Project URL"
 msgstr "Official URL for project"
 
-#: .\program\forms.py:137
+#: .\program\forms.py:138
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:41
 msgid "Project brief"
 msgstr "Brief about project"
 
-#: .\program\forms.py:138
+#: .\program\forms.py:139
 msgid "Contribution description"
 msgstr "Describe about your contribution activity in this project."
 
-#: .\program\forms.py:159 .\pyconkr\templates\pyconkr\openreview_form.html:13
+#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\openreview_form.html:13
 #: .\pyconkr\templates\pyconkr\proposal_detail.html:22
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "Brief"
 
-#: .\program\forms.py:160 .\pyconkr\templates\pyconkr\openreview_form.html:16
+#: .\program\forms.py:161 .\pyconkr\templates\pyconkr\openreview_form.html:16
 #: .\pyconkr\templates\pyconkr\proposal_detail.html:27
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
 msgstr "Detailed description"
 
-#: .\program\forms.py:194
+#: .\program\forms.py:183 .\program\forms.py:202
+msgid "Next"
+msgstr ""
+
+#: .\program\forms.py:188
+msgid "어떤 언어로 작성된 발표 제안을 리뷰할지 선택하세요."
+msgstr "Choose which language to review."
+
+#: .\program\forms.py:193
+msgid "언어"
+msgstr "Language"
+
+#: .\program\forms.py:203
+msgid "카테고리"
+msgstr "Category"
+
+#: .\program\forms.py:206
+msgid "리뷰할 분야를 선택하세요. 발표 제안이 없는 분야는 표시되지 않습니다."
+msgstr ""
+"Please select a category to review. Categories that do not have any CFP are "
+"not displayed."
+
+#: .\program\forms.py:214
+msgid "카테고리 이름"
+msgstr "Category name"
+
+#: .\program\forms.py:225
+msgid "Save"
+msgstr ""
+
+#: .\program\forms.py:231
 msgid "Comment"
 msgstr ""
 
-#: .\program\forms.py:209
+#: .\program\forms.py:246
 msgid "발표 제목"
 msgstr "Title"
 
-#: .\program\forms.py:210
+#: .\program\forms.py:247
 msgid "발표 슬라이드 URL"
 msgstr "Slide URL"
 
-#: .\program\forms.py:211
+#: .\program\forms.py:248
 msgid "발표 요일"
 msgstr "Day of the Week"
 
-#: .\program\forms.py:212
+#: .\program\forms.py:249
 msgid "준비위원회에게 남기고 싶은 말"
 msgstr "Comment to reviewers"
 
@@ -183,15 +212,15 @@ msgstr ""
 "social/\" target=\"_blank\">http://lipis.github.io/bootstrap-social/</a></p>"
 "\""
 
-#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:262
+#: .\program\models.py:114 .\program\models.py:213 .\program\models.py:264
 msgid "Beginner"
 msgstr "Beginner"
 
-#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:263
+#: .\program\models.py:115 .\program\models.py:214 .\program\models.py:265
 msgid "Intermediate"
 msgstr "Intermediate"
 
-#: .\program\models.py:116 .\program\models.py:215 .\program\models.py:264
+#: .\program\models.py:116 .\program\models.py:215 .\program\models.py:266
 msgid "Experienced"
 msgstr "Experienced"
 
@@ -203,12 +232,12 @@ msgstr ""
 msgid "40min"
 msgstr ""
 
-#: .\program\models.py:127 .\program\models.py:228 .\program\models.py:276
+#: .\program\models.py:127 .\program\models.py:228 .\program\models.py:278
 #: .\pyconkr\settings.py:150
 msgid "English"
 msgstr "English"
 
-#: .\program\models.py:128 .\program\models.py:227 .\program\models.py:277
+#: .\program\models.py:128 .\program\models.py:227 .\program\models.py:279
 #: .\pyconkr\settings.py:149
 msgid "Korean"
 msgstr "Korean"
@@ -217,71 +246,67 @@ msgstr "Korean"
 msgid "Not arranged yet"
 msgstr "Not arranged yet"
 
-#: .\program\models.py:269
+#: .\program\models.py:271
 msgid "1 hour"
 msgstr "1 hour"
 
-#: .\program\models.py:270
+#: .\program\models.py:272
 msgid "2 hours"
 msgstr "2 hours"
 
-#: .\program\models.py:271
+#: .\program\models.py:273
 msgid "4 hours"
 msgstr "4 hours"
 
-#: .\program\models.py:353
+#: .\program\models.py:355
 msgid "토요일"
 msgstr "Saturday"
 
-#: .\program\models.py:354
+#: .\program\models.py:356
 msgid "일요일"
 msgstr "Sunday"
 
-#: .\program\views.py:80
+#: .\program\views.py:82
 msgid "Preferences are successfully updated."
 msgstr "Preferences are successfully updated."
 
-#: .\program\views.py:257
+#: .\program\views.py:259
 msgid "Sprint proposal successfully updated."
 msgstr "Sprint proposal successfully updated."
 
-#: .\program\views.py:264
+#: .\program\views.py:266
 msgid "Update sprint"
 msgstr "Update sprint"
 
-#: .\program\views.py:286
+#: .\program\views.py:288
 msgid "Sprint proposal successfully created."
 msgstr "Sprint proposal successfully created."
 
-#: .\program\views.py:309
+#: .\program\views.py:311
 msgid "Tutorial proposal successfully updated."
 msgstr "Tutorial proposal successfully updated."
 
-#: .\program\views.py:317
+#: .\program\views.py:319
 msgid "Update tutorial"
 msgstr "Update tutorial"
 
-#: .\program\views.py:370
+#: .\program\views.py:372
 msgid "Tutorial proposal successfully created."
 msgstr "Tutorial proposal successfully created."
 
-#: .\program\views.py:392
+#: .\program\views.py:394
 msgid "Proposal successfully created."
 msgstr "Proposal successfully created."
 
-#: .\program\views.py:442
+#: .\program\views.py:444
 msgid "Proposal successfully updated."
 msgstr "Proposal successfully updated."
 
-#: .\program\views.py:472
+#: .\program\views.py:474
 msgid "Proposal"
 msgstr "Proposal"
 
-#: .\program\views.py:511
-msgid "There are no proposals in this category."
-msgstr ""
-
-#: .\program\views.py:660
+#: .\program\views.py:745
 msgid "Lightning Talk Proposal"
 msgstr ""
 
@@ -840,6 +865,7 @@ msgstr "Recommending Keynote Speaker"
 #: .\pyconkr\templates\pyconkr\openreview_form.html:5
 #: .\pyconkr\templates\pyconkr\openreview_home.html:5
 #: .\pyconkr\templates\pyconkr\openreview_list.html:5
+#: .\pyconkr\templates\pyconkr\openreview_result.html:5
 msgid "발표 제안 검토하기"
 msgstr "Review Talk Proposal"
 
@@ -848,8 +874,9 @@ msgid "라이트닝 토크 신청"
 msgstr "Proposing a Lightning Talk"
 
 #: .\pyconkr\templates\pyconkr\contribution_home.html:84
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:21
-#: .\pyconkr\templates\pyconkr\openreview_home.html:21
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
+#: .\pyconkr\templates\pyconkr\openreview_home.html:25
+#: .\pyconkr\templates\pyconkr\openreview_result.html:13
 msgid "문의"
 msgstr "Contact"
 
@@ -863,30 +890,22 @@ msgid "라이트닝 토크 신청하기"
 msgstr "Proposing a Lightning Talk"
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:10
-#: .\pyconkr\templates\pyconkr\openreview_home.html:10
 msgid ""
-"누구나 파이콘 한국 2020에 제출된 발표 제안 내용들을 검토하고 의견을 남겨주실 "
-"수 있습니다."
-msgstr ""
-"Anyone can review and comment on the presentation proposals submitted to "
-"PyCon Korea 2020."
+"누구나 라이트닝 토크를 신청할 수 있습니다! 주제와 같은 자세한 내용은 <a "
+"href='/2020/program/lightning-talk/'>여기</a>를 참고해주세요."
+msgstr "Everyone can apply a lightning talk! Details in <a href='/en/2020/program/lightning-talk/'>here</a>."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:13
-#: .\pyconkr\templates\pyconkr\openreview_home.html:13
-msgid "여러분의 손으로 풍성한 파이콘 한국을 만들어주세요 :)"
-msgstr "Make PyCon Korea 2020 with your hands :)"
-
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:16
-#: .\pyconkr\templates\pyconkr\openreview_home.html:16
+#: .\pyconkr\templates\pyconkr\openreview_home.html:20
 msgid "일정"
 msgstr "Schedule"
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
-#: .\pyconkr\templates\pyconkr\openreview_home.html:18
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:15
+#: .\pyconkr\templates\pyconkr\openreview_home.html:22
 msgid "Y년 F j일 (D) H:i"
 msgstr "F jS (D) H:i"
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:26
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:23
 msgid "신청하기"
 msgstr "Apply"
 
@@ -895,9 +914,67 @@ msgstr "Apply"
 msgid "Comment to reviewers"
 msgstr "Comment to reviewers"
 
-#: .\pyconkr\templates\pyconkr\openreview_home.html:26
+#: .\pyconkr\templates\pyconkr\openreview_home.html:10
+msgid "제출하신 리뷰는 수정할 수 없습니다. 신중하게 작성해주세요."
+msgstr "You can't edit your reviews after submitted."
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:11
+msgid "오픈 리뷰에서도 파이콘 한국 행동강령(CoC)을 준수해야 합니다."
+msgstr "You must also comply CoC in Open Review."
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:14
+msgid ""
+"누구나 파이콘 한국 2020에 제출된 발표 제안 내용들을 검토하고 의견을 남겨주실 "
+"수 있습니다."
+msgstr ""
+"Anyone can review and comment on the presentation proposals submitted to "
+"PyCon Korea 2020."
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:17
+msgid "여러분의 손으로 풍성한 파이콘 한국을 만들어주세요 :)"
+msgstr "Make PyCon Korea 2020 with your hands :)"
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:30
+msgid "이미 참여하셨습니다."
+msgstr "Already submitted."
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:34
 msgid "검토하기"
 msgstr "Review CFP"
+
+#: .\pyconkr\templates\pyconkr\openreview_list.html:15
+msgid "선택한 언어와 카테고리에 조건에 맞는 발표 제안이 없습니다."
+msgstr ""
+"There are no CFPs that meet the criteria for the selected language and "
+"category."
+
+#: .\pyconkr\templates\pyconkr\openreview_list.html:16
+msgid "다른 조건으로 검색해주세요."
+msgstr "Please search with different criteria."
+
+#: .\pyconkr\templates\pyconkr\openreview_list.html:18
+msgid "(본인이 제안한 발표는 리뷰할 수 없습니다.)"
+msgstr "(You cannot review the CFP proposed by yourself.)"
+
+#: .\pyconkr\templates\pyconkr\openreview_list.html:28
+msgid ""
+"본인에게 할당된 CFP에 대한 리뷰를 작성해주세요. 모든 리뷰를 작성해야 제출하"
+"실 수 있습니다."
+msgstr ""
+"Please write a review for the CFP assigned to you. All reviews must be "
+"completed before submission."
+
+#: .\pyconkr\templates\pyconkr\openreview_list.html:35
+msgid "완료"
+msgstr "Closed"
+
+#: .\pyconkr\templates\pyconkr\openreview_list.html:43
+msgid "제출하기"
+msgstr "Submit"
+
+#: .\pyconkr\templates\pyconkr\openreview_result.html:10
+msgid "작성하신 리뷰가 제출되었습니다. 감사합니다."
+msgstr "Your reviews has been submitted. Thank you."
 
 #: .\pyconkr\templates\pyconkr\patron_list.html:7
 msgid "개인 후원자 목록"
