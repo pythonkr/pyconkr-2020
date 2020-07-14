@@ -582,6 +582,12 @@ class OpenReviewUpdate(UpdateView):
     def get(self, request, *args, **kwargs):
         open_review_flag = is_open_review_opened()
 
+        review = OpenReview.objects.get(id=self.kwargs['pk'])
+        if review.user != self.request.user:
+            return redirect('openreview')
+        elif review.user == self.request.user and review.submitted:
+            return redirect('openreview')
+
         if open_review_flag == -1:
             return redirect('/2020/error/unopened')
         elif open_review_flag == 0:
