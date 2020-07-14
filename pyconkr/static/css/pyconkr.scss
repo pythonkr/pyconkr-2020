@@ -1012,6 +1012,12 @@ a.a_btn {
   &:last-of-type {
     margin-right: 0;
   }
+
+  &.disable {
+    cursor: default;
+    pointer-events: none;
+    background: gray;
+  }
 }
 
 .sticky-footer {

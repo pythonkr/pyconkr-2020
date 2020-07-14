@@ -21,9 +21,13 @@
 <h2>{% trans "문의" %}</h2>
 <p><a href="mailto:program@pycon.kr" target="_blank">program@pycon.kr</a></p>
 
-{% if is_review_able %}
-<div class="a_btn_container">
-  <a class="a_btn large" href="{% url 'openreview-list' %}">{% trans "검토하기" %}</a>
-</div>
+{% if is_submitted %}
+    <div class="a_btn_container">
+        <a class="a_btn disable" href="">{% trans "이미 참여하셨습니다." %}</a>
+    </div>
+{% elif is_review_able %}
+    <div class="a_btn_container">
+      <a class="a_btn large" href="{% url 'openreview-list' %}">{% trans "검토하기" %}</a>
+    </div>
 {% endif %}
 {% endblock %}
