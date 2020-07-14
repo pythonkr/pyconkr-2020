@@ -7,10 +7,12 @@ from django.utils.translation import ugettext as _
 from django.urls import reverse
 from django.views.generic.edit import ModelFormMixin
 
+from crispy_forms.layout import Hidden
+
 from .models import Program, ProgramCategory, Preference, Speaker, Room, Proposal, OpenReview, \
     TutorialProposal, SprintProposal, LightningTalk
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
-    OpenReviewCategoryForm, OpenReviewCommentForm, ProgramForm, LightningTalkForm
+    OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, ProgramForm, LightningTalkForm
 
 import constance
 import datetime
@@ -489,44 +491,85 @@ class OpenReviewHome(TemplateView):
         context['review_start_at'] = review_start_at
         context['review_finish_at'] = review_finish_at
         context['is_review_able'] = review_start_at < now < review_finish_at
+        context['is_submitted'] = OpenReview.objects.filter(user=self.request.user, submitted=True).exists()
 
         return context
 
 
 class OpenReviewList(TemplateView):
     template_name = "pyconkr/openreview_list.html"
+    is_language = True  # 최초 시작시 언어 선택폼 부터 출력
+    selected_language = None
+    is_empty = False
 
     def post(self, request, *args, **kwargs):
-        form = OpenReviewCategoryForm(request.POST)
+        language_form = OpenReviewLanguageForm(request.POST)
+        category_form = OpenReviewCategoryForm(request.POST)
 
-        if form.is_valid():
-            category_id = form.cleaned_data['name']
-            ids = Proposal.objects \
-                .filter(category__id=category_id) \
-                .exclude(user=request.user) \
-                .values_list('id', flat=True)
+        # 언어선택폼 처리의 경우
+        if language_form.is_valid():
+            self.is_language = False  # 다음 페이지에서는 카테코리 선택 폼을 출력
+            self.selected_language = language_form.cleaned_data['language']
 
-            if len(ids) < 1:
-                additional_context = {
-                    'message': _('There are no proposals in this category.')
-                }
+        # 카테고리 지정 폼을 처리하는 경우, 이미 지정된 오픈리뷰가 없는 경우
+        if category_form.is_valid() and not OpenReview.objects.filter(user=request.user):
+            category_id = category_form.cleaned_data['category'].id
 
+            if request.POST['selected_language'] == 'N':
+                ids = Proposal.objects \
+                    .filter(category_id=category_id) \
+                    .exclude(user=self.request.user) \
+                    .values_list('id', flat=True)
+            else:
+                ids = Proposal.objects \
+                    .filter(category_id=category_id, language=request.POST['selected_language']) \
+                    .exclude(user=request.user) \
+                    .values_list('id', flat=True)
+            if not ids.exists():
+                self.is_empty = True
+
+            # 랜덤 추출
             selected_ids = random.sample(list(ids), min(len(ids), 4))
+
+            # 추출건 저장
             for proposal in Proposal.objects.filter(id__in=selected_ids):
                 review = OpenReview(proposal=proposal, user=request.user)
                 review.save()
 
         context = self.get_context_data()
-        # TODO: 다른 카테고리 선택하도록 유도 메세지 출력
-        # context.update(**additional_context)
         return render(request, self.template_name, context)
 
     def get_context_data(self, **kwargs):
         context = super(OpenReviewList, self).get_context_data(**kwargs)
+        if self.is_language is True:
+            context['is_language'] = True
+        else:
+            context['is_language'] = False
+
+        # 리뷰할 CFP가 없을 때
+        if self.is_empty:
+            context['is_empty'] = True
+
+        # 이미 리뷰할 CFP가 지정된 경우
         if OpenReview.objects.filter(user=self.request.user).exists():
             context['reviews'] = OpenReview.objects.filter(user=self.request.user).all()
         else:
-            context['select_category'] = OpenReviewCategoryForm()
+            # 언어선택 폼
+            context['select_language'] = OpenReviewLanguageForm()
+
+            # 카테고리 선택 폼
+            category_form = OpenReviewCategoryForm()
+            category_form.helper.add_input(Hidden(name='selected_language', value=self.selected_language))
+
+            context['select_category'] = category_form
+
+        # 모든 리뷰를 작성했는지 확인
+        for review in OpenReview.objects.filter(user=self.request.user):
+            if review.comment == "":
+                context['all_reviewed'] = False
+                return context
+        context['all_reviewed'] = True
+
         return context
 
 
@@ -535,12 +578,39 @@ class OpenReviewUpdate(UpdateView):
     form_class = OpenReviewCommentForm
     template_name = "pyconkr/openreview_form.html"
 
+    def get(self, request, *args, **kwargs):
+        open_review_flag = is_open_review_opened()
+
+        if open_review_flag == -1:
+            return redirect('/2020/error/unopened')
+        elif open_review_flag == 0:
+            return super().get(request, *args, **kwargs)
+        else:
+            return redirect('/2020/error/closed/')
+
     def get_context_data(self, **kwargs):
         context = super(OpenReviewUpdate, self).get_context_data(**kwargs)
         return context
 
     def get_success_url(self):
         return reverse('openreview-list')
+
+
+class OpenReviewResult(ListView):
+    model = OpenReview
+    template_name = "pyconkr/openreview_result.html"
+
+    def get(self, request, *args, **kwargs):
+        reviews = OpenReview.objects.filter(user=self.request.user)
+        for review in reviews:
+            if review.comment == "":
+                return redirect('openreview')
+
+        for review in reviews:
+            review.submitted = True
+            review.save()
+
+        return super().get(request, *args, **kwargs)
 
 
 class ProgramUpdate(UpdateView):
@@ -593,6 +663,21 @@ def is_proposal_opened(request):
 
     return flag
 
+
+def is_open_review_opened():
+    # 현재시간
+    KST = datetime.timezone(datetime.timedelta(hours=9))
+    now = datetime.datetime.now(tz=KST)
+
+    open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
+    open_review_deadline = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
+
+    if now < open_review_start:
+        return -1
+    elif open_review_start < now < open_review_deadline:
+        return 0
+    else:
+        return 1
 
 def is_lightning_talk_proposable(request):
     KST = datetime.timezone(datetime.timedelta(hours=9))

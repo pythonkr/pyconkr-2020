@@ -6,6 +6,10 @@
 {% endblock %}
 
 {% block content %}
+<div class="alert alert-info">
+    <p>{% trans '제출하신 리뷰는 수정할 수 없습니다. 신중하게 작성해주세요.' %}</p>
+    <p>{% trans '오픈 리뷰에서도 파이콘 한국 행동강령(CoC)을 준수해야 합니다.' %}</p>
+</div>
 <p>
   {% trans "누구나 파이콘 한국 2020에 제출된 발표 제안 내용들을 검토하고 의견을 남겨주실 수 있습니다." %}
 </p>
@@ -21,9 +25,13 @@
 <h2>{% trans "문의" %}</h2>
 <p><a href="mailto:program@pycon.kr" target="_blank">program@pycon.kr</a></p>
 
-{% if is_review_able %}
-<div class="a_btn_container">
-  <a class="a_btn large" href="{% url 'openreview-list' %}">{% trans "검토하기" %}</a>
-</div>
+{% if is_submitted %}
+    <div class="a_btn_container">
+        <a class="a_btn disable" href="">{% trans "이미 참여하셨습니다." %}</a>
+    </div>
+{% elif is_review_able %}
+    <div class="a_btn_container">
+      <a class="a_btn large" href="{% url 'openreview-list' %}">{% trans "검토하기" %}</a>
+    </div>
 {% endif %}
 {% endblock %}

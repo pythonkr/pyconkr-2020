@@ -12,7 +12,7 @@ from .views import index, robots
 from .views import login, logout
 from .views import PatronList
 
-from program.views import ProposalCreate, OpenReviewUpdate, OpenReviewList, OpenReviewHome, ContributionHome, \
+from program.views import ProposalCreate, OpenReviewUpdate, OpenReviewList, OpenReviewHome, OpenReviewResult, ContributionHome, \
     LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate
 
 from django.contrib import admin
@@ -53,6 +53,8 @@ urlpatterns += i18n_patterns(
             login_required(OpenReviewList.as_view()), name='openreview-list'),
     re_path(r'^2020/contribution/review-talk-proposal/review/(?P<pk>\d+)$',
             login_required(OpenReviewUpdate.as_view()), name='openreview-update'),
+    re_path(r'^2020/contribution/review-talk-proposal/review/result$',
+            login_required(OpenReviewResult.as_view()), name='openreview-result'),
     re_path(r'^2020/contribution/lightning-talk/home/$',
             login_required(LightningTalkHome.as_view()), name='lightning-talk'),
     re_path(r'^2020/contribution/lightning-talk/propose/$',

@@ -3,8 +3,9 @@ from crispy_forms.layout import Submit, Button
 
 from django import forms
 from django.conf import settings
-from django.forms import Select
+from django.forms import ModelChoiceField, ChoiceField, HiddenInput
 from django_summernote.widgets import SummernoteInplaceWidget
+from django.shortcuts import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.core.files.images import get_image_dimensions
 from .models import Speaker, Program, Proposal, OpenReview, SprintProposal, TutorialProposal, ProgramCategory, LightningTalk
@@ -19,15 +20,15 @@ class SpeakerForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', _('Submit')))
         self.fields['image'].help_text += _('Maximum size is %(size)d MB') \
-            % {'size': settings.SPEAKER_IMAGE_MAXIMUM_FILESIZE_IN_MB}
+                                          % {'size': settings.SPEAKER_IMAGE_MAXIMUM_FILESIZE_IN_MB}
         self.fields['image'].help_text += ' / ' \
-            + _('Minimum dimension is %(width)d x %(height)d') \
-            % {'width': settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[0],
-               'height': settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[1]}
+                                          + _('Minimum dimension is %(width)d x %(height)d') \
+                                          % {'width': settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[0],
+                                             'height': settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[1]}
 
     class Meta:
         model = Speaker
-        fields = ('image', 'desc', 'info', )
+        fields = ('image', 'desc', 'info',)
         widgets = {
             'desc': SummernoteInplaceWidget(),
         }
@@ -70,7 +71,7 @@ class ProgramForm(forms.ModelForm):
 
     class Meta:
         model = Program
-        fields = ('name', 'slide_url', 'video_url', 'is_recordable', 'desc', )
+        fields = ('name', 'slide_url', 'video_url', 'is_recordable', 'desc',)
         widgets = {
             'desc': SummernoteInplaceWidget(),
         }
@@ -148,7 +149,7 @@ class TutorialProposalForm(forms.ModelForm):
 
     class Meta:
         model = TutorialProposal
-        fields = ('title', 'brief', 'desc', 'difficulty', )
+        fields = ('title', 'brief', 'desc', 'difficulty',)
         widgets = {
             'desc': SummernoteInplaceWidget(),
             'comment': SummernoteInplaceWidget(),
@@ -163,19 +164,55 @@ class TutorialProposalForm(forms.ModelForm):
         }
 
 
+class CategoryChoiceField(ModelChoiceField):
+    def label_from_instance(self, obj):
+        return f'{obj.name}'
+
+
+class LanguageChoiceField(ModelChoiceField):
+    def label_from_instance(self, obj):
+        return f'{obj}'
+
+
+class OpenReviewLanguageForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(OpenReviewLanguageForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        # self.helper.form_action = reverse()+'?lang='
+        self.helper.add_input(Submit('next', _('Next')))
+        self.fields['language'] = ChoiceField(choices=(
+            ('N', '상관 없음'),
+            ('K', '한국어'),
+            ('E', 'English'),
+        ), help_text=_('어떤 언어로 작성된 발표 제안을 리뷰할지 선택하세요.'))
+
+    class Meta:
+        fields = ('language',)
+        labels = {
+            'language': _('언어'),
+        }
+
+
 class OpenReviewCategoryForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(OpenReviewCategoryForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', _('Submit')))
+        self.helper.add_input(Submit('next', _('Next')))
+        self.fields['category'] = CategoryChoiceField(label=_('카테고리'),
+                                                      queryset=ProgramCategory.objects.filter(visible=True).exclude(
+                                                          proposal=None),
+                                                      help_text=_('리뷰할 분야를 선택하세요. 발표 제안이 없는 분야는 표시되지 않습니다.')
+                                                      )
+        # 이전 폼에서 선택한 언어정보 저장용 Hidden input 생성 (View에서 helper를 이용해 추가)
 
     class Meta:
-        model = ProgramCategory
-        fields = ('name', )
-        # widgets = {
-        #     'name': Select(choices=((c.id, c.name) for c in ProgramCategory.objects.filter(visible=True)))
-        # }
+        model = OpenReview
+        fields = ('category',)
+        labels = {
+            'category': _('카테고리 이름'),
+        }
 
 
 class OpenReviewCommentForm(forms.ModelForm):
@@ -185,11 +222,11 @@ class OpenReviewCommentForm(forms.ModelForm):
         super(OpenReviewCommentForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', _('Submit')))
+        self.helper.add_input(Submit('save', _('Save')))
 
     class Meta:
         model = OpenReview
-        fields = ('comment', )
+        fields = ('comment',)
         labels = {
             'comment': _('Comment')
         }

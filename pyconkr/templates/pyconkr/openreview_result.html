@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "발표 제안 검토하기" %}
+{% endblock %}
+
+{% block content %}
+<p>
+  {% trans "작성하신 리뷰가 제출되었습니다. 감사합니다." %}
+</p>
+
+<h2>{% trans "문의" %}</h2>
+<p><a href="mailto:program@pycon.kr" target="_blank">program@pycon.kr</a></p>
+{% endblock %}

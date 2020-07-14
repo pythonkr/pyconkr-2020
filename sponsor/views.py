@@ -209,7 +209,7 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
 
 class VirtualBooth(ListView):
     queryset = Sponsor.objects.filter(accepted=True, paid_at__isnull=False)
-    template_name = "sponsor/virtual_booth_home.html"
+    template_name = "sponsor/virtual_boobth_home.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
