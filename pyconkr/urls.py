@@ -48,7 +48,7 @@ urlpatterns += i18n_patterns(
     # cfp (contribution의 하위 url에 두기위해 별도로 기술)
     re_path(r'^2020/contribution/about/$', ContributionHome.as_view()),
     re_path(r'^2020/contribution/review-talk-proposal/$',
-            OpenReviewHome.as_view(), name='openreview'),
+            login_required(OpenReviewHome.as_view()), name='openreview'),
     re_path(r'^2020/contribution/review-talk-proposal/set/$',
             login_required(OpenReviewList.as_view()), name='openreview-list'),
     re_path(r'^2020/contribution/review-talk-proposal/review/(?P<pk>\d+)$',
