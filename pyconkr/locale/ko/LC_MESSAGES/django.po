@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:42+0900\n"
+"POT-Creation-Date: 2020-07-14 15:58+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -857,7 +857,7 @@ msgid "라이트닝 토크 신청"
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\contribution_home.html:84
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:21
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
 #: .\pyconkr\templates\pyconkr\openreview_home.html:25
 #: .\pyconkr\templates\pyconkr\openreview_result.html:13
 msgid "문의"
@@ -873,28 +873,22 @@ msgid "라이트닝 토크 신청하기"
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:10
-#: .\pyconkr\templates\pyconkr\openreview_home.html:14
 msgid ""
-"누구나 파이콘 한국 2020에 제출된 발표 제안 내용들을 검토하고 의견을 남겨주실 "
-"수 있습니다."
+"누구나 라이트닝 토크를 신청할 수 있습니다! 주제와 같은 자세한 내용은 <a "
+"href='/2020/program/lightning-talk/'>여기</a>를 참고해주세요."
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:13
-#: .\pyconkr\templates\pyconkr\openreview_home.html:17
-msgid "여러분의 손으로 풍성한 파이콘 한국을 만들어주세요 :)"
-msgstr ""
-
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:16
 #: .\pyconkr\templates\pyconkr\openreview_home.html:20
 msgid "일정"
 msgstr ""
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:15
 #: .\pyconkr\templates\pyconkr\openreview_home.html:22
 msgid "Y년 F j일 (D) H:i"
 msgstr ""
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:26
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:23
 msgid "신청하기"
 msgstr ""
 
@@ -909,6 +903,16 @@ msgstr ""
 
 #: .\pyconkr\templates\pyconkr\openreview_home.html:11
 msgid "오픈 리뷰에서도 파이콘 한국 행동강령(CoC)을 준수해야 합니다."
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:14
+msgid ""
+"누구나 파이콘 한국 2020에 제출된 발표 제안 내용들을 검토하고 의견을 남겨주실 "
+"수 있습니다."
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\openreview_home.html:17
+msgid "여러분의 손으로 풍성한 파이콘 한국을 만들어주세요 :)"
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\openreview_home.html:30
