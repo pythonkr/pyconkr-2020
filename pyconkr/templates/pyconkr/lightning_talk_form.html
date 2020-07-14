@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}
+{% trans "라이트닝 토크 신청하기" %}
+{% endblock %}
+
+{% block content %}
+{% crispy form %}
+{% endblock %}

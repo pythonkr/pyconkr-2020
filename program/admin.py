@@ -11,7 +11,7 @@ from sorl.thumbnail.admin import AdminImageMixin
 from import_export.admin import ImportExportModelAdmin, ImportMixin
 from .models import (Room, Program, ProgramTime, ProgramDate, ProgramCategory,
                      Speaker, Preference, Proposal, TutorialProposal, SprintProposal,
-                     TutorialCheckin, SprintCheckin, OpenReview)
+                     TutorialCheckin, SprintCheckin, OpenReview, LightningTalk)
 
 
 class RoomAdmin(SummernoteModelAdmin, TranslationAdmin):
@@ -20,14 +20,14 @@ class RoomAdmin(SummernoteModelAdmin, TranslationAdmin):
     search_fields = ('name',)
 
 
-admin.site.register(Room, RoomAdmin)
+# admin.site.register(Room, RoomAdmin)
 
 
 class ProgramDateAdmin(admin.ModelAdmin):
     list_display = ('id', 'day',)
 
 
-admin.site.register(ProgramDate, ProgramDateAdmin)
+# admin.site.register(ProgramDate, ProgramDateAdmin)
 
 
 class ProgramTimeAdmin(TranslationAdmin):
@@ -36,7 +36,7 @@ class ProgramTimeAdmin(TranslationAdmin):
     ordering = ('begin',)
 
 
-admin.site.register(ProgramTime, ProgramTimeAdmin)
+# admin.site.register(ProgramTime, ProgramTimeAdmin)
 
 
 class ProgramCategoryAdmin(TranslationAdmin, ImportExportModelAdmin):
@@ -62,7 +62,7 @@ class PreferenceAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'program',)
 
 
-admin.site.register(Preference, PreferenceAdmin)
+# admin.site.register(Preference, PreferenceAdmin)
 
 
 class ProposalAdminForm(forms.ModelForm):
@@ -77,7 +77,7 @@ class ProposalAdminForm(forms.ModelForm):
 
 class ProposalAdmin(ImportMixin, admin.ModelAdmin):
     form = ProposalAdminForm
-    list_display = ('id', 'user', 'title', 'difficulty', 'duration', 'language', 'category')
+    list_display = ('id', 'user', 'title', 'difficulty', 'duration', 'language', 'category',)
 
 
 admin.site.register(Proposal, ProposalAdmin)
@@ -99,7 +99,7 @@ class TutorialProposalAdmin(admin.ModelAdmin):
                     'begin_date', 'begin_time', 'end_date', 'end_time',)
 
 
-admin.site.register(TutorialProposal, TutorialProposalAdmin)
+# admin.site.register(TutorialProposal, TutorialProposalAdmin)
 
 
 class SprintProposalAdminForm(forms.ModelForm):
@@ -118,19 +118,21 @@ class SprintProposalAdmin(admin.ModelAdmin):
                     'project_brief', 'contribution_desc')
 
 
-admin.site.register(SprintProposal, SprintProposalAdmin)
+# admin.site.register(SprintProposal, SprintProposalAdmin)
 
 
 class TutorialCheckinAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'tutorial',)
 
 
-admin.site.register(TutorialCheckin, TutorialCheckinAdmin)
+# admin.site.register(TutorialCheckin, TutorialCheckinAdmin)
 
 
 class SprintCheckinAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'sprint',)
 
+
+# admin.site.register(SprintCheckin, SprintCheckinAdmin)
 
 class OpenReviewAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'submitted',)
@@ -143,5 +145,18 @@ class OpenReviewAdmin(admin.ModelAdmin):
         return obj.user.name
 
 
-admin.site.register(SprintCheckin, SprintCheckinAdmin)
 admin.site.register(OpenReview, OpenReviewAdmin)
+
+
+class LightningTalkAdminForm(forms.ModelForm):
+    class Meta:
+        model = LightningTalk
+        fields = '__all__'
+
+
+class LightningTalkAdmin(admin.ModelAdmin):
+    form = LightningTalkAdminForm
+    list_display = ('owner', 'title', 'day', 'accepted', 'created_at')
+
+
+admin.site.register(LightningTalk, LightningTalkAdmin)

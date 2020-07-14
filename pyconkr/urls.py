@@ -12,8 +12,8 @@ from .views import index, robots
 from .views import login, logout
 from .views import PatronList
 
-from program.views import ProposalCreate, OpenReviewUpdate
-from program.views import OpenReviewList, OpenReviewHome, OpenReviewResult
+from program.views import ProposalCreate, OpenReviewUpdate, OpenReviewList, OpenReviewHome, OpenReviewResult, ContributionHome, \
+    LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate
 
 from django.contrib import admin
 
@@ -46,6 +46,7 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/rosetta/', include('rosetta.urls')),
 
     # cfp (contribution의 하위 url에 두기위해 별도로 기술)
+    re_path(r'^2020/contribution/about/$', ContributionHome.as_view()),
     re_path(r'^2020/contribution/review-talk-proposal/$',
             OpenReviewHome.as_view(), name='openreview'),
     re_path(r'^2020/contribution/review-talk-proposal/set/$',
@@ -54,6 +55,14 @@ urlpatterns += i18n_patterns(
             login_required(OpenReviewUpdate.as_view()), name='openreview-update'),
     re_path(r'^2020/contribution/review-talk-proposal/review/result$',
             login_required(OpenReviewResult.as_view()), name='openreview-result'),
+    re_path(r'^2020/contribution/lightning-talk/home/$',
+            login_required(LightningTalkHome.as_view()), name='lightning-talk'),
+    re_path(r'^2020/contribution/lightning-talk/propose/$',
+            login_required(LightningTalkCreate.as_view()), name='lightning-talk-propose'),
+    re_path(r'^2020/contribution/lightning-talk/detail/$',
+            login_required(LightningTalkDetail.as_view()), name='lightning-talk-detail'),
+    re_path(r'^2020/contribution/lightning-talk/edit/(?P<pk>\d+)$',
+            login_required(LightningTalkUpdate.as_view()), name='lightning-talk-edit'),
 
     # for flatpages
     re_path(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),

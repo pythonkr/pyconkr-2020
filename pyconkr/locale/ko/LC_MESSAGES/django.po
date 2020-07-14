@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-03 17:31+0900\n"
+"POT-Creation-Date: 2020-07-11 20:23+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -136,13 +136,13 @@ msgid "Contribution description"
 msgstr "이 프로젝트에서의 자신의 기여 활동 내용"
 
 #: .\program\forms.py:159 .\pyconkr\templates\pyconkr\openreview_form.html:13
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:23
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:22
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:63
 msgid "Brief"
 msgstr "간단한 설명"
 
 #: .\program\forms.py:160 .\pyconkr\templates\pyconkr\openreview_form.html:16
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:28
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:27
 #: .\pyconkr\templates\pyconkr\sprintproposal_detail.html:43
 #: .\pyconkr\templates\pyconkr\tutorialproposal_detail.html:68
 msgid "Detailed description"
@@ -188,12 +188,12 @@ msgid "40min"
 msgstr "40분"
 
 #: .\program\models.py:126 .\program\models.py:227 .\program\models.py:275
-#: .\pyconkr\settings.py:153
+#: .\pyconkr\settings.py:150
 msgid "English"
 msgstr "영어"
 
 #: .\program\models.py:127 .\program\models.py:226 .\program\models.py:276
-#: .\pyconkr\settings.py:152
+#: .\pyconkr\settings.py:149
 msgid "Korean"
 msgstr "한국어"
 
@@ -213,47 +213,47 @@ msgstr "2시간"
 msgid "4 hours"
 msgstr "4시간"
 
-#: .\program\views.py:58
+#: .\program\views.py:80
 msgid "Preferences are successfully updated."
 msgstr "선호도 등록이 완료되었습니다."
 
-#: .\program\views.py:235
+#: .\program\views.py:257
 msgid "Sprint proposal successfully updated."
 msgstr "스프린트 제안서가 수정되었습니다."
 
-#: .\program\views.py:242
+#: .\program\views.py:264
 msgid "Update sprint"
 msgstr "스프린트 갱신"
 
-#: .\program\views.py:264
+#: .\program\views.py:286
 msgid "Sprint proposal successfully created."
 msgstr "스프린트 제안을 제출하였습니다."
 
-#: .\program\views.py:287
+#: .\program\views.py:309
 msgid "Tutorial proposal successfully updated."
 msgstr "튜토리얼 제안서가 수정되었습니다."
 
-#: .\program\views.py:295
+#: .\program\views.py:317
 msgid "Update tutorial"
 msgstr "튜토리얼 갱신"
 
-#: .\program\views.py:348
+#: .\program\views.py:370
 msgid "Tutorial proposal successfully created."
 msgstr "튜토리얼 제안을 제출하였습니다."
 
-#: .\program\views.py:380
-msgid "Proposal"
-msgstr "발표안"
-
-#: .\program\views.py:389
-msgid "Proposal successfully updated."
-msgstr "발표안이 수정되었습니다."
-
-#: .\program\views.py:412
+#: .\program\views.py:392
 msgid "Proposal successfully created."
 msgstr "발표안을 제출하였습니다."
 
-#: .\program\views.py:475
+#: .\program\views.py:442
+msgid "Proposal successfully updated."
+msgstr "발표안이 수정되었습니다."
+
+#: .\program\views.py:472
+msgid "Proposal"
+msgstr "발표안"
+
+#: .\program\views.py:511
 msgid "There are no proposals in this category."
 msgstr "선택하신 카테고리에 발표 제안이 없습니다."
 
@@ -466,8 +466,16 @@ msgstr "파이콘 한국 2020은 파이콘 한국 준비위원회가 만들고 �
 #: .\pyconkr\templates\footer.html:9
 msgid "Powered by Django"
 msgstr ""
-"파이썬 웹 프레임워크 <a href='https://www.djangoproject.com/'>Django</a>로 만"
-"들었습니다."
+"파이썬 웹 프레임워크 <a href='https://www.djangoproject.com/' "
+"target='_blank'>Django</a>로 만들었습니다."
+
+#: .\pyconkr\templates\footer.html:12
+msgid "서비스 이용 약관"
+msgstr "<a href='/2020/terms-of-service/'>서비스 이용 약관</a>"
+
+#: .\pyconkr\templates\footer.html:14
+msgid "개인정보 처리 방침"
+msgstr "<a href='/2020/privacy-policy/'>개인정보 처리 방침</a>"
 
 #: .\pyconkr\templates\index.html:17
 msgid "공지사항"
@@ -712,14 +720,95 @@ msgstr "프로그램"
 msgid "Logout"
 msgstr "로그아웃"
 
+#: .\pyconkr\templates\pyconkr\contribution_home.html:5
+msgid "공헌 안내"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:9
+msgid "파이콘 한국에 공헌하는 다양한 방법"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:11
+msgid ""
+"파이콘 한국에는 발표, 키노트 발표자 추천 등 다양한 형태로 공헌할 수 있습니"
+"다. 각 항목은 아래와 같은 일정으로 모집합니다."
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:25
+msgid "발표안 제안"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:26
+#: .\pyconkr\templates\pyconkr\contribution_home.html:40
+#: .\pyconkr\templates\pyconkr\contribution_home.html:54
+#: .\pyconkr\templates\pyconkr\contribution_home.html:68
+msgid "n월 j일 (D)"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:28
+#: .\pyconkr\templates\pyconkr\contribution_home.html:42
+#: .\pyconkr\templates\pyconkr\contribution_home.html:56
+#: .\pyconkr\templates\pyconkr\contribution_home.html:70
+msgid "준비 중입니다."
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:29
+#: .\pyconkr\templates\pyconkr\contribution_home.html:43
+#: .\pyconkr\templates\pyconkr\contribution_home.html:57
+#: .\pyconkr\templates\pyconkr\contribution_home.html:71
+msgid "준비 중"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:31
+#: .\pyconkr\templates\pyconkr\contribution_home.html:45
+#: .\pyconkr\templates\pyconkr\contribution_home.html:59
+#: .\pyconkr\templates\pyconkr\contribution_home.html:73
+msgid "진행 중입니다."
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:32
+#: .\pyconkr\templates\pyconkr\contribution_home.html:46
+#: .\pyconkr\templates\pyconkr\contribution_home.html:60
+#: .\pyconkr\templates\pyconkr\contribution_home.html:74
+msgid "진행 중"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:34
+#: .\pyconkr\templates\pyconkr\contribution_home.html:48
+#: .\pyconkr\templates\pyconkr\contribution_home.html:62
+#: .\pyconkr\templates\pyconkr\contribution_home.html:76
+msgid "마감되었습니다."
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:35
+#: .\pyconkr\templates\pyconkr\contribution_home.html:49
+#: .\pyconkr\templates\pyconkr\contribution_home.html:63
+#: .\pyconkr\templates\pyconkr\contribution_home.html:77
+msgid "종료"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:39
+msgid "키노트 발표자 추천"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:53
 #: .\pyconkr\templates\pyconkr\openreview_form.html:5
 #: .\pyconkr\templates\pyconkr\openreview_home.html:5
 #: .\pyconkr\templates\pyconkr\openreview_list.html:5
 msgid "발표 제안 검토하기"
 msgstr ""
 
+#: .\pyconkr\templates\pyconkr\contribution_home.html:67
+msgid "라이트닝 토크 신청"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\contribution_home.html:84
+#: .\pyconkr\templates\pyconkr\openreview_home.html:21
+msgid "문의"
+msgstr ""
+
 #: .\pyconkr\templates\pyconkr\openreview_form.html:20
-#: .\pyconkr\templates\pyconkr\proposal_detail.html:33
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:32
 msgid "Comment to reviewers"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
@@ -737,8 +826,8 @@ msgstr ""
 msgid "일정"
 msgstr ""
 
-#: .\pyconkr\templates\pyconkr\openreview_home.html:21
-msgid "문의"
+#: .\pyconkr\templates\pyconkr\openreview_home.html:18
+msgid "Y년 F j일 (D) H:i"
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\openreview_home.html:26
@@ -822,6 +911,10 @@ msgstr "선호도 등록하기"
 msgid "Up to 5 items can be selected."
 msgstr "최대 5개까지만 선택하실 수 있습니다."
 
+#: .\pyconkr\templates\pyconkr\proposal_detail.html:36
+msgid "목록 보기"
+msgstr ""
+
 #: .\pyconkr\templates\pyconkr\proposal_detail.html:38
 msgid "수정하기"
 msgstr ""
@@ -834,6 +927,14 @@ msgstr ""
 msgid ""
 "📙제안서를 작성하시기 전에 <a href=\"/2020/contribution/cfp/guide/\" target="
 "\"_blank\">발표안 작성 가이드</a>를 꼭 읽어주세요."
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\proposal_list.html:5
+msgid "발표 제안 목록"
+msgstr ""
+
+#: .\pyconkr\templates\pyconkr\proposal_list.html:21
+msgid "새로운 발표 제안하기"
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\speaker_detail.html:4

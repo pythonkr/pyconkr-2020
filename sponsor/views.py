@@ -19,8 +19,9 @@ class SponsorDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SponsorDetail, self).get_context_data(**kwargs)
-        is_editable = Sponsor.objects.filter(
-            creator=self.request.user, accepted=True, paid_at__isnull=False, slug=self.kwargs['slug']).exists()
+        user = self.request.user
+        is_editable = user.is_authenticated and Sponsor.objects.filter(
+            creator=user, accepted=True, paid_at__isnull=False, slug=self.kwargs['slug']).exists()
         context['EDITABLE'] = is_editable
 
         return context
@@ -37,12 +38,14 @@ class SponsorProposalHome(ListView):
             if level.limit - Sponsor.objects.filter(level=level, accepted=True).__len__() <= 0:
                 level_remain[level.name] = _("마감")
             else:
-                level_remain[level.name] = "{remain}/{limit}".format(remain=level.limit - Sponsor.objects.filter(level=level, accepted=True).__len__(), limit=level.limit)
+                level_remain[level.name] = "{remain}/{limit}".format(remain=level.limit - Sponsor.objects.filter(
+                    level=level, accepted=True).__len__(), limit=level.limit)
         context['remains'] = level_remain
 
         KST = datetime.timezone(datetime.timedelta(hours=9))
         context['CFS_start_at'] = constance.config.CFS_OPEN.replace(tzinfo=KST)
-        context['CFS_finish_at'] = constance.config.CFS_DEADLINE.replace(tzinfo=KST)
+        context['CFS_finish_at'] = constance.config.CFS_CLOSE.replace(
+            tzinfo=KST)
 
         return context
 
@@ -60,7 +63,8 @@ class SponsorProposalDetail(DetailView):
             cfs_obj = written_cfs.get()
             cfs_obj.submitted = True
             cfs_obj.save()
-            return redirect('sponsor_proposal_detail')  # GET params 생략을 위한 redirect 처리
+            # GET params 생략을 위한 redirect 처리
+            return redirect('sponsor_proposal_detail')
 
         return super().get(request, *args, **kwargs)
 
@@ -86,13 +90,14 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
         return super(SponsorCreate, self).form_valid(form)
 
     def get(self, request, *args, **kwargs):
-        has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
+        has_submitted_cfs = Sponsor.objects.filter(
+            creator=request.user).exists()
 
         if has_submitted_cfs is True:
             return redirect('sponsor_proposal_detail')
 
         opening = constance.config.CFS_OPEN.astimezone(KST)
-        deadline = constance.config.CFS_DEADLINE.astimezone(KST)
+        deadline = constance.config.CFS_CLOSE.astimezone(KST)
         now = datetime.datetime.now(tz=KST)
 
         if now < opening:
@@ -121,14 +126,17 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
         save_btn_url = reverse('sponsor_propose') + '?submit=0'
         submit_btn_url = reverse('sponsor_propose') + '?submit=1'
 
-        form.helper.add_input(Submit('save', _('Save'), formaction=save_btn_url))
-        form.helper.add_input(Submit('submit', _('Submit'), formaction=submit_btn_url))
+        form.helper.add_input(
+            Submit('save', _('Save'), formaction=save_btn_url))
+        form.helper.add_input(
+            Submit('submit', _('Submit'), formaction=submit_btn_url))
 
         return form
 
     def get_success_url(self):
         if self.object.submitted is True:
-            slack.new_cfs_registered(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
+            slack.new_cfs_registered(
+                self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
         return reverse('sponsor_proposal_detail')
 
 
@@ -139,7 +147,8 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발송드리도록 하겠습니다.")
 
     def get(self, request, *args, **kwargs):
-        has_submitted_cfs = Sponsor.objects.filter(creator=request.user).exists()
+        has_submitted_cfs = Sponsor.objects.filter(
+            creator=request.user).exists()
         if not has_submitted_cfs:
             return redirect('sponsor_propose')
 
@@ -168,12 +177,16 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
-        save_btn_url = reverse('sponsor_proposal_edit') + '?go_proposal={}&submit=0'.format(self.go_proposal)
-        form.helper.add_input(Submit('save', _('Save'), formaction=save_btn_url))
+        save_btn_url = reverse('sponsor_proposal_edit') + \
+            '?go_proposal={}&submit=0'.format(self.go_proposal)
+        form.helper.add_input(
+            Submit('save', _('Save'), formaction=save_btn_url))
 
         if self.object.submitted is False:
-            submit_btn_url = reverse('sponsor_proposal_edit') + '?&go_proposal={}&submit=1'.format(self.go_proposal)
-            form.helper.add_input(Submit('submit', _('Submit'), formaction=submit_btn_url))
+            submit_btn_url = reverse(
+                'sponsor_proposal_edit') + '?&go_proposal={}&submit=1'.format(self.go_proposal)
+            form.helper.add_input(
+                Submit('submit', _('Submit'), formaction=submit_btn_url))
 
         return form
 
@@ -201,7 +214,8 @@ class VirtualBooth(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = "Virtual Booth"
-        context['is_empty'] = not Sponsor.objects.filter(accepted=True, paid_at__isnull=False).exists()
+        context['is_empty'] = not Sponsor.objects.filter(
+            accepted=True, paid_at__isnull=False).exists()
 
         managers = []
         for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
@@ -210,10 +224,8 @@ class VirtualBooth(ListView):
             managers.append(super_user)
 
         context['is_manager'] = self.request.user in managers
-
-        now = datetime.date.today()
-        virtual_booth_open_at = datetime.date(2020, 9, 21)
-        context['is_opened'] = virtual_booth_open_at <= now
+        context['is_opened'] = constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(
+            tz=KST)
 
         return context
 
@@ -242,8 +254,9 @@ class VirtualBoothDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
-        is_editable = Sponsor.objects.filter(
-            creator=self.request.user, accepted=True, paid_at__isnull=False, slug=self.kwargs['slug']).exists()
+        user = self.request.user
+        is_editable = user.is_authenticated and Sponsor.objects.filter(
+            creator=user, accepted=True, paid_at__isnull=False, slug=self.kwargs['slug']).exists()
         context['EDITABLE'] = is_editable
 
         return context
@@ -259,6 +272,4 @@ class VirtualBoothUpdate(UpdateView):
         return context
 
     def get_success_url(self):
-        slug = Sponsor.objects.get(creator=self.request.user, accepted=True, paid_at__isnull=False).slug
-
-        return reverse('virtual_booth', kwargs={'slug': slug})
+        return reverse('virtual_booth', kwargs={'slug': self.object.slug})

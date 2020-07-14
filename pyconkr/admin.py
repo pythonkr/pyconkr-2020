@@ -23,7 +23,7 @@ class EmailTokenAdmin(admin.ModelAdmin):
     search_fields = ('email',)
 
 
-admin.site.register(EmailToken, EmailTokenAdmin)
+# admin.site.register(EmailToken, EmailTokenAdmin)
 
 
 class FlatPageResource(resources.ModelResource):
@@ -48,4 +48,4 @@ class BannerAdmin(SummernoteModelAdmin, TranslationAdmin):
     search_fields = ('name', 'url')
 
 
-admin.site.register(Banner, BannerAdmin)
+# admin.site.register(Banner, BannerAdmin)

@@ -639,7 +639,7 @@ footer {
   background-color: #eee;
   color: #717171;
   font-size: 0.7rem;
-  margin-top: -160px;
+  margin-top: -200px;
 
   h3 {
     margin-top: 0.3rem;
@@ -657,6 +657,10 @@ footer {
 
   .btn-fa-icon .fa {
     width: 18px;
+  }
+
+  span {
+    margin: 0 3px;
   }
 }
 
@@ -1020,6 +1024,35 @@ a.a_btn {
   }
 }
 
+a.ingBtn {
+  width: 125px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  text-decoration: none;
+  color: aliceblue;
+  background: #0f4c81;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+a.endBtn {
+  width: 125px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #0f4c81;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  border: 1px solid #0f4c81;
+}
+
 .sticky-footer {
   z-index: 555;
   position: fixed;
@@ -1051,12 +1084,6 @@ a.a_btn {
     svg {
       width: 20px;
     }
-  }
-}
-
-@media (max-width: 768px) {
-  .sticky-footer {
-    display: none;
   }
 }
 
@@ -1115,9 +1142,12 @@ a.a_btn {
     }
   }
 
-  &#diamond,
-  &#sapphire {
+  &#diamond {
     width: 32%;
+  }
+
+  &#sapphire {
+    width: 23%;
   }
 
   &:hover {

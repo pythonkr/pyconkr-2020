@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-03 17:31+0900\n"
+"POT-Creation-Date: 2020-07-11 20:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\sponsor\forms.py:15 .\sponsor\views.py:38
+#: .\sponsor\forms.py:15 .\sponsor\views.py:39
 msgid "마감"
 msgstr "Sold out"
 
@@ -65,7 +65,7 @@ msgstr "Business Registration Number"
 msgid "후원사 사업자 등록증"
 msgstr "Business Registration File"
 
-#: .\sponsor\forms.py:53 .\sponsor\models.py:73
+#: .\sponsor\forms.py:53 .\sponsor\models.py:74
 msgid ""
 "후원을 원하시는 등급을 선택해주십시오. 모두 판매된 등급은 선택할 수 없습니다."
 msgstr ""
@@ -76,30 +76,30 @@ msgstr ""
 msgid "Virtual booth content"
 msgstr ""
 
-#: .\sponsor\forms.py:76 .\sponsor\views.py:125 .\sponsor\views.py:176
+#: .\sponsor\forms.py:76 .\sponsor\views.py:132 .\sponsor\views.py:189
 msgid "Submit"
 msgstr ""
 
-#: .\sponsor\models.py:68
+#: .\sponsor\models.py:69
 msgid "후원사를 등록한 유저"
 msgstr "User who applied sponsorship"
 
-#: .\sponsor\models.py:70
+#: .\sponsor\models.py:71
 msgid "후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다."
 msgstr "The name of sponsor. It can be name of service or company"
 
-#: .\sponsor\models.py:75
+#: .\sponsor\models.py:76
 msgid "후원사 설명입니다. 이 설명은 홈페이지에 게시됩니다."
 msgstr "The description of sponsor. It will be posted on the homepage."
 
-#: .\sponsor\models.py:77
+#: .\sponsor\models.py:78
 msgid ""
 "준비위원회와 후원과 관련된 논의를 진행할 담당자의 이름을 입력해주십시오."
 msgstr ""
 "Please enter the name of the person in charge who will discuss the "
 "sponsorship with the PyCon Korea Organizing Team."
 
-#: .\sponsor\models.py:79
+#: .\sponsor\models.py:80
 msgid ""
 "입력하신 메일로 후원과 관련된 안내 메일이나 문의를 보낼 예정입니다. 후원 담당"
 "자의 이메일 주소를 입력해주십시오."
@@ -107,29 +107,29 @@ msgstr ""
 "Please enter the email of the person in charge who will discuss the "
 "sponsorship with the PyCon Korea Organizing Team."
 
-#: .\sponsor\models.py:81
+#: .\sponsor\models.py:82
 msgid "후원사 사업자 등록번호입니다. 세금 계산서 발급에 사용됩니다."
 msgstr ""
 "Business Registration Number of Sponsor. Sponsor Business Registration "
 "Number. It is used to issue tax invoices."
 
-#: .\sponsor\models.py:84
+#: .\sponsor\models.py:85
 msgid "후원사 사업자 등록증 스캔본입니다. 세금 계산서 발급에 사용됩니다."
 msgstr ""
 "Scan file of sponsor's business registration. It is used to issue tax "
 "invoices."
 
-#: .\sponsor\models.py:86
+#: .\sponsor\models.py:87
 msgid "파이콘 홈페이지에 공개되는 후원사 홈페이지 주소입니다."
 msgstr ""
 "This is the url of the sponsor's homepage that will be displayed on the "
 "PyCon Korea homepage."
 
-#: .\sponsor\models.py:88
+#: .\sponsor\models.py:89
 msgid "홈페이지에 공개되는 후원사 로고 이미지입니다."
 msgstr "It is the logo image of the sponsor that is displayed on the homepage."
 
-#: .\sponsor\models.py:90
+#: .\sponsor\models.py:91
 msgid ""
 "Virtual booth에 들어가는 내용입니다. 홈페이지의 virtual booth에 게시됩니다."
 msgstr ""
@@ -210,6 +210,11 @@ msgstr "Schedule"
 msgid "후원사 모집 시작"
 msgstr "Sponsor Invitation Open"
 
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:18
+#: .\sponsor\templates\sponsor\sponsor_proposal_home.html:24
+msgid "Y년 F j일 (D) H:i"
+msgstr "F jS (D) H:i"
+
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:22
 msgid "후원사 모집 종료"
 msgstr "Sponsor Invitation Close"
@@ -247,7 +252,9 @@ msgstr "Process"
 msgid ""
 "후원사 신청 이후 선정 절차는 아래와 같으며, 관련 안내는 파이콘 홈페이지 또는 "
 "이메일로 진행됩니다."
-msgstr "This is the process for applying for a sponsor. Information will be provided on the homepage or email."
+msgstr ""
+"This is the process for applying for a sponsor. Information will be provided "
+"on the homepage or email."
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:59
 msgid "후원사에서 파이콘 한국 홈페이지를 통해 후원사 신청을 합니다."
@@ -257,18 +264,23 @@ msgstr "Sponsors apply for sponsors through the PyCon Korea website."
 msgid ""
 "파이콘 한국 준비위원회에서 접수해주신 신청서에 대해 필수 정보 중 빠지거나 잘"
 "못 기입된 정보가 있는지 확인합니다."
-msgstr "Check for missing or incorrect information on the application submitted."
+msgstr ""
+"Check for missing or incorrect information on the application submitted."
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:66
 msgid ""
 "빠지거나 잘못 기입된 정보가 있는 경우에는 추가적인 정보나 수정을 요청할 수 있"
 "습니다."
-msgstr "If there are missing or incorrectly entered information, additional information or corrections may be requested."
+msgstr ""
+"If there are missing or incorrectly entered information, additional "
+"information or corrections may be requested."
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:70
 msgid ""
 "후원사 신청서에 대한 검토가 끝나면 후원 금액을 입금할 계좌를 안내해드립니다."
-msgstr "After reviewing the sponsorship application, we will guide you to the account to which you will deposit the sponsorship amount."
+msgstr ""
+"After reviewing the sponsorship application, we will guide you to the "
+"account to which you will deposit the sponsorship amount."
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:74
 msgid "표기된 후원 금액은 <b>부가세가 포함되지 않은</b> 금액입니다."
@@ -284,13 +296,17 @@ msgstr "When depositing donations, you must <b>add 10%% VAT</b>."
 msgid ""
 "후원 금액이 정상적으로 입금된 것을 준비위원회에서 확인하면 후원사로 확정됩니"
 "다."
-msgstr "If we confirms that the amount of the sponsorship has been successfully deposited, it will be confirmed as the sponsor."
+msgstr ""
+"If we confirms that the amount of the sponsorship has been successfully "
+"deposited, it will be confirmed as the sponsor."
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:84
 msgid ""
 "전자세금계산서가 우선적으로 필요하신 경우 전자세금계산서 발행용 이메일 주소"
 "를 기록하여 계산서 발행을 요청해주시기 바랍니다."
-msgstr "If we confirms that the amount of the sponsorship has been successfully deposited, it will be confirmed as the sponsor."
+msgstr ""
+"If we confirms that the amount of the sponsorship has been successfully "
+"deposited, it will be confirmed as the sponsor."
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_home.html:90
 #, fuzzy
@@ -323,7 +339,7 @@ msgstr ""
 msgid "Virtual booth 내용 수정하기"
 msgstr "Edit Virtual booth content"
 
-#: .\sponsor\views.py:80 .\sponsor\views.py:139
+#: .\sponsor\views.py:84 .\sponsor\views.py:147
 msgid ""
 "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발"
 "송드리도록 하겠습니다."
@@ -331,28 +347,31 @@ msgstr ""
 "Your sponsor application has been successfully processed. We will send you "
 "an e-mail after the Review."
 
-#: .\sponsor\views.py:100
+#: .\sponsor\views.py:105
 msgid "후원사 모집이 아직 시작되지 않았습니다.🤖"
 msgstr "Sponsor Invitation is not opened yet🤖"
 
-#: .\sponsor\views.py:101
+#: .\sponsor\views.py:106
 msgid "모집 기간은 {} ~ {} 이니 일정에 참고해주세요."
 msgstr "Sponsor Invitation Period is {} ~ {}. Please save your date!"
 
-#: .\sponsor\views.py:105
+#: .\sponsor\views.py:110
 msgid "후원사 모집이 종료되었습니다.🤖"
 msgstr "Sponsor Invitation period has closed.🤖"
 
-#: .\sponsor\views.py:106
+#: .\sponsor\views.py:111
 msgid ""
 "모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요"
 msgstr ""
 "Sponsor Invitation Period is {} ~ {}. Please look forward to the PyCon Korea "
 "to be held again next year."
 
-#: .\sponsor\views.py:124 .\sponsor\views.py:172
+#: .\sponsor\views.py:130 .\sponsor\views.py:183
 msgid "Save"
 msgstr ""
+
+#~ msgid "Y년"
+#~ msgstr "Y"
 
 #~ msgid "추가로 문의할 점"
 #~ msgstr "More questions"
