@@ -531,6 +531,7 @@ class OpenReviewList(TemplateView):
         for review in OpenReview.objects.filter(user=self.request.user):
             if review.comment == "":
                 context['all_reviewed'] = False
+                return context
         context['all_reviewed'] = True
 
         return context
