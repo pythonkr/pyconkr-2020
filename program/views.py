@@ -12,7 +12,6 @@ from crispy_forms.layout import Hidden
 from .models import Program, ProgramCategory, Preference, Speaker, Room, Proposal, OpenReview, \
     TutorialProposal, SprintProposal, LightningTalk
 from .forms import SpeakerForm, SprintProposalForm, TutorialProposalForm, ProposalForm, \
-    OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, ProgramForm
     OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, ProgramForm, LightningTalkForm
 
 import constance
