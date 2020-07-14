@@ -25,14 +25,14 @@
 {% endif %}
 
 {% if reviews %}
-    <p>본인에게 할당된 CFP에 대한 리뷰를 작성해주세요. 모든 리뷰를 작성해야 최종 저장이 됩니다.</p>
+    <p>{% trans '본인에게 할당된 CFP에 대한 리뷰를 작성해주세요. 모든 리뷰를 작성해야 최종 저장이 됩니다.' %}</p>
     <div style="padding: 20px 0;">
         {% for review in reviews %}
         <section>
             <h4>{% trans "Title" %}</h4>
             <a href="{% url 'openreview-update' review.id %}">{{ review.proposal.title }}</a>
             {% if review.has_comment %}
-                <span style="display: inline-block; vertical-align: top; margin-left: 6px; padding: 0 4px; background-color: #e2fae6; color: #39af4d; font-size: 0.85rem; border: 1px solid #39af4d; border-radius: 8px;">완료</span>
+                <span style="display: inline-block; vertical-align: top; margin-left: 6px; padding: 0 4px; background-color: #e2fae6; color: #39af4d; font-size: 0.85rem; border: 1px solid #39af4d; border-radius: 8px;">{% trans "완료" %}</span>
             {% endif %}
             <hr />
         </section>
