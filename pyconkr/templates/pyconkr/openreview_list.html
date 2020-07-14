@@ -9,6 +9,15 @@
 
 {% if not reviews %}
     {% if is_language %}
+        {% if is_empty %}
+            <div class="alert alert-warning" role="alert">
+                <p>
+                    {% trans '선택한 언어와 카테고리에 조건에 맞는 발표 제안이 없습니다.' %}
+                    {% trans '다른 조건으로 검색해주세요.' %}
+                </p>
+                <p>{% trans '(본인이 제안한 발표는 리뷰할 수 없습니다.)' %}</p>
+            </div>
+        {% endif %}
         {% crispy select_language %}
     {% else %}
         {% crispy select_category %}

@@ -464,6 +464,7 @@ class OpenReviewList(TemplateView):
     template_name = "pyconkr/openreview_list.html"
     is_language = True  # 최초 시작시 언어 선택폼 부터 출력
     selected_language = None
+    is_empty = False
 
     def post(self, request, *args, **kwargs):
         language_form = OpenReviewLanguageForm(request.POST)
@@ -488,6 +489,8 @@ class OpenReviewList(TemplateView):
                     .filter(category_id=category_id, language=request.POST['selected_language']) \
                     .exclude(user=request.user) \
                     .values_list('id', flat=True)
+            if not ids.exists():
+                self.is_empty = True
 
             # 랜덤 추출
             selected_ids = random.sample(list(ids), min(len(ids), 4))
@@ -506,6 +509,10 @@ class OpenReviewList(TemplateView):
             context['is_language'] = True
         else:
             context['is_language'] = False
+
+        # 리뷰할 CFP가 없을 때
+        if self.is_empty:
+            context['is_empty'] = True
 
         # 이미 리뷰할 CFP가 지정된 경우
         if OpenReview.objects.filter(user=self.request.user).exists():
