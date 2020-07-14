@@ -534,7 +534,7 @@ class OpenReviewList(TemplateView):
 
             # 추출건 저장
             for proposal in Proposal.objects.filter(id__in=selected_ids):
-                review = OpenReview(proposal=proposal, user=request.user)
+                review = OpenReview(proposal=proposal, user=request.user, category_id=category_id)
                 review.save()
 
         context = self.get_context_data()
@@ -581,6 +581,12 @@ class OpenReviewUpdate(UpdateView):
 
     def get(self, request, *args, **kwargs):
         open_review_flag = is_open_review_opened()
+
+        review = OpenReview.objects.get(id=self.kwargs['pk'])
+        if review.user != self.request.user:
+            return redirect('openreview')
+        elif review.user == self.request.user and review.submitted:
+            return redirect('openreview')
 
         if open_review_flag == -1:
             return redirect('/2020/error/unopened')

@@ -135,7 +135,7 @@ class SprintCheckinAdmin(admin.ModelAdmin):
 # admin.site.register(SprintCheckin, SprintCheckinAdmin)
 
 class OpenReviewAdmin(admin.ModelAdmin):
-    list_display = ('title', 'user', 'submitted',)
+    list_display = ('id', 'title', 'user', 'category', 'submitted',)
     list_filter = ('submitted',)
 
     def title(self, obj):
