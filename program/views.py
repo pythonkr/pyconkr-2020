@@ -470,17 +470,23 @@ class OpenReviewList(TemplateView):
 
         # 언어선택폼 처리의 경우
         if language_form.is_valid():
-            self.is_language = False    # 다음 페이지에서는 카테코리 선택 폼을 출력
+            self.is_language = False  # 다음 페이지에서는 카테코리 선택 폼을 출력
             self.selected_language = language_form.cleaned_data['language']
 
         # 카테고리 지정 폼을 처리하는 경우, 이미 지정된 오픈리뷰가 없는 경우
         if category_form.is_valid() and not OpenReview.objects.filter(user=request.user):
             category_id = category_form.cleaned_data['category'].id
 
-            ids = Proposal.objects\
-                .filter(category__id=category_id, language=request.POST['selected_language'])\
-                .exclude(user=request.user)\
-                .values_list('id', flat=True)
+            if request.POST['selected_language'] == 'N':
+                ids = Proposal.objects \
+                    .filter(category_id=category_id) \
+                    .exclude(user=self.request.user) \
+                    .values_list('id', flat=True)
+            else:
+                ids = Proposal.objects \
+                    .filter(category_id=category_id, language=request.POST['selected_language']) \
+                    .exclude(user=request.user) \
+                    .values_list('id', flat=True)
 
             # 랜덤 추출
             selected_ids = random.sample(list(ids), min(len(ids), 4))
