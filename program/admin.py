@@ -75,7 +75,7 @@ class ProposalAdminForm(forms.ModelForm):
         }
 
 
-class ProposalAdmin(ImportMixin, admin.ModelAdmin):
+class ProposalAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     form = ProposalAdminForm
     list_display = ('id', 'user', 'title', 'difficulty', 'duration', 'language', 'category',)
 
