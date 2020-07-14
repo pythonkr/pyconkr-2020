@@ -51,7 +51,7 @@ class ProgramAdmin(SummernoteModelAdmin, TranslationAdmin):
                     'pdf_url', 'get_speakers', 'category', 'is_recordable',)
     list_editable = ('name', 'category', 'is_recordable',)
     ordering = ('id',)
-    filter_horizontal = ('times', )
+    filter_horizontal = ('times',)
     search_fields = ('name', 'speakers__name', 'desc',)
 
 
@@ -96,7 +96,7 @@ class TutorialProposalAdminForm(forms.ModelForm):
 class TutorialProposalAdmin(admin.ModelAdmin):
     form = TutorialProposalAdminForm
     list_display = ('user', 'title', 'difficulty', 'duration', 'language', 'capacity',
-                    'begin_date', 'begin_time', 'end_date', 'end_time', )
+                    'begin_date', 'begin_time', 'end_date', 'end_time',)
 
 
 admin.site.register(TutorialProposal, TutorialProposalAdmin)
