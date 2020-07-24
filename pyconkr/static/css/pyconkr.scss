@@ -1087,71 +1087,96 @@ a.endBtn {
   }
 }
 
-.tiles {
-  .tiles_keystone,
-  .tiles_diamond,
-  .tiles_sapphire,
-  .tiles_start_up {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.card {
+  margin-top: 50px;
+}
+
+.item {
+  padding: 15px;
+  outline: none;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: none;
   }
 }
 
-.tile {
-  width: 14.7%;
-  padding: 23.47% 10px 10px 10px;
-  text-decoration: none;
-  color: black;
-  position: relative;
-  cursor: pointer;
+.item-inner {
+  background: #fff;
+  border-radius: 18px;
+  text-align: center;
+  padding: 25px;
+  width: 268px;
+  height: 460px;
 
-  .tile_container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px;
+  h4 {
+    font-size: 30px;
+    color: black;
+    text-transform: capitalize;
   }
 
-  .tile_img {
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 75%;
-    background-position: center;
-  }
-
-  .tile_name {
+  .img-container {
     display: flex;
-    height: 25%;
+    width: 218px;
+    height: 218px;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    word-break: keep-all;
-  }
 
-  &#keystone {
-    width: 99%;
-
-    .tile_name {
-      font-size: 1.5rem;
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 25px;
     }
   }
+}
 
-  &#diamond {
-    width: 32%;
-  }
+.slick-track {
+  background: linear-gradient(180deg, #c3d2e0, #4b79a1);
+}
 
-  &#sapphire {
-    width: 23%;
+.slick-slide {
+  transform: scale(0.8);
+  opacity: 0.3;
+  transition: all ease 0.5s;
+  &.slick-current {
+    transform: scale(1);
+    opacity: 1;
   }
+}
 
-  &:hover {
-    text-decoration: none;
-    color: black;
+.slick-arrow {
+  position: absolute;
+  z-index: 99;
+  background: #c3d2e0;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 50px;
+  outline: none;
+  font-size: 0;
+}
+
+.slick-prev {
+  left: -100px;
+  top: 45%;
+  
+  &:before {
+    content: "<";
   }
+}
+
+.slick-next {
+  top: 45%;
+  right: -100px;
+
+  &:before {
+    content: ">";
+  }
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 2rem;
+  line-height: 2;
+  opacity: 0.75;
+  color: white;
 }
