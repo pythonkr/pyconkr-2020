@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block og-title %}{{ block.super }} Virtual booth{% endblock %}
-{% block title %}{{ title }}{% endblock %}
-
 {% block content %}
     {% if is_manager %}
         <div class="alert alert-info" role="alert">
@@ -11,32 +8,41 @@
             {% trans "파이콘 한국 2020의 후원사 담당자들은 다른 후원사의 virtual booth를 볼 수 있습니다." %}
         </div>
     {% endif %}
-    <div class="tiles">
-        {% if is_empty %}
+    <script>
+        $(document).ready(function () {
+            $('.slider').slick({
+                centerMode: true,
+                slidesToShow: 3,
+                centerPadding: '100px',
+            })
+        })
+    </script>
+    {% if is_empty %}
+        <h4 class="text-center">{% trans "Ready for content" %}</h4>
+    {% else %}
+        {% if not is_opened and not is_manager %}
             <h4 class="text-center">{% trans "Ready for content" %}</h4>
         {% else %}
-            {% if not is_opened and not is_manager %}
-                <h4 class="text-center">{% trans "Ready for content" %}</h4>
-            {% else %}
-                {% for lvl in levels %}
-                    {% if lvl.order < 5 %} {# Virtual booth가 있는 등급인가 #}
-                        <div class="tiles_{{ lvl.slug }}">
+            <div class="card">
+                <div class="slider">
+                    {% for lvl in levels %}
+                        {% if lvl.order < 5 %}
                             {% for sponsor in lvl.sponsor_set.all %}
                                 {% if sponsor.logo_image and sponsor.paid_at is not None %}
-                                    <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile"
-                                       id="{{ lvl.slug }}">
-                                        <div class="tile_container">
-                                            <div class="tile_img"
-                                                 style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
-                                            <div class="tile_name">{{ sponsor.name }}</div>
+                                    <a class="item" href="{% url 'virtual_booth' slug=sponsor.slug %}">
+                                        <div class="item-inner">
+                                            <div class="img-container">
+                                                <img src="{{ sponsor.logo_image.url }}" alt="{{ sponsor.name }}">
+                                            </div>
+                                            <h4>{{ sponsor.name }}</h4>
                                         </div>
                                     </a>
                                 {% endif %}
                             {% endfor %}
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
         {% endif %}
-    </div>
+    {% endif %}
 {% endblock %}
