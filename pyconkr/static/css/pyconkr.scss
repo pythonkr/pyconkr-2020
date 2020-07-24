@@ -1107,6 +1107,8 @@ a.endBtn {
   color: black;
   position: relative;
   cursor: pointer;
+  border: 1px solid gray;
+  box-shadow: 3px 3px 5px gray;
 
   .tile_container {
     position: absolute;
