@@ -104,15 +104,30 @@
     td {
       padding: 0 3px;
     }
+
+    &#contribution {
+      tbody > tr > td:nth-child(3) {
+        display: none;
+      }
+    }
   }
 
-  ol, ul {
+  ol,
+  ul {
     padding-inline-start: 20px;
   }
 
   .sponsors {
     padding-top: 1.5rem;
     padding-bottom: 2rem;
+  }
+
+  .card {
+    display: none;
+  }
+
+  .tiles {
+    display: block;
   }
 }
 
