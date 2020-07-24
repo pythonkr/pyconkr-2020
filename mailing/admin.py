@@ -8,7 +8,7 @@ from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 
 class MailingAdmin(admin.ModelAdmin):
     list_display = ('title', 'send_datetime', 'send_to',
-                    'send_to_newsletter_subscriber',)
+                    'send_to_newsletter_subscriber', 'send_successfully')
     readonly_fields = ('send_successfully',)
     formfield_overrides = {models.TextField: {
         'widget': SummernoteWidgetWithCustomToolbar}}
