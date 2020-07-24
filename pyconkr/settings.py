@@ -23,46 +23,47 @@ ALLOWED_HOSTS = []
 SITE_ID = 1
 
 INSTALLED_APPS = (
-                     # django apps
-                     'modeltranslation',
-                     'django.contrib.admin',
-                     'django.contrib.auth',
-                     'django.contrib.contenttypes',
-                     'django.contrib.sessions',
-                     'django.contrib.messages',
-                     'django.contrib.sites',
-                     'django.contrib.staticfiles',
-                     'django.contrib.flatpages',
-                     'django.contrib.humanize',
-                 ) + (
-                     # third-party apps
-                     'django_summernote',
-                     'rosetta',
-                     'crispy_forms',
-                     'sorl.thumbnail',
-                     'constance',
-                     'constance.backends.database',
-                     'django_csv_exports',
-                     'mail_templated',
-                     'import_export',
-                     'sass_processor',
-                     # 'compressor',
-                 ) + (
-                     # local apps
-                     'pyconkr',
-                     'announcement',
-                     'user',
-                     'sponsor',
-                     'program',
-                     'registration',
-                 ) + (
-                     'allauth',
-                     'allauth.account',
-                     'allauth.socialaccount',
-                     'allauth.socialaccount.providers.facebook',
-                     'allauth.socialaccount.providers.github',
-                     'allauth.socialaccount.providers.twitter',
-                 )
+    # django apps
+    'modeltranslation',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.sites',
+    'django.contrib.staticfiles',
+    'django.contrib.flatpages',
+    'django.contrib.humanize',
+) + (
+    # third-party apps
+    'django_summernote',
+    'rosetta',
+    'crispy_forms',
+    'sorl.thumbnail',
+    'constance',
+    'constance.backends.database',
+    'django_csv_exports',
+    'mail_templated',
+    'import_export',
+    'sass_processor',
+    # 'compressor',
+) + (
+    # local apps
+    'pyconkr',
+    'announcement',
+    'user',
+    'sponsor',
+    'program',
+    'registration',
+    'mailing',
+) + (
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.twitter',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -381,3 +382,15 @@ SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
+
+# MAILING
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+# EMAIL_HOST_USER = constance.config.EMAIL_HOST_USER
+# EMAIL_HOST_PASSWORD = constance.config.EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = constance.config.EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
