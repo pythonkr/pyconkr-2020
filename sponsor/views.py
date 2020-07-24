@@ -35,6 +35,8 @@ class SponsorProposalHome(ListView):
         context = super().get_context_data(**kwargs)
         level_remain = dict()
         for level in SponsorLevel.objects.filter(order__lte=4):
+            if level.order == 0:  # 준비위를 위한 빈 자리
+                continue
             if level.limit - Sponsor.objects.filter(level=level, accepted=True).__len__() <= 0:
                 level_remain[level.name] = _("마감")
             else:
