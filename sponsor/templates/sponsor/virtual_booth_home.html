@@ -8,7 +8,8 @@
             {% trans "파이콘 한국 2020의 후원사 담당자들은 다른 후원사의 virtual booth를 볼 수 있습니다." %}
         </div>
         <div class="alert alert-info" role="alert">
-            <a href="{% url 'virtual_booth' slug='pycon_korea_organizing_team' %}" target="_blank">{% trans "어떻게 꾸밀지 고민되시나요? 파이콘 한국 준비위원회의 샘플 페이지를 살펴보세요!" %}</a>
+            <a href="{% url 'virtual_booth' slug='pycon_korea_organizing_team' %}"
+               target="_blank">{% trans "어떻게 꾸밀지 고민되시나요? 파이콘 한국 준비위원회의 샘플 페이지를 살펴보세요!" %}</a>
         </div>
     {% endif %}
     <script>
@@ -45,6 +46,26 @@
                         {% endif %}
                     {% endfor %}
                 </div>
+            </div>
+            <div class="tiles">
+                {% for lvl in levels %}
+                    {% if lvl.order < 5 %}
+                        <div class="tiles_{{ lvl.slug }}">
+                            {% for sponsor in lvl.sponsor_set.all %}
+                                {% if sponsor.logo_image and sponsor.paid_at is not None %}
+                                    <a href="{% url 'virtual_booth' slug=sponsor.slug %}" class="tile"
+                                       id="{{ lvl.slug }}">
+                                        <div class="tile_container">
+                                            <div class="tile_img"
+                                                 style="background-image: url('{{ sponsor.logo_image.url }}')"></div>
+                                            <div class="tile_name">{{ sponsor.name }}</div>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
         {% endif %}
     {% endif %}

@@ -114,6 +114,14 @@
     padding-top: 1.5rem;
     padding-bottom: 2rem;
   }
+
+  .card {
+    display: none;
+  }
+
+  .tiles {
+    display: block;
+  }
 }
 
 @media (max-width: 640px) {
