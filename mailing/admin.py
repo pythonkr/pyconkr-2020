@@ -1,10 +1,17 @@
 from django.contrib import admin
+from django.db import models
+
 from mailing.models import Mailing, NewsLetter
+
+from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 
 
 class MailingAdmin(admin.ModelAdmin):
-    list_display = ('title', 'send_now', 'send_datetime', 'send_to_all_participant',
-                    'send_to_newsletter_subscriber', 'send_yn',)
+    list_display = ('title', 'send_datetime', 'send_to',
+                    'send_to_newsletter_subscriber',)
+    readonly_fields = ('send_yn',)
+    formfield_overrides = {models.TextField: {
+        'widget': SummernoteWidgetWithCustomToolbar}}
 
 
 admin.site.register(Mailing, MailingAdmin)
