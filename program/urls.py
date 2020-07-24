@@ -5,10 +5,11 @@ from .views import (ProgramList, PreferenceList, ProgramDetail, ProgramUpdate,
                     SprintProposalCreate, SprintProposalList, SprintProposalDetail, SprintProposalUpdate,
                     TutorialProposalCreate, TutorialProposalList, TutorialProposalDetail, TutorialProposalUpdate,
                     RoomDetail)
-from .views import ProposalCreate, ProposalUpdate, ProposalDetail
+from .views import ProposalCreate, ProposalUpdate, ProposalDetail, ProposalList
 from .views import schedule, youngcoder, child_care, tutorial_join, sprint_join
 
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = [
@@ -50,12 +51,14 @@ urlpatterns = [
             login_required(ProposalCreate.as_view()), name='propose'),
     re_path(r'^cfp/tutorial-propose/$',
             login_required(TutorialProposalCreate.as_view()), name='tutorial-propose'),
-    re_path(r'^profile/proposal/$',
+    re_path(r'^profile/proposal/(?P<pk>\d+)$',
             login_required(ProposalDetail.as_view()), name='proposal'),
+    re_path(r'^profile/proposal/list',
+            login_required(ProposalList.as_view()), name='proposal-list'),
     re_path(r'^cfp/sprint-propose/$',
             login_required(SprintProposalCreate.as_view()), name='sprint-propose'),
 
-    re_path(r'^profile/proposal/edit$',
+    re_path(r'^profile/proposal/(?P<pk>\d+)/edit$',
             login_required(ProposalUpdate.as_view()), name='proposal-update'),
     re_path(r'^profile/tutorial-proposal/edit$',
             login_required(TutorialProposalUpdate.as_view()), name='tutorial-proposal-update'),

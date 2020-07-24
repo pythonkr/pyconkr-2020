@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import get_user_model
 from registration.models import Option
 from django.urls import reverse
+
 User = get_user_model()
 
 
@@ -200,7 +201,7 @@ class Preference(models.Model):
 
 
 class Proposal(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     title = models.CharField(max_length=255)
     brief = models.TextField(max_length=1000)
@@ -239,6 +240,8 @@ class OpenReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     proposal = models.ForeignKey(Proposal, on_delete=models.CASCADE)
     comment = models.TextField(max_length=2000)
+    category = models.ForeignKey(ProgramCategory, on_delete=models.CASCADE, null=True, blank=True)
+    submitted = models.BooleanField(default=False)
 
     @property
     def has_comment(self):
@@ -339,3 +342,23 @@ class SprintCheckin(models.Model):
 
     class Meta:
         unique_together = ('user', 'sprint')
+
+
+class LightningTalk(models.Model):
+    class Meta:
+        ordering = ['created_at', ]
+
+    title = models.CharField(max_length=255, null=True, help_text='라이트닝 토크 제목')
+    owner = models.OneToOneField(User, blank=True, null=True, on_delete=models.SET_NULL)
+    slide_url = models.CharField(max_length=511, null=True)
+    day = models.IntegerField(choices=(
+        (1, _('토요일')),
+        (2, _('일요일')),
+    ))
+    comment = models.TextField(blank=True, default='')
+
+    accepted = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

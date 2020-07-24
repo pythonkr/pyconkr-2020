@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <div class="row proposal-detail">
+        <h3>
+            {{ talk.title }}
+        </h3>
+        <br>
+        <div>
+            <h4>{% trans "Slide URL" %}</h4>
+            {{ talk.slide_url }}
+        </div>
+        {% if is_editable %}
+            <div class="a_btn_container">
+                <a class="a_btn" href="{% url 'lightning-talk-edit' talk.id %}">{% trans "수정하기" %}</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

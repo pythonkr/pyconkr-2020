@@ -5,7 +5,7 @@
 
 {% block content %}
 <h2>{% trans "일정" %}</h2>
-<table class="items" style="width: 75%;">
+<table>
   <colgroup>
     <col width="50%" />
     <col width="50%" />
@@ -15,13 +15,13 @@
       <td class="header">
         {% trans "후원사 모집 시작" %}
       </td>
-      <td>{{ CFS_start_at }}</td>
+      <td>{{ CFS_start_at|date:_("Y년 F j일 (D) H:i") }}</td>
     </tr>
     <tr>
       <td class="header">
         {% trans "후원사 모집 종료" %}
       </td>
-      <td>{{ CFS_finish_at }}</td>
+      <td>{{ CFS_finish_at|date:_("Y년 F j일 (D) H:i") }}</td>
     </tr>
   </tbody>
 </table>
@@ -34,16 +34,16 @@
             {% for name, remain in remains.items %}
                 <td class="header">{{ name }}</td>
             {% endfor %}
-            <td class="header">{% trans "커뮤니티" %}</td>
-            <td class="header">{% trans "출판사" %}</td>
+            <td class="header no-limit">{% trans "커뮤니티" %}</td>
+            <td class="header no-limit">{% trans "출판사" %}</td>
         </tr>
         <tr>
             <td class="header">{% trans "잔여 구좌수" %}</td>
             {% for name, remain in remains.items %}
                 <td>{{ remain }}</td>
             {% endfor %}
-            <td>{% trans "제한 없음" %}</td>
-            <td>{% trans "제한 없음" %}</td>
+            <td class="no-limit">{% trans "제한 없음" %}</td>
+            <td class="no-limit">{% trans "제한 없음" %}</td>
         </tr>
     </tbody>
 </table>

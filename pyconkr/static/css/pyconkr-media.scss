@@ -75,6 +75,60 @@
   .sponsor img {
     max-width: 100%;
   }
+
+  .sticky-footer {
+    padding: 0 10px;
+    .coc {
+      a {
+        font-size: 0.85rem;
+      }
+    }
+
+    .snslinks {
+      a {
+        padding: 4px 4px;
+      }
+      svg {
+        width: 18px;
+      }
+    }
+  }
+
+  table {
+    margin: 1rem auto;
+    width: auto;
+    word-break: keep-all;
+    .no-limit {
+      display: none;
+    }
+    td {
+      padding: 0 3px;
+    }
+
+    &#contribution {
+      tbody > tr > td:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+
+  ol,
+  ul {
+    padding-inline-start: 20px;
+  }
+
+  .sponsors {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .card {
+    display: none;
+  }
+
+  .tiles {
+    display: block;
+  }
 }
 
 @media (max-width: 640px) {

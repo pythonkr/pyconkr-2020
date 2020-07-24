@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Proposing a Lightning Talk" %}
+{% endblock %}
+
+{% block content %}
+<p>
+  {% trans "누구나 라이트닝 토크를 신청할 수 있습니다! 주제와 같은 자세한 내용은 <a href='/2020/program/lightning-talk/'>여기</a>를 참고해주세요." %}
+</p>
+
+<h2>{% trans "일정" %}</h2>
+<p>
+{{ LT_open_at|date:_("Y년 F j일 (D) H:i") }} - {{ LT_close_at|date:_("Y년 F j일 (D) H:i") }}
+</p>
+
+<h2>{% trans "문의" %}</h2>
+<p><a href="mailto:program@pycon.kr" target="_blank">program@pycon.kr</a></p>
+
+{% if is_proposable %}
+<div class="a_btn_container">
+  <a class="a_btn large" href="{% url 'lightning-talk-propose' %}">{% trans "신청하기" %}</a>
+</div>
+{% endif %}
+{% endblock %}
