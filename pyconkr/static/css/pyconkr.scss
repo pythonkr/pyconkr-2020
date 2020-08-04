@@ -1102,7 +1102,7 @@ a.endBtn {
 }
 
 .item-inner {
-  background: #fff;
+  border: 2px solid #a5bcd0;
   border-radius: 18px;
   text-align: center;
   padding: 20px;
@@ -1130,13 +1130,9 @@ a.endBtn {
   }
 }
 
-.slick-track {
-  background: linear-gradient(180deg, #c3d2e0, #4b79a1);
-}
-
 .slick-slide {
   transform: scale(0.8);
-  opacity: 0.3;
+  opacity: 0.5;
   transition: all ease 0.5s;
   &.slick-current {
     transform: scale(1);
@@ -1147,29 +1143,39 @@ a.endBtn {
 .slick-arrow {
   position: absolute;
   z-index: 99;
-  background: #c3d2e0;
   border: none;
   padding: 8px 15px;
-  border-radius: 50px;
   outline: none;
   font-size: 0;
 }
 
 .slick-prev {
-  left: -100px;
+  left: -7.5%;
   top: 45%;
-  
+
   &:before {
-    content: "<";
+    content: "\f104";
+  }
+
+  &:hover {
+    &:before {
+      content: "\f100";
+    }
   }
 }
 
 .slick-next {
+  right: -7.5%;
   top: 45%;
-  right: -100px;
 
   &:before {
-    content: ">";
+    content: "\f105";
+  }
+
+  &:hover {
+    &:before {
+      content: "\f101";
+    }
   }
 }
 
@@ -1178,7 +1184,10 @@ a.endBtn {
   font-size: 2rem;
   line-height: 2;
   opacity: 0.75;
-  color: white;
+  color: #0f4c81;
+  font-family: FontAwesome;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
 }
 
 .tiles {
