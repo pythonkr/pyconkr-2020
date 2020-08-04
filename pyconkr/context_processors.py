@@ -18,7 +18,8 @@ def default(request):
     if settings.FORCE_SCRIPT_NAME:
         url = url[len(settings.FORCE_SCRIPT_NAME):]
     base_content = FlatPage.objects.filter(url=url).first()
-    paid_sponsor = Sponsor.objects.filter(accepted=True, paid_at__isnull=False).exclude(logo_image="")
+    paid_sponsor = Sponsor.objects.filter(accepted=True, paid_at__isnull=False).exclude(logo_image="").exclude(
+        level__order=0)
     paid_levels = []
     for sponsor in paid_sponsor:
         paid_levels.append(sponsor.level)
@@ -47,7 +48,7 @@ def default(request):
                     ('visa-sponsing', {'title': _('Visa Sponsing'), 'disable': True}),
                     ('child-care', {'title': _('Child Care'), 'disable': True}),
                     ('speech2text', {
-                     'title': _('Speech to Text Translation')}),
+                        'title': _('Speech to Text Translation')}),
                 ])
             },
         ),
