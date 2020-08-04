@@ -180,7 +180,7 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
         save_btn_url = reverse('sponsor_proposal_edit') + \
-            '?go_proposal={}&submit=0'.format(self.go_proposal)
+                       '?go_proposal={}&submit=0'.format(self.go_proposal)
         form.helper.add_input(
             Submit('save', _('Save'), formaction=save_btn_url))
 
