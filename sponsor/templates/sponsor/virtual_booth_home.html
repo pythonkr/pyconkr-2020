@@ -29,22 +29,26 @@
         {% else %}
             <div class="card">
                 <div class="slider">
-                    {% for lvl in levels %}
-                        {% if lvl.order < 5 %}
-                            {% for sponsor in lvl.sponsor_set.all %}
-                                {% if sponsor.logo_image and sponsor.paid_at is not None %}
-                                    <a class="item" href="{% url 'virtual_booth' slug=sponsor.slug %}">
-                                        <div class="item-inner">
-                                            <div class="img-container">
-                                                <img src="{{ sponsor.logo_image.url }}" alt="{{ sponsor.name }}">
-                                            </div>
-                                            <h4>{{ sponsor.name }}</h4>
-                                        </div>
-                                    </a>
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
+                {% for booth in booths %}
+                    <a class="item" href="{% url 'virtual_booth' slug=booth.slug %}">
+                        <div class="item-inner">
+                            <div class="img-container">
+                                <img src="{{ booth.logo_image.url }}" alt="{{ booth.name }}">
+                            </div>
+                            <h4>{{ booth.name }}</h4>
+                        </div>
+                    </a>
+                {% endfor %}
+                {% if sample %}
+                    <a class="item" href="{% url 'virtual_booth' slug=sample.slug %}">
+                        <div class="item-inner">
+                            <div class="img-container">
+                                <img src="{{ sample.logo_image.url }}" alt="{{ sample.name }}">
+                            </div>
+                            <h4>{{ sample.name }}</h4>
+                        </div>
+                    </a>
+                {% endif %}
                 </div>
             </div>
             {# On Mobile #}
