@@ -1105,27 +1105,28 @@ a.endBtn {
   border: 2px solid #a5bcd0;
   border-radius: 18px;
   text-align: center;
-  padding: 20px;
-  width: 268px;
-  height: 460px;
+  padding: 1.25rem;
+  width: 16.75rem;
+  height: 28.75rem;
 
   h4 {
     font-size: 30px;
     color: black;
     text-transform: capitalize;
+    word-break: keep-all;
   }
 
   .img-container {
     display: flex;
-    width: 218px;
-    height: 218px;
+    width: 14rem;
+    height: 14rem;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
 
     img {
       max-width: 100%;
       height: auto;
-      margin: 0 auto 25px;
     }
   }
 }

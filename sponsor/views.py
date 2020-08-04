@@ -180,7 +180,7 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
         save_btn_url = reverse('sponsor_proposal_edit') + \
-            '?go_proposal={}&submit=0'.format(self.go_proposal)
+                       '?go_proposal={}&submit=0'.format(self.go_proposal)
         form.helper.add_input(
             Submit('save', _('Save'), formaction=save_btn_url))
 
@@ -218,6 +218,10 @@ class VirtualBooth(ListView):
         context['title'] = "Virtual Booth"
         context['is_empty'] = not Sponsor.objects.filter(
             accepted=True, paid_at__isnull=False).exists()
+        context['booths'] = Sponsor.objects\
+            .filter(level__order__lt=5, accepted=True, paid_at__isnull=False, logo_image__isnull=False)\
+            .exclude(level__order=0).order_by('level__order', 'paid_at')
+        context['sample'] = Sponsor.objects.filter(level__order=0)
 
         managers = []
         for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
