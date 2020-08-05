@@ -46,7 +46,7 @@
                         </div>
                     </a>
                 {% endfor %}
-                {% if sample %}
+                {% if sample %}  {# 준비위원회의 샘플 #}
                     <a class="item" href="{% url 'virtual_booth' slug=sample.slug %}">
                         <div class="item-inner">
                             <div class="img-container">
