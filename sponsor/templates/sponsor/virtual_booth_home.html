@@ -33,6 +33,8 @@
                     <a class="item" href="{% url 'virtual_booth' slug=booth.slug %}">
                         <div class="item-inner">
                             <div class="img-container">
+                                <div class="level_name">{{ booth.level }}</div>
+                                <div class="level_icon {{ booth.level.slug }}"></div>
                                 <img src="{{ booth.logo_image.url }}" alt="{{ booth.name }}">
                             </div>
                             <h4>{{ booth.name }}</h4>

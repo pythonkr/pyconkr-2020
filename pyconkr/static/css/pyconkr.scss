@@ -1123,10 +1123,43 @@ a.endBtn {
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
+    position: relative;
 
     img {
       max-width: 100%;
       height: auto;
+    }
+  }
+
+  .level_name {
+    position: absolute;
+    color: black;
+    top: 0;
+    left: 0;
+  }
+
+  .level_icon {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 2rem;
+
+    &.keystone:before {
+      content: "🏆";
+    }
+
+    &.diamond:before {
+      content: "💎";
+    }
+
+    &.sapphire:before {
+      content: "🔷";
+    }
+
+    &.start_up:before {
+      content: "💡";
     }
   }
 }
