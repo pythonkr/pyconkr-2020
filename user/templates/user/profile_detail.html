@@ -65,6 +65,11 @@
                     <a href="{% url 'sponsor_proposal_edit' %}?go_proposal=1">
                         <span class="badge badge-primary badge-pill">{% trans '수정하기' %}</span>
                     </a>
+                    {% if sponsor.paid_at is not None %}
+                        <a href="{% url 'virtual_booth_update' slug=sponsor.slug %}">
+                            <span class="badge badge-primary badge-pill">{% trans 'Virtual booth 수정하기' %}</span>
+                        </a>
+                    {% endif %}
                     {% comment %} <a class='badge'><i class="fa fa-pencil-square-o"></i></a> {% endcomment %}
                 </li>
             {% endfor %}
