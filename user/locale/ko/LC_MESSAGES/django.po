@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:58+0900\n"
+"POT-Creation-Date: 2020-08-05 19:47+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,6 +118,10 @@ msgstr ""
 
 #: .\user\templates\user\profile_detail.html:66
 msgid "수정하기"
+msgstr ""
+
+#: .\user\templates\user\profile_detail.html:70
+msgid "Virtual booth 수정하기"
 msgstr ""
 
 #: .\user\templates\user\profile_form.html:5 .\user\views.py:43
