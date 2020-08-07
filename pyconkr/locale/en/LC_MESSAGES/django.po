@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-05 19:47+0900\n"
+"POT-Creation-Date: 2020-08-07 12:28+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -508,6 +508,10 @@ msgstr "Sun"
 #: .\pyconkr\templates\pyconkr\sponsor_list.html:4
 msgid "Sponsors"
 msgstr "Sponsors"
+
+#: .\pyconkr\templates\base.html:111
+msgid "<a href=\"/2020/about/coc/\">파이콘 한국 성명서 (CoC)</a>"
+msgstr "<a href=\"/en/2020/about/coc/\">Code of Conduct</a>"
 
 #: .\pyconkr\templates\disqus.html:2
 msgid "Comments"
