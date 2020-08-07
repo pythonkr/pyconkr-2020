@@ -115,7 +115,7 @@ msgstr "세션 길이"
 #: .\program\forms.py:113 .\program\forms.py:136
 #: .\pyconkr\templates\nav.html:78
 msgid "Language"
-msgstr "언어"
+msgstr ""
 
 #: .\program\forms.py:114
 msgid "Category"
