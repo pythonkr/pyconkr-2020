@@ -61,7 +61,7 @@
             {# On Mobile #}
             <div class="tiles">
                 {% for lvl in levels %}
-                    {% if lvl.order < 5 %}
+                    {% if lvl.order < 5 and lvl.order is not 0 %}
                         <div class="tiles_{{ lvl.slug }}">
                             {% for sponsor in lvl.sponsor_set.all %}
                                 {% if sponsor.logo_image and sponsor.paid_at is not None %}
