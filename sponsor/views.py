@@ -221,7 +221,10 @@ class VirtualBooth(ListView):
         context['booths'] = Sponsor.objects\
             .filter(level__order__lt=5, accepted=True, paid_at__isnull=False, logo_image__isnull=False)\
             .exclude(level__order=0).order_by('level__order', 'paid_at')
-        context['sample'] = Sponsor.objects.get(level__order=0)
+        try:
+            context['sample'] = Sponsor.objects.get(level__order=0)
+        except Sponsor.DoesNotExist:
+            pass
 
         managers = []
         for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
