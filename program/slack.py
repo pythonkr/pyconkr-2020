@@ -62,7 +62,7 @@ def new_cfs_registered(hostname, pk, title):
 
         slack.chat.post_message(
             CFS_CHANNEL, text=text, attachments=[attachment],
-            username='cfp-bot', icon_emoji=':female_mage:')
+            username='cfs-bot', icon_emoji=':female_mage:')
 
 
 def cfs_updated(hostname, pk, title):
