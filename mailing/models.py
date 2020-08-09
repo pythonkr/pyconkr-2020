@@ -24,16 +24,16 @@ class Mailing(models.Model):
 
     title = models.CharField(max_length=200)
     content = models.TextField()
-    send_datetime = models.DateTimeField(default=datetime.datetime.now())
+    send_datetime = models.DateTimeField(default=datetime.datetime(2020, 8, 1))
     send_to = models.CharField(
         max_length=100,
         choices=CHOICE_SEND_TO_ALL_PARTICIPANT,
-        default='INFO'
+        default='INFO',
     )
     send_to_newsletter_subscriber = models.CharField(
         max_length=100,
         choices=CHOICE_SEND_TO_SUBSCRIBER,
-        default='NO'
+        default='NO',
     )
     send_successfully = models.BooleanField(default=False)
     sender_name = models.CharField(max_length=100, default='PyCon Korea')
@@ -44,5 +44,4 @@ class NewsLetter(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
-
         return super().save(force_insert, force_update, using, update_fields)
