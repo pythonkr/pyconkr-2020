@@ -9,11 +9,10 @@ from django import template
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.utils.translation import ugettext as _
+from django.utils.translation import get_language, activate
 from django.views.generic import ListView, DetailView
 from announcement.models import Announcement
 from registration.models import Registration, Option, CONFERENCE_REGISTRATION_PATRON
-from sponsor.models import Sponsor
-from django.utils.translation import get_language, activate
 
 User = get_user_model()
 
@@ -35,7 +34,8 @@ class PatronList(ListView):
             conference_type=CONFERENCE_REGISTRATION_PATRON)
 
         if patron_option.exists():
-            return queryset.filter(option__in=patron_option, payment_status='paid').order_by('-additional_price', 'created')
+            return queryset.filter(option__in=patron_option, payment_status='paid').order_by('-additional_price',
+                                                                                             'created')
 
         return None
 

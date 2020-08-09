@@ -15,13 +15,11 @@ from django.utils.translation import ugettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.views.generic import DetailView
-from iamport import Iamport
 
 from pyconkr.helper import render_io_error
 from program.models import SprintProposal, SprintCheckin, Speaker
 from .forms import (RegistrationForm, RegistrationAdditionalPriceForm,
                     ManualPaymentForm, IssueSubmitForm, RegistrationFormWithoutTopSize)
-from .iamporter import IamporterError
 from .models import Option, Registration, ManualPayment, IssueTicket, EVENT_CONFERENCE, EVENT_YOUNG, EVENT_BABYCARE, \
     EVENT_TUTORIAL
 
