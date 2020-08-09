@@ -204,7 +204,7 @@ SOCIALACCOUNT_FORMS = {
     'signup': 'user.forms.SocialSignupForm'
 }
 
-if os.getenv('EMAIL_HOST_USER_REPLY'):
+if os.getenv('EMAIL_HOST_USER_NO_REPLY'):
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_HOST = os.getenv('EMAIL_HOST_NO_REPLY')
