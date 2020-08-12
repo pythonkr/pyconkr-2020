@@ -1,7 +1,7 @@
 from django.urls import path, re_path
 from django.contrib.auth.decorators import login_required
 from sponsor.views import SponsorCreate, SponsorDetail, SponsorProposalHome, SponsorProposalDetail, SponsorUpdate, \
-    VirtualBooth, VirtualBoothDetail, VirtualBoothUpdate
+    VirtualBooth, VirtualBoothDetail, VirtualBoothUpdate, LoginForSponsor
 
 
 from django.contrib import admin
@@ -24,4 +24,5 @@ urlpatterns = [
             VirtualBoothDetail.as_view(), name='virtual_booth'),
     re_path(r'^virtual_booth/(?P<slug>\w+)/edit/',
             VirtualBoothUpdate.as_view(), name='virtual_booth_update'),
+    path('login/', LoginForSponsor.as_view(), name='login_for_sponsor'),
 ]

@@ -1,6 +1,6 @@
 from crispy_forms.layout import Submit, Button
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView, UpdateView, CreateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, View
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.urls import reverse
@@ -10,6 +10,7 @@ import constance
 import datetime
 from program import slack
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 KST = datetime.timezone(datetime.timedelta(hours=9))
 
@@ -282,3 +283,23 @@ class VirtualBoothUpdate(UpdateView):
 
     def get_success_url(self):
         return reverse('virtual_booth', kwargs={'slug': self.object.slug})
+
+
+class LoginForSponsor(View):
+    template_name = 'sponsor/sponsor_login_form.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+        else:
+            print('로그인실패!')
+
+        return redirect('index')

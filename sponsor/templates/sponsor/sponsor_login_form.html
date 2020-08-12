@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans "후원사 담당자 로그인" %}{% endblock %}
+
+{% block content %}
+
+    <div class="alert alert-warning" role="alert">
+        스폰서 담당자님들을 위한 로그인페이지 입니다. 참여자분들은 <a href={% url 'login' %}>여기</a>에서 로그인해주세요.
+    </div>
+    {#{% crispy form %}#}
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username"/><br/>
+        <input type="password" name="password"/><br/>
+        <input type="submit" value="로그인"/>
+    </form>
+
+{% endblock %}
