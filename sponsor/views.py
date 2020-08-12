@@ -11,6 +11,7 @@ import datetime
 from program import slack
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.http import HttpResponseForbidden
 
 KST = datetime.timezone(datetime.timedelta(hours=9))
 
@@ -299,7 +300,6 @@ class LoginForSponsor(View):
 
         if user is not None:
             login(request, user)
+            return redirect('index')
         else:
-            print('로그인실패!')
-
-        return redirect('index')
+            return HttpResponseForbidden()
