@@ -718,7 +718,7 @@ msgstr ""
 
 #: .\pyconkr\templates\login.html:29
 msgid "ID/PW를 분실하신 경우 sponsor@pycon.kr로 문의해주시기 바랍니다."
-msgstr "Please contact when you forgot ID/PW."
+msgstr "Please contact to sponsor@pycon.kr when you forgot ID/PW."
 
 #: .\pyconkr\templates\login_mailsent.html:5
 msgid ""
