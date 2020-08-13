@@ -1322,7 +1322,7 @@ a.endBtn {
     color: #000;
     border: 1px solid black;
     background-color: rgba($color: #ffffff, $alpha: 0.5);
-    width: 20%;
+    width: 16%;
     height: 100%;
     text-decoration: none;
     display: flex;
@@ -1331,6 +1331,8 @@ a.endBtn {
     font-size: 1.25rem;
     border-color: rgba($color: #000000, $alpha: 0.2);
     border-radius: 1rem;
+    word-break: keep-all;
+    text-align: center;
 
     &:hover {
       background-color: #fff;

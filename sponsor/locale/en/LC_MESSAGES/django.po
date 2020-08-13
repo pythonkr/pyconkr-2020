@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-07 12:28+0900\n"
+"POT-Creation-Date: 2020-08-13 11:06+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\sponsor\forms.py:15 .\sponsor\views.py:41
+#: .\sponsor\forms.py:15 .\sponsor\views.py:43
 msgid "마감"
 msgstr "Sold out"
 
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Virtual booth content"
 msgstr ""
 
-#: .\sponsor\forms.py:76 .\sponsor\views.py:134 .\sponsor\views.py:191
+#: .\sponsor\forms.py:76 .\sponsor\views.py:136 .\sponsor\views.py:193
 msgid "Submit"
 msgstr ""
 
@@ -169,6 +169,28 @@ msgstr ""
 "If you submit a sponsorship application, we assume that you have accepted "
 "the <a href=\"https://pycon.kr/en/2020/sponsor/terms-of-sponsor/\" target="
 "\"_blank\">Terms of Sponsors</a>."
+
+#: .\sponsor\templates\sponsor\sponsor_login_form.html:5
+msgid "후원사 담당자 로그인"
+msgstr "Login via Sponsor"
+
+#: .\sponsor\templates\sponsor\sponsor_login_form.html:10
+msgid ""
+"후원사 담당자분들을 위한 로그인 페이지 입니다. 참가자분들은 소셜 계정으로 로"
+"그인해주시기 바랍니다."
+msgstr "This page is for sponsors. Participants can log in via social account."
+
+#: .\sponsor\templates\sponsor\sponsor_login_form.html:16
+msgid "사용자명"
+msgstr "Username"
+
+#: .\sponsor\templates\sponsor\sponsor_login_form.html:17
+msgid "비밀번호"
+msgstr "Password"
+
+#: .\sponsor\templates\sponsor\sponsor_login_form.html:18
+msgid "로그인"
+msgstr "Log-in"
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_detail.html:10
 msgid "Sponsor level"
@@ -354,7 +376,7 @@ msgstr ""
 msgid "Virtual booth 내용 수정하기"
 msgstr "Edit Virtual booth content"
 
-#: .\sponsor\views.py:86 .\sponsor\views.py:149
+#: .\sponsor\views.py:88 .\sponsor\views.py:151
 msgid ""
 "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발"
 "송드리도록 하겠습니다."
@@ -362,31 +384,28 @@ msgstr ""
 "Your sponsor application has been successfully processed. We will send you "
 "an e-mail after the Review."
 
-#: .\sponsor\views.py:107
+#: .\sponsor\views.py:109
 msgid "후원사 모집이 아직 시작되지 않았습니다.🤖"
 msgstr "Sponsor Invitation is not opened yet🤖"
 
-#: .\sponsor\views.py:108
+#: .\sponsor\views.py:110
 msgid "모집 기간은 {} ~ {} 이니 일정에 참고해주세요."
 msgstr "Sponsor Invitation Period is {} ~ {}. Please save your date!"
 
-#: .\sponsor\views.py:112
+#: .\sponsor\views.py:114
 msgid "후원사 모집이 종료되었습니다.🤖"
 msgstr "Sponsor Invitation period has closed.🤖"
 
-#: .\sponsor\views.py:113
+#: .\sponsor\views.py:115
 msgid ""
 "모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요"
 msgstr ""
 "Sponsor Invitation Period is {} ~ {}. Please look forward to the PyCon Korea "
 "to be held again next year."
 
-#: .\sponsor\views.py:132 .\sponsor\views.py:185
+#: .\sponsor\views.py:134 .\sponsor\views.py:187
 msgid "Save"
 msgstr ""
-
-#~ msgid "Y년"
-#~ msgstr "Y"
 
 #~ msgid "추가로 문의할 점"
 #~ msgstr "More questions"

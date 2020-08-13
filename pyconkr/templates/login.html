@@ -25,5 +25,8 @@
     <a class="btn btn-block btn-social btn-lg btn-sponsor" href="{% url 'login_for_sponsor' %}">
         <i class="fa fa-briefcase"></i> {% trans "Sign in with Sponsor ID" %}</a>
     </p>
+    <div class="alert alert-warning" role="alert">
+    {% trans 'ID/PW를 분실하신 경우 sponsor@pycon.kr로 문의해주시기 바랍니다.' %}
+    </div>
 
 {% endblock %}
