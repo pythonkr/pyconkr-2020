@@ -714,7 +714,7 @@ msgstr ""
 
 #: .\pyconkr\templates\login.html:26
 msgid "Sign in with Sponsor ID"
-msgstr "Sign in with Facebook"
+msgstr ""
 
 #: .\pyconkr\templates\login.html:29
 msgid "ID/PW를 분실하신 경우 sponsor@pycon.kr로 문의해주시기 바랍니다."
