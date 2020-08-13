@@ -7,15 +7,15 @@
 {% block content %}
 
     <div class="alert alert-warning" role="alert">
-        후원사 담당자님들을 위한 로그인페이지 입니다. 참여자분들은 <a href={% url 'login' %}>여기</a>에서 로그인해주세요.
+        {% trans "후원사 담당자분들을 위한 로그인 페이지 입니다. 참가자분들은 <a href={% url 'login' %}>여기</a>에서 로그인해주세요." %}
     </div>
     {#{% crispy form %}#}
     <div style="width: 300px; margin: 0 auto;">
         <form method="post" class="form-signin">
             {% csrf_token %}
-            <input type="text" name="username" class="form-control" placeholder="사용자명"/><br/>
-            <input type="password" name="password" class="form-control" placeholder="비밀번호"/><br/>
-            <input type="submit" value="로그인" class="btn btn-lg btn-primary btn-block"/>
+            <input type="text" name="username" class="form-control" placeholder="{% trans '사용자명' %}"/><br/>
+            <input type="password" name="password" class="form-control" placeholder="{% trans '비밀번호' %}"/><br/>
+            <input type="submit" value="{% trans '로그인' %}" class="btn btn-lg btn-primary btn-block"/>
         </form>
     </div>
 
