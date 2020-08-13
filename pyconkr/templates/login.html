@@ -19,4 +19,14 @@
     <br />
     {% trans '회원가입, 발표 제안, 후원사 신청이 제출되면 <a href="/2020/privacy-policy/" target="_blank">개인정보 처리 방침</a>에 동의한 것으로 간주됩니다.' %}
 </div>
+
+<h3>{% trans "Login via Sponsor" %}</h3>
+    <p>
+    <a class="btn btn-block btn-social btn-lg btn-sponsor" href="{% url 'login_for_sponsor' %}">
+        <i class="fa fa-briefcase"></i> {% trans "Sign in with Sponsor ID" %}</a>
+    </p>
+    <div class="alert alert-warning" role="alert">
+    {% trans 'ID/PW를 분실하신 경우 sponsor@pycon.kr로 문의해주시기 바랍니다.' %}
+    </div>
+
 {% endblock %}

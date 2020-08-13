@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans "후원사 담당자 로그인" %}{% endblock %}
+
+{% block content %}
+
+    <div class="alert alert-warning" role="alert">
+        {% trans "후원사 담당자분들을 위한 로그인 페이지 입니다. 참가자분들은 소셜 계정으로 로그인해주시기 바랍니다." %}
+    </div>
+    {#{% crispy form %}#}
+    <div style="width: 300px; margin: 0 auto;">
+        <form method="post" class="form-signin">
+            {% csrf_token %}
+            <input type="text" name="username" class="form-control" placeholder="{% trans '사용자명' %}"/><br/>
+            <input type="password" name="password" class="form-control" placeholder="{% trans '비밀번호' %}"/><br/>
+            <input type="submit" value="{% trans '로그인' %}" class="btn btn-lg btn-primary btn-block"/>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1294,3 +1294,49 @@ a.endBtn {
     color: black;
   }
 }
+
+.btn-sponsor {
+  color: #000;
+  border-color: rgba(0, 0, 0, 0.8);
+
+  &:hover {
+    background-color: #f2f3f4;
+  }
+}
+
+.quick_btns_container {
+  position: relative;
+  width: 100%;
+}
+
+.quick_btns {
+  position: absolute;
+  top: -10rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 7rem;
+  width: 100%;
+
+  .quick_btn {
+    color: #000;
+    border: 1px solid black;
+    background-color: rgba($color: #ffffff, $alpha: 0.5);
+    width: 16%;
+    height: 100%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    border-color: rgba($color: #000000, $alpha: 0.2);
+    border-radius: 1rem;
+    word-break: keep-all;
+    text-align: center;
+
+    &:hover {
+      background-color: #fff;
+      cursor: pointer;
+    }
+  }
+}

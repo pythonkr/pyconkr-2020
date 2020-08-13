@@ -204,14 +204,14 @@ SOCIALACCOUNT_FORMS = {
     'signup': 'user.forms.SocialSignupForm'
 }
 
-if os.getenv('EMAIL_HOST_USER'):
+if os.getenv('EMAIL_HOST_USER_NO_REPLY'):
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
-    EMAIL_HOST = 'email-smtp.us-west-2.amazonaws.com'
-    EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+    EMAIL_HOST = os.getenv('EMAIL_HOST_NO_REPLY')
+    EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER_NO_REPLY')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD_NO_REPLY')
     EMAIL_PORT = 587
-    DEFAULT_FROM_EMAIL = 'PyCon Korea <pyconkr@pycon.kr>'
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 DOMAIN = ''
 
@@ -382,15 +382,3 @@ SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
-
-# MAILING
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.getenv('EMAIL_HOST')
-# EMAIL_HOST_USER = constance.config.EMAIL_HOST_USER
-# EMAIL_HOST_PASSWORD = constance.config.EMAIL_HOST_PASSWORD
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-# DEFAULT_FROM_EMAIL = constance.config.EMAIL_HOST_USER
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

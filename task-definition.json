@@ -54,6 +54,18 @@
       {
         "valueFrom": "EMAIL_HOST_PASSWORD",
         "name": "EMAIL_HOST_PASSWORD"
+      },
+      {
+        "valueFrom": "EMAIL_HOST_NO_REPLY",
+        "name": "EMAIL_HOST_NO_REPLY"
+      },
+      {
+        "valueFrom": "EMAIL_HOST_USER_NO_REPLY",
+        "name": "EMAIL_HOST_USER_NO_REPLY"
+      },
+            {
+        "valueFrom": "EMAIL_HOST_PASSWORD_NO_REPLY",
+        "name": "EMAIL_HOST_PASSWORD_NO_REPLY"
       }
     ],
     "essential": true,

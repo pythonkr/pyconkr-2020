@@ -12,6 +12,16 @@
 
 {% block content %}
 
+<div class="quick_btns_container">
+    <div class="quick_btns">
+        <a class="quick_btn">📅 {% trans '세션 시간표' %}</a>
+        <a class="quick_btn">📺 {% trans '파이콘 한국 유튜브' %}</a>
+        <a class="quick_btn">⛺ Virtual Booth</a>
+        <a class="quick_btn">📋 {% trans '참가자 등록' %}</a>
+        <a class="quick_btn">💸 {% trans '개인 후원' %}</a>
+    </div>
+</div>
+
 {% if recent_announcements %}
 <section class="box-section">
     <h3>{% trans "공지사항" %}</h3>
@@ -71,14 +81,6 @@
     <div>{% trans "We are Pythonistas." %}</div>
   </p>
 </section>
-
-{#<section class="box-section">#}
-{#  <h3>{% trans "Venue" %}</h3>#}
-{#  <h4>{% trans "서울 코엑스 그랜드볼룸" %}</h4>#}
-{#  <div class="map-box-container">#}
-{#    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.820434500639!2d127.05690121619708!3d37.51215307980805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2012d6bd01b%3A0x30702ebd32133065!2sCoex+Mall!5e0!3m2!1sen!2skr!4v1463414893518" height="450" width="100%" class="css-1rz0gj e1uzntma0"></iframe>#}
-{#  </div>#}
-{#</section>#}
 
 <section class="box-section">
   <h3>{% trans "문의 & 공식 계정" %}</h3>
