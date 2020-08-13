@@ -1294,3 +1294,12 @@ a.endBtn {
     color: black;
   }
 }
+
+.btn-sponsor {
+  color: #000;
+  border-color: rgba(0, 0, 0, 0.8);
+
+  &:hover {
+    background-color: #F2F3F4;
+  }
+}

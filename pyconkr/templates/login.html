@@ -20,8 +20,10 @@
     {% trans '회원가입, 발표 제안, 후원사 신청이 제출되면 <a href="/2020/privacy-policy/" target="_blank">개인정보 처리 방침</a>에 동의한 것으로 간주됩니다.' %}
 </div>
 
-<h3>후원사 로그인</h3>
-<div class="alert alert-success">
-    후원사 담당자분들을 위한 로그인은 <a href="{% url 'login_for_sponsor' %}">여기</a>를 클릭해주세요.
-</div>
+<h3>{% trans "Login via Sponsor" %}</h3>
+    <p>
+    <a class="btn btn-block btn-social btn-lg btn-sponsor" href="{% url 'login_for_sponsor' %}">
+        <i class="fa fa-briefcase"></i> {% trans "Sign in with Sponsor ID" %}</a>
+    </p>
+
 {% endblock %}
