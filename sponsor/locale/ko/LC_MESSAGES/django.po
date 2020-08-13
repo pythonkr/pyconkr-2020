@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-13 10:52+0900\n"
+"POT-Creation-Date: 2020-08-13 11:06+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,6 +152,12 @@ msgstr ""
 
 #: .\sponsor\templates\sponsor\sponsor_login_form.html:5
 msgid "후원사 담당자 로그인"
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_login_form.html:10
+msgid ""
+"후원사 담당자분들을 위한 로그인 페이지 입니다. 참가자분들은 소셜 계정으로 로"
+"그인해주시기 바랍니다."
 msgstr ""
 
 #: .\sponsor\templates\sponsor\sponsor_login_form.html:16
