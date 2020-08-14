@@ -1338,5 +1338,14 @@ a.endBtn {
       background-color: #fff;
       cursor: pointer;
     }
+
+    &[href="#"]:hover {
+      & > span {
+        display: none;
+      }
+      &::before {
+        content: "준비 중입니다. Coming soon.";
+      }
+    }
   }
 }
