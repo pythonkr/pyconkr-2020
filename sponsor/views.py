@@ -22,10 +22,13 @@ class SponsorDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(SponsorDetail, self).get_context_data(**kwargs)
         user = self.request.user
-        is_editable = user.is_authenticated and Sponsor.objects.filter(
-            creator=user, accepted=True, paid_at__isnull=False, slug=self.kwargs['slug']).exists()
+        is_editable = user.is_authenticated and (
+                Sponsor.objects.filter(creator=user, accepted=True, paid_at__isnull=False,
+                                       slug=self.kwargs['slug']).exists()
+                or Sponsor.objects.filter(manager_id=user, accepted=True,
+                                          paid_at__isnull=False,
+                                          slug=self.kwargs['slug']).exists())
         context['EDITABLE'] = is_editable
-
         return context
 
 
@@ -58,8 +61,11 @@ class SponsorProposalDetail(DetailView):
     template_name = 'sponsor/sponsor_proposal_detail.html'
 
     def get(self, request, *args, **kwargs):
-        written_cfs = Sponsor.objects.filter(creator=self.request.user)
-        if not written_cfs.exists():
+        if Sponsor.objects.filter(creator=self.request.user).exists():
+            written_cfs = Sponsor.objects.filter(creator=self.request.user)
+        elif Sponsor.objects.filter(manager_id=self.request.user).exists():
+            written_cfs = Sponsor.objects.filter(manager_id=self.request.user)
+        else:
             return redirect('sponsor_propose')
 
         # 제출상태로 변경처리
@@ -73,7 +79,10 @@ class SponsorProposalDetail(DetailView):
         return super().get(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
-        return get_object_or_404(Sponsor, creator=self.request.user)
+        if Sponsor.objects.filter(creator=self.request.user).exists():
+            return get_object_or_404(Sponsor, creator=self.request.user)
+        elif Sponsor.objects.filter(manager_id=self.request.user).exists():
+            return get_object_or_404(Sponsor, manager_id=self.request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -95,7 +104,7 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
 
     def get(self, request, *args, **kwargs):
         has_submitted_cfs = Sponsor.objects.filter(
-            creator=request.user).exists()
+            creator=request.user).exists() or Sponsor.objects.filter(manager_id=request.user).exists()
 
         if has_submitted_cfs is True:
             return redirect('sponsor_proposal_detail')
@@ -152,7 +161,7 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
 
     def get(self, request, *args, **kwargs):
         has_submitted_cfs = Sponsor.objects.filter(
-            creator=request.user).exists()
+            creator=request.user).exists() or Sponsor.objects.filter(manager_id=request.user).exists()
         if not has_submitted_cfs:
             return redirect('sponsor_propose')
 
@@ -200,8 +209,10 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
         return context
 
     def get_object(self, queryset=None):
-        sponsor = Sponsor.objects.get(creator=self.request.user)
-        return sponsor
+        if Sponsor.objects.filter(creator=self.request.user).exists():
+            return Sponsor.objects.get(creator=self.request.user)
+        elif Sponsor.objects.filter(manager_id=self.request.user).exists():
+            return Sponsor.objects.get(manager_id=self.request.user)
 
     def get_success_url(self):
         # slack.cfs_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
@@ -220,8 +231,8 @@ class VirtualBooth(ListView):
         context['title'] = "Virtual Booth"
         context['is_empty'] = not Sponsor.objects.filter(
             accepted=True, paid_at__isnull=False).exists()
-        context['booths'] = Sponsor.objects\
-            .filter(level__order__lt=5, accepted=True, paid_at__isnull=False, logo_image__isnull=False)\
+        context['booths'] = Sponsor.objects \
+            .filter(level__order__lt=5, accepted=True, paid_at__isnull=False, logo_image__isnull=False) \
             .exclude(level__order=0).order_by('level__order', 'paid_at')
         try:
             context['sample'] = Sponsor.objects.get(level__order=0)
@@ -231,6 +242,7 @@ class VirtualBooth(ListView):
         managers = []
         for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
             managers.append(sponsor.creator)
+            managers.append(sponsor.manager_id)
         for super_user in User.objects.filter(is_staff=True):
             managers.append(super_user)
 
@@ -249,6 +261,7 @@ class VirtualBoothDetail(DetailView):
         managers = []
         for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
             managers.append(sponsor.creator)
+            managers.append(sponsor.manager_id)
         for super_user in User.objects.filter(is_staff=True):
             managers.append(super_user)
 
@@ -266,8 +279,11 @@ class VirtualBoothDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
         user = self.request.user
-        is_editable = user.is_authenticated and Sponsor.objects.filter(
-            creator=user, accepted=True, paid_at__isnull=False, slug=self.kwargs['slug']).exists()
+        is_editable = user.is_authenticated and (
+                Sponsor.objects.filter(creator=user, accepted=True, paid_at__isnull=False,
+                                       slug=self.kwargs['slug']).exists()
+                or Sponsor.objects.filter(manager_id=user, accepted=True, paid_at__isnull=False,
+                                          slug=self.kwargs['slug']).exists())
         context['EDITABLE'] = is_editable
 
         return context
