@@ -118,7 +118,6 @@ class Program(models.Model):
 
     date = models.ForeignKey(
         ProgramDate, on_delete=models.SET_NULL, null=True, blank=True)
-    rooms = models.ManyToManyField(Room, blank=True)
     times = models.ManyToManyField(ProgramTime, blank=True)
     category = models.ForeignKey(
         ProgramCategory, on_delete=models.SET_NULL, null=True, blank=True)
@@ -128,14 +127,6 @@ class Program(models.Model):
 
     def get_absolute_url(self):
         return reverse('program', args=[self.id])
-
-    def room(self):
-        rooms = self.rooms.all()
-
-        if rooms.count() == Room.objects.all().count():
-            return ''
-
-        return ', '.join([_.name for _ in self.rooms.all()])
 
     def get_sort_times(self):
         return self.times.order_by('begin', 'id')

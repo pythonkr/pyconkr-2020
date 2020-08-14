@@ -12,7 +12,6 @@ from django.utils.translation import ugettext as _
 from django.utils.translation import get_language, activate
 from django.views.generic import ListView, DetailView
 from announcement.models import Announcement
-from registration.models import Registration, Option, CONFERENCE_REGISTRATION_PATRON
 
 User = get_user_model()
 
@@ -22,22 +21,6 @@ def index(request):
         'index': True,
         'recent_announcements': Announcement.objects.filter(active=True),
     })
-
-
-class PatronList(ListView):
-    model = Registration
-    template_name = "pyconkr/patron_list.html"
-
-    def get_queryset(self):
-        queryset = super(PatronList, self).get_queryset()
-        patron_option = Option.objects.filter(
-            conference_type=CONFERENCE_REGISTRATION_PATRON)
-
-        if patron_option.exists():
-            return queryset.filter(option__in=patron_option, payment_status='paid').order_by('-additional_price',
-                                                                                             'created')
-
-        return None
 
 
 def robots(request):

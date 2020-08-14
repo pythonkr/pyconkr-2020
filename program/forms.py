@@ -8,7 +8,7 @@ from django_summernote.widgets import SummernoteInplaceWidget
 from django.shortcuts import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.core.files.images import get_image_dimensions
-from .models import Speaker, Program, Proposal, OpenReview, SprintProposal, TutorialProposal, ProgramCategory, LightningTalk
+from .models import Speaker, Program, Proposal, OpenReview, ProgramCategory, LightningTalk
 
 from constance import config
 
@@ -112,55 +112,6 @@ class ProposalForm(forms.ModelForm):
             'duration': _('Session duration'),
             'language': _('Language'),
             'category': _('Category'),
-        }
-
-
-class SprintProposalForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(SprintProposalForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', _('Submit')))
-
-    class Meta:
-        model = SprintProposal
-        fields = ('title', 'language', 'project_url',
-                  'project_brief', 'contribution_desc',)
-        widgets = {
-            'contribution_desc': SummernoteInplaceWidget(),
-            'comment': SummernoteInplaceWidget(),
-        }
-
-        labels = {
-            'title': _('Title'),
-            'language': _('Language'),
-            'project_url': _('Project URL'),
-            'project_brief': _('Project brief'),
-            'contribution_desc': _('Contribution description')
-        }
-
-
-class TutorialProposalForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(TutorialProposalForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', _('Submit')))
-
-    class Meta:
-        model = TutorialProposal
-        fields = ('title', 'brief', 'desc', 'difficulty',)
-        widgets = {
-            'desc': SummernoteInplaceWidget(),
-            'comment': SummernoteInplaceWidget(),
-        }
-
-        labels = {
-            'title': _('Title'),
-            'brief': _('Brief'),
-            'desc': _('Detailed description'),
-
-            'difficulty': _('Session difficulty'),
         }
 
 
