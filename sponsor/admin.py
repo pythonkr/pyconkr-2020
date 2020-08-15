@@ -15,11 +15,12 @@ from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 class SponsorAdmin(SummernoteModelAdmin, TranslationAdmin):
     formfield_overrides = {models.TextField: {
         'widget': SummernoteWidgetWithCustomToolbar}}
-    list_display = ('creator', 'name', 'slug', 'level', 'manager_name', 'manager_email',
+    list_display = ('creator', 'name', 'slug', 'level', 'manager_name', 'manager_email', 'manager_id',
                     'submitted', 'accepted', 'paid_at', 'created_at')
     ordering = ('-created_at',)
     list_editable = ('slug',)
     search_fields = ('name',)
+    raw_id_fields = ('creator', 'manager_id',)
 
 
 admin.site.register(Sponsor, SponsorAdmin)
