@@ -5,5 +5,5 @@ from django.urls import re_path, path
 from . import views
 
 urlpatterns = [
-
+    path('ticket/buy', login_required(views.RegistrationHome.as_view()), name='registration_index'),
 ]

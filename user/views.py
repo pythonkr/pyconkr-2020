@@ -6,6 +6,7 @@ from .models import Profile
 from sponsor.models import Sponsor
 from .forms import ProfileForm
 from program.models import Proposal
+from registration.models import Ticket
 
 
 class ProfileDetail(DetailView):
@@ -37,6 +38,13 @@ class ProfileDetail(DetailView):
         # context['tickets'] = Registration.objects.filter(user=self.request.user, payment_status__in=['paid', 'ready'])
         # context['is_registered'] = is_registered
         context['title'] = _("Profile")
+
+        # 티켓구매 관련 처리
+        try:
+            context['ticket'] = Ticket.objects.get(user=self.request.user)
+        except Ticket.DoesNotExist:
+            # 구매한 티켓이 없는 경우
+            pass
 
         return context
 

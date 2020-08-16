@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}티켓구매 임시{% endblock %}
+
+{% block content %}
+
+    <div class="alert alert-warning" role="alert">
+        티켓구매 임시페이지
+    </div>
+    <div style="width: 300px; margin: 0 auto;">
+        <form method="post" class="form-signin">
+            {% csrf_token %}
+            <input type="submit" value="티켓구매" class="btn btn-lg btn-primary btn-block"/>
+        </form>
+    </div>
+
+{% endblock %}
