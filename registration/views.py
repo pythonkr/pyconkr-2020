@@ -36,6 +36,7 @@ class RegistrationHome(TemplateView):
 
         if request.user.is_authenticated:
             new_ticket.user = request.user
+            new_ticket.ticket_purchase_datetime = datetime.datetime.now()
             new_ticket.save()
         else:
             return HttpResponse(status=401)     # UnAuthorize
