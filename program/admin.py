@@ -9,8 +9,18 @@ from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 from modeltranslation.admin import TranslationAdmin
 from sorl.thumbnail.admin import AdminImageMixin
 from import_export.admin import ImportExportModelAdmin, ImportMixin
-from .models import (Program, ProgramTime, ProgramDate, ProgramCategory,
-                     Speaker, Preference, Proposal, OpenReview, LightningTalk)
+from .models import (Room, Program, ProgramTime, ProgramDate, ProgramCategory,
+                     Speaker, Preference, Proposal, TutorialProposal, SprintProposal,
+                     TutorialCheckin, SprintCheckin, OpenReview, LightningTalk)
+
+
+class RoomAdmin(SummernoteModelAdmin, TranslationAdmin):
+    list_display = ('id', 'name',)
+    list_editable = ('name',)
+    search_fields = ('name',)
+
+
+# admin.site.register(Room, RoomAdmin)
 
 
 class ProgramDateAdmin(admin.ModelAdmin):
@@ -37,7 +47,7 @@ admin.site.register(ProgramCategory, ProgramCategoryAdmin)
 
 
 class ProgramAdmin(SummernoteModelAdmin, TranslationAdmin):
-    list_display = ('id', 'name', 'date', 'slide_url',
+    list_display = ('id', 'name', 'date', 'room', 'slide_url',
                     'pdf_url', 'get_speakers', 'category', 'is_recordable',)
     list_editable = ('name', 'category', 'is_recordable',)
     ordering = ('id',)
@@ -72,6 +82,57 @@ class ProposalAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 admin.site.register(Proposal, ProposalAdmin)
 
+
+class TutorialProposalAdminForm(forms.ModelForm):
+    class Meta:
+        model = TutorialProposal
+        fields = '__all__'
+        widgets = {
+            'desc': SummernoteWidgetWithCustomToolbar(),
+            'comment': SummernoteWidgetWithCustomToolbar(),
+        }
+
+
+class TutorialProposalAdmin(admin.ModelAdmin):
+    form = TutorialProposalAdminForm
+    list_display = ('user', 'title', 'difficulty', 'duration', 'language', 'capacity',
+                    'begin_date', 'begin_time', 'end_date', 'end_time',)
+
+
+# admin.site.register(TutorialProposal, TutorialProposalAdmin)
+
+
+class SprintProposalAdminForm(forms.ModelForm):
+    class Meta:
+        model = SprintProposal
+        fields = '__all__'
+        widgets = {
+            'contribution_desc': SummernoteWidgetWithCustomToolbar(),
+            'comment': SummernoteWidgetWithCustomToolbar(),
+        }
+
+
+class SprintProposalAdmin(admin.ModelAdmin):
+    form = SprintProposalAdminForm
+    list_display = ('title', 'language', 'project_url',
+                    'project_brief', 'contribution_desc')
+
+
+# admin.site.register(SprintProposal, SprintProposalAdmin)
+
+
+class TutorialCheckinAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'tutorial',)
+
+
+# admin.site.register(TutorialCheckin, TutorialCheckinAdmin)
+
+
+class SprintCheckinAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'sprint',)
+
+
+# admin.site.register(SprintCheckin, SprintCheckinAdmin)
 
 class OpenReviewAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'user', 'category', 'submitted',)

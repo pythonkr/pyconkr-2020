@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block head-include %}
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment.js"></script>
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment.subscribe.js"></script>
+<script src="{% static 'js/payment.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        payment.init(
+            {
+                IMP_DOM_USER_CODE: '{{ config.IMP_DOM_USER_CODE }}',
+                IMP_INTL_USER_CODE: '{{ config.IMP_INTL_USER_CODE }}',
+                uid: '{{ uid }}',
+                amount: '{{ amount }}',
+                payment_url: '{% url "registration_payment" %}',
+                status_url: '{% url "registration_status" option_id %}',
+                csrf_token: '{{ csrf_token }}'
+            }
+        );
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<h3>{% trans 'Registration' %}</h3>
+<div>
+  <div>결제를 완료하시면 신청이 됩니다.<br/>(<b>*</b>) 는 필수 입력 항목입니다.</div>
+  <div>{% crispy form %}</div>
+</div>
+{% endblock %}

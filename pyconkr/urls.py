@@ -10,7 +10,7 @@ from django.views.generic.base import TemplateView
 
 from .views import index, robots
 from .views import login, logout
-# from .views import PatronList
+from .views import PatronList
 
 from program.views import ProposalCreate, OpenReviewUpdate, OpenReviewList, OpenReviewHome, OpenReviewResult, ContributionHome, \
     LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate
@@ -37,8 +37,8 @@ urlpatterns += i18n_patterns(
 
     re_path(r'^2020/sponsor/', include('sponsor.urls')),
     re_path(r'^2020/program/', include('program.urls')),
-    # re_path(r'^2020/about/patron/$',
-    #         PatronList.as_view(), name='patrons'),
+    re_path(r'^2020/about/patron/$',
+            PatronList.as_view(), name='patrons'),
 
     re_path(r'^2020/registration/', include('registration.urls')),
 

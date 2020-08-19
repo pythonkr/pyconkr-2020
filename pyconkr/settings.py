@@ -310,21 +310,19 @@ CONSTANCE_CONFIG = {
     'KEYNOTE_RECOMMEND_CLOSE': (datetime.datetime(2000, 1, 1, tzinfo=KST), '키노트 연사 추천 종료'),
     'LIGHTNING_TALK_OPEN': (datetime.datetime(2000, 1, 1, tzinfo=KST), '라이트닝 토크 모집 오픈'),
     'LIGHTNING_TALK_CLOSE': (datetime.datetime(2000, 1, 1, tzinfo=KST), '라이트닝 토크 모집 종료'),
-    'TICKET_OPEN': (datetime.datetime(2000, 1, 1, tzinfo=KST), '티켓 판매 시작'),
-    'TICKET_CLOSE': (datetime.datetime(2020, 9, 28, tzinfo=KST), '티켓 판매 종료'),
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {
     'SLACK': ('SLACK_CHANNEL', 'CFS_NOTI_CHANNEL', 'SLACK_TOKEN'),
     'IMPORT': ('IMP_DOM_USER_CODE', 'IMP_DOM_API_KEY', 'IMP_DOM_API_SECRET',
                'IMP_INTL_USER_CODE', 'IMP_INTL_API_KEY', 'IMP_INTL_API_SECRET',),
-    'Ticket Open Schedule': ('TICKET_OPEN', 'TICKET_CLOSE',),
     'Talk Schedule': ('CFP_OPEN', 'CFP_CLOSE', 'OPEN_REVIEW_START', 'OPEN_REVIEW_FINISH',
                       'KEYNOTE_RECOMMEND_OPEN', 'KEYNOTE_RECOMMEND_CLOSE', 'LIGHTNING_TALK_OPEN',
                       'LIGHTNING_TALK_CLOSE',),
     'Sponsor Schedule': ('CFS_OPEN', 'CFS_CLOSE', 'VIRTUAL_BOOTH_OPEN'),
     'Template': ('CFP_BRIEF_TEMPLATE', 'CFP_DESC_TEMPLATE',),
-    '기타': ('TOTAL_TICKET', 'SHOW_SLIDE_DATA',),
+    '기타': ('TOTAL_TICKET', 'SHOW_SLIDE_DATA',)
+
 }
 
 # For supporting i18n of django modules
