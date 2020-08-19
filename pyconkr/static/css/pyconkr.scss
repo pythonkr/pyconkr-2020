@@ -876,6 +876,7 @@ div.a_btn_container {
   margin-top: 5rem;
 }
 
+input.a_btn,
 a.a_btn {
   font-size: 1rem;
   width: auto;
@@ -1289,5 +1290,30 @@ a.endBtn {
     &:hover {
       text-decoration: none;
     }
+  }
+}
+
+.form-container {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  input[type="checkbox"] {
+    transform: scale(2);
+    margin: 0 0.75rem 0.1rem 0.3rem;
+  }
+
+  .alert-info,
+  .alert-warning {
+    display: flex;
+    align-items: center;
+  }
+
+  .a_btn.disabled {
+    background-color: gray;
+    cursor: default;
+    pointer-events: none;
   }
 }
