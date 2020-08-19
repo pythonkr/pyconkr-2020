@@ -27,7 +27,7 @@
             <h2>홍보성 메일 수신 동의</h2>
             <p>수신할래요?</p>
             <div class="alert alert-info">
-                <input type="checkbox" name="mailing" {{ checked }}/>
+                <input type="checkbox" name="mailing" value="true" {{ checked }}/>
                 <label for="mailing">홍보성 메일 수신에 동의합니다. (선택)</label>
             </div>
             {% csrf_token %}

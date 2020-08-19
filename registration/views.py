@@ -31,8 +31,8 @@ class RegistrationHome(TemplateView):
     def get(self, request, *args, **kwargs):
 
         # 티켓 구매 가능 기간 검증
-        ticket_open = config.CFS_OPEN.astimezone(KST)
-        ticket_close = config.CFS_CLOSE.astimezone(KST)
+        ticket_open = config.TICKET_OPEN.astimezone(KST)
+        ticket_close = config.TICKET_CLOSE.astimezone(KST)
         now = datetime.datetime.now(tz=KST)
 
         if not (ticket_open < now < ticket_close):
@@ -50,13 +50,14 @@ class RegistrationHome(TemplateView):
             return HttpResponseForbidden()
 
         # CoC 검증
-        if request.POST['coc_agreement'] == '0':    # 필요시 키 수정
+        if request.POST.get('coc') is None:
             return HttpResponseForbidden()
 
         # 메일링 동의 갱신
-        req_user_profile = Profile.objects.get(user=request.user)
-        req_user_profile.agreement_receive_advertising_info = request.POST['mailing_agreement']     # 필요시 키 수정
-        req_user_profile.save()
+        if request.POST.get('mailing') == 'true':
+            req_user_profile = Profile.objects.get(user=request.user)
+            req_user_profile.agreement_receive_advertising_info = request.POST.get('mailing')
+            req_user_profile.save()
 
         # 신규 티켓 등록
         new_ticket = Ticket()
@@ -71,10 +72,37 @@ class RegistrationHome(TemplateView):
 
         # 요청한 사용자의 메일링 수신 동의여부 확인
         req_user_profile = Profile.objects.get(user=self.request.user)
-        context['mailing_agreement'] = req_user_profile.agreement_receive_advertising_info
+
+        if req_user_profile.agreement_receive_advertising_info is True:
+            context['checked'] = 'checked'
+        else:
+            context['checked'] = ''
 
         return context
 
 
 class TicketList(TemplateView):
     template_name = 'registration/ticket_list.html'
+
+    def get(self, request, *args, **kwargs):
+        # 티켓 구매 가능 기간 검증
+        ticket_open = config.TICKET_OPEN.astimezone(KST)
+        ticket_close = config.TICKET_CLOSE.astimezone(KST)
+        now = datetime.datetime.now(tz=KST)
+
+        if not (ticket_open < now < ticket_close):
+            return HttpResponseForbidden()
+
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        ticket = Ticket.objects.filter(user=self.request.user)
+
+        if ticket:
+            context['already_buy'] = 1
+        else:
+            context['already_buy'] = 0
+
+        return context
