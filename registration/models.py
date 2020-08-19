@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import datetime
 
 from django.contrib.auth.models import User
 from django.db import models
@@ -204,3 +205,9 @@ class IssueTicket(models.Model):
     registration = models.ForeignKey(Registration, on_delete=models.SET_NULL, null=True)
     issuer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     issue_date = models.DateTimeField(default=timezone.now)
+
+
+class Ticket(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_patron = models.BooleanField(default=False)
+    ticket_purchase_datetime = models.DateTimeField(default=datetime.datetime.now())
