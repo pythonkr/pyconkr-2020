@@ -46,3 +46,7 @@ class RegistrationHome(TemplateView):
     def get_context_data(self, **kwargs):
         print('get_context_data')
         return super().get_context_data(**kwargs)
+
+
+class TicketList(TemplateView):
+    template_name = 'registration/ticket_list.html'

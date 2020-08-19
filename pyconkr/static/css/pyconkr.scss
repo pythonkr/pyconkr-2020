@@ -1229,3 +1229,65 @@ a.endBtn {
     }
   }
 }
+
+.ticket {
+  border: double black 7px;
+  width: 75%;
+  height: 21rem;
+  margin: 0 auto;
+  & + & {
+    margin-top: 3rem;
+  }
+}
+
+.ticket-title {
+  height: 30%;
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.ticket-desc {
+  height: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 2rem;
+  padding-right: 3rem;
+
+  .prev_price {
+    text-decoration: line-through;
+  }
+
+  .price {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}
+
+.ticket-buy-container {
+  height: 30%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  .ticket-buy-btn {
+    border: 1px solid black;
+    height: 80%;
+    font-size: 2rem;
+    font-weight: 500;
+    width: 30%;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
