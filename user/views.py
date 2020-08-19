@@ -5,9 +5,8 @@ from django.shortcuts import redirect, get_object_or_404
 from .models import Profile
 from sponsor.models import Sponsor
 from .forms import ProfileForm
-from registration.models import Registration
-from program.models import TutorialProposal, SprintProposal, Proposal
-from program.models import TutorialCheckin, SprintCheckin
+from program.models import Proposal
+from registration.models import Ticket
 
 
 class ProfileDetail(DetailView):
@@ -30,17 +29,22 @@ class ProfileDetail(DetailView):
         if self.request.user.is_authenticated:
             if self.request.user == self.object.user:
                 context['editable'] = True
-        is_registered = Registration.objects.active_conference().filter(
-            user=self.request.user,
-            payment_status__in=['paid', 'ready']
-        ).exists()
+        # is_registered = Registration.objects.active_conference().filter(
+        #     user=self.request.user,
+        #     payment_status__in=['paid', 'ready']
+        # ).exists()
         context['sponsors'] = Sponsor.objects.filter(creator=self.request.user)
         context['proposals'] = Proposal.objects.filter(user=self.request.user)
-        context['tickets'] = Registration.objects.filter(user=self.request.user, payment_status__in=['paid', 'ready'])
-        context['joined_sprint'] = SprintCheckin.objects.filter(user=self.request.user)
-        context['cancelled_tickets'] = Registration.objects.filter(user=self.request.user, payment_status='cancelled')
-        context['is_registered'] = is_registered
+        # context['tickets'] = Registration.objects.filter(user=self.request.user, payment_status__in=['paid', 'ready'])
+        # context['is_registered'] = is_registered
         context['title'] = _("Profile")
+
+        # 티켓구매 관련 처리
+        try:
+            context['ticket'] = Ticket.objects.get(user=self.request.user)
+        except Ticket.DoesNotExist:
+            # 구매한 티켓이 없는 경우
+            pass
 
         return context
 

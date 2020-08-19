@@ -77,6 +77,20 @@
         </div>
         {% endif %}
 
+        {% if ticket %}
+            {# 티켓 메일 전송이 구현되고나면, 티켓 화면으로 이동할 수 있는 링크를 추가하면 어떨까 싶습니다. #}
+
+            <div class="alert alert-warning" role="alert">
+                티켓구매자입니다. 구매일시: {{ ticket.ticket_purchase_datetime }}
+            </div>
+
+            {% if ticket.is_patron is True %}
+                <div class="alert alert-warning" role="alert">
+                    호우! 개인후원자시군요!
+                </div>
+            {% endif %}
+
+        {% endif %}
         {% comment %} <hr>
         <h3>{% trans 'My Tickets' %}</h3>
         <div>

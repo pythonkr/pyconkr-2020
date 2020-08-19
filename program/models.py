@@ -2,8 +2,8 @@ from django.db import models
 from jsonfield import JSONField
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import get_user_model
-from registration.models import Option
 from django.urls import reverse
+import constance
 
 User = get_user_model()
 
@@ -38,18 +38,6 @@ class ProgramTime(models.Model):
 
     def __str__(self):
         return '%s - %s / %s / %s' % (self.begin, self.end, self.name, self.day)
-
-
-class Room(models.Model):
-    name = models.CharField(max_length=100)
-    location = models.CharField(max_length=255, null=True, blank=True)
-    desc = models.TextField(null=True, blank=True)
-
-    def get_absolute_url(self):
-        return reverse('room', args=[self.id])
-
-    def __str__(self):
-        return self.name
 
 
 class Speaker(models.Model):
@@ -130,7 +118,6 @@ class Program(models.Model):
 
     date = models.ForeignKey(
         ProgramDate, on_delete=models.SET_NULL, null=True, blank=True)
-    rooms = models.ManyToManyField(Room, blank=True)
     times = models.ManyToManyField(ProgramTime, blank=True)
     category = models.ForeignKey(
         ProgramCategory, on_delete=models.SET_NULL, null=True, blank=True)
@@ -141,21 +128,13 @@ class Program(models.Model):
     def get_absolute_url(self):
         return reverse('program', args=[self.id])
 
-    def room(self):
-        rooms = self.rooms.all()
-
-        if rooms.count() == Room.objects.all().count():
-            return ''
-
-        return ', '.join([_.name for _ in self.rooms.all()])
-
     def get_sort_times(self):
         return self.times.order_by('begin', 'id')
 
     def get_slide_url_by_begin_time(self):
         from datetime import datetime
 
-        if not config.SHOW_SLIDE_DATA:
+        if not constance.config.SHOW_SLIDE_DATA:
             return None
 
         time = self.get_sort_times().first()
@@ -249,99 +228,6 @@ class OpenReview(models.Model):
 
     def __str__(self):
         return self.proposal.title
-
-
-class TutorialProposal(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    title = models.CharField(max_length=255)
-    brief = models.TextField(max_length=1000)
-    desc = models.TextField()
-    comment = models.TextField(max_length=4000, null=True, blank=True)
-
-    difficulty = models.CharField(max_length=1,
-                                  choices=(
-                                      ('B', _('Beginner')),
-                                      ('I', _('Intermediate')),
-                                      ('E', _('Experienced')),
-                                  ))
-
-    duration = models.CharField(max_length=1,
-                                choices=(
-                                    ('S', _('1 hour')),
-                                    ('M', _('2 hours')),
-                                    ('L', _('4 hours')),
-                                ))
-
-    language = models.CharField(max_length=1,
-                                choices=(
-                                    ('E', _('English')),
-                                    ('K', _('Korean')),
-                                ),
-                                default='E')
-
-    capacity = models.IntegerField(null=False)
-    confirmed = models.BooleanField(default=False)
-    option = models.ForeignKey(Option, default=None, on_delete=models.SET_NULL,
-                               null=True, blank=True, verbose_name="구매 티켓 종류")
-    begin_date = models.DateField(null=True, blank=True)
-    begin_time = models.TimeField(null=True, blank=True)
-    end_date = models.DateField(null=True, blank=True)
-    end_time = models.TimeField(null=True, blank=True)
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('tutorial', args=[self.id])
-
-    @property
-    def begin_at(self):
-        if not self.begin_date or not self.begin_time:
-            return None
-        return datetime.combine(self.begin_date, self.begin_time)
-
-    @property
-    def end_at(self):
-        if not self.end_date or not self.end_time:
-            return None
-        return datetime.combine(self.end_date, self.end_time)
-
-
-class SprintProposal(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    title = models.CharField(max_length=255)
-    language = models.CharField(max_length=255)
-    project_url = models.CharField(max_length=1024)
-    project_brief = models.TextField(max_length=1000)
-    contribution_desc = models.TextField()
-    comment = models.TextField(max_length=4000, null=True, blank=True)
-    confirmed = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('sprint', args=[self.id])
-
-
-class TutorialCheckin(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    tutorial = models.ForeignKey(
-        TutorialProposal, on_delete=models.SET_NULL, null=True)
-
-    class Meta:
-        unique_together = ('user', 'tutorial')
-
-
-class SprintCheckin(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    sprint = models.ForeignKey(
-        SprintProposal, on_delete=models.SET_NULL, null=True)
-
-    class Meta:
-        unique_together = ('user', 'sprint')
 
 
 class LightningTalk(models.Model):
