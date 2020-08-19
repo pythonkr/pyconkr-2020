@@ -1319,6 +1319,18 @@ msgstr ""
 "In the end, we will have a broader view of the world as we create websites "
 "and simple games."
 
+#: .\pyconkr\context_processors.py
+msgid "Registration"
+msgstr "Registration"
+
+#: .\pyconkr\context_processors.py
+msgid "Info"
+msgstr "Info"
+
+#: .\pyconkr\context_processors.py
+msgid "Buy Ticket"
+msgstr "Buy Ticket"
+
 #~ msgid "마감"
 #~ msgstr "Closed"
 
