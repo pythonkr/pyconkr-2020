@@ -14,6 +14,7 @@ from django.utils.translation import ugettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.views.generic import DetailView, TemplateView
+from django.http import HttpResponseForbidden
 
 from pyconkr.helper import render_io_error
 from program.models import Speaker
@@ -21,11 +22,22 @@ from .models import EVENT_CONFERENCE, EVENT_YOUNG, EVENT_BABYCARE, EVENT_TUTORIA
 
 from user.models import Profile
 
+KST = datetime.timezone(datetime.timedelta(hours=9))
+
 
 class RegistrationHome(TemplateView):
     template_name = 'registration/registration_buy_ticket.html'
 
     def get(self, request, *args, **kwargs):
+
+        # 티켓 구매 가능 기간 검증
+        ticket_open = config.CFS_OPEN.astimezone(KST)
+        ticket_close = config.CFS_CLOSE.astimezone(KST)
+        now = datetime.datetime.now(tz=KST)
+
+        if not (ticket_open < now < ticket_close):
+            return HttpResponseForbidden()
+
         # 기 구매자 예외처리
         if Ticket.objects.filter(user=request.user):
             return redirect('profile')
@@ -35,11 +47,11 @@ class RegistrationHome(TemplateView):
     def post(self, request, *args, **kwargs):
         # 요청 유효성 검증
         if not request.user.is_authenticated:
-            return HttpResponse(status=401)     # UnAuthorize
+            return HttpResponseForbidden()
 
         # CoC 검증
         if request.POST['coc_agreement'] == '0':    # 필요시 키 수정
-            return HttpResponse(status=400)
+            return HttpResponseForbidden()
 
         # 메일링 동의 갱신
         req_user_profile = Profile.objects.get(user=request.user)
