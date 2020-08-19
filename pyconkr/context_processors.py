@@ -41,18 +41,6 @@ def default(request):
             }
         ),
         (
-            'support', {
-                'title': _('Support'),
-                'submenu': OrderedDict([
-                    ('financial-aid', {'title': _('Financial Aid'), 'disable': True}),
-                    ('visa-sponsing', {'title': _('Visa Sponsing'), 'disable': True}),
-                    ('child-care', {'title': _('Child Care'), 'disable': True}),
-                    ('speech2text', {
-                        'title': _('Speech to Text Translation')}),
-                ])
-            },
-        ),
-        (
             'program', {
                 'title': _('Program'),
                 'submenu': OrderedDict([
@@ -105,6 +93,15 @@ def default(request):
                     ('faq', {'title': _('FAQ')}),
                     ('terms-of-sponsor', {'title': _('Terms of Sponsor')}),
                     ('virtual_booth', {'title': _('Virtual Booth')}),
+                ])
+            }
+        ),
+        (
+            'registration', {
+                'title': _('Registration'),
+                'submenu': OrderedDict([
+                    ('info', {'title': _('Info')}),
+                    ('ticket', {'title': _('Buy Ticket')}),
                 ])
             }
         )

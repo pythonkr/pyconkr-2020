@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Ticket list
+{% endblock %}
+
+{% block content %}
+    <div class="ticket">
+        <div class="ticket-title">일반 티켓</div>
+        <div class="ticket-desc">
+            <div class="prev_price">&#8361;70000</div>
+            &nbsp;->&nbsp;
+            <div class="price">무료</div>
+        </div>
+        <div class="ticket-buy-container">
+            <a class="ticket-buy-btn" href="{% url 'registration_index' %}">구매하기</a>
+            {{ already_buy }}
+        </div>
+    </div>
+    <div class="ticket">
+        <div class="ticket-title">개인후원 티켓</div>
+        <div class="ticket-desc">
+            <div class="prev_price">&#8361;150000</div>
+            &nbsp;->&nbsp;
+            <div class="price">10만 원 이상</div>
+        </div>
+        <div class="ticket-buy-container">
+            <a class="ticket-buy-btn" href="">구매하기</a>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1255,6 +1255,18 @@ msgid ""
 "수 있는 더 넓은 시야를 갖게 될 것입니다."
 msgstr ""
 
+#: .\pyconkr\context_processors.py
+msgid "Registration"
+msgstr "등록"
+
+#: .\pyconkr\context_processors.py
+msgid "Info"
+msgstr "정보"
+
+#: .\pyconkr\context_processors.py
+msgid "Buy Ticket"
+msgstr "티켓 구입"
+
 #~ msgid "There are no proposals in this category."
 #~ msgstr "선택하신 카테고리에 발표 제안이 없습니다."
 
