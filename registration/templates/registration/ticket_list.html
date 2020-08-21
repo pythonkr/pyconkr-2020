@@ -7,6 +7,9 @@
 {% endblock %}
 
 {% block content %}
+    {% if closed %}
+        <h4 class="text-center">{% trans "Ready for content" %}</h4>
+    {% else %}
     <div class="ticket">
         <div class="ticket-title">일반 티켓</div>
         <div class="ticket-desc">
@@ -30,6 +33,6 @@
             <a class="ticket-buy-btn" href="">구매하기</a>
         </div>
     </div>
-
+    {% endif %}
 
 {% endblock %}

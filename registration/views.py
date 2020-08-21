@@ -84,19 +84,15 @@ class RegistrationHome(TemplateView):
 class TicketList(TemplateView):
     template_name = 'registration/ticket_list.html'
 
-    def get(self, request, *args, **kwargs):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         # 티켓 구매 가능 기간 검증
         ticket_open = config.TICKET_OPEN.astimezone(KST)
         ticket_close = config.TICKET_CLOSE.astimezone(KST)
         now = datetime.datetime.now(tz=KST)
 
         if not (ticket_open < now < ticket_close):
-            return HttpResponseForbidden()
-
-        return super().get(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+            context['closed'] = True
 
         ticket = Ticket.objects.filter(user=self.request.user)
 
