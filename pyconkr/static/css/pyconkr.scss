@@ -1212,7 +1212,7 @@ a.endBtn {
     color: #000;
     border: 1px solid black;
     background-color: rgba($color: #ffffff, $alpha: 0.5);
-    width: 16%;
+    width: 18%;
     height: 100%;
     text-decoration: none;
     display: flex;
@@ -1227,6 +1227,15 @@ a.endBtn {
     &:hover {
       background-color: #fff;
       cursor: pointer;
+    }
+
+    &[href="#"]:hover {
+      & > span {
+        display: none;
+      }
+      &::before {
+        content: "준비 중입니다. Coming soon.";
+      }
     }
   }
 }

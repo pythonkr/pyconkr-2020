@@ -129,6 +129,20 @@
   .tiles {
     display: block;
   }
+
+  .quick_btns {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-between;
+
+    .quick_btn {
+      font-size: 1rem;
+      width: 30%;
+      height: 45%;
+    }
+  }
+
+  
 }
 
 @media (max-width: 640px) {

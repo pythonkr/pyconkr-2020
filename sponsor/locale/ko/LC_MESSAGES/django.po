@@ -178,7 +178,7 @@ msgstr "후원 등급"
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_detail.html:15
 msgid "Sponsor description"
-msgstr "후원사 설명"
+msgstr "후원사 소개"
 
 #: .\sponsor\templates\sponsor\sponsor_proposal_detail.html:22
 msgid "Manager name"
