@@ -312,13 +312,15 @@ CONSTANCE_CONFIG = {
     'LIGHTNING_TALK_CLOSE': (datetime.datetime(2000, 1, 1, tzinfo=KST), '라이트닝 토크 모집 종료'),
     'TICKET_OPEN': (datetime.datetime(2000, 1, 1, tzinfo=KST), '티켓 판매 시작'),
     'TICKET_CLOSE': (datetime.datetime(2020, 9, 28, tzinfo=KST), '티켓 판매 종료'),
+    'PATRON_OPEN': (datetime.datetime(2020, 8, 1, tzinfo=KST), '개인 후원 티켓 판매 시작'),
+    'PATRON_CLOSE': (datetime.datetime(2020, 9, 28, tzinfo=KST), '개인 후원 티켓 판매 종료'),
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {
     'SLACK': ('SLACK_CHANNEL', 'CFS_NOTI_CHANNEL', 'SLACK_TOKEN'),
     'IMPORT': ('IMP_DOM_USER_CODE', 'IMP_DOM_API_KEY', 'IMP_DOM_API_SECRET',
                'IMP_INTL_USER_CODE', 'IMP_INTL_API_KEY', 'IMP_INTL_API_SECRET',),
-    'Ticket Open Schedule': ('TICKET_OPEN', 'TICKET_CLOSE',),
+    'Ticket Open Schedule': ('TICKET_OPEN', 'TICKET_CLOSE', 'PATRON_OPEN', 'PATRON_CLOSE',),
     'Talk Schedule': ('CFP_OPEN', 'CFP_CLOSE', 'OPEN_REVIEW_START', 'OPEN_REVIEW_FINISH',
                       'KEYNOTE_RECOMMEND_OPEN', 'KEYNOTE_RECOMMEND_CLOSE', 'LIGHTNING_TALK_OPEN',
                       'LIGHTNING_TALK_CLOSE',),
