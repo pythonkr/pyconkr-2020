@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 16:25+0900\n"
+"POT-Creation-Date: 2020-08-21 23:24+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -214,11 +214,11 @@ msgstr "한국어"
 msgid "Not arranged yet"
 msgstr "아직 결정되지 않았습니다."
 
-#: .\program\models.py:241
+#: .\program\models.py:242
 msgid "토요일"
 msgstr ""
 
-#: .\program\models.py:242
+#: .\program\models.py:243
 msgid "일요일"
 msgstr ""
 

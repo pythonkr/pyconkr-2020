@@ -1299,6 +1299,10 @@ a.endBtn {
     &:hover {
       text-decoration: none;
     }
+
+    &.disabled {
+      background-color: gray;
+    }
   }
 }
 
