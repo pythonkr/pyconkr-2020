@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 16:25+0900\n"
+"POT-Creation-Date: 2020-08-21 23:24+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: woojing seok <woojing@pycon.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\registration\models.py:138
+msgid "Credit Card only for Korean"
+msgstr ""
+
+#: .\registration\models.py:139
+msgid "Credit Card for Foreign"
+msgstr ""
 
 #: .\registration\templates\registration\registration_buy_ticket.html:5
 msgid "티켓 구매하기"
@@ -51,4 +59,42 @@ msgstr ""
 
 #: .\registration\templates\registration\registration_buy_ticket.html:31
 msgid "홍보성 메일 수신에 동의합니다. (선택)"
+msgstr ""
+
+#: .\registration\templates\registration\ticket_list.html:6
+msgid "Ticket list"
+msgstr "티켓 목록"
+
+#: .\registration\templates\registration\ticket_list.html:11
+msgid "Ready for content"
+msgstr "준비 중입니다."
+
+#: .\registration\templates\registration\ticket_list.html:14
+msgid "일반 티켓"
+msgstr ""
+
+#: .\registration\templates\registration\ticket_list.html:18
+msgid "무료"
+msgstr ""
+
+#: .\registration\templates\registration\ticket_list.html:22
+#: .\registration\templates\registration\ticket_list.html:41
+msgid "판매 종료"
+msgstr ""
+
+#: .\registration\templates\registration\ticket_list.html:25
+msgid "구매함"
+msgstr ""
+
+#: .\registration\templates\registration\ticket_list.html:27
+#: .\registration\templates\registration\ticket_list.html:43
+msgid "구매하기"
+msgstr ""
+
+#: .\registration\templates\registration\ticket_list.html:33
+msgid "개인 후원 티켓"
+msgstr ""
+
+#: .\registration\templates\registration\ticket_list.html:37
+msgid "10만 원 이상"
 msgstr ""

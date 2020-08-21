@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    Ticket list
+    {% trans 'Ticket list' %}
 {% endblock %}
 
 {% block content %}
@@ -11,36 +11,36 @@
         <h4 class="text-center">{% trans "Ready for content" %}</h4>
     {% else %}
     <div class="ticket">
-        <div class="ticket-title">일반 티켓</div>
+        <div class="ticket-title">{% trans '일반 티켓' %}</div>
         <div class="ticket-desc">
             <div class="prev_price">&#8361;70000</div>
             &nbsp;->&nbsp;
-            <div class="price">무료</div>
+            <div class="price">{% trans '무료' %}</div>
         </div>
         <div class="ticket-buy-container">
             {% if ticket_available == 1 %}
-                <div class="ticket-buy-btn disabled">판매 종료</div>
+                <div class="ticket-buy-btn disabled">{% trans '판매 종료' %}</div>
             {% else %}
                 {% if already_buy %}
-                    <div class="ticket-buy-btn disabled">구매함</div>
+                    <div class="ticket-buy-btn disabled">{% trans '구매함' %}</div>
                 {% else %}
-                    <a class="ticket-buy-btn" href="{% url 'registration_index' %}">구매하기</a>
+                    <a class="ticket-buy-btn" href="{% url 'registration_index' %}">{% trans '구매하기' %}</a>
                 {% endif %}
             {% endif %}
         </div>
     </div>
     <div class="ticket">
-        <div class="ticket-title">개인후원 티켓</div>
+        <div class="ticket-title">{% trans '개인 후원 티켓' %}</div>
         <div class="ticket-desc">
             <div class="prev_price">&#8361;150000</div>
             &nbsp;->&nbsp;
-            <div class="price">10만 원 이상</div>
+            <div class="price">{% trans '10만 원 이상' %}</div>
         </div>
         <div class="ticket-buy-container">
             {% if patron_available == 1 %}
-                <div class="ticket-buy-btn disabled">판매 종료</div>
+                <div class="ticket-buy-btn disabled">{% trans '판매 종료' %}</div>
             {% else %}
-                <a class="ticket-buy-btn" href="">구매하기</a>
+                <a class="ticket-buy-btn" href="">{% trans '구매하기' %}</a>
             {% endif %}
         </div>
     </div>
