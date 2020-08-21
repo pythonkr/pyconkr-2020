@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block title %}티켓 구매하기{% endblock %}
+{% block title %}{% trans '티켓 구매하기' %}{% endblock %}
 
 {% block content %}
     <script>
@@ -16,19 +16,19 @@
     </script>
     <div class="form-container">
         <form method="post" class="form-signin">
-            <h2>참가자 CoC 동의</h2>
-            <p>행동강령에 따라 서로를 존중하는 태도로 행사에 참여할 것을 약속합니다.
-                행동강령을 심각하게 위반하여 다른 사람에게 위협이 된다고 판단되는 경우 참가를 제한당할 수 있으며 이 경우 참가비는 환불되지 않습니다.
-            </p>
+            <h2>{% trans '참가자 CoC 동의' %}</h2>
+            <p>{% trans '행동강령에 따라 서로를 존중하는 태도로 행사에 참여할 것을 약속합니다.' %}</p>
+            <p>{% trans '행동강령을 심각하게 위반하여 다른 사람에게 위협이 된다고 판단되는 경우 참가를 제한당할 수 있으며 이 경우 참가비는 환불되지 않습니다.' %}</p>
             <div class="alert alert-warning">
                 <input type="checkbox" name="coc" onclick="onClick(this)"/>
-                <label for="coc">CoC에 동의합니다. (필수)</label>
+                <label for="coc">{% trans 'CoC에 동의합니다. (필수)' %}</label>
             </div>
-            <h2>홍보성 메일 수신 동의</h2>
-            <p>수신할래요?</p>
+
+            <h2>{% trans '홍보성 메일 수신 동의' %}</h2>
+            <p>{% trans '행사와 관련된 후원사 및 각종 이벤트에 대한 소식을 메일로 알려드립니다. 수신을 원치 않으시면 꼭 필요한 안내 메일만 발송해드립니다.' %}</p>
             <div class="alert alert-info">
                 <input type="checkbox" name="mailing" value="true" {{ checked }}/>
-                <label for="mailing">홍보성 메일 수신에 동의합니다. (선택)</label>
+                <label for="mailing">{% trans '홍보성 메일 수신에 동의합니다. (선택)' %}</label>
             </div>
             {% csrf_token %}
             <div class="a_btn_container">

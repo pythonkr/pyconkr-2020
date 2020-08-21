@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-13 11:06+0900\n"
+"POT-Creation-Date: 2020-08-19 16:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,7 +139,7 @@ msgstr "Edit"
 msgid "Virtual booth 수정하기"
 msgstr "Edit"
 
-#: .\user\templates\user\profile_form.html:5 .\user\views.py:43
+#: .\user\templates\user\profile_form.html:5 .\user\views.py:40
 msgid "Profile"
 msgstr ""
 
@@ -147,10 +147,10 @@ msgstr ""
 msgid "Social Sign-up"
 msgstr ""
 
-#: .\user\views.py:51
+#: .\user\views.py:55
 msgid "Profile successfully updated."
 msgstr ""
 
-#: .\user\views.py:63
+#: .\user\views.py:67
 msgid "Update profile"
 msgstr ""

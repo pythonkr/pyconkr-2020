@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-13 11:06+0900\n"
+"POT-Creation-Date: 2020-08-19 16:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: woojing seok <woojing@pycon.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,191 +17,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\registration\forms.py:11 .\registration\forms.py:64
-msgid "Base Price KRW"
-msgstr "기본 금액"
-
-#: .\registration\forms.py:21 .\registration\forms.py:75
-msgid "Submit"
-msgstr "결제하기"
-
-#: .\registration\forms.py:27 .\registration\forms.py:51
-#: .\registration\templates\registration\status.html:17
-#: .\registration\templates\registration\status.html:98
-msgid "Name"
-msgstr "이름"
-
-#: .\registration\forms.py:28 .\registration\forms.py:52
-#: .\registration\templates\registration\status.html:50
-msgid "Option"
-msgstr "옵션"
-
-#: .\registration\forms.py:29 .\registration\forms.py:53
-#: .\registration\templates\registration\status.html:28
-#: .\registration\templates\registration\status.html:33
-msgid "Top Size"
-msgstr "상의 사이즈"
-
-#: .\registration\forms.py:30 .\registration\forms.py:55
-msgid "E-Mail"
-msgstr "이메일"
-
-#: .\registration\forms.py:31 .\registration\forms.py:56
-#: .\registration\templates\registration\status.html:42
-msgid "Company or Organization"
-msgstr "소속"
-
-#: .\registration\forms.py:32 .\registration\forms.py:57
-msgid "Phone Number"
-msgstr "전화번호"
-
-#: .\registration\forms.py:33 .\registration\forms.py:58
-#: .\registration\forms.py:83
-msgid "Payment Method"
-msgstr "결제 수단"
-
-#: .\registration\forms.py:54
-msgid "Additional Funding KRW"
-msgstr "추가 후원 금액"
-
-#: .\registration\forms.py:81
-msgid "Title"
-msgstr "제목"
-
-#: .\registration\forms.py:82
-msgid "Email"
-msgstr "이메일"
-
-#: .\registration\models.py:137
-msgid "Credit Card only for Korean"
+#: .\registration\templates\registration\registration_buy_ticket.html:5
+msgid "티켓 구매하기"
 msgstr ""
 
-#: .\registration\models.py:138
-msgid "Credit Card for Foreign"
+#: .\registration\templates\registration\registration_buy_ticket.html:19
+msgid "참가자 CoC 동의"
 msgstr ""
 
-#: .\registration\templates\registration\manual_payment.html:6
-msgid "Manual Payment"
+#: .\registration\templates\registration\registration_buy_ticket.html:20
+msgid "행동강령에 따라 서로를 존중하는 태도로 행사에 참여할 것을 약속합니다."
 msgstr ""
 
-#: .\registration\templates\registration\payment.html:28
-#: .\registration\templates\registration\status.html:151
-#: .\registration\views.py:191 .\registration\views.py:481
-msgid "Registration"
-msgstr "등록"
-
-#: .\registration\templates\registration\registration_detail.html:14
-msgid "PyCon Korea 2020"
-msgstr "파이콘 한국 2020"
-
-#: .\registration\templates\registration\status.html:8
-msgid "Registration status"
-msgstr "등록 상태"
-
-#: .\registration\templates\registration\status.html:10
-#, fuzzy
-#| msgid "Registration is completed"
-msgid "Registration is completed."
-msgstr "등록 완료"
-
-#: .\registration\templates\registration\status.html:12
-#, fuzzy
-#| msgid "Your registration is completed without any problems"
-msgid "Your registration is completed without any problems."
-msgstr "등록되었습니다."
-
-#: .\registration\templates\registration\status.html:21
-#: .\registration\templates\registration\status.html:102
-msgid "E-mail"
-msgstr "이메일"
-
-#: .\registration\templates\registration\status.html:46
-msgid "Phone number"
-msgstr "전화번호"
-
-#: .\registration\templates\registration\status.html:54
-#: .\registration\templates\registration\status.html:106
-msgid "Price"
-msgstr "금액"
-
-#: .\registration\templates\registration\status.html:59
-#: .\registration\templates\registration\status.html:111
-msgid "Additional Funding"
-msgstr "추가 후원 금액"
-
-#: .\registration\templates\registration\status.html:64
-#: .\registration\templates\registration\status.html:116
-msgid "Transaction ID"
+#: .\registration\templates\registration\registration_buy_ticket.html:21
+msgid ""
+"행동강령을 심각하게 위반하여 다른 사람에게 위협이 된다고 판단되는 경우 참가"
+"를 제한당할 수 있으며 이 경우 참가비는 환불되지 않습니다."
 msgstr ""
 
-#: .\registration\templates\registration\status.html:68
-msgid "Registration datetime"
-msgstr "등록 일시"
-
-#: .\registration\templates\registration\status.html:72
-msgid "Cancelable Date"
-msgstr "환불 가능 기한"
-
-#: .\registration\templates\registration\status.html:85
-msgid "Check Registration Receipt"
-msgstr "등록 영수증 확인"
-
-#: .\registration\templates\registration\status.html:95
-msgid "Payment Information"
-msgstr "결제 정보"
-
-#: .\registration\templates\registration\status.html:120
-msgid "Bank to transfer"
-msgstr "이체할 은행"
-
-#: .\registration\templates\registration\status.html:124
-msgid "Account number to transafer"
-msgstr "이체할 계좌 번호"
-
-#: .\registration\templates\registration\status.html:128
-#, fuzzy
-#| msgid "Account number to transafer"
-msgid "Account owner name"
-msgstr "이체할 계좌 번호"
-
-#: .\registration\templates\registration\status.html:132
-msgid "Payment deadline"
-msgstr "결제 기한"
-
-#: .\registration\templates\registration\status.html:136
-msgid "Payment check"
-msgstr "결제 확인"
-
-#: .\registration\templates\registration\status.html:139
-msgid "Not checked yet"
-msgstr "아직 확인되지 않음"
-
-#: .\registration\templates\registration\status.html:141
-msgid "Payment checked"
-msgstr "결제 확인됨"
-
-#: .\registration\templates\registration\status.html:148
-#, fuzzy
-#| msgid "There is no registration record"
-msgid "There is no registration record."
-msgstr "등록 기록이 없습니다."
-
-#: .\registration\views.py:57
-msgid "Registration Status"
-msgstr "등록 상태"
-
-#: .\registration\views.py:577
-msgid "Registration Receipt"
-msgstr "등록 영수증"
-
-#: .\registration\views.py:610 .\registration\views.py:621
-msgid "Issue Ticket System"
+#: .\registration\templates\registration\registration_buy_ticket.html:24
+msgid "CoC에 동의합니다. (필수)"
 msgstr ""
 
-#: .\registration\views.py:663
-msgid "Ticket Print"
+#: .\registration\templates\registration\registration_buy_ticket.html:27
+msgid "홍보성 메일 수신 동의"
 msgstr ""
 
-#: .\registration\views.py:683
-msgid "Sprint Print"
+#: .\registration\templates\registration\registration_buy_ticket.html:28
+msgid ""
+"행사와 관련된 후원사 및 각종 이벤트에 대한 소식을 메일로 알려드립니다. 수신"
+"을 원치 않으시면 꼭 필요한 안내 메일만 발송해드립니다."
+msgstr ""
+
+#: .\registration\templates\registration\registration_buy_ticket.html:31
+msgid "홍보성 메일 수신에 동의합니다. (선택)"
 msgstr ""
