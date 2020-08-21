@@ -86,19 +86,32 @@ class TicketList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         # 티켓 구매 가능 기간 검증
         ticket_open = config.TICKET_OPEN.astimezone(KST)
         ticket_close = config.TICKET_CLOSE.astimezone(KST)
+        patron_open = config.PATRON_OPEN.astimezone(KST)
+        patron_close = config.PATRON_CLOSE.astimezone(KST)
         now = datetime.datetime.now(tz=KST)
 
-        if not (ticket_open < now < ticket_close):
-            context['closed'] = True
-
-        ticket = Ticket.objects.filter(user=self.request.user)
-
-        if ticket:
-            context['already_buy'] = 1
+        if now < ticket_open:
+            context['ticket_available'] = -1
+        elif ticket_open < now < ticket_close:
+            context['ticket_available'] = 0
         else:
-            context['already_buy'] = 0
+            context['ticket_available'] = 1
+
+        if now < patron_open:
+            context['patron_available'] = -1
+        elif patron_open < now < patron_close:
+            context['patron_available'] = 0
+        else:
+            context['patron_available'] = 1
+
+        # 기구매 티켓 확인
+        if Ticket.objects.filter(user=self.request.user).exists():
+            context['already_buy'] = True
+        else:
+            context['already_buy'] = False
 
         return context
