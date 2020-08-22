@@ -51,6 +51,7 @@ class Proposal(models.Model):
     category = models.ForeignKey(
         ProgramCategory, on_delete=models.SET_DEFAULT, null=True, blank=True, default=14)
     accepted = models.BooleanField(default=False)
+    introduction = models.TextField(max_length=1000, null=True, blank=True)
 
     def __str__(self):
         return self.title

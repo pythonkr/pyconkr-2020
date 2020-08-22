@@ -26,6 +26,7 @@ class ProposalAdminForm(forms.ModelForm):
         widgets = {
             'desc': SummernoteWidgetWithCustomToolbar(),
             'comment': SummernoteWidgetWithCustomToolbar(),
+            'introduction': SummernoteWidgetWithCustomToolbar(),
         }
 
 
