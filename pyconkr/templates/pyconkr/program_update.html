@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans '발표 소개 수정하기' %}{% endblock %}
+
+{% block content %}
+{% crispy form %}
+{% endblock %}

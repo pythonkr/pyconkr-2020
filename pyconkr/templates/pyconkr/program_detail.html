@@ -4,17 +4,17 @@
 {% block head-title %}{{ block.super }} {% trans "Program" %} | {{ program.name }}{% endblock %}
 {% block og-title %}{{ program.name }}{% endblock %}
 {% block og-desc %}{{ program.desc|striptags|safe }}{% endblock %}
-{% block nav %}{% include "nav.html" with title=program.name %}{% endblock %}
 {% block title %}{{ program.name }}{% endblock %}
 
 {% block content %}
-{% include "badge/all.html" %}
+
 <ul class="list-group">
   {% if program.category %}
   <li class="list-group-item">
     <span class="glyphicon glyphicon-tag"></span> {{ program.category }}
   </li>
   {% endif %}
+
   {% if program.difficulty %}
   <li class="list-group-item">
     <span class="glyphicon glyphicon-pencil"></span>
@@ -24,58 +24,35 @@
       {% endif %}
   </li>
   {% endif %}
-  {% if program.date %}
+
+  {% if program.video_open_at %}
   <li class="list-group-item">
-    <span class="glyphicon glyphicon-time"></span> {{ program.date }} {{ program.get_times }}
+    <span class="glyphicon glyphicon-time"></span> {{ program.video_open_at }}
   </li>
   {% endif %}
   <li class="list-group-item">
     <span class="glyphicon glyphicon-volume-up"></span> {{ program.get_language_display }}
   </li>
-  {% if program.room %}
-  <li class="list-group-item">
-    <span class="glyphicon glyphicon-map-marker"></span> {{ program.room }}
-  </li>
-  {% endif %}
-  {% if program.get_speakers %}
-  <li class="list-group-item">
-    {% for speaker in program.speakers.all %}
-    <div class="speaker-small">
-    <a href="{{ speaker.get_absolute_url }}">
-        <img class="image" src="{{ speaker.get_image_url }}" alt="photo of {{ speaker.slug }}">
-        <span class="name">{{ speaker }}</span>
-    </a>
-    </div>
-    {% endfor %}
-  </li>
-  {% endif %}
-  <li class="list-group-item">
-  {% if program.is_recordable %}
-    <span class="glyphicon glyphicon-eye-open"></span> {% trans "Photography and recording is allowed." %}
-  {% else %}
-    <span class="glyphicon glyphicon-eye-close"></span> {% trans "Photography and recording is not allowed." %}
-  {% endif %}
-  </li>
 </ul>
-{% if program.get_slide_url_by_begin_time %}
-<h3>{% trans "Slide" %}</h3><br>
-{{ program.get_slide_url_by_begin_time|urlize }}<br>
+
+{% if program.slide_url %}
+<h3>{% trans "Slide" %}</h3>
+    {{ program.slide_url | urlize }}
 {% endif %}
+
 {% if program.video_url %}
 <h3>{% trans "Video" %}</h3><br>
-{{ program.video_url|urlize }}<br>
+{{ program.video_url | urlize }}<br>
 {% endif %}
-{% if program.pdf_url %}
-<h3>{% trans "PDF" %}</h3><br>
-{{ program.pdf_url|urlize }}<br>
-{% endif %}
+
 {% if program.desc %}
 <h3>{% trans "Description" %}</h3><br>
-{{ program.desc|safe }}<br>
+{{ program.desc | safe }}<br>
 {% endif %}
+
 {% if editable %}
-<hr>
-<a href="{% url "program_edit" program.id %}" class="btn btn-large btn-primary">{% trans "Edit" %}</a>
+    <div class="a_btn_container">
+        <a href="{% url "talk-update" pk=program.pk %}" class="a_btn large">{% trans "Edit" %}</a>
+    </div>
 {% endif %}
-{% include "disqus.html" %}
 {% endblock %}

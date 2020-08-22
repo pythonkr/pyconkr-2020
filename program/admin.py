@@ -9,24 +9,7 @@ from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 from modeltranslation.admin import TranslationAdmin
 from sorl.thumbnail.admin import AdminImageMixin
 from import_export.admin import ImportExportModelAdmin, ImportMixin
-from .models import (Program, ProgramTime, ProgramDate, ProgramCategory,
-                     Speaker, Preference, Proposal, OpenReview, LightningTalk)
-
-
-class ProgramDateAdmin(admin.ModelAdmin):
-    list_display = ('id', 'day',)
-
-
-# admin.site.register(ProgramDate, ProgramDateAdmin)
-
-
-class ProgramTimeAdmin(TranslationAdmin):
-    list_display = ('id', 'name', 'begin', 'end', 'day')
-    list_editable = ('name', 'day')
-    ordering = ('begin',)
-
-
-# admin.site.register(ProgramTime, ProgramTimeAdmin)
+from .models import ProgramCategory, Proposal, OpenReview, LightningTalk
 
 
 class ProgramCategoryAdmin(TranslationAdmin, ImportExportModelAdmin):
@@ -36,25 +19,6 @@ class ProgramCategoryAdmin(TranslationAdmin, ImportExportModelAdmin):
 admin.site.register(ProgramCategory, ProgramCategoryAdmin)
 
 
-class ProgramAdmin(SummernoteModelAdmin, TranslationAdmin):
-    list_display = ('id', 'name', 'date', 'slide_url',
-                    'pdf_url', 'get_speakers', 'category', 'is_recordable',)
-    list_editable = ('name', 'category', 'is_recordable',)
-    ordering = ('id',)
-    filter_horizontal = ('times',)
-    search_fields = ('name', 'speakers__name', 'desc',)
-
-
-admin.site.register(Program, ProgramAdmin)
-
-
-class PreferenceAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'program',)
-
-
-# admin.site.register(Preference, PreferenceAdmin)
-
-
 class ProposalAdminForm(forms.ModelForm):
     class Meta:
         model = Proposal
@@ -62,6 +26,7 @@ class ProposalAdminForm(forms.ModelForm):
         widgets = {
             'desc': SummernoteWidgetWithCustomToolbar(),
             'comment': SummernoteWidgetWithCustomToolbar(),
+            'introduction': SummernoteWidgetWithCustomToolbar(),
         }
 
 

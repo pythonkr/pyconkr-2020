@@ -1,32 +1,25 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block content %}
-    {% if not object_list %}
-        <p>{% trans "Ready for content" %}</p>
-    {% endif %}
+{% block title %}
+    {% trans '발표' %}
+{% endblock %}
 
-{% for obj in object_list %}
-<a href="#{{ obj.slug }}">
-  <h3 id="{{ obj.slug }}">
-    {{ obj.name }}
-  </h3>
-</a>
-<ul>
-  {% for program in obj.program_set.all %}
-  <li>
-    <a href="{{ program.get_absolute_url }}">{{ program.name }}</a>
-    {% if program.get_slide_url_by_begin_time %}
-    <small><a href="{{ program.get_slide_url_by_begin_time }}"><span class="label label-primary">{% trans "Slides link" %}</span></a></small>
+{% block content %}
+    {% if not accepted_exist %}
+        <h4 class="text-center">{% trans "Ready for content" %}</h4>
+    {% else %}
+        {% for category in object_list %}
+        {% if category in having_program %}
+            <h3>{{ category.name }}</h3>
+            <ul>
+                {% for proposal in category.proposal_set.all %}
+                    {% if proposal.accepted %}
+                        <li><a href="{% url 'talk' pk=proposal.pk %}">{{ proposal.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endfor %}
     {% endif %}
-    {% if program.video_url %}
-    <small><a href="{{ program.video_url }}"><span class="label label-info">{% trans "Video link" %}</span></a></small>
-    {% endif %}
-    {% if program.pdf_url %}
-    <small><a href="{{ program.pdf_url }}"><span class="label label-danger">{% trans "PDF link" %}</span></a></small>
-    {% endif %}
-  </li>
-  {% endfor %}
-</ul>
-{% endfor %}
 {% endblock %}

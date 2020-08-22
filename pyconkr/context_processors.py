@@ -8,7 +8,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from pyconkr.models import Banner
 from sponsor.models import SponsorLevel, Sponsor
-from program.models import Speaker
 
 
 def default(request):
@@ -138,21 +137,6 @@ def default(request):
         'paid_levels': paid_levels,
     }
     return c
-
-
-def profile(request):
-    speaker = None
-    programs = None
-
-    if request.user.is_authenticated:
-        speaker = Speaker.objects.filter(email=request.user.email).first()
-        if speaker:
-            programs = speaker.program_set.all()
-
-    return {
-        'my_speaker': speaker,
-        'my_programs': programs,
-    }
 
 
 def sponsors(request):

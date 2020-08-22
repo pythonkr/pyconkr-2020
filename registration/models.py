@@ -210,4 +210,4 @@ class IssueTicket(models.Model):
 class Ticket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     is_patron = models.BooleanField(default=False)
-    ticket_purchase_datetime = models.DateTimeField(default=datetime.datetime.now())
+    ticket_purchase_datetime = models.DateTimeField(auto_now_add=True)

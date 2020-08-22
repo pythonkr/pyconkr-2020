@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 import constance
+import datetime
 
 User = get_user_model()
 
@@ -17,166 +18,6 @@ class ProgramCategory(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class ProgramDate(models.Model):
-    day = models.DateField()
-
-    def __str__(self):
-        return _date(self.day, "Y-m-d (D)")
-
-
-class ProgramTime(models.Model):
-    name = models.CharField(max_length=100)
-    begin = models.TimeField()
-    end = models.TimeField()
-    day = models.ForeignKey(
-        ProgramDate, on_delete=models.SET_NULL, null=True, blank=True)
-
-    def __meta__(self):
-        ordering = ['begin']
-
-    def __str__(self):
-        return '%s - %s / %s / %s' % (self.begin, self.end, self.name, self.day)
-
-
-class Speaker(models.Model):
-    slug = models.SlugField(max_length=100, unique=True)
-    name = models.CharField(max_length=100, db_index=True)
-    organization = models.CharField(max_length=100, null=True, blank=True)
-    email = models.EmailField(max_length=255, db_index=True,
-                              null=True, blank=True)
-    image = models.ImageField(upload_to='speaker', null=True, blank=True)
-    desc = models.TextField(null=True, blank=True)
-    info = JSONField(blank=True, help_text=_('help-text-for-speaker-info'))
-
-    class Meta:
-        ordering = ['name']
-
-    def get_badges(self, size_class=""):
-        badge = \
-            '<a class="btn btn-social btn-social-default {} btn-{}" href="{}" target="_blank">' \
-            '<i class="fa fa-external-link fa-{}"></i>{}</a>'
-        fa_replacement = {
-            "homepage": "home",
-            "blog": "pencil",
-        }
-        result = []
-        if type(self.info) == str:
-            return '<div class="badges">{}</div>'.format(' '.join(result))
-
-        for site, url in self.info.items():
-            result.append(badge.format(
-                size_class,
-                site, url,
-                fa_replacement.get(site, site), site.capitalize()
-            ))
-        return '<div class="badges">{}</div>'.format(' '.join(result))
-
-    def get_badges_xs(self):
-        return self.get_badges("btn-xs")
-
-    def get_absolute_url(self):
-        return reverse('speaker', args=[self.slug])
-
-    def get_image_url(self):
-        if self.image:
-            return self.image.url
-
-        return static('image/anonymous.png')
-
-    def __str__(self):
-        return '%s / %s' % (self.name, self.slug)
-
-
-class Program(models.Model):
-    name = models.CharField(max_length=255, db_index=True)
-    brief = models.TextField(null=True, blank=True)
-    desc = models.TextField(null=True, blank=True)
-    slide_url = models.CharField(max_length=255, null=True, blank=True)
-    pdf_url = models.CharField(max_length=255, null=True, blank=True)
-    video_url = models.CharField(max_length=255, null=True, blank=True)
-    speakers = models.ManyToManyField(Speaker, blank=True)
-    difficulty = models.CharField(max_length=1,
-                                  choices=(
-                                      ('B', _('Beginner')),
-                                      ('I', _('Intermediate')),
-                                      ('E', _('Experienced')),
-                                  ), default='B')
-
-    duration = models.CharField(max_length=1,
-                                choices=(
-                                    ('S', _('25min')),
-                                    ('L', _('40min')),
-                                ), default='S')
-
-    language = models.CharField(max_length=1,
-                                choices=(
-                                    ('E', _('English')),
-                                    ('K', _('Korean')),
-                                ), default='E')
-
-    date = models.ForeignKey(
-        ProgramDate, on_delete=models.SET_NULL, null=True, blank=True)
-    times = models.ManyToManyField(ProgramTime, blank=True)
-    category = models.ForeignKey(
-        ProgramCategory, on_delete=models.SET_NULL, null=True, blank=True)
-
-    is_recordable = models.BooleanField(default=True)
-    is_breaktime = models.BooleanField(default=False)
-
-    def get_absolute_url(self):
-        return reverse('program', args=[self.id])
-
-    def get_sort_times(self):
-        return self.times.order_by('begin', 'id')
-
-    def get_slide_url_by_begin_time(self):
-        from datetime import datetime
-
-        if not constance.config.SHOW_SLIDE_DATA:
-            return None
-
-        time = self.get_sort_times().first()
-
-        if not time:
-            return None
-
-        opendate = datetime(year=time.day.day.year, month=time.day.day.month, day=time.day.day.day,
-                            hour=time.begin.hour,
-                            minute=time.begin.minute)
-        if datetime.now() >= opendate:
-            return self.slide_url
-        else:
-            return None
-
-    def begin_time(self):
-        return self.get_sort_times().first().begin.strftime("%H:%M")
-
-    def get_speakers(self):
-        return ', '.join([u'{}({})'.format(_.name, _.email) for _ in self.speakers.all()])
-
-    get_speakers.short_description = u'Speakers'
-
-    def get_times(self):
-        times = self.get_sort_times()
-
-        if times:
-            return '%s - %s' % (times.first().begin.strftime("%H:%M"),
-                                times[len(times) - 1].end.strftime("%H:%M"))
-        else:
-            return _("Not arranged yet")
-
-    def __str__(self):
-        return self.name
-
-
-class Preference(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    program = models.ForeignKey(Program, on_delete=models.SET_NULL, null=True)
-
-    class Meta:
-        unique_together = ('user', 'program')
 
 
 class Proposal(models.Model):
@@ -211,6 +52,10 @@ class Proposal(models.Model):
     category = models.ForeignKey(
         ProgramCategory, on_delete=models.SET_DEFAULT, null=True, blank=True, default=14)
     accepted = models.BooleanField(default=False)
+    introduction = models.TextField(max_length=1000, null=True, blank=True, help_text=_('발표 소개 페이지에 들어가는 내용입니다.'))
+    video_url = models.CharField(max_length=255, null=True, blank=True, help_text=_('발표 영상 URL'))
+    slide_url = models.CharField(max_length=255, null=True, blank=True, help_text=_('발표 자료 URL'))
+    video_open_at = models.DateTimeField(null=True, blank=True, help_text=_('파이콘 한국 유튜브에 공개되는 시간'))
 
     def __str__(self):
         return self.title

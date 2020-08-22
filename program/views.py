@@ -1,4 +1,6 @@
 import random
+import constance
+import datetime
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, TemplateView
@@ -9,14 +11,10 @@ from django.views.generic.edit import ModelFormMixin
 
 from crispy_forms.layout import Hidden
 
-from .models import Program, ProgramCategory, Preference, Speaker, Proposal, OpenReview, LightningTalk
-from .forms import SpeakerForm, ProposalForm, OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, \
-    ProgramForm, LightningTalkForm
-
-import constance
-import datetime
-
-from program.slack import new_cfp_registered, cfp_updated
+from .models import ProgramCategory, Proposal, OpenReview, LightningTalk
+from .forms import ProposalForm, OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, \
+    LightningTalkForm, ProgramUpdateForm
+from .slack import new_cfp_registered, cfp_updated
 
 
 class ContributionHome(TemplateView):
@@ -45,119 +43,44 @@ class ProgramList(ListView):
     model = ProgramCategory
     template_name = "pyconkr/program_list.html"
 
+    def get_context_data(self, **kwargs):
+        context = super(ProgramList, self).get_context_data(**kwargs)
+        context['programs'] = Proposal.objects.filter(accepted=True)
+        context['accepted_exist'] = Proposal.objects.filter(accepted=True).exists()
+        categories = []
+        for program in Proposal.objects.filter(accepted=True):
+            categories.append(program.category)
+        context['having_program'] = categories
+
+        return context
+
 
 class ProgramDetail(DetailView):
-    model = Program
+    model = Proposal
+    template_name = "pyconkr/program_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super(ProgramDetail, self).get_context_data(**kwargs)
-        if self.request.user.is_authenticated:
-            for speaker in self.object.speakers.all():
-                if self.request.user.email == speaker.email:
-                    context['editable'] = True
+        context['program'] = Proposal.objects.get(pk=self.kwargs['pk'])
+        context['editable'] = Proposal.objects.get(pk=self.kwargs['pk']).user == self.request.user
 
         return context
 
 
-class PreferenceList(SuccessMessageMixin, ListView):
-    model = Preference
-    template_name = "pyconkr/program_preference.html"
+class ProgramUpdate(UpdateView):
+    form_class = ProgramUpdateForm
+    model = Proposal
+    template_name = "pyconkr/program_update.html"
 
-    def get_queryset(self):
-        queryset = super(PreferenceList, self).get_queryset()
-        return queryset.filter(user=self.request.user).values_list('program', flat=True)
+    def get(self, request, *args, **kwargs):
+        is_editable = self.request.user.is_authenticated and Proposal.objects.filter(user=self.request.user,
+                                                                                     accepted=True).exists()
+        if not is_editable:
+            return redirect('talks', kwargs={'pk': self.object.pk})
+        return super().get(request, *args, **kwargs)
 
-    def post(self, request, **kwargs):
-        Preference.objects.filter(user=request.user).delete()
-
-        preferences = []
-        for program_id in request.POST.getlist('program[]')[:5]:
-            preferences.append(Preference(
-                user=request.user,
-                program=Program.objects.get(id=program_id)))
-
-        Preference.objects.bulk_create(preferences)
-        messages.success(self.request, _(
-            "Preferences are successfully updated."))
-        return super(PreferenceList, self).get(request, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super(PreferenceList, self).get_context_data(**kwargs)
-
-        # Shuffle programs by user id
-        programs = list(Program.objects.all())
-        random.seed(self.request.user.id)
-        random.shuffle(programs)
-
-        context['programs'] = programs
-
-        return context
-
-
-class SpeakerList(ListView):
-    model = Speaker
-
-
-class SpeakerDetail(DetailView):
-    model = Speaker
-
-    def get_context_data(self, **kwargs):
-        context = super(SpeakerDetail, self).get_context_data(**kwargs)
-
-        if self.request.user.is_authenticated:
-            if self.request.user.email == self.object.email:
-                context['editable'] = True
-
-        return context
-
-
-class SpeakerUpdate(UpdateView):
-    model = Speaker
-    form_class = SpeakerForm
-
-    def get_queryset(self):
-        queryset = super(SpeakerUpdate, self).get_queryset()
-        return queryset.filter(email=self.request.user.email)
-
-
-def schedule(request):
-    dates = ProgramDate.objects.all()
-    times = ProgramTime.objects.order_by('begin')
-    rooms = Room.objects.order_by('name')
-
-    wide = {}
-    narrow = {}
-    processed = set()
-    for d in dates:
-        wide[d] = {}
-        narrow[d] = {}
-        for t in times:
-            if t.day_id != d.id:
-                continue
-            wide[d][t] = {}
-            narrow[d][t] = []
-            for r in rooms:
-                s = Program.objects.filter(date=d, times=t, rooms=r)
-
-                if s:
-                    s_times = s[0].get_sort_times()
-                    if s_times.first() == t and s[0].id not in processed:
-                        wide[d][t][r] = s[0]
-                        narrow[d][t].append(s[0])
-                        processed.add(s[0].id)
-                else:
-                    wide[d][t][r] = None
-
-            if len(narrow[d][t]) == 0:
-                del (narrow[d][t])
-
-    contexts = {
-        'wide': wide,
-        'narrow': narrow,
-        'rooms': rooms,
-        'width': 100.0 / max(len(rooms), 1),
-    }
-    return render(request, 'schedule.html', contexts)
+    def get_success_url(self):
+        return reverse('talk', kwargs={'pk': self.object.pk})
 
 
 class ProposalCreate(SuccessMessageMixin, CreateView):
@@ -390,15 +313,6 @@ class OpenReviewResult(ListView):
             review.save()
 
         return super().get(request, *args, **kwargs)
-
-
-class ProgramUpdate(UpdateView):
-    model = Program
-    form_class = ProgramForm
-
-    def get_queryset(self):
-        queryset = super(ProgramUpdate, self).get_queryset()
-        return queryset.filter(speakers__email=self.request.user.email)
 
 
 def edit_proposal_available_checker(request):
