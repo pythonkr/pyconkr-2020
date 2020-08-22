@@ -10,7 +10,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = [
-    re_path(r'^list/$',
+    re_path(r'^talks/$',
             ProgramList.as_view(), name='programs'),
     re_path(r'^preference/$',
             login_required(PreferenceList.as_view()), name='program_preference'),

@@ -50,13 +50,13 @@ class ProgramDetail(DetailView):
     model = Program
 
     def get_context_data(self, **kwargs):
-        context = super(ProgramDetail, self).get_context_data(**kwargs)
-        if self.request.user.is_authenticated:
-            for speaker in self.object.speakers.all():
-                if self.request.user.email == speaker.email:
-                    context['editable'] = True
-
-        return context
+        context = super(ProgramList, self).get_context_data(**kwargs)
+        context['programs'] = Proposal.objects.filter(accepted=True)
+        context['accepted_exist'] = Proposal.objects.filter(accepted=True).exists()
+        categories = []
+        for program in Proposal.objects.filter(accepted=True):
+            categories.append(program.category)
+        context['having_program'] = categories
 
 
 class PreferenceList(SuccessMessageMixin, ListView):
