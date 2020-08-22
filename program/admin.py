@@ -9,24 +9,7 @@ from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 from modeltranslation.admin import TranslationAdmin
 from sorl.thumbnail.admin import AdminImageMixin
 from import_export.admin import ImportExportModelAdmin, ImportMixin
-from .models import (ProgramTime, ProgramDate, ProgramCategory,
-                     Proposal, OpenReview, LightningTalk)
-
-
-class ProgramDateAdmin(admin.ModelAdmin):
-    list_display = ('id', 'day',)
-
-
-admin.site.register(ProgramDate, ProgramDateAdmin)
-
-
-class ProgramTimeAdmin(TranslationAdmin):
-    list_display = ('id', 'name', 'begin', 'end', 'day')
-    list_editable = ('name', 'day')
-    ordering = ('begin',)
-
-
-# admin.site.register(ProgramTime, ProgramTimeAdmin)
+from .models import ProgramCategory, Proposal, OpenReview, LightningTalk
 
 
 class ProgramCategoryAdmin(TranslationAdmin, ImportExportModelAdmin):

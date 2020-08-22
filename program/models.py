@@ -19,27 +19,6 @@ class ProgramCategory(models.Model):
         return self.name
 
 
-class ProgramDate(models.Model):
-    day = models.DateField()
-
-    def __str__(self):
-        return _date(self.day, "Y-m-d (D)")
-
-
-class ProgramTime(models.Model):
-    name = models.CharField(max_length=100)
-    begin = models.TimeField()
-    end = models.TimeField()
-    day = models.ForeignKey(
-        ProgramDate, on_delete=models.SET_NULL, null=True, blank=True)
-
-    def __meta__(self):
-        ordering = ['begin']
-
-    def __str__(self):
-        return '%s - %s / %s / %s' % (self.begin, self.end, self.name, self.day)
-
-
 class Proposal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
