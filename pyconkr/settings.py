@@ -97,7 +97,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'pyconkr.context_processors.default',
                 'pyconkr.context_processors.sponsors',
-                'pyconkr.context_processors.profile',
                 'constance.context_processors.config',
             ],
         },
