@@ -265,7 +265,8 @@ class VirtualBoothDetail(DetailView):
         for super_user in User.objects.filter(is_staff=True):
             managers.append(super_user)
 
-        is_visible = self.request.user in managers
+        is_visible = self.request.user in managers \
+            or constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(tz=KST)
         if not is_visible:
             return redirect('virtual_booth_home')
 
@@ -294,9 +295,15 @@ class VirtualBoothUpdate(UpdateView):
     model = Sponsor
     template_name = "sponsor/virtual_booth_update.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    def get(self, request, *args, **kwargs):
+        is_editable = self.request.user.is_authenticated and (
+                Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at__isnull=False,
+                                       slug=self.kwargs['slug']).exists()
+                or Sponsor.objects.filter(manager_id=self.request.user, accepted=True, paid_at__isnull=False,
+                                          slug=self.kwargs['slug']).exists())
+        if not is_editable:
+            return redirect('virtual_booth_home')
+        return super().get(request, *args, **kwargs)
 
     def get_success_url(self):
         return reverse('virtual_booth', kwargs={'slug': self.object.slug})
