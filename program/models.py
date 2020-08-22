@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 import constance
+import datetime
 
 User = get_user_model()
 
@@ -51,7 +52,10 @@ class Proposal(models.Model):
     category = models.ForeignKey(
         ProgramCategory, on_delete=models.SET_DEFAULT, null=True, blank=True, default=14)
     accepted = models.BooleanField(default=False)
-    introduction = models.TextField(max_length=1000, null=True, blank=True)
+    introduction = models.TextField(max_length=1000, null=True, blank=True, help_text=_('발표 소개 페이지에 들어가는 내용입니다.'))
+    video_url = models.CharField(max_length=255, null=True, blank=True, help_text=_('발표 영상 URL'))
+    slide_url = models.CharField(max_length=255, null=True, blank=True, help_text=_('발표 자료 URL'))
+    video_open_at = models.DateTimeField(null=True, blank=True, help_text=_('파이콘 한국 유튜브에 공개되는 시간'))
 
     def __str__(self):
         return self.title
