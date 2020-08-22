@@ -128,3 +128,22 @@ class LightningTalkForm(forms.ModelForm):
             'day': _('발표 요일'),
             'comment': _('준비위원회에게 남기고 싶은 말'),
         }
+
+
+class ProgramUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Proposal
+        fields = ('introduction', 'slide_url',)
+        labels = {
+            'introduction': _('발표 소개 문구'),
+            'slide_url': _('발표 자료 URL'),
+        }
+        widgets = {
+            'introduction': SummernoteInplaceWidget(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(ProgramUpdateForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Submit')))

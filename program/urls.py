@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.urls import re_path
-from .views import ProgramList
-from .views import ProposalCreate, ProposalUpdate, ProposalDetail, ProposalList
+from .views import ProgramList, ProgramDetail
+from .views import ProposalCreate, ProposalUpdate, ProposalDetail, ProposalList, ProgramUpdate
 
 from django.contrib import admin
 
@@ -9,7 +9,11 @@ admin.autodiscover()
 
 urlpatterns = [
     re_path(r'^talks/$',
-            ProgramList.as_view(), name='programs'),
+            ProgramList.as_view(), name='talk-list'),
+    re_path(r'^talks/(?P<pk>\d+)$',
+            ProgramDetail.as_view(), name='talk'),
+    re_path(r'^talks/(?P<pk>\d+)/edit$',
+            login_required(ProgramUpdate.as_view()), name='talk-update'),
     re_path(r'^cfp/propose/$',
             login_required(ProposalCreate.as_view()), name='propose'),
     re_path(r'^profile/proposal/(?P<pk>\d+)$',

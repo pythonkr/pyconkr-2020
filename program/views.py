@@ -1,4 +1,6 @@
 import random
+import constance
+import datetime
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, TemplateView
@@ -10,13 +12,9 @@ from django.views.generic.edit import ModelFormMixin
 from crispy_forms.layout import Hidden
 
 from .models import ProgramCategory, Proposal, OpenReview, LightningTalk
-from .forms import  ProposalForm, OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, \
-     LightningTalkForm
-
-import constance
-import datetime
-
-from program.slack import new_cfp_registered, cfp_updated
+from .forms import ProposalForm, OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, \
+    LightningTalkForm, ProgramUpdateForm
+from .slack import new_cfp_registered, cfp_updated
 
 
 class ContributionHome(TemplateView):
@@ -55,6 +53,34 @@ class ProgramList(ListView):
         context['having_program'] = categories
 
         return context
+
+
+class ProgramDetail(DetailView):
+    model = Proposal
+    template_name = "pyconkr/program_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ProgramDetail, self).get_context_data(**kwargs)
+        context['program'] = Proposal.objects.get(pk=self.kwargs['pk'])
+        context['editable'] = Proposal.objects.get(pk=self.kwargs['pk']).user == self.request.user
+
+        return context
+
+
+class ProgramUpdate(UpdateView):
+    form_class = ProgramUpdateForm
+    model = Proposal
+    template_name = "pyconkr/program_update.html"
+
+    def get(self, request, *args, **kwargs):
+        is_editable = self.request.user.is_authenticated and Proposal.objects.filter(user=self.request.user,
+                                                                                     accepted=True).exists()
+        if not is_editable:
+            return redirect('talks', kwargs={'pk': self.object.pk})
+        return super().get(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse('talk', kwargs={'pk': self.object.pk})
 
 
 class ProposalCreate(SuccessMessageMixin, CreateView):
