@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-21 23:24+0900\n"
+"POT-Creation-Date: 2020-08-22 16:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,40 +66,40 @@ msgstr ""
 msgid "홍보성 메일 수신에 동의합니다. (선택)"
 msgstr "I agree to receive promotional mails. (optional)"
 
-#: .\registration\templates\registration\ticket_list.html:6
+#: .\registration\templates\registration\ticket_list.html:7
 msgid "Ticket list"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:11
+#: .\registration\templates\registration\ticket_list.html:12
 msgid "Ready for content"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:14
+#: .\registration\templates\registration\ticket_list.html:18
 msgid "일반 티켓"
 msgstr "Regular ticket"
 
-#: .\registration\templates\registration\ticket_list.html:18
+#: .\registration\templates\registration\ticket_list.html:24
 msgid "무료"
 msgstr "Free"
 
-#: .\registration\templates\registration\ticket_list.html:22
-#: .\registration\templates\registration\ticket_list.html:41
+#: .\registration\templates\registration\ticket_list.html:28
+#: .\registration\templates\registration\ticket_list.html:58
 msgid "판매 종료"
 msgstr "Closed"
 
-#: .\registration\templates\registration\ticket_list.html:25
+#: .\registration\templates\registration\ticket_list.html:31
 msgid "구매함"
 msgstr "Bought"
 
-#: .\registration\templates\registration\ticket_list.html:27
-#: .\registration\templates\registration\ticket_list.html:43
+#: .\registration\templates\registration\ticket_list.html:33
+#: .\registration\templates\registration\ticket_list.html:60
 msgid "구매하기"
 msgstr "Buy"
 
-#: .\registration\templates\registration\ticket_list.html:33
+#: .\registration\templates\registration\ticket_list.html:48
 msgid "개인 후원 티켓"
 msgstr "Patron"
 
-#: .\registration\templates\registration\ticket_list.html:37
+#: .\registration\templates\registration\ticket_list.html:54
 msgid "10만 원 이상"
 msgstr "Over 100,000won"
