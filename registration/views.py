@@ -113,4 +113,6 @@ class TicketList(TemplateView):
         else:
             context['already_buy'] = False
 
+        context['patron_url'] = config.PATRON_URL
+
         return context

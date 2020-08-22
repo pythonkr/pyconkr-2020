@@ -313,6 +313,7 @@ CONSTANCE_CONFIG = {
     'TICKET_CLOSE': (datetime.datetime(2020, 9, 28, tzinfo=KST), '티켓 판매 종료'),
     'PATRON_OPEN': (datetime.datetime(2020, 8, 1, tzinfo=KST), '개인 후원 티켓 판매 시작'),
     'PATRON_CLOSE': (datetime.datetime(2020, 9, 28, tzinfo=KST), '개인 후원 티켓 판매 종료'),
+    'PATRON_URL': ('', '개인 후원 티켓 판매 URL'),
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {
@@ -325,7 +326,7 @@ CONSTANCE_CONFIG_FIELDSETS = {
                       'LIGHTNING_TALK_CLOSE',),
     'Sponsor Schedule': ('CFS_OPEN', 'CFS_CLOSE', 'VIRTUAL_BOOTH_OPEN'),
     'Template': ('CFP_BRIEF_TEMPLATE', 'CFP_DESC_TEMPLATE',),
-    '기타': ('TOTAL_TICKET', 'SHOW_SLIDE_DATA',),
+    '기타': ('TOTAL_TICKET', 'SHOW_SLIDE_DATA', 'PATRON_URL',),
 }
 
 # For supporting i18n of django modules
