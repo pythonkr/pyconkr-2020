@@ -313,7 +313,9 @@ class LoginForSponsor(View):
     template_name = 'sponsor/sponsor_login_form.html'
 
     def get(self, request):
-        return render(request, self.template_name)
+        context = dict()
+        context['error'] = request.session.get('retry', False)
+        return render(request, self.template_name, context)
 
     def post(self, request):
         username = request.POST['username']
@@ -322,7 +324,17 @@ class LoginForSponsor(View):
         user = authenticate(username=username, password=password)
 
         if user is not None:
+            # 로그인 성공시 이전에 실패한 이력 삭제
+            try:
+                del request.session['retry']
+            except KeyError:
+                # 실패 이력 없음
+                pass
+
             login(request, user)
             return redirect('index')
         else:
-            return HttpResponseForbidden()
+            # 로그인 실패
+            request.session['retry'] = True
+            return redirect('login_for_sponsor')
+

@@ -9,6 +9,13 @@
     <div class="alert alert-warning" role="alert">
         {% trans "후원사 담당자분들을 위한 로그인 페이지 입니다. 참가자분들은 소셜 계정으로 로그인해주시기 바랍니다." %}
     </div>
+
+    {% if error is True %}
+        <div class="alert alert-danger" role="alert">
+            {% trans "로그인에 실패했습니다. ID와 PW를 다시한번 확인해주세요." %} <br/>
+            {% trans 'ID/PW를 분실하신 경우 sponsor@pycon.kr로 문의해주시기 바랍니다.' %}
+        </div>
+    {% endif %}
     {#{% crispy form %}#}
     <div style="width: 300px; margin: 0 auto;">
         <form method="post" class="form-signin">
