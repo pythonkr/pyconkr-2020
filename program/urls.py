@@ -10,7 +10,7 @@ admin.autodiscover()
 urlpatterns = [
     re_path(r'^talks/$',
             ProgramList.as_view(), name='talk-list'),
-    re_path(r'^talks/(?P<pk>\d+)$',
+    re_path(r'^talk/(?P<pk>\d+)$',
             ProgramDetail.as_view(), name='talk'),
     re_path(r'^talks/(?P<pk>\d+)/edit$',
             login_required(ProgramUpdate.as_view()), name='talk-update'),
