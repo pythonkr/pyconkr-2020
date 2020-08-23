@@ -44,13 +44,10 @@ class ProgramList(ListView):
     template_name = "pyconkr/program_list.html"
 
     def get_context_data(self, **kwargs):
-        KST = datetime.timezone(datetime.timedelta(hours=9))
-        now = datetime.datetime.now(tz=KST)
-
         context = super(ProgramList, self).get_context_data(**kwargs)
         context['programs'] = Proposal.objects.filter(accepted=True)
         context['accepted_exist'] = Proposal.objects.filter(accepted=True).exists()
-        context['is_open'] = now > constance.config.PROGRAM_OPEN.replace(tzinfo=KST)
+        context['is_open'] = is_program_opened()
         categories = []
         for program in Proposal.objects.filter(accepted=True):
             categories.append(program.category)
@@ -63,10 +60,15 @@ class ProgramDetail(DetailView):
     model = Proposal
     template_name = "pyconkr/program_detail.html"
 
+    def get(self, request, *args, **kwargs):
+        if not is_program_opened() or not Proposal.objects.filter(pk=self.kwargs['pk'], accepted=True).exists():
+            return redirect('talk-list')
+        return super().get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super(ProgramDetail, self).get_context_data(**kwargs)
-        context['program'] = Proposal.objects.get(pk=self.kwargs['pk'])
-        context['editable'] = Proposal.objects.get(pk=self.kwargs['pk']).user == self.request.user
+        context['program'] = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True)
+        context['editable'] = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True).user == self.request.user
 
         return context
 
@@ -80,7 +82,7 @@ class ProgramUpdate(UpdateView):
         is_editable = self.request.user.is_authenticated and Proposal.objects.filter(user=self.request.user,
                                                                                      accepted=True).exists()
         if not is_editable:
-            return redirect('talks', kwargs={'pk': self.object.pk})
+            return redirect('talk', kwargs={'pk': self.object.pk})
         return super().get(request, *args, **kwargs)
 
     def get_success_url(self):
@@ -387,6 +389,17 @@ def is_lightning_talk_proposable(request):
         return True
     else:
         return False
+
+
+def is_program_opened():
+    KST = datetime.timezone(datetime.timedelta(hours=9))
+    now = datetime.datetime.now(tz=KST)
+    program_open = constance.config.PROGRAM_OPEN.replace(tzinfo=KST)
+
+    if now < program_open:
+        return False
+    else:
+        return True
 
 
 class LightningTalkHome(TemplateView):
