@@ -42,6 +42,7 @@ class ContributionHome(TemplateView):
 class ProgramList(ListView):
     model = ProgramCategory
     template_name = "pyconkr/program_list.html"
+    ordering = ('id',)
 
     def get_context_data(self, **kwargs):
         context = super(ProgramList, self).get_context_data(**kwargs)
