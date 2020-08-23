@@ -44,9 +44,13 @@ class ProgramList(ListView):
     template_name = "pyconkr/program_list.html"
 
     def get_context_data(self, **kwargs):
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        now = datetime.datetime.now(tz=KST)
+
         context = super(ProgramList, self).get_context_data(**kwargs)
         context['programs'] = Proposal.objects.filter(accepted=True)
         context['accepted_exist'] = Proposal.objects.filter(accepted=True).exists()
+        context['is_open'] = now > constance.config.PROGRAM_OPEN.replace(tzinfo=KST)
         categories = []
         for program in Proposal.objects.filter(accepted=True):
             categories.append(program.category)

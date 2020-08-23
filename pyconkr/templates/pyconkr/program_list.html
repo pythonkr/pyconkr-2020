@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    {% if not accepted_exist %}
+    {% if not accepted_exist or not is_open %}
         <h4 class="text-center">{% trans "Ready for content" %}</h4>
     {% else %}
         {% for category in object_list %}
