@@ -47,7 +47,7 @@
 
 {% if program.desc %}
 <h3>{% trans "Description" %}</h3><br>
-{{ program.desc | safe }}<br>
+{{ program.introduction | safe }}<br>
 {% endif %}
 
 {% if editable %}

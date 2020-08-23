@@ -14,7 +14,7 @@ from crispy_forms.layout import Hidden
 from .models import ProgramCategory, Proposal, OpenReview, LightningTalk
 from .forms import ProposalForm, OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, \
     LightningTalkForm, ProgramUpdateForm
-from .slack import new_cfp_registered, cfp_updated
+from .slack import new_cfp_registered, cfp_updated, program_updated
 
 
 class ContributionHome(TemplateView):
@@ -84,6 +84,7 @@ class ProgramUpdate(UpdateView):
         return super().get(request, *args, **kwargs)
 
     def get_success_url(self):
+        program_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
         return reverse('talk', kwargs={'pk': self.object.pk})
 
 
