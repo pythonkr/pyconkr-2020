@@ -17,7 +17,7 @@ from django.views.generic import DetailView, TemplateView
 from django.http import HttpResponseForbidden
 
 from pyconkr.helper import render_io_error
-from .models import EVENT_CONFERENCE, EVENT_YOUNG, EVENT_BABYCARE, EVENT_TUTORIAL, Ticket
+from .models import Ticket
 
 from user.models import Profile
 
