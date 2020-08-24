@@ -20,12 +20,8 @@ def send_email_immediately(sender, instance, created, **kwargs):
     send_to_participants = instance.send_to
     send_to_subscriber = instance.send_to_newsletter_subscriber
 
-    print('참가자 전송 Flag:', send_to_participants)
-    print('구독자 전송 Flag:', send_to_subscriber)
-
     if created is True:
         send_list = list()
-        temp = list()
 
         if send_to_participants == 'INFO':
             send_list = [m.email for m in user_model.objects.all()]
@@ -41,10 +37,9 @@ def send_email_immediately(sender, instance, created, **kwargs):
             instance.title,
             instance.content,
             instance.sender_name,
-            [],
-            temp,
+            [],  # To
+            send_list,  # bcc
         ).send(fail_silently=False)
 
         instance.send_successfully = True
         instance.save()
-        print('메일전송완료')
