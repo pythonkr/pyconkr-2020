@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-22 16:52+0900\n"
+"POT-Creation-Date: 2020-08-25 22:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,15 +164,23 @@ msgid ""
 "그인해주시기 바랍니다."
 msgstr ""
 
+#: .\sponsor\templates\sponsor\sponsor_login_form.html:15
+msgid "로그인에 실패했습니다. ID와 PW를 다시 한 번 확인해주세요."
+msgstr ""
+
 #: .\sponsor\templates\sponsor\sponsor_login_form.html:16
+msgid "ID/PW를 분실하신 경우 sponsor@pycon.kr로 문의해주시기 바랍니다."
+msgstr ""
+
+#: .\sponsor\templates\sponsor\sponsor_login_form.html:23
 msgid "사용자명"
 msgstr ""
 
-#: .\sponsor\templates\sponsor\sponsor_login_form.html:17
+#: .\sponsor\templates\sponsor\sponsor_login_form.html:24
 msgid "비밀번호"
 msgstr ""
 
-#: .\sponsor\templates\sponsor\sponsor_login_form.html:18
+#: .\sponsor\templates\sponsor\sponsor_login_form.html:25
 msgid "로그인"
 msgstr ""
 

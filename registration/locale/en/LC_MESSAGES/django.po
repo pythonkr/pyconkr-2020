@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-22 16:52+0900\n"
+"POT-Creation-Date: 2020-08-25 22:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,14 +14,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: .\registration\models.py:138
-msgid "Credit Card only for Korean"
-msgstr ""
-
-#: .\registration\models.py:139
-msgid "Credit Card for Foreign"
-msgstr ""
 
 #: .\registration\templates\registration\registration_buy_ticket.html:5
 msgid "티켓 구매하기"
@@ -62,7 +54,11 @@ msgstr ""
 "We'll send you e-mail about sponsors' and events. If you do not agree to "
 "receive it, we will only send you the necessary information mail."
 
-#: .\registration\templates\registration\registration_buy_ticket.html:31
+#: .\registration\templates\registration\registration_buy_ticket.html:29
+msgid "이 선택 사항은 프로필에서 언제나 수정 가능합니다."
+msgstr "You can change this always in your profile."
+
+#: .\registration\templates\registration\registration_buy_ticket.html:32
 msgid "홍보성 메일 수신에 동의합니다. (선택)"
 msgstr "I agree to receive promotional mails. (optional)"
 
