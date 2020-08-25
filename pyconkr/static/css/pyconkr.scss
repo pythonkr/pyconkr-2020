@@ -633,8 +633,8 @@ input[type="file"] {
   li {
     overflow: hidden;
     zoom: 1;
-    box-shadow: rgb(223,223,223) 0px 0px 20px;
-    color: rgb(75,75,75);
+    box-shadow: rgb(223, 223, 223) 0px 0px 20px;
+    color: rgb(75, 75, 75);
     padding: 25px;
     border-radius: 5px;
     margin-top: 40px;
@@ -645,7 +645,7 @@ input[type="file"] {
 
     .profile {
       padding-right: 10px;
-      float: left!important;
+      float: left !important;
     }
 
     .body {
@@ -944,6 +944,10 @@ a.a_btn {
     cursor: default;
     pointer-events: none;
     background: gray;
+  }
+
+  &:hover {
+    background-color: #2d6291;
   }
 }
 
@@ -1279,7 +1283,7 @@ a.endBtn {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  border: double black 7px;
+  border: solid #072641 3px;
   width: 75%;
   height: 21rem;
   margin: 0 auto;
@@ -1291,7 +1295,7 @@ a.endBtn {
 }
 
 .ticket {
-  border: black 1px solid;
+  border: #c3d2e0 7px solid;
   border-radius: 3rem;
   height: 15rem;
   width: 90%;
@@ -1299,8 +1303,9 @@ a.endBtn {
   background-color: white;
 }
 
-.ticket-top, .ticket-bottom {
-  height: 2.5rem;
+.ticket-top,
+.ticket-bottom {
+  height: 2.75rem;
 }
 
 .ticket-bottom {
@@ -1326,6 +1331,7 @@ a.endBtn {
   align-items: center;
   margin-left: 2rem;
   position: relative;
+  padding-top: 1rem;
 
   img {
     width: 25%;
@@ -1342,10 +1348,12 @@ a.endBtn {
   align-items: flex-end;
   padding-bottom: 1rem;
   padding-right: 3rem;
+  line-height: 1rem;
 
   .prev_price {
     text-decoration: line-through;
     color: gray;
+    line-height: inherit;
   }
 
   .price {
@@ -1361,24 +1369,26 @@ a.endBtn {
   justify-content: flex-end;
 
   .ticket-buy-btn {
-    border: 1px solid black;
-    height: 80%;
-    font-size: 2rem;
+    background-color: #a5bcd0;
+    border-radius: 5px;
+    color: #072641;
+    height: 70%;
+    font-size: 1.5rem;
     font-weight: 500;
-    width: 30%;
+    width: 25%;
     margin-right: 3rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
 
     &:hover {
       text-decoration: none;
+      background-color: #87a6c0;
     }
 
     &.disabled {
-      background-color: gray;
+      background-color: #717980;
     }
   }
 }
