@@ -43,7 +43,10 @@ class ProfileForm(forms.ModelForm):
             'bio': SummernoteInplaceWidget(),
         }
         labels = {
+            'name_ko': _('이름 (한글)'),
+            'name_en': _('이름 (영어)'),
             'image': _('Photo'),
+            'agreement_receive_advertising_info': _('홍보성 메일 수신 동의')
         }
 
     def save(self, commit=True):
