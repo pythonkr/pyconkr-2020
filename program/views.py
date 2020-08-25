@@ -11,7 +11,7 @@ from django.views.generic.edit import ModelFormMixin
 
 from crispy_forms.layout import Hidden
 
-from .models import ProgramCategory, Proposal, OpenReview, LightningTalk
+from .models import ProgramCategory, Proposal, OpenReview, LightningTalk, Sprint
 from .forms import ProposalForm, OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, \
     LightningTalkForm, ProgramUpdateForm
 from .slack import new_cfp_registered, cfp_updated, program_updated
@@ -481,3 +481,8 @@ class LightningTalkUpdate(UpdateView):
 
     def get_success_url(self):
         return reverse('lightning-talk-detail')
+
+
+class SprintList(ListView):
+    model = Sprint
+    template_name = "pyconkr/sprint_list.html"
