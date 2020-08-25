@@ -1,4 +1,5 @@
 from mail_templated import send_mail
+import random, string
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth import get_user_model
@@ -30,5 +31,29 @@ class UserAdmin(BaseUserAdmin):
     actions = (send_test_mail,)
 
 
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('name_ko', 'name_en', 'user_code',)
+    search_fields = ('user_code',)
+    actions = ('make_user_code',)
+
+    def make_user_code(self, request, queryset):
+        length = 20
+        pool = string.ascii_letters + string.digits
+
+        for p in queryset:
+            if p.user_code:
+                continue
+            while True:
+                result = ""
+                for _ in range(length):
+                    result += random.choice(pool)
+
+                if not Profile.objects.filter(user_code=result).exists():
+                    break
+
+            p.user_code = result
+            p.save()
+
+
 # admin.site.register(User, UserAdmin)
-# admin.site.register(Profile)
+admin.site.register(Profile, ProfileAdmin)

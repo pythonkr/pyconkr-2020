@@ -20,6 +20,7 @@ class Profile(models.Model):
         '여기에 기입한 조직 이름이 행사 당일 이름표에 표시됩니다.'))
     image = SorlImageField(upload_to=profile_image, null=True, blank=True)
     bio = models.TextField(max_length=4000, null=True, blank=True)
+    user_code = models.CharField(max_length=20, null=True, blank=True)
     agreement_receive_advertising_info = models.BooleanField(default=False)
 
     def get_absolute_url(self):
