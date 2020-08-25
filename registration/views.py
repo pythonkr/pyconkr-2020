@@ -8,7 +8,7 @@ from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import ugettext as _
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import DetailView, TemplateView
+from django.views.generic import DetailView, TemplateView, ListView
 from django.http import HttpResponseForbidden
 
 from .models import Ticket
@@ -110,3 +110,9 @@ class TicketList(TemplateView):
         context['patron_url'] = config.PATRON_URL
 
         return context
+
+
+class PatronList(ListView):
+    template_name = 'pyconkr/patron_list.html'
+    queryset = Ticket.objects.filter(is_patron=True)
+    ordering = ('-price',)
