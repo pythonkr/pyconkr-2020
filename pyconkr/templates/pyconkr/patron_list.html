@@ -15,7 +15,7 @@
       {% for obj in object_list %}
         {% with obj_name=obj.user.profile.name %}
           <li>
-            <div class="profile">
+            <div class="head">
               {% thumbnail obj.user.profile.image "128x128" crop="center" as im %}
               <img class="media-patron" src="{{ im.url }}" alt="photo of {{ obj_name }}">
               {% empty %}
