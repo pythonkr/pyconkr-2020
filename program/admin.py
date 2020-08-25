@@ -68,10 +68,7 @@ admin.site.register(LightningTalk, LightningTalkAdmin)
 
 
 class SprintAdmin(admin.ModelAdmin):
-    list_display = ('title',)
-    widgets = {
-        'title': SummernoteWidgetWithCustomToolbar(),
-    }
+    list_display = ('creator', 'title', 'language', 'url',)
 
 
 admin.site.register(Sprint, SprintAdmin)
