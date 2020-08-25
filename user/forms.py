@@ -1,5 +1,6 @@
 # from allauth.account.forms import BaseSignupForm
 from contextlib import suppress
+import random, string
 from django.urls.exceptions import NoReverseMatch
 from crispy_forms.bootstrap import InlineCheckboxes
 from allauth.socialaccount.forms import SignupForm
@@ -55,6 +56,23 @@ class ProfileForm(forms.ModelForm):
         if email != user.email:
             user.email = self.cleaned_data['email']
             user.save()
+
+        profile = self.instance
+        if not profile.user_code:
+            length = 20
+            pool = string.ascii_letters + string.digits
+
+            while True:
+                result = ""
+                for _ in range(length):
+                    result += random.choice(pool)
+
+                if not Profile.objects.filter(user_code=result).exists():
+                    break
+
+            profile.user_code = result
+            profile.save()
+
         return super(ProfileForm, self).save(commit=commit)
 
     def clean_image(self):
