@@ -616,6 +616,9 @@ input[type="file"] {
 }
 
 .patrons {
+  padding-left: 0;
+  list-style: none;
+
   img {
     width: 64px;
     height: 64px;
@@ -625,6 +628,35 @@ input[type="file"] {
 
   span {
     font-size: 0.9rem;
+  }
+
+  li {
+    overflow: hidden;
+    zoom: 1;
+    box-shadow: rgb(223,223,223) 0px 0px 20px;
+    color: rgb(75,75,75);
+    padding: 25px;
+    border-radius: 5px;
+    margin-top: 40px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    .profile {
+      padding-right: 10px;
+      float: left!important;
+    }
+
+    .body {
+      display: table-cell;
+      vertical-align: top;
+
+      .name {
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+    }
   }
 }
 
