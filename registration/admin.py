@@ -5,7 +5,7 @@ from import_export.admin import ImportExportModelAdmin
 
 
 class TicketAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ('user', 'is_patron')
+    list_display = ('user', 'is_patron', 'price',)
     list_filter = ('is_patron',)
 
 
