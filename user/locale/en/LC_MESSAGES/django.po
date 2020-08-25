@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-22 16:52+0900\n"
+"POT-Creation-Date: 2020-08-25 22:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,65 +18,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\user\forms.py:30
+#: .\user\forms.py:31
 msgid "Submit"
 msgstr ""
 
-#: .\user\forms.py:31 .\user\forms.py:63
+#: .\user\forms.py:32 .\user\forms.py:84
 #, python-format
 msgid "Maximum size is %(size)d MB"
 msgstr ""
 
-#: .\user\forms.py:34 .\user\forms.py:73
+#: .\user\forms.py:35 .\user\forms.py:94
 #, python-format
 msgid "Minimum dimension is %(width)d x %(height)d"
 msgstr ""
 
-#: .\user\forms.py:46
+#: .\user\forms.py:47
+msgid "이름 (한글)"
+msgstr "Name (Korean)"
+
+#: .\user\forms.py:48
+msgid "이름 (영어)"
+msgstr "Name (English)"
+
+#: .\user\forms.py:49
 msgid "Photo"
 msgstr ""
 
-#: .\user\forms.py:82
+#: .\user\forms.py:50
+msgid "홍보성 메일 수신 동의"
+msgstr "Agreement of receiving promotion mail"
+
+#: .\user\forms.py:103
 msgid "이메일"
 msgstr "Email"
 
-#: .\user\forms.py:83
+#: .\user\forms.py:104
 msgid "파이콘 행사에 관련된 안내 메일을 받을 이메일 주소를 입력해주세요."
 msgstr ""
 "Please enter your e-mail address to receive information about PyCon Korea."
 
-#: .\user\forms.py:85
+#: .\user\forms.py:106
 msgid "이름"
 msgstr "Name"
 
-#: .\user\forms.py:85
+#: .\user\forms.py:106
 msgid "기입한 이름이 행사 당일 이름표에 표시됩니다."
 msgstr "Please specify the name you want to print on the conference nametag."
 
-#: .\user\forms.py:87
+#: .\user\forms.py:108
 msgid "소속"
 msgstr "Organization"
 
-#: .\user\forms.py:87
+#: .\user\forms.py:108
 msgid ""
 "기입한 조직명이 행사 당일 이름표에 표시됩니다. 필수 입력 사항은 아닙니다."
 msgstr ""
 "Please specify the organization name you want to print on the conference "
-"nametag. It is not required"
+"nametag. It is not required."
 
-#: .\user\forms.py:101
+#: .\user\forms.py:122
 msgid "이용 약관에 동의합니다."
 msgstr "Agree terms of service."
 
-#: .\user\forms.py:107
+#: .\user\forms.py:128
 msgid "개인정보 처리방침에 동의합니다."
 msgstr "Agree privacy protection policy."
 
-#: .\user\forms.py:113
+#: .\user\forms.py:134
 msgid "파이콘 한국 행동 강령에 동의합니다."
 msgstr "Agree PyCon Korea Code of Conduct."
 
-#: .\user\forms.py:134
+#: .\user\forms.py:155
 msgid "가입하기"
 msgstr "Sign Up"
 
@@ -109,37 +121,37 @@ msgstr ""
 "Enter your required information and accept the terms to complete your signup."
 "🤖"
 
-#: .\user\templates\user\profile_detail.html:35
+#: .\user\templates\user\profile_detail.html:36
 msgid "발표 제안 내역"
 msgstr "Call for Proposal"
 
-#: .\user\templates\user\profile_detail.html:50
+#: .\user\templates\user\profile_detail.html:51
 msgid "후원사 신청 내역"
 msgstr "Sponsor Application"
 
-#: .\user\templates\user\profile_detail.html:57
+#: .\user\templates\user\profile_detail.html:58
 msgid "스폰서 확정"
 msgstr "Accepted"
 
-#: .\user\templates\user\profile_detail.html:59
+#: .\user\templates\user\profile_detail.html:60
 msgid "신청서 제출"
 msgstr "Submitted"
 
-#: .\user\templates\user\profile_detail.html:61
+#: .\user\templates\user\profile_detail.html:62
 msgid "임시 저장"
 msgstr "Temporarily Saved"
 
-#: .\user\templates\user\profile_detail.html:66
+#: .\user\templates\user\profile_detail.html:67
 msgid "수정하기"
 msgstr "Edit"
 
-#: .\user\templates\user\profile_detail.html:70
+#: .\user\templates\user\profile_detail.html:71
 #, fuzzy
 #| msgid "수정하기"
 msgid "Virtual booth 수정하기"
 msgstr "Edit"
 
-#: .\user\templates\user\profile_form.html:5 .\user\views.py:40
+#: .\user\templates\user\profile_form.html:5 .\user\views.py:41
 msgid "Profile"
 msgstr ""
 
@@ -147,10 +159,14 @@ msgstr ""
 msgid "Social Sign-up"
 msgstr ""
 
-#: .\user\views.py:55
+#: .\user\views.py:28
+msgid "프로필을 수정해주세요."
+msgstr "Please edit your profile."
+
+#: .\user\views.py:56
 msgid "Profile successfully updated."
 msgstr ""
 
-#: .\user\views.py:67
+#: .\user\views.py:68
 msgid "Update profile"
 msgstr ""
