@@ -6,6 +6,7 @@ from django.contrib.flatpages.models import FlatPage
 from django.db import models
 from django_summernote.admin import SummernoteModelAdmin
 from django_summernote.widgets import SummernoteWidget
+from import_export.admin import ImportExportModelAdmin
 from modeltranslation.admin import TranslationAdmin
 from sorl.thumbnail.admin import AdminImageMixin
 from .models import (Sponsor, SponsorLevel)
@@ -20,13 +21,12 @@ class SponsorAdmin(SummernoteModelAdmin, TranslationAdmin):
     ordering = ('-created_at',)
     list_editable = ('slug',)
     search_fields = ('name',)
-    raw_id_fields = ('creator', 'manager_id',)
 
 
 admin.site.register(Sponsor, SponsorAdmin)
 
 
-class SponsorLevelAdmin(SummernoteModelAdmin, TranslationAdmin):
+class SponsorLevelAdmin(ImportExportModelAdmin, SummernoteModelAdmin, TranslationAdmin):
     list_display = ('id', 'order', 'name', 'slug', 'price', 'limit',)
     list_editable = ('order', 'slug',)
     ordering = ('order',)

@@ -30,7 +30,6 @@ def default(request):
                 'title': _('About'),
                 'submenu': OrderedDict([
                     ('pyconkr', {'title': _('About PyCon Korea 2020')}),
-                    ('venue', {'title': _('Venue'), 'disable': True}),
                     ('schedule', {'title': _('Important Dates')}),
                     ('patron', {'title': _('Patrons')}),
                     ('coc', {'title': _('Code of Conduct')}),
@@ -43,23 +42,10 @@ def default(request):
             'program', {
                 'title': _('Program'),
                 'submenu': OrderedDict([
-                    ('keynote', {'title': _('Keynotes'), 'disable': True}),
+                    ('keynote', {'title': _('Keynotes')}),
                     ('talks', {'title': _('Talks')}),
+                    ('talk-schedule', {'title': _('Talks Schedule')}),
                     ('lightning-talk', {'title': _('Lightning Talk')}),
-                    ('openspace', {'title': _('Open Spaces'), 'disable': True}),
-                    ('tutorial', {'title': _('Tutorial'), 'disable': True}),
-                    ('sprint', {'title': _('Sprint'), 'disable': True}),
-                    ('youngcoder', {'title': _('Young Coder'), 'disable': True}),
-                ])
-            }
-        ),
-        (
-            'timetable', {
-                'title': _('Timetable'),
-                'disable': True,
-                'submenu': OrderedDict([
-                    ('conference', {'title': _('Conference')}),
-                    ('tutorial', {'title': _('Tutorial')}),
                     ('sprint', {'title': _('Sprint')}),
                 ])
             }
@@ -77,7 +63,6 @@ def default(request):
                      {'title': _('Proposing a Lightning Talk')}),
                     ('recommending-keynote',
                      {'title': _('Recommending Keynote')}),
-                    ('volunteer', {'title': _('Volunteer'), 'disable': True}),
                     ('video-subtitle', {'title': _('Video Subtitle')}),
                 ])
             }
