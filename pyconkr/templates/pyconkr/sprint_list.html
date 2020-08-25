@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans '스프린트' %}
+{% endblock %}
+
+{% block content %}
+    {{ object_list }}
+{% endblock %}

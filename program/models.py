@@ -94,3 +94,11 @@ class LightningTalk(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Sprint(models.Model):
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, help_text=_('스프린트를 등록한 유저'))
+    title = models.CharField(max_length=255, help_text=_('스프린트 제목'))
+    desc = models.TextField(max_length=4000, help_text=_('스프린트 설명'), null=True, blank=True)
+    url = models.CharField(max_length=255, null=True, blank=True,
+                           help_text=_('홈페이지에 공개되는 스프린트 관련 주소입니다.'))

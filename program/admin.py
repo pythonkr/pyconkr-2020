@@ -9,7 +9,7 @@ from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 from modeltranslation.admin import TranslationAdmin
 from sorl.thumbnail.admin import AdminImageMixin
 from import_export.admin import ImportExportModelAdmin, ImportMixin
-from .models import ProgramCategory, Proposal, OpenReview, LightningTalk
+from .models import ProgramCategory, Proposal, OpenReview, LightningTalk, Sprint
 
 
 class ProgramCategoryAdmin(TranslationAdmin, ImportExportModelAdmin):
@@ -65,3 +65,13 @@ class LightningTalkAdmin(admin.ModelAdmin):
 
 
 admin.site.register(LightningTalk, LightningTalkAdmin)
+
+
+class SprintAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    widgets = {
+        'title': SummernoteWidgetWithCustomToolbar(),
+    }
+
+
+admin.site.register(Sprint, SprintAdmin)
