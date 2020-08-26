@@ -39,6 +39,9 @@
                 {% for proposal in proposals %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <a href="{% url 'proposal' proposal.id %}">
+                        {% if proposal.accepted %}
+                            [{% trans '발표 확정' %}]
+                        {% endif %}
                         {{ proposal.title }}
                     </a>
                 </li>
