@@ -6,6 +6,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
+from django.utils.translation import ugettext_lazy as _
 
 from user.models import Profile
 
@@ -40,7 +41,7 @@ class Mailing(models.Model):
 
 
 class NewsLetter(models.Model):
-    email_address = models.EmailField()
+    email_address = models.EmailField(help_text=_('소식을 받을 이메일 주소'))
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):

@@ -15,6 +15,7 @@ from .views import login, logout
 from program.views import ProposalCreate, OpenReviewUpdate, OpenReviewList, OpenReviewHome, OpenReviewResult, ContributionHome, \
     LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate
 from registration.views import PatronList
+from mailing.views import NewsLetterAdd
 
 from django.contrib import admin
 
@@ -38,9 +39,11 @@ urlpatterns += i18n_patterns(
 
     re_path(r'^2020/sponsor/', include('sponsor.urls')),
     re_path(r'^2020/program/', include('program.urls')),
+    re_path(r'^2020/registration/', include('registration.urls')),
+
     re_path(r'^2020/about/patron/$', PatronList.as_view(), name='patrons'),
 
-    re_path(r'^2020/registration/', include('registration.urls')),
+    re_path(r'^2020/subscribe/$', NewsLetterAdd.as_view(), name='subscribe'),
 
     # for rosetta
     re_path(r'^2020/rosetta/', include('rosetta.urls')),
