@@ -2,7 +2,7 @@ import random
 import constance
 import datetime
 
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
