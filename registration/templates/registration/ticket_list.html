@@ -19,9 +19,15 @@
                 <img src="{% static 'image/badge.png' %}" alt="PyCon Korea 2020" />
             </div>
             <div class="ticket-desc">
-                <div class="prev_price">&#8361;70,000</div>
-                &nbsp;->&nbsp;
-                <div class="price">{% trans '무료' %}</div>
+                <ul>
+                    <li>기간: 토-일</li>
+                    <li>CoC 준수 필수</li>
+                </ul>
+                <div class="price-box">
+                    <div class="prev_price">&#8361;70,000</div>
+                    &nbsp;->&nbsp;
+                    <div class="price">{% trans '무료' %}</div>
+                </div>
             </div>
             <div class="ticket-buy-container">
                 {% if ticket_available == 1 %}
@@ -49,9 +55,15 @@
                 <img src="{% static 'image/badge.png' %}" alt="PyCon Korea 2020" />
             </div>
             <div class="ticket-desc">
-                <div class="prev_price">&#8361;150,000</div>
-                &nbsp;->&nbsp;
-                <div class="price">{% trans '10만 원 이상' %}</div>
+                <ul>
+                    <li>기간: 토-일</li>
+                    <li>CoC 준수 필수</li>
+                </ul>
+                <div class="price-box">
+                   <div class="prev_price">&#8361;150,000</div>
+                    &nbsp;->&nbsp;
+                    <div class="price">{% trans '10만 원 이상' %}</div>
+                </div>
             </div>
             <div class="ticket-buy-container">
                 {% if patron_available == 1 %}

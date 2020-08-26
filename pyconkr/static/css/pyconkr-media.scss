@@ -142,7 +142,18 @@
     }
   }
 
-  
+  .ticket_container {
+    display: none;
+
+    &.mobile {
+      display: block;
+      width: 80%;
+
+      & > .ticket > .ticket-desc > ul {
+        left: 1rem;
+      }
+    }
+  }
 }
 
 @media (max-width: 640px) {

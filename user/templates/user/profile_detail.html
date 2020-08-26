@@ -74,119 +74,17 @@
                             <span class="badge badge-primary badge-pill">{% trans 'Virtual booth 수정하기' %}</span>
                         </a>
                     {% endif %}
-                    {% comment %} <a class='badge'><i class="fa fa-pencil-square-o"></i></a> {% endcomment %}
                 </li>
             {% endfor %}
             </ul>
         </div>
         {% endif %}
 
+        <h3>{% trans 'My Ticket' %}</h3>
         {% if ticket %}
             {# 티켓 메일 전송이 구현되고나면, 티켓 화면으로 이동할 수 있는 링크를 추가하면 어떨까 싶습니다. #}
-
-            <div class="alert alert-warning" role="alert">
-                티켓구매자입니다. 구매일시: {{ ticket.ticket_purchase_datetime }}
-            </div>
-
-            {% if ticket.is_patron is True %}
-                <div class="alert alert-warning" role="alert">
-                    호우! 개인후원자시군요!
-                </div>
-            {% endif %}
-
+            {% include 'registration/my_ticket.html' with profile=profile %}
         {% endif %}
-        {% comment %} <hr>
-        <h3>{% trans 'My Tickets' %}</h3>
-        <div>
-            {% for ticket in tickets %}
-            <div class="ticket-wrap">
-                <div class="ticket-box">
-                    <div class="ticket {{ ticket.option.event_type }} ticket-left">
-                        <div class="ticket-title ticket-header">{{ ticket.option.event_type|title }}</div>
-                        <p class="info-title">NAME</p>
-                            <span class="info-text">{{ ticket.name }}</span>
-
-                            <p class="info-title">TICKET OPTION</p>
-                            <span class="info-text">{{ ticket.option.name }}</span><br>
-
-                            <p class="info-title">TICKET CREATED</p>
-                            <span class="info-text">
-                                {% if ticket.payment_status == 'paid' %}
-                                    {{ ticket.created }}
-                                {% else %}
-                                <span class="status-text">{% trans 'Ready For Paid' %}</span>
-                                {% endif %}
-                            </span><br>
-
-                            <span class="info-text"><a href="{% url 'registration_status' ticket.option.id %}">{% trans "Check Registration Status" %}</a></span>
-                    </div>
-                    <div class="ticket {{ ticket.option.event_type }} ticket-right">
-                        <div class="ticket-title ticket-header">PyCon.KR</div>
-                        <span class="info-text">
-                            {% if ticket.option.event_type == 'conference' %}
-                                <p class="info-title">PERIOD</p>
-                                2020.08.15 - 16
-                            {% else %}
-                                <p class="info-title">DETAIL</p>
-                                <a href="{% url ticket.option.event_type %}">show more</a>
-                            {% endif %}
-                        </span>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-
-        <h3>{% trans 'My Sprint' %}</h3>
-        <div>
-          <ul>
-             {% for join in joined_sprint %}
-            <li>
-                <a href="{% url 'sprint' join.sprint.id %}">{{ join.sprint }}</a>
-                <ul>
-                    <li>
-                        <a href="{% url 'certificates_sprint' %}">스프린트 참가증 발급</a>
-                    </li>
-                </ul>
-            </li>
-            {% endfor %}
-          </ul>
-
-        </div>
-
-        <hr>
-        <h3>{% trans 'Cancelled Tickets' %}</h3>
-        <div>
-            {% for ticket in cancelled_tickets %}
-            <div class="ticket-wrap">
-                <div class="ticket-box">
-                    <div class="ticket {{ ticket.payment_status }} {{ ticket.option.event_type }} ticket-left">
-                        <div class="ticket-title ticket-header">{{ ticket.option.event_type|title }}</div>
-                            <p class="info-title">NAME</p>
-                            <span class="info-text">{{ ticket.name }}</span>
-
-                            <p class="info-title">TICKET OPTION</p>
-                            <span class="info-text">{{ ticket.option.name }}</span><br>
-
-                            <p class="info-title">TICKET STATUS</p>
-                            <span class="status-text">{{ ticket.payment_status }}</span><br>
-                      </div>
-                      <div class="ticket {{ ticket.payment_status }} {{ ticket.option.event_type }} ticket-right">
-                          <div class="ticket-title ticket-header">PyCon.KR</div>
-                          <p class="info-title">PERIOD</p>
-                          <span class="info-text">
-                            {% if ticket.option.event_type == 'conference' %}
-                                2020.08.15 - 16
-                            {% else %}
-                                -
-                            {% endif %}
-                          </span>
-                      </div>
-                  </div>
-              </div>
-              {% endfor %}
-        </div> {% endcomment %}
-
     {% endif %}
 </div>
 {% endblock %}

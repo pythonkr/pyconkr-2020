@@ -615,7 +615,8 @@ input[type="file"] {
   }
 }
 
-.patrons, .sprints {
+.patrons,
+.sprints {
   padding-left: 0;
   list-style: none;
 
@@ -1292,104 +1293,190 @@ a.endBtn {
   & + & {
     margin-top: 3rem;
   }
-}
 
-.ticket {
-  border: #c3d2e0 7px solid;
-  border-radius: 3rem;
-  height: 15rem;
-  width: 90%;
-  margin: 0 auto;
-  background-color: white;
-}
-
-.ticket-top,
-.ticket-bottom {
-  height: 2.75rem;
-}
-
-.ticket-bottom {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .logo {
-    background-color: transparent;
-    width: 30%;
-
-    img {
-      width: 100%;
-    }
-  }
-}
-
-.ticket-title {
-  height: 30%;
-  font-size: 2.5rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  margin-left: 2rem;
-  position: relative;
-  padding-top: 1rem;
-
-  img {
-    width: 25%;
-    position: absolute;
-    right: 1rem;
-    top: -1rem;
-  }
-}
-
-.ticket-desc {
-  height: 40%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding-bottom: 1rem;
-  padding-right: 3rem;
-  line-height: 1rem;
-
-  .prev_price {
-    text-decoration: line-through;
-    color: gray;
-    line-height: inherit;
+  .ticket {
+    border: #c3d2e0 7px solid;
+    border-radius: 3rem;
+    height: 15rem;
+    width: 90%;
+    margin: 0 auto;
+    background-color: white;
   }
 
-  .price {
-    font-size: 2rem;
-    font-weight: 500;
+  .ticket-top,
+  .ticket-bottom {
+    height: 2.75rem;
   }
-}
 
-.ticket-buy-container {
-  height: 30%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-
-  .ticket-buy-btn {
-    background-color: #a5bcd0;
-    border-radius: 5px;
-    color: #072641;
-    height: 70%;
-    font-size: 1.5rem;
-    font-weight: 500;
-    width: 25%;
-    margin-right: 3rem;
-    margin-bottom: 1rem;
+  .ticket-bottom {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    &:hover {
-      text-decoration: none;
-      background-color: #87a6c0;
+    .logo {
+      background-color: transparent;
+      width: 30%;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .ticket-title {
+    height: 30%;
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    position: relative;
+    padding-top: 1rem;
+
+    img {
+      width: 25%;
+      position: absolute;
+      right: 1rem;
+      top: -1rem;
+    }
+  }
+
+  .ticket-desc {
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    padding-right: 3rem;
+    line-height: 1rem;
+
+    ul {
+      position: relative;
+      left: 1rem;
+      list-style: square;
     }
 
-    &.disabled {
-      background-color: #717980;
+    .price-box {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
     }
+
+    .prev_price {
+      text-decoration: line-through;
+      color: gray;
+      line-height: inherit;
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+  }
+
+  .ticket-buy-container {
+    height: 30%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    .ticket-buy-btn {
+      background-color: #a5bcd0;
+      border-radius: 5px;
+      color: #072641;
+      height: 70%;
+      font-size: 1.5rem;
+      font-weight: 500;
+      width: 25%;
+      margin-right: 3rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        text-decoration: none;
+        background-color: #87a6c0;
+      }
+
+      &.disabled {
+        background-color: #717980;
+      }
+    }
+  }
+
+  .my-ticket-info {
+    height: 30%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    & > div {
+      font-size: 1.5rem;
+      margin-right: 3rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &.mobile {
+    display: none;
+    width: 30%;
+    height: 31.5rem;
+
+    .ticket-top, .ticket-bottom {
+      height: 3rem;
+    }
+
+    .ticket {
+      width: 85%;
+      height: 25.5rem;
+
+      .badge-img {
+        width: 75%;
+        height: auto;
+        margin: 0 auto;
+        img {
+          width: 100%;
+        }
+      }
+
+      .ticket-title {
+        font-size: 1.5rem;
+        height: auto;
+        display: block;
+        margin-left: 0;
+        text-align: center;
+        position: static;
+        padding-top: 0;
+      }
+
+      .my-ticket-info {
+        width: 100%;
+        height: auto;
+        float: right;
+        font-size: 1rem;
+        margin: 1rem 0;
+        padding-right: 1rem;
+      }
+
+      .ticket-desc {
+        height: auto;
+        display: block;
+        padding: 0;
+        line-height: 0;
+
+        ul {
+          left: 0;
+        }
+      }
+    }
+
+    .ticket-bottom {
+      .logo {
+        width: 100%;
+      }
+    }
+
   }
 }
 
