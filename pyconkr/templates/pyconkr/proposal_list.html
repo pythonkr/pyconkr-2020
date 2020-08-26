@@ -11,13 +11,23 @@
         {% for proposal in proposals %}
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <a href="{% url 'proposal' proposal.id %}">
+                    {% if proposal.accepted %}
+                        [{% trans '발표 확정' %}]
+                    {% endif %}
                     {{ proposal.title }}
                 </a>
+                {% if proposal.accepted %}
+                <a href="{% url 'talk-update' pk=accepted_pk %}">
+                    <span class="badge badge-primary badge-pill">{% trans '발표 소개 수정하기' %}</span>
+                </a>
+                {% endif %}
             </li>
         {% endfor %}
         </ul>
     </div>
+    {% if is_proposable %}
     <div class="a_btn_container">
       <a class="a_btn large" href="{% url 'propose' %}">{% trans "새로운 발표 제안하기" %}</a>
     </div>
+    {% endif %}
 {% endblock %}
