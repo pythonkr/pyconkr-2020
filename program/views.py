@@ -80,8 +80,9 @@ class ProgramUpdate(UpdateView):
     template_name = "pyconkr/program_update.html"
 
     def get(self, request, *args, **kwargs):
-        is_editable = self.request.user.is_authenticated and Proposal.objects.filter(user=self.request.user,
-                                                                                     accepted=True).exists()
+        is_editable = self.request.user.is_authenticated \
+                      and Proposal.objects.filter(user=self.request.user, accepted=True).exists() \
+                      and Proposal.objects.get(user=self.request.user, accepted=True).pk == self.object.pk
         if not is_editable:
             return redirect('talk', kwargs={'pk': self.object.pk})
         return super().get(request, *args, **kwargs)
@@ -130,6 +131,9 @@ class ProposalList(ListView):
     def get_context_data(self, **kwargs):
         context = super(ProposalList, self).get_context_data(**kwargs)
         context['proposals'] = Proposal.objects.filter(user=self.request.user)
+        context['is_proposable'] = is_proposal_opened(self.request) == 0
+        if Proposal.objects.filter(user=self.request.user, accepted=True).exists():
+            context['accepted_pk'] =  Proposal.objects.get(user=self.request.user, accepted=True).pk
 
         return context
 
