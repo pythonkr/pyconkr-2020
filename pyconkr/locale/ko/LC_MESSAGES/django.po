@@ -227,7 +227,7 @@ msgstr "개인 후원자"
 
 #: .\pyconkr\context_processors.py:35
 msgid "Code of Conduct"
-msgstr "파이콘 성명서"
+msgstr "파이콘 한국 성명서"
 
 #: .\pyconkr\context_processors.py:36
 msgid "Organizing Team"
