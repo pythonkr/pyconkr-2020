@@ -92,6 +92,10 @@ class ProgramUpdate(UpdateView):
         return reverse('talk', kwargs={'pk': self.object.pk})
 
 
+class ProgramSchedule(TemplateView):
+    template_name = "schedule.html"
+
+
 class ProposalCreate(SuccessMessageMixin, CreateView):
     form_class = ProposalForm
     template_name = "pyconkr/proposal_form.html"
@@ -133,7 +137,7 @@ class ProposalList(ListView):
         context['proposals'] = Proposal.objects.filter(user=self.request.user)
         context['is_proposable'] = is_proposal_opened(self.request) == 0
         if Proposal.objects.filter(user=self.request.user, accepted=True).exists():
-            context['accepted_pk'] =  Proposal.objects.get(user=self.request.user, accepted=True).pk
+            context['accepted_pk'] = Proposal.objects.get(user=self.request.user, accepted=True).pk
 
         return context
 

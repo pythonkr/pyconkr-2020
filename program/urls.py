@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.urls import re_path
 from .views import ProgramList, ProgramDetail
-from .views import ProposalCreate, ProposalUpdate, ProposalDetail, ProposalList, ProgramUpdate, SprintList
+from .views import ProposalCreate, ProposalUpdate, ProposalDetail, ProposalList, ProgramUpdate, ProgramSchedule, \
+    SprintList
 
 from django.contrib import admin
 
@@ -14,6 +15,7 @@ urlpatterns = [
             ProgramDetail.as_view(), name='talk'),
     re_path(r'^talks/(?P<pk>\d+)/edit$',
             login_required(ProgramUpdate.as_view()), name='talk-update'),
+    re_path(r'^talk-schedule/$', ProgramSchedule.as_view(), name='talk-schedule'),
     re_path(r'^sprint/$', SprintList.as_view()),
     re_path(r'^cfp/propose/$',
             login_required(ProposalCreate.as_view()), name='propose'),
