@@ -49,7 +49,7 @@ class RegistrationHome(TemplateView):
         # 메일링 동의 갱신
         if request.POST.get('mailing') == 'true':
             req_user_profile = Profile.objects.get(user=request.user)
-            req_user_profile.agreement_receive_advertising_info = request.POST.get('mailing')
+            req_user_profile.agreement_receive_advertising_info = True
             req_user_profile.save()
 
         # 신규 티켓 등록
