@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-25 22:44+0900\n"
+"POT-Creation-Date: 2020-08-26 09:22+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -61,9 +61,9 @@ msgstr "세션 난이도"
 msgid "Session duration"
 msgstr "세션 길이"
 
-#: .\program\forms.py:42 .\pyconkr\templates\nav.html:65
-msgid "Language"
-msgstr ""
+#: .\program\forms.py:42
+msgid "Session language"
+msgstr "발표 언어"
 
 #: .\program\forms.py:43
 msgid "Category"
@@ -666,6 +666,10 @@ msgstr "프로필"
 msgid "Logout"
 msgstr "로그아웃"
 
+#: .\pyconkr\templates\nav.html:65
+msgid "Language"
+msgstr ""
+
 #: .\pyconkr\templates\pyconkr\contribution_home.html:5
 msgid "공헌 안내"
 msgstr ""
@@ -1105,9 +1109,6 @@ msgstr ""
 
 #~ msgid "Tutorial Information"
 #~ msgstr "일시와 장소"
-
-#~ msgid "Sprint Language"
-#~ msgstr "언어"
 
 #~ msgid "Project brief"
 #~ msgstr "오픈소스 프로젝트에 대한 간단한 설명"

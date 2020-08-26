@@ -39,7 +39,7 @@ class ProposalForm(forms.ModelForm):
             'comment': _('Comment to reviewers (optional)'),
             'difficulty': _('Session difficulty'),
             'duration': _('Session duration'),
-            'language': _('Language'),
+            'language': _('Session language'),
             'category': _('Category'),
         }
 

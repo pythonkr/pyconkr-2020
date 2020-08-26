@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-25 22:44+0900\n"
+"POT-Creation-Date: 2020-08-26 09:22+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -60,8 +60,10 @@ msgstr "Session difficulty"
 msgid "Session duration"
 msgstr "Session duration"
 
-#: .\program\forms.py:42 .\pyconkr\templates\nav.html:65
-msgid "Language"
+#: .\program\forms.py:42
+#, fuzzy
+#| msgid "Sprint Language"
+msgid "Session language"
 msgstr "Language"
 
 #: .\program\forms.py:43
@@ -687,6 +689,10 @@ msgstr "Profile"
 msgid "Logout"
 msgstr "Logout"
 
+#: .\pyconkr\templates\nav.html:65
+msgid "Language"
+msgstr "Language"
+
 #: .\pyconkr\templates\pyconkr\contribution_home.html:5
 msgid "공헌 안내"
 msgstr "Contribution"
@@ -987,13 +993,17 @@ msgid ""
 "파이콘 한국 2020은 온라인으로 진행되어 오프라인 스프린트가 진행되지 않습니"
 "다. 온라인을 통해 자발적으로 스프린트를 하시는 경우 이곳에 게시해드릴 수 있습"
 "니다."
-msgstr "Offline sprint will not be processed cause PyCon Korea 2020 goes via online. If you sprint online, we can post it here."
+msgstr ""
+"Offline sprint will not be processed cause PyCon Korea 2020 goes via online. "
+"If you sprint online, we can post it here."
 
 #: .\pyconkr\templates\pyconkr\sprint_list.html:15
 msgid ""
 "게시를 원하시는 경우 program@pycon.kr로 스프린트 제목, 짧은 설명, 관련 URL, "
 "홈페이지 이메일(혹은 user code)를 보내주시기 바랍니다. 감사합니다."
-msgstr "Please send program@pycon.kr the title, brief, url of the sprint and this website's e-mail(or user code0. Thanks."
+msgstr ""
+"Please send program@pycon.kr the title, brief, url of the sprint and this "
+"website's e-mail(or user code0. Thanks."
 
 #: .\pyconkr\templates\pyconkr\sprint_list.html:41
 msgid "스프린트에 참여하세요!"
@@ -1160,9 +1170,6 @@ msgstr ""
 
 #~ msgid "Tutorial Information"
 #~ msgstr "Date and Venue"
-
-#~ msgid "Sprint Language"
-#~ msgstr "Language"
 
 #~ msgid "Project brief"
 #~ msgstr "Brief about project"
