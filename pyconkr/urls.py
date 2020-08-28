@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls import include, url, handler404, handler500
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
+from django.contrib import admin
 from django.contrib.flatpages import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.decorators import login_required
@@ -10,14 +11,11 @@ from django.views.generic.base import TemplateView
 
 from .views import index, robots
 from .views import login, logout
-# from .views import PatronList
 
-from program.views import ProposalCreate, OpenReviewUpdate, OpenReviewList, OpenReviewHome, OpenReviewResult, ContributionHome, \
+from program.views import OpenReviewUpdate, OpenReviewList, OpenReviewHome, OpenReviewResult, ContributionHome, \
     LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate
 from registration.views import PatronList
 from mailing.views import NewsLetterAdd
-
-from django.contrib import admin
 
 admin.autodiscover()
 

@@ -102,10 +102,9 @@ class TicketList(TemplateView):
             context['patron_available'] = 1
 
         # 기구매 티켓 확인
-        if Ticket.objects.filter(user=self.request.user).exists():
+        context['already_buy'] = False
+        if self.request.user.is_authenticated and Ticket.objects.filter(user=self.request.user).exists():
             context['already_buy'] = True
-        else:
-            context['already_buy'] = False
 
         context['patron_url'] = config.PATRON_URL
 
