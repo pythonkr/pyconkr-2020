@@ -82,8 +82,8 @@
         </div>
         {% endif %}
 
+    {% if ticket %}
         <h3>{% trans 'My Ticket' %}</h3>
-        {% if ticket %}
             {% include 'registration/my_ticket.html' with profile=profile %}
         {% endif %}
     {% endif %}
