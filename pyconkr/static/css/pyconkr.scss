@@ -1287,12 +1287,8 @@ a.endBtn {
   border: solid #072641 3px;
   width: 75%;
   height: 21rem;
-  margin: 0 auto;
+  margin: 3rem auto;
   background-color: #0f4c81;
-
-  & + & {
-    margin-top: 3rem;
-  }
 
   .ticket {
     border: #c3d2e0 7px solid;
