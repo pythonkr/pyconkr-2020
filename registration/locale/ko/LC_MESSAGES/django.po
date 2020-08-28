@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-28 20:07+0900\n"
+"POT-Creation-Date: 2020-08-29 08:36+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: woojing seok <woojing@pycon.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,46 +17,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\registration\templates\registration\my_ticket.html:9
-#: .\registration\templates\registration\my_ticket.html:44
-#: .\registration\templates\registration\ticket_list.html:105
-#: .\registration\templates\registration\ticket_list.html:110
-#: .\registration\templates\registration\ticket_list.html:147
+#: .\registration\templates\registration\my_ticket.html:13
+#: .\registration\templates\registration\ticket_list.html:67
+#: .\registration\templates\registration\ticket_list.html:75
 msgid "개인 후원 티켓"
 msgstr ""
 
-#: .\registration\templates\registration\my_ticket.html:11
-#: .\registration\templates\registration\my_ticket.html:46
+#: .\registration\templates\registration\my_ticket.html:15
 #: .\registration\templates\registration\ticket_list.html:19
-#: .\registration\templates\registration\ticket_list.html:24
-#: .\registration\templates\registration\ticket_list.html:64
+#: .\registration\templates\registration\ticket_list.html:27
 msgid "일반 티켓"
 msgstr ""
 
-#: .\registration\templates\registration\my_ticket.html:17
-#: .\registration\templates\registration\my_ticket.html:57
-#: .\registration\templates\registration\ticket_list.html:29
-#: .\registration\templates\registration\ticket_list.html:73
-#: .\registration\templates\registration\ticket_list.html:115
-#: .\registration\templates\registration\ticket_list.html:154
+#: .\registration\templates\registration\my_ticket.html:20
+#: .\registration\templates\registration\ticket_list.html:31
+#: .\registration\templates\registration\ticket_list.html:79
 msgid "기간: 9월 26-27일 (토-일)"
 msgstr ""
 
-#: .\registration\templates\registration\my_ticket.html:18
-#: .\registration\templates\registration\my_ticket.html:58
-#: .\registration\templates\registration\ticket_list.html:30
-#: .\registration\templates\registration\ticket_list.html:74
-#: .\registration\templates\registration\ticket_list.html:116
-#: .\registration\templates\registration\ticket_list.html:155
+#: .\registration\templates\registration\my_ticket.html:21
+#: .\registration\templates\registration\ticket_list.html:32
+#: .\registration\templates\registration\ticket_list.html:80
 msgid "CoC를 꼭 지켜주세요."
 msgstr ""
 
-#: .\registration\templates\registration\my_ticket.html:19
-#: .\registration\templates\registration\my_ticket.html:59
-#: .\registration\templates\registration\ticket_list.html:31
-#: .\registration\templates\registration\ticket_list.html:75
-#: .\registration\templates\registration\ticket_list.html:117
-#: .\registration\templates\registration\ticket_list.html:156
+#: .\registration\templates\registration\my_ticket.html:22
+#: .\registration\templates\registration\ticket_list.html:33
+#: .\registration\templates\registration\ticket_list.html:81
 msgid "YouTube link"
 msgstr ""
 "<a href='https://www.youtube.com/channel/UC26x6D5xpKx6io4ShfXa_Ow/' "
@@ -125,52 +112,45 @@ msgstr ""
 msgid "Ready for content"
 msgstr "준비 중입니다."
 
-#: .\registration\templates\registration\ticket_list.html:36
-#: .\registration\templates\registration\ticket_list.html:70
+#: .\registration\templates\registration\ticket_list.html:38
 msgid "무료"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:41
-#: .\registration\templates\registration\ticket_list.html:80
-#: .\registration\templates\registration\ticket_list.html:127
-#: .\registration\templates\registration\ticket_list.html:161
+#: .\registration\templates\registration\ticket_list.html:43
+#: .\registration\templates\registration\ticket_list.html:91
 msgid "판매 종료"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:44
-#: .\registration\templates\registration\ticket_list.html:83
+#: .\registration\templates\registration\ticket_list.html:46
 msgid "구매함"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:46
-#: .\registration\templates\registration\ticket_list.html:85
-#: .\registration\templates\registration\ticket_list.html:130
-#: .\registration\templates\registration\ticket_list.html:164
+#: .\registration\templates\registration\ticket_list.html:48
+#: .\registration\templates\registration\ticket_list.html:94
 msgid "구매하기"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:99
+#: .\registration\templates\registration\ticket_list.html:61
 msgid ""
 "일반 티켓을 구매하신 분들에게는 행사와 관련된 후원사 정보, 이벤트 등에 대해 "
 "메일을 통해 알려드립니다. (선택적)"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:102
+#: .\registration\templates\registration\ticket_list.html:64
 msgid "또한 행사 기간 동안 운영되는 참가자용 슬랙에 초대드릴 예정입니다."
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:122
-#: .\registration\templates\registration\ticket_list.html:151
+#: .\registration\templates\registration\ticket_list.html:86
 msgid "8만 원 이상"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:177
+#: .\registration\templates\registration\ticket_list.html:106
 msgid ""
 "파이콘은 참가하는 \"모든\" 사람(준비위원회, 자원봉사자, 발표자까지)이 티켓을 "
 "구매하는 것을 원칙으로 합니다."
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:178
+#: .\registration\templates\registration\ticket_list.html:107
 msgid ""
 "그렇게 하여 모든 참가자들이 정당한 가격을 지불하고 동등한 자격으로 행사의 일"
 "부가 되도록 하는 것이 파이콘의 중요한 철학 중 하나입니다. [<a href=\"http://"
@@ -178,12 +158,12 @@ msgid ""
 "a>]"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:181
+#: .\registration\templates\registration\ticket_list.html:110
 msgid ""
 "이번 파이콘 한국 2020은 온라인 컨퍼런스로 진행되어 티켓 가격이 무료입니다."
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:182
+#: .\registration\templates\registration\ticket_list.html:111
 msgid ""
 "후원 금액은 작년 행사까지는 금전적인 이유로 파이콘에 참가하기 힘든 분께 지원"
 "하는 것을 최우선으로 사용하였고, 이후 여분의 금액이 발생할 시에는 내년 파이콘"

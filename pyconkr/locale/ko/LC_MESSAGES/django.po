@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-28 20:07+0900\n"
+"POT-Creation-Date: 2020-08-29 08:36+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -44,6 +44,37 @@ msgstr ""
 
 #: .\mailing\models.py:44
 msgid "소식을 받을 이메일 주소"
+msgstr ""
+
+#: .\mailing\templates\email_ticket.html:14
+msgid "파이콘 한국 2020에 등록해주셔서 감사합니다."
+msgstr ""
+
+#: .\mailing\templates\email_ticket.html:15
+msgid "파이콘 한국 2020은 9/26(토) - 9/27(일) 온라인으로 진행됩니다."
+msgstr ""
+
+#: .\mailing\templates\email_ticket.html:17
+msgid ""
+"티켓은 홈페이지의 <a href=\"https://www.pycon.kr/2020/profile/\" target="
+"\"_blank\">프로필</a>에서 확인하실 수 있습니다."
+msgstr ""
+
+#: .\mailing\templates\email_ticket.html:19
+msgid "파이콘 한국은 커뮤니티 주관으로 이뤄지는 비영리 행사입니다."
+msgstr ""
+
+#: .\mailing\templates\email_ticket.html:20
+msgid ""
+"파이콘 한국 준비위원회는 건강한 국내 파이썬 생태계에 지속적인 보탬이 되고자, "
+"커뮤니티 멤버들의 자발적인 봉사로 운영되고 있습니다."
+msgstr ""
+
+#: .\mailing\templates\email_ticket.html:21
+msgid ""
+"파이콘 한국은 발표자, 준비위원회 등 모든 인원이 금전적 이득 없이 순수히 오픈"
+"소스 프로그래밍 언어인 파이썬의 저변 확대와 커뮤니티 활성화를 위해 진행하는 "
+"행사입니다."
 msgstr ""
 
 #: .\program\forms.py:36

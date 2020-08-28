@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-28 20:07+0900\n"
+"POT-Creation-Date: 2020-08-29 08:36+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -45,6 +45,40 @@ msgstr ""
 msgid "소식을 받을 이메일 주소"
 msgstr ""
 
+#: .\mailing\templates\email_ticket.html:14
+msgid "파이콘 한국 2020에 등록해주셔서 감사합니다."
+msgstr "Thanks for registration for PyCon Korea 2020."
+
+#: .\mailing\templates\email_ticket.html:15
+msgid "파이콘 한국 2020은 9/26(토) - 9/27(일) 온라인으로 진행됩니다."
+msgstr ""
+"PyCon Korea 2020 will be held via online for September 26-27th (Sat-Sun)."
+
+#: .\mailing\templates\email_ticket.html:17
+msgid ""
+"티켓은 홈페이지의 <a href=\"https://www.pycon.kr/2020/profile/\" target="
+"\"_blank\">프로필</a>에서 확인하실 수 있습니다."
+msgstr ""
+"You can find the ticket in <a href=\"https://www.pycon.kr/en/2020/profile/"
+"\" target=\"_target\">your profile</a>."
+
+#: .\mailing\templates\email_ticket.html:19
+msgid "파이콘 한국은 커뮤니티 주관으로 이뤄지는 비영리 행사입니다."
+msgstr "PyCon Korea is a non-profitable, developer-oriented event organized by community members."
+
+#: .\mailing\templates\email_ticket.html:20
+msgid ""
+"파이콘 한국 준비위원회는 건강한 국내 파이썬 생태계에 지속적인 보탬이 되고자, "
+"커뮤니티 멤버들의 자발적인 봉사로 운영되고 있습니다."
+msgstr "The PyCon Korea Organizing Team is operated with volunteers from community members to continuously contribute to the healthy domestic Python ecosystem."
+
+#: .\mailing\templates\email_ticket.html:21
+msgid ""
+"파이콘 한국은 발표자, 준비위원회 등 모든 인원이 금전적 이득 없이 순수히 오픈"
+"소스 프로그래밍 언어인 파이썬의 저변 확대와 커뮤니티 활성화를 위해 진행하는 "
+"행사입니다."
+msgstr "All attendees, including speakers and organizers, participate in PyCon Korea without any profitable purpose, and only to broaden the usage of Python, an open source programming language, and activate its community."
+
 #: .\program\forms.py:36
 msgid "Proposal title (required)"
 msgstr "Proposal title (required)"
@@ -70,10 +104,8 @@ msgid "Session duration"
 msgstr "Session duration"
 
 #: .\program\forms.py:42
-#, fuzzy
-#| msgid "Sprint Language"
 msgid "Session language"
-msgstr "Language"
+msgstr ""
 
 #: .\program\forms.py:43
 msgid "Category"
@@ -134,8 +166,6 @@ msgid "발표 소개 문구"
 msgstr ""
 
 #: .\program\forms.py:139 .\program\models.py:57
-#, fuzzy
-#| msgid "발표 슬라이드 URL"
 msgid "발표 자료 URL"
 msgstr "Slide URL"
 
@@ -172,16 +202,12 @@ msgid "발표 소개 페이지에 들어가는 내용입니다."
 msgstr ""
 
 #: .\program\models.py:56
-#, fuzzy
-#| msgid "발표 슬라이드 URL"
 msgid "발표 영상 URL"
-msgstr "Slide URL"
+msgstr "Presentation video URL"
 
 #: .\program\models.py:58
-#, fuzzy
-#| msgid "파이콘 한국 유튜브"
 msgid "파이콘 한국 유튜브에 공개되는 시간"
-msgstr "PyCon Korea YouTube"
+msgstr "When presentation video open in YouTube"
 
 #: .\program\models.py:87
 msgid "토요일"
@@ -955,15 +981,11 @@ msgid "Edit"
 msgstr "Edit"
 
 #: .\pyconkr\templates\pyconkr\program_list.html:5
-#, fuzzy
-#| msgid "발표 제목"
 msgid "발표"
 msgstr "Title"
 
 #: .\pyconkr\templates\pyconkr\program_update.html:6
 #: .\pyconkr\templates\pyconkr\proposal_list.html:21
-#, fuzzy
-#| msgid "수정하기"
 msgid "발표 소개 수정하기"
 msgstr "Edit"
 
