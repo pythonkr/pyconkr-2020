@@ -1,39 +1,40 @@
 {% load staticfiles %}
 {% load i18n %}
+
 {% with user=profile.user %}
-<div class="ticket_container" style="margin-top: 2rem;">
-            <div class="ticket-top"></div>
-            <div class="ticket">
-                <div class="badge-img">
-                    <img src="{% static 'image/badge.png' %}" alt="PyCon Korea 2020"/>
-                </div>
-                <div class="ticket-title">
-                    {% if user.ticket.is_patron %}
-                        {% trans '개인 후원 티켓' %}
-                    {% else %}
-                        {% trans '일반 티켓' %}
-                    {% endif %}
-                </div>
-                <div class="ticket-desc">
-                    <ul>
-                        <li>{% trans '기간: 9월 26-27일 (토-일)' %}</li>
-                        <li>{% trans 'CoC를 꼭 지켜주세요.' %}</li>
-                        <li>{% trans 'YouTube link' %}</li>
-                    </ul>
-                </div>
-                <div class="my-ticket-info">
-                    <div>
-                        {{ profile.name }}
-                        {% if profile.organization %}
-                         / {{ profile.organization }}
-                        {% endif %}
-                    </div>
-                </div>
+    <div class="ticket_container" style="margin-top: 2rem;">
+        <div class="ticket-top"></div>
+        <div class="ticket">
+            <div class="badge-img">
+                <img src="{% static 'image/badge.png' %}" alt="PyCon Korea 2020"/>
             </div>
-            <div class="ticket-bottom">
-                <div class="logo">
-                    <img src="{% static 'image/pycon_logo_white.png' %}" alt="PyCon Korea 2020"/>
+            <div class="ticket-title">
+                {% if user.ticket.is_patron %}
+                    {% trans '개인 후원 티켓' %}
+                {% else %}
+                    {% trans '일반 티켓' %}
+                {% endif %}
+            </div>
+            <div class="ticket-desc">
+                <ul>
+                    <li>{% trans '기간: 9월 26-27일 (토-일)' %}</li>
+                    <li>{% trans 'CoC를 꼭 지켜주세요.' %}</li>
+                    <li>{% trans 'YouTube link' %}</li>
+                </ul>
+            </div>
+            <div class="my-ticket-info">
+                <div>
+                    {{ profile.name }}
+                    {% if profile.organization %}
+                        / {{ profile.organization }}
+                    {% endif %}
                 </div>
             </div>
         </div>
+        <div class="ticket-bottom">
+            <div class="logo">
+                <img src="{% static 'image/pycon_logo_white.png' %}" alt="PyCon Korea 2020"/>
+            </div>
+        </div>
+    </div>
 {% endwith %}
