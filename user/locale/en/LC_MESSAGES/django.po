@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-28 10:05+0900\n"
+"POT-Creation-Date: 2020-08-28 18:24+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,41 +121,41 @@ msgstr ""
 "Enter your required information and accept the terms to complete your signup."
 "🤖"
 
-#: .\user\templates\user\profile_detail.html:36
+#: .\user\templates\user\profile_detail.html:38
 msgid "발표 제안 내역"
 msgstr "Call for Proposal"
 
-#: .\user\templates\user\profile_detail.html:43
+#: .\user\templates\user\profile_detail.html:45
 msgid "발표 확정"
 msgstr ""
 
-#: .\user\templates\user\profile_detail.html:54
+#: .\user\templates\user\profile_detail.html:56
 msgid "후원사 신청 내역"
 msgstr "Sponsor Application"
 
-#: .\user\templates\user\profile_detail.html:61
+#: .\user\templates\user\profile_detail.html:63
 msgid "스폰서 확정"
 msgstr "Accepted"
 
-#: .\user\templates\user\profile_detail.html:63
+#: .\user\templates\user\profile_detail.html:65
 msgid "신청서 제출"
 msgstr "Submitted"
 
-#: .\user\templates\user\profile_detail.html:65
+#: .\user\templates\user\profile_detail.html:67
 msgid "임시 저장"
 msgstr "Temporarily Saved"
 
-#: .\user\templates\user\profile_detail.html:70
+#: .\user\templates\user\profile_detail.html:72
 msgid "수정하기"
 msgstr "Edit"
 
-#: .\user\templates\user\profile_detail.html:74
+#: .\user\templates\user\profile_detail.html:76
 #, fuzzy
 #| msgid "수정하기"
 msgid "Virtual booth 수정하기"
 msgstr "Edit"
 
-#: .\user\templates\user\profile_detail.html:83
+#: .\user\templates\user\profile_detail.html:85
 msgid "My Ticket"
 msgstr ""
 

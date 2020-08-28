@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-28 10:05+0900\n"
+"POT-Creation-Date: 2020-08-28 18:23+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -346,10 +346,6 @@ msgid "Registration"
 msgstr "Registration"
 
 #: .\pyconkr\context_processors.py:87
-msgid "Info"
-msgstr "Info"
-
-#: .\pyconkr\context_processors.py:88
 msgid "Buy Ticket"
 msgstr "Buy Ticket"
 
@@ -1177,6 +1173,9 @@ msgid ""
 msgstr ""
 "In the end, we will have a broader view of the world as we create websites "
 "and simple games."
+
+#~ msgid "Info"
+#~ msgstr "Info"
 
 #~ msgid "Tutorial"
 #~ msgstr "Tutorial"

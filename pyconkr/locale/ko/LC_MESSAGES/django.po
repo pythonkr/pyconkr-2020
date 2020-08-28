@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-28 10:05+0900\n"
+"POT-Creation-Date: 2020-08-28 18:23+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -337,10 +337,6 @@ msgid "Registration"
 msgstr "등록"
 
 #: .\pyconkr\context_processors.py:87
-msgid "Info"
-msgstr "정보"
-
-#: .\pyconkr\context_processors.py:88
 msgid "Buy Ticket"
 msgstr "티켓 구매하기"
 
@@ -1104,6 +1100,9 @@ msgid ""
 "마지막으로, 우리는 웹 사이트 및 간단한 게임을 만들어 보면서 이 세상을 이해할 "
 "수 있는 더 넓은 시야를 갖게 될 것입니다."
 msgstr ""
+
+#~ msgid "Info"
+#~ msgstr "정보"
 
 #~ msgid "Venue"
 #~ msgstr "장소"
