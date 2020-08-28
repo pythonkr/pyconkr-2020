@@ -84,7 +84,6 @@ def default(request):
             'registration', {
                 'title': _('Registration'),
                 'submenu': OrderedDict([
-                    ('info', {'title': _('Info')}),
                     ('ticket', {'title': _('Buy Ticket')}),
                 ])
             }
