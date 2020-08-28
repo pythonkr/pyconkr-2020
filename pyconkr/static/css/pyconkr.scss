@@ -1345,7 +1345,6 @@ a.endBtn {
     height: 40%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
     padding-bottom: 1rem;
     padding-right: 3rem;
     line-height: 1rem;
@@ -1353,6 +1352,7 @@ a.endBtn {
     ul {
       position: relative;
       left: 1rem;
+      top: 1rem;
       list-style: square;
     }
 

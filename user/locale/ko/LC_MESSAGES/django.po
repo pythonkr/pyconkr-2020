@@ -142,7 +142,7 @@ msgstr ""
 
 #: .\user\templates\user\profile_detail.html:83
 msgid "My Ticket"
-msgstr ""
+msgstr "내 티켓"
 
 #: .\user\templates\user\profile_form.html:5 .\user\views.py:35
 msgid "Profile"

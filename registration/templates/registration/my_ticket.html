@@ -1,7 +1,7 @@
 {% load staticfiles %}
 {% load i18n %}
 {% with user=profile.user %}
-<div class="ticket_container">
+<div class="ticket_container" style="margin-top: 2rem;">
     <div class="ticket-top"></div>
     <div class="ticket">
         <div class="ticket-title">
@@ -44,7 +44,10 @@
             {% endif %}
         </div>
         <div class="my-ticket-info">
-            {{ profile.name }} / {{ profile.organization }}
+            {{ profile.name }}
+            {% if profile.organization %}
+             / {{ profile.organization }}
+            {% endif %}
         </div>
         <div class="ticket-desc">
             <ul>

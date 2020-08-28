@@ -27,7 +27,9 @@
                 {% if profile.phone %}
                   <p>{{ profile.phone }}</p>
                 {% endif %}
+                {% if profile.bio %}
                     <div>{{ profile.bio|safe }}</div>
+                {% endif %}
                 <div style="margin-top: 40px;">User code : {{ profile.user_code|default:user_code_default }}</div>
             </div>
         </div>
