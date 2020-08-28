@@ -157,14 +157,11 @@
                     </ul>
                 </div>
                 <div class="ticket-buy-container">
-                    {% if ticket_available == 1 %}
+                    {% if patron_available == 1 %}
                         <div class="ticket-buy-btn disabled">{% trans '판매 종료' %}</div>
                     {% else %}
-                        {% if already_buy %}
-                            <div class="ticket-buy-btn disabled">{% trans '구매함' %}</div>
-                        {% else %}
-                            <a class="ticket-buy-btn" href="{% url 'registration_index' %}">{% trans '구매하기' %}</a>
-                        {% endif %}
+                        <a class="ticket-buy-btn" href="{{ patron_url|default:"#" }}"
+                           target="_blank">{% trans '구매하기' %}</a>
                     {% endif %}
                 </div>
 
