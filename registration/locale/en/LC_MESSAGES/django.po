@@ -126,8 +126,6 @@ msgid "일반 티켓 (무료)"
 msgstr "Regular ticket (Free)"
 
 #: .\registration\templates\registration\ticket_list.html:14
-#, fuzzy
-#| msgid "개인 후원 티켓 (10만 원 이상 자율)"
 msgid "개인 후원 티켓 (8만 원 이상 자율)"
 msgstr "Patron (Over 80,000won)"
 
