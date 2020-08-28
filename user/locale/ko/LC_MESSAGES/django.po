@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-26 09:22+0900\n"
+"POT-Creation-Date: 2020-08-28 10:05+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,31 +112,39 @@ msgstr ""
 msgid "발표 제안 내역"
 msgstr ""
 
-#: .\user\templates\user\profile_detail.html:51
+#: .\user\templates\user\profile_detail.html:43
+msgid "발표 확정"
+msgstr ""
+
+#: .\user\templates\user\profile_detail.html:54
 msgid "후원사 신청 내역"
 msgstr ""
 
-#: .\user\templates\user\profile_detail.html:58
+#: .\user\templates\user\profile_detail.html:61
 msgid "스폰서 확정"
 msgstr ""
 
-#: .\user\templates\user\profile_detail.html:60
+#: .\user\templates\user\profile_detail.html:63
 msgid "신청서 제출"
 msgstr ""
 
-#: .\user\templates\user\profile_detail.html:62
+#: .\user\templates\user\profile_detail.html:65
 msgid "임시 저장"
 msgstr ""
 
-#: .\user\templates\user\profile_detail.html:67
+#: .\user\templates\user\profile_detail.html:70
 msgid "수정하기"
 msgstr ""
 
-#: .\user\templates\user\profile_detail.html:71
+#: .\user\templates\user\profile_detail.html:74
 msgid "Virtual booth 수정하기"
 msgstr ""
 
-#: .\user\templates\user\profile_form.html:5 .\user\views.py:41
+#: .\user\templates\user\profile_detail.html:83
+msgid "My Ticket"
+msgstr ""
+
+#: .\user\templates\user\profile_form.html:5 .\user\views.py:35
 msgid "Profile"
 msgstr "프로필"
 
@@ -148,10 +156,10 @@ msgstr "소셜로그인"
 msgid "프로필을 수정해주세요."
 msgstr ""
 
-#: .\user\views.py:56
+#: .\user\views.py:50
 msgid "Profile successfully updated."
 msgstr "프로필이 성공적으로 업데이트 되었습니다."
 
-#: .\user\views.py:68
+#: .\user\views.py:62
 msgid "Update profile"
 msgstr "프로필 수정"
