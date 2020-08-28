@@ -181,6 +181,7 @@
       }
 
       .ticket-desc {
+        margin-top: 1rem;
         height: auto;
         display: block;
         padding: 0;
@@ -206,8 +207,6 @@
         align-items: center;
         justify-content: center;
         height: 3rem;
-        // position: absolute;
-        // bottom: -3rem;
 
         .ticket-buy-btn {
           width: 85%;
@@ -220,10 +219,16 @@
       .my-ticket-info {
         width: 100%;
         height: auto;
-        float: right;
-        font-size: 1rem;
         margin: 1rem 0;
+        padding-left: 1rem;
         padding-right: 1rem;
+        word-break: keep-all;
+
+        & > div {
+          font-size: 1rem;
+          text-align: center;
+          margin: 0 auto;
+        }
       }
     }
 
@@ -235,7 +240,8 @@
 
     &#patron_ticket .price-box {
       font-size: 0.9rem;
-      .prev_price, .price {
+      .prev_price,
+      .price {
         font-size: 0.9rem;
       }
     }
