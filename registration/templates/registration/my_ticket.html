@@ -20,7 +20,10 @@
             </ul>
         </div>
         <div class="my-ticket-info">
-            <div>{{ profile.name }} / {{ profile.organization }}</div>
+            <div>{{ profile.name }}
+            {% if profile.organization %}
+             / {{ profile.organization }}
+            {% endif %}</div>
         </div>
     </div>
     <div class="ticket-bottom">
