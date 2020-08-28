@@ -5,6 +5,6 @@ from django.urls import re_path, path
 from . import views
 
 urlpatterns = [
-    path('ticket/', views.TicketList.as_view(), name='ticket'),
-    path('ticket/buy', login_required(views.RegistrationHome.as_view()), name='registration_index'),
+    re_path(r'^ticket/$', views.TicketList.as_view(), name='ticket'),
+    re_path(r'^ticket/buy/$', login_required(views.RegistrationHome.as_view()), name='registration_index'),
 ]
