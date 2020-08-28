@@ -11,50 +11,13 @@
     <p>{% trans '파이콘 한국 2020 티켓은 아래와 같은 종류로 판매됩니다. 파이콘 한국 2020은 YouTube를 통해 진행됨에 따라 티켓은 온라인 컨퍼런스 참여에 필수 사항이 아닙니다.' %}</p>
     <ul>
         <li>{% trans '일반 티켓 (무료)' %}</li>
-        <li>{% trans '개인 후원 티켓 (10만 원 이상 자율)' %}</li>
+        <li>{% trans '개인 후원 티켓 (8만 원 이상 자율)' %}</li>
     </ul>
     {% if ticket_available == -1 %}
         <h4 class="text-center">{% trans "Ready for content" %}</h4>
     {% else %}
         <h3>{% trans '일반 티켓' %}</h3>
         <div class="ticket_container">
-            <div class="ticket-top"></div>
-            <div class="ticket">
-                <div class="ticket-title">
-                    {% trans '일반 티켓' %}
-                    <img src="{% static 'image/badge.png' %}" alt="PyCon Korea 2020"/>
-                </div>
-                <div class="ticket-desc">
-                    <ul>
-                        <li>{% trans '기간: 9월 26-27일 (토-일)' %}</li>
-                        <li>{% trans 'CoC를 꼭 지켜주세요.' %}</li>
-                        <li>{% trans 'YouTube link' %}</li>
-                    </ul>
-                    <div class="price-box">
-                        <div class="prev_price">&#8361;70,000</div>
-                        &nbsp;->&nbsp;
-                        <div class="price">{% trans '무료' %}</div>
-                    </div>
-                </div>
-                <div class="ticket-buy-container">
-                    {% if ticket_available == 1 %}
-                        <div class="ticket-buy-btn disabled">{% trans '판매 종료' %}</div>
-                    {% else %}
-                        {% if already_buy %}
-                            <div class="ticket-buy-btn disabled">{% trans '구매함' %}</div>
-                        {% else %}
-                            <a class="ticket-buy-btn" href="{% url 'registration_index' %}">{% trans '구매하기' %}</a>
-                        {% endif %}
-                    {% endif %}
-                </div>
-            </div>
-            <div class="ticket-bottom">
-                <div class="logo">
-                    <img src="{% static 'image/pycon_logo_white.png' %}" alt="PyCon Korea 2020"/>
-                </div>
-            </div>
-        </div>
-        <div class="ticket_container mobile">
             <div class="ticket-top"></div>
             <div class="ticket">
                 <div class="badge-img">
@@ -64,16 +27,16 @@
                     {% trans '일반 티켓' %}
                 </div>
                 <div class="ticket-desc">
-                    <div class="price-box">
-                        <div class="prev_price">&#8361;70,000</div>
-                        &nbsp;->&nbsp;
-                        <div class="price">{% trans '무료' %}</div>
-                    </div>
                     <ul>
                         <li>{% trans '기간: 9월 26-27일 (토-일)' %}</li>
                         <li>{% trans 'CoC를 꼭 지켜주세요.' %}</li>
                         <li>{% trans 'YouTube link' %}</li>
                     </ul>
+                    <div class="price-box">
+                        <div class="prev_price">&#8361;70,000</div>
+                        &nbsp;->&nbsp;
+                        <div class="price">{% trans '무료' %}</div>
+                    </div>
                 </div>
                 <div class="ticket-buy-container">
                     {% if ticket_available == 1 %}
@@ -86,7 +49,6 @@
                         {% endif %}
                     {% endif %}
                 </div>
-
             </div>
             <div class="ticket-bottom">
                 <div class="logo">
@@ -102,13 +64,15 @@
             {% trans '또한 행사 기간 동안 운영되는 참가자용 슬랙에 초대드릴 예정입니다.' %}
         </p>
 
-        <h3>{% trans '개인 후원 티켓' %}</h3>
-        <div class="ticket_container" id="patron">
+        <h3 id="patron">{% trans '개인 후원 티켓' %}</h3>
+        <div class="ticket_container" id="patron_ticket">
             <div class="ticket-top"></div>
             <div class="ticket">
+                <div class="badge-img">
+                    <img src="{% static 'image/badge.png' %}" alt="PyCon Korea 2020"/>
+                </div>
                 <div class="ticket-title">
                     {% trans '개인 후원 티켓' %}
-                    <img src="{% static 'image/badge.png' %}" alt="PyCon Korea 2020"/>
                 </div>
                 <div class="ticket-desc">
                     <ul>
@@ -119,7 +83,7 @@
                     <div class="price-box">
                         <div class="prev_price">&#8361;150,000</div>
                         &nbsp;->&nbsp;
-                        <div class="price">{% trans '10만 원 이상' %}</div>
+                        <div class="price">{% trans '8만 원 이상' %}</div>
                     </div>
                 </div>
                 <div class="ticket-buy-container">
@@ -130,41 +94,6 @@
                            target="_blank">{% trans '구매하기' %}</a>
                     {% endif %}
                 </div>
-            </div>
-            <div class="ticket-bottom">
-                <div class="logo">
-                    <img src="{% static 'image/pycon_logo_white.png' %}" alt="PyCon Korea 2020"/>
-                </div>
-            </div>
-        </div>
-        <div class="ticket_container mobile" id="patron">
-            <div class="ticket-top"></div>
-            <div class="ticket">
-                <div class="badge-img">
-                    <img src="{% static 'image/badge.png' %}" alt="PyCon Korea 2020"/>
-                </div>
-                <div class="ticket-title">
-                    {% trans '개인 후원 티켓' %}
-                </div>
-                <div class="ticket-desc">
-                    <div class="price-box">
-                        <div class="price">{% trans '10만 원 이상' %}</div>
-                    </div>
-                    <ul>
-                        <li>{% trans '기간: 9월 26-27일 (토-일)' %}</li>
-                        <li>{% trans 'CoC를 꼭 지켜주세요.' %}</li>
-                        <li>{% trans 'YouTube link' %}</li>
-                    </ul>
-                </div>
-                <div class="ticket-buy-container">
-                    {% if patron_available == 1 %}
-                        <div class="ticket-buy-btn disabled">{% trans '판매 종료' %}</div>
-                    {% else %}
-                        <a class="ticket-buy-btn" href="{{ patron_url|default:"#" }}"
-                           target="_blank">{% trans '구매하기' %}</a>
-                    {% endif %}
-                </div>
-
             </div>
             <div class="ticket-bottom">
                 <div class="logo">
