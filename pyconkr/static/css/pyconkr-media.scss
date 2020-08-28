@@ -147,14 +147,96 @@
   }
 
   .ticket_container {
-    display: none;
+    height: 31.5rem;
+    width: 80%;
 
-    &.mobile {
-      display: block;
-      width: 80%;
+    .ticket-top,
+    .ticket-bottom {
+      height: 3rem;
+    }
 
-      & > .ticket > .ticket-desc > ul {
-        left: 1rem;
+    .ticket {
+      position: static;
+      width: 85%;
+      height: 25.5rem;
+
+      .badge-img {
+        position: static;
+        width: 70%;
+        height: auto;
+        margin: 0 auto;
+        img {
+          width: 100%;
+        }
+      }
+
+      .ticket-title {
+        font-size: 1.5rem;
+        height: auto;
+        display: block;
+        margin-left: 0;
+        text-align: center;
+        position: static;
+        padding-top: 0;
+      }
+
+      .ticket-desc {
+        height: auto;
+        display: block;
+        padding: 0;
+        line-height: 0;
+
+        ul {
+          left: 1rem;
+          top: 0;
+          padding-top: 0.5rem;
+          margin-bottom: 0;
+        }
+
+        .price-box {
+          padding-top: 0.5rem;
+          padding-right: 0.5rem;
+          .price {
+            font-size: 1.5rem;
+          }
+        }
+      }
+
+      .ticket-buy-container {
+        align-items: center;
+        justify-content: center;
+        height: 3rem;
+        // position: absolute;
+        // bottom: -3rem;
+
+        .ticket-buy-btn {
+          width: 85%;
+          height: 66%;
+          margin: 0;
+          font-size: 1rem;
+        }
+      }
+
+      .my-ticket-info {
+        width: 100%;
+        height: auto;
+        float: right;
+        font-size: 1rem;
+        margin: 1rem 0;
+        padding-right: 1rem;
+      }
+    }
+
+    .ticket-bottom {
+      .logo {
+        width: 100%;
+      }
+    }
+
+    &#patron_ticket .price-box {
+      font-size: 0.9rem;
+      .prev_price, .price {
+        font-size: 0.9rem;
       }
     }
   }
