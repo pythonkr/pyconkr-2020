@@ -84,7 +84,6 @@
 
         <h3>{% trans 'My Ticket' %}</h3>
         {% if ticket %}
-            {# 티켓 메일 전송이 구현되고나면, 티켓 화면으로 이동할 수 있는 링크를 추가하면 어떨까 싶습니다. #}
             {% include 'registration/my_ticket.html' with profile=profile %}
         {% endif %}
     {% endif %}
