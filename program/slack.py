@@ -88,5 +88,5 @@ def program_updated(hostname, pk, title):
         }
 
         slack.chat.post_message(
-            CFS_CHANNEL, text=text, attachments=[attachment], icon_emoji=':female_mage:'
+            CFP_CHANNEL, text=text, attachments=[attachment], icon_emoji=':female_mage:'
         )
