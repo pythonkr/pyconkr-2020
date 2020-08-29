@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block head-title %}{{ block.super }} {% trans "Program" %} | {{ program.name }}{% endblock %}
-{% block og-title %}{{ program.name }}{% endblock %}
-{% block og-desc %}{{ program.desc|striptags|safe }}{% endblock %}
-{% block title %}{{ program.name }}{% endblock %}
+{% block head-title %}{{ block.super }} {% trans "Program" %} | {{ program.title }}{% endblock %}
+{% block og-title %}{{ program.title }}{% endblock %}
+{% block og-desc %}{{ program.brief|striptags|safe }}{% endblock %}
+{% block title %}{{ program.title }}{% endblock %}
 
 {% block content %}
-
 <ul class="list-group">
   {% if program.category %}
   <li class="list-group-item">
