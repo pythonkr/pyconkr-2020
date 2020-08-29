@@ -84,7 +84,7 @@ class ProgramUpdate(UpdateView):
                       and Proposal.objects.filter(user=self.request.user, accepted=True).exists() \
                       and (str(Proposal.objects.get(user=self.request.user, accepted=True).pk) == self.kwargs['pk'])
         if not is_editable:
-            return redirect('talk', kwargs={'pk': self.kwargs['pk']})
+            return redirect('talk-list')
 
         return super(ProgramUpdate, self).dispatch(request, *args, **kwargs)
 

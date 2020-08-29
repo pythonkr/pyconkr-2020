@@ -23,7 +23,6 @@ urlpatterns = [
             login_required(ProposalDetail.as_view()), name='proposal'),
     re_path(r'^profile/proposal/list',
             login_required(ProposalList.as_view()), name='proposal-list'),
-
     re_path(r'^profile/proposal/(?P<pk>\d+)/edit$',
             login_required(ProposalUpdate.as_view()), name='proposal-update'),
 ]
