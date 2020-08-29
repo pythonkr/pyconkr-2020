@@ -616,6 +616,7 @@ input[type="file"] {
 }
 
 .patrons,
+.programs,
 .sprints {
   padding-left: 0;
   list-style: none;
@@ -658,6 +659,27 @@ input[type="file"] {
         margin-bottom: 5px;
       }
     }
+  }
+}
+
+.programs {
+  li {
+    box-shadow: #C3D2E0 0px 0px 20px;
+    margin-top: 20px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    &:first-child {
+      margin-top: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  img {
+    width: 48px;
+    height: 48px;
   }
 }
 

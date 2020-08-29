@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load thumbnail %}
+{% load staticfiles %}
 
 {% block title %}
     {% trans '발표' %}
@@ -10,16 +12,38 @@
         <h4 class="text-center">{% trans "Ready for content" %}</h4>
     {% else %}
         {% for category in object_list %}
-        {% if category in having_program %}
-            <h3>{{ category.name }}</h3>
-            <ul>
-                {% for proposal in category.proposal_set.all %}
-                    {% if proposal.accepted %}
-                        <li><a href="{% url 'talk' pk=proposal.pk %}">{{ proposal.title }}</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        {% endif %}
+            {% if category in having_program %}
+                <h3>{{ category.name }}</h3>
+                <ul class="programs">
+                    {% for proposal in category.proposal_set.all %}
+                        {% if proposal.accepted %}
+                            <li>
+                                <a href="{% url 'talk' pk=proposal.pk %}">
+                                    <div class="head">
+                                        {% thumbnail proposal.user.profile.image "128x128" crop="center" as im %}
+                                            <img class="media-patron" src="{{ im.url }}"
+                                                 alt="photo of {{ proposal.user.profile.name }}">
+                                        {% empty %}
+                                            <img class="media-patron" src="{% static 'image/anonymous.png' %}">
+                                        {% endthumbnail %}
+                                    </div>
+                                    <div class="body">
+                                        <h4 class="name">
+                                            {{ proposal.user.profile.name }}
+                                            {% if proposal.user.profile.organization %}
+                                                / {{ proposal.user.profile.organization }}
+                                            {% endif %}
+                                        </h4>
+                                        <div class="bio">
+                                            {{ proposal.title }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
         {% endfor %}
     {% endif %}
 {% endblock %}
