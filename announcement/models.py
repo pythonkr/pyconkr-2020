@@ -7,13 +7,9 @@ class Announcement(models.Model):
                           help_text="공지 내용을 볼 수 있는 링크입니다. 주로 페이스북 공지 링크가 들어가게 됩니다.")
     active = models.BooleanField(default=True,
                                  help_text='True면 공지사항이 노출됩니다.')
-    # announce_after = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         ordering = ['-id']
-
-    # def at(self):
-    #     return self.announce_after if self.announce_after else self.created
 
     def __str__(self):
         return self.title
