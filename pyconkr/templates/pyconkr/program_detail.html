@@ -37,17 +37,17 @@
 
 {% if program.slide_url %}
 <h3>{% trans "Slide" %}</h3>
-    {{ program.slide_url | urlize }}
+    <p>{{ program.slide_url | urlize }}</p>
 {% endif %}
 
 {% if program.video_url %}
-<h3>{% trans "Video" %}</h3><br>
-{{ program.video_url | urlize }}<br>
+<h3>{% trans "Video" %}</h3>
+    <p>{{ program.video_url | urlize }}</p>
 {% endif %}
 
 {% if program.desc %}
-<h3>{% trans "Description" %}</h3><br>
-{{ program.introduction | safe }}<br>
+<h3>{% trans "Description" %}</h3>
+    <p>{{ program.introduction | safe }}</p>
 {% endif %}
 
 {% if editable %}
