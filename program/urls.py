@@ -13,7 +13,7 @@ urlpatterns = [
             ProgramList.as_view(), name='talk-list'),
     re_path(r'^talk/(?P<pk>\d+)$',
             ProgramDetail.as_view(), name='talk'),
-    re_path(r'^talks/(?P<pk>\d+)/edit$',
+    re_path(r'^talk/(?P<pk>\d+)/edit$',
             login_required(ProgramUpdate.as_view()), name='talk-update'),
     re_path(r'^talk-schedule/$', ProgramSchedule.as_view(), name='talk-schedule'),
     re_path(r'^sprint/$', SprintList.as_view()),

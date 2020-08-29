@@ -79,17 +79,18 @@ class ProgramUpdate(UpdateView):
     model = Proposal
     template_name = "pyconkr/program_update.html"
 
-    def get(self, request, *args, **kwargs):
+    def dispatch(self, request, *args, **kwargs):
         is_editable = self.request.user.is_authenticated \
                       and Proposal.objects.filter(user=self.request.user, accepted=True).exists() \
-                      and Proposal.objects.get(user=self.request.user, accepted=True).pk == self.object.pk
+                      and (str(Proposal.objects.get(user=self.request.user, accepted=True).pk) == self.kwargs['pk'])
         if not is_editable:
-            return redirect('talk', kwargs={'pk': self.object.pk})
-        return super().get(request, *args, **kwargs)
+            return redirect('talk', kwargs={'pk': self.kwargs['pk']})
+
+        return super(ProgramUpdate, self).dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
         program_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.title)
-        return reverse('talk', kwargs={'pk': self.object.pk})
+        return reverse('talk', kwargs={'pk': self.kwargs['pk']})
 
 
 class ProgramSchedule(TemplateView):
