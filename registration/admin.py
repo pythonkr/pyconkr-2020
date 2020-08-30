@@ -5,8 +5,9 @@ from import_export.admin import ImportExportModelAdmin
 
 
 class TicketAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ('user', 'is_patron', 'price',)
-    list_filter = ('is_patron',)
+    list_display = ('user', 'is_patron', 'price', 'agree_coc', 'get_user_code',)
+    list_filter = ('is_patron', 'agree_coc',)
+    search_fields = ('user__profile__user_code',)
     autocomplete_fields = ('user',)
     actions = ('to_patron',)
 
@@ -14,6 +15,11 @@ class TicketAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         queryset.update(is_patron=True)
 
     to_patron.short_description = "개인 후원으로 지정합니다."
+
+    def get_user_code(self, obj):
+        return obj.user.profile.user_code
+
+    get_user_code.short_description = "User code"
 
 
 admin.site.register(Ticket, TicketAdmin)
