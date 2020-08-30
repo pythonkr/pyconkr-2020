@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-29 08:36+0900\n"
+"POT-Creation-Date: 2020-08-30 13:06+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -24,7 +24,7 @@ msgid "Back to list"
 msgstr "목록으로"
 
 #: .\announcement\templates\announcement\announcement_list.html:6
-#: .\pyconkr\templates\pyconkr\program_list.html:10
+#: .\pyconkr\templates\pyconkr\program_list.html:12
 #: .\pyconkr\templates\schedule.html:10 .\pyconkr\templates\sponsors.html:21
 msgid "Ready for content"
 msgstr "준비 중입니다."
@@ -46,31 +46,31 @@ msgstr ""
 msgid "소식을 받을 이메일 주소"
 msgstr ""
 
-#: .\mailing\templates\email_ticket.html:14
+#: .\mailing\templates\email_ticket.html:16
 msgid "파이콘 한국 2020에 등록해주셔서 감사합니다."
 msgstr ""
 
-#: .\mailing\templates\email_ticket.html:15
+#: .\mailing\templates\email_ticket.html:17
 msgid "파이콘 한국 2020은 9/26(토) - 9/27(일) 온라인으로 진행됩니다."
 msgstr ""
 
-#: .\mailing\templates\email_ticket.html:17
+#: .\mailing\templates\email_ticket.html:19
 msgid ""
 "티켓은 홈페이지의 <a href=\"https://www.pycon.kr/2020/profile/\" target="
 "\"_blank\">프로필</a>에서 확인하실 수 있습니다."
 msgstr ""
 
-#: .\mailing\templates\email_ticket.html:19
+#: .\mailing\templates\email_ticket.html:22
 msgid "파이콘 한국은 커뮤니티 주관으로 이뤄지는 비영리 행사입니다."
 msgstr ""
 
-#: .\mailing\templates\email_ticket.html:20
+#: .\mailing\templates\email_ticket.html:23
 msgid ""
 "파이콘 한국 준비위원회는 건강한 국내 파이썬 생태계에 지속적인 보탬이 되고자, "
 "커뮤니티 멤버들의 자발적인 봉사로 운영되고 있습니다."
 msgstr ""
 
-#: .\mailing\templates\email_ticket.html:21
+#: .\mailing\templates\email_ticket.html:24
 msgid ""
 "파이콘 한국은 발표자, 준비위원회 등 모든 인원이 금전적 이득 없이 순수히 오픈"
 "소스 프로그래밍 언어인 파이썬의 저변 확대와 커뮤니티 활성화를 위해 진행하는 "
@@ -233,19 +233,19 @@ msgstr ""
 msgid "홈페이지에 공개되는 스프린트 관련 주소입니다."
 msgstr ""
 
-#: .\program\views.py:102
+#: .\program\views.py:103
 msgid "Proposal successfully created."
 msgstr "발표안을 제출하였습니다."
 
-#: .\program\views.py:155
+#: .\program\views.py:156
 msgid "Proposal successfully updated."
 msgstr "발표안이 수정되었습니다."
 
-#: .\program\views.py:185
+#: .\program\views.py:186
 msgid "Proposal"
 msgstr "발표안"
 
-#: .\program\views.py:466
+#: .\program\views.py:467
 msgid "Lightning Talk Proposal"
 msgstr "라이트닝 토크 신청 내역"
 
@@ -916,41 +916,41 @@ msgid ""
 "사합니다."
 msgstr ""
 
-#: .\pyconkr\templates\pyconkr\program_detail.html:21
+#: .\pyconkr\templates\pyconkr\program_detail.html:20
 #: .\pyconkr\templates\schedule.html:42 .\pyconkr\templates\schedule.html:79
 #: .\pyconkr\templates\schedule.html:145
 msgid "Difficulty Beginner"
 msgstr "초급"
 
-#: .\pyconkr\templates\pyconkr\program_detail.html:22
+#: .\pyconkr\templates\pyconkr\program_detail.html:21
 #: .\pyconkr\templates\schedule.html:44 .\pyconkr\templates\schedule.html:81
 #: .\pyconkr\templates\schedule.html:147
 msgid "Difficulty Intermediate"
 msgstr "중급"
 
-#: .\pyconkr\templates\pyconkr\program_detail.html:23
+#: .\pyconkr\templates\pyconkr\program_detail.html:22
 #: .\pyconkr\templates\schedule.html:46 .\pyconkr\templates\schedule.html:83
 #: .\pyconkr\templates\schedule.html:149
 msgid "Difficulty Experienced"
 msgstr "상급"
 
-#: .\pyconkr\templates\pyconkr\program_detail.html:39
+#: .\pyconkr\templates\pyconkr\program_detail.html:38
 msgid "Slide"
 msgstr "슬라이드"
 
-#: .\pyconkr\templates\pyconkr\program_detail.html:44
+#: .\pyconkr\templates\pyconkr\program_detail.html:43
 msgid "Video"
 msgstr "발표 동영상"
 
-#: .\pyconkr\templates\pyconkr\program_detail.html:49
+#: .\pyconkr\templates\pyconkr\program_detail.html:48
 msgid "Description"
 msgstr "설명"
 
-#: .\pyconkr\templates\pyconkr\program_detail.html:55
+#: .\pyconkr\templates\pyconkr\program_detail.html:54
 msgid "Edit"
 msgstr "수정하기"
 
-#: .\pyconkr\templates\pyconkr\program_list.html:5
+#: .\pyconkr\templates\pyconkr\program_list.html:7
 msgid "발표"
 msgstr ""
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-29 08:36+0900\n"
+"POT-Creation-Date: 2020-08-30 13:06+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -144,7 +144,7 @@ msgstr ""
 msgid "My Ticket"
 msgstr "내 티켓"
 
-#: .\user\templates\user\profile_form.html:5 .\user\views.py:35
+#: .\user\templates\user\profile_form.html:5 .\user\views.py:36
 msgid "Profile"
 msgstr "프로필"
 
@@ -152,14 +152,14 @@ msgstr "프로필"
 msgid "Social Sign-up"
 msgstr "소셜로그인"
 
-#: .\user\views.py:28
+#: .\user\views.py:29
 msgid "프로필을 수정해주세요."
 msgstr ""
 
-#: .\user\views.py:50
+#: .\user\views.py:51
 msgid "Profile successfully updated."
 msgstr "프로필이 성공적으로 업데이트 되었습니다."
 
-#: .\user\views.py:62
+#: .\user\views.py:63
 msgid "Update profile"
 msgstr "프로필 수정"
