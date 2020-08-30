@@ -5,7 +5,7 @@ from import_export.admin import ImportExportModelAdmin
 
 
 class TicketAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ('user', 'is_patron', 'price', 'agree_coc', 'get_user_code',)
+    list_display = ('user', 'is_patron', 'price', 'agree_coc', 'get_user_code', 'get_user_email',)
     list_filter = ('is_patron', 'agree_coc',)
     search_fields = ('user__profile__user_code',)
     autocomplete_fields = ('user',)
@@ -20,6 +20,11 @@ class TicketAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         return obj.user.profile.user_code
 
     get_user_code.short_description = "User code"
+
+    def get_user_email(self, obj):
+        return obj.user.email
+
+    get_user_email.short_description = "User email"
 
 
 admin.site.register(Ticket, TicketAdmin)
