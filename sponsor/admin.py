@@ -13,14 +13,14 @@ from .models import (Sponsor, SponsorLevel)
 from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 
 
-class SponsorAdmin(SummernoteModelAdmin, TranslationAdmin):
+class SponsorAdmin(ImportExportModelAdmin, SummernoteModelAdmin, TranslationAdmin):
     formfield_overrides = {models.TextField: {
         'widget': SummernoteWidgetWithCustomToolbar}}
     list_display = ('creator', 'name', 'slug', 'level', 'manager_name', 'manager_email', 'manager_id',
                     'submitted', 'accepted', 'paid_at', 'created_at')
+    list_filter = ('accepted',)
     ordering = ('-created_at',)
     list_editable = ('slug',)
-    search_fields = ('name',)
 
 
 admin.site.register(Sponsor, SponsorAdmin)

@@ -21,12 +21,3 @@ def send_ticket(orm_profile: Profile):
     email.mixed_subtype = 'related'  # it is an important part that ensures embedding of an image
 
     email.send(fail_silently=False)
-
-    # send_mail(
-    #     title,
-    #     html_content,
-    #     'PyCon Korea',
-    #     [orm_profile.user.email],
-    #     fail_silently=False,
-    #     html_message=html_content
-    # )

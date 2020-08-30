@@ -31,8 +31,8 @@ class RegistrationHome(TemplateView):
         if not (ticket_open < now < ticket_close):
             return HttpResponseForbidden()
 
-        # 기 구매자 예외처리
-        if Ticket.objects.filter(user=request.user):
+        # 기 구매자 예외 처리
+        if Ticket.objects.filter(user=request.user).exists() and Ticket.objects.get(user=request.user).agree_coc:
             return redirect('profile')
 
         return super().get(request, *args, **kwargs)
@@ -52,11 +52,16 @@ class RegistrationHome(TemplateView):
             req_user_profile.agreement_receive_advertising_info = True
             req_user_profile.save()
 
-        # 신규 티켓 등록
-        new_ticket = Ticket()
-        new_ticket.user = request.user
-        new_ticket.ticket_purchase_datetime = datetime.datetime.now()
-        new_ticket.save()
+        if Ticket.objects.filter(user=request.user).exists():
+            ticket = Ticket.objects.get(user=request.user)
+            ticket.agree_coc = True
+            ticket.save()
+        else:
+            # 신규 티켓 등록
+            new_ticket = Ticket()
+            new_ticket.user = request.user
+            new_ticket.agree_coc = True
+            new_ticket.save()
 
         return redirect('profile')
 

@@ -7,11 +7,13 @@ from registration.models import Ticket
 
 
 @receiver(post_save, sender=Ticket)
-def send_ticket_info(sender, instance, **kwargs):
-    print("sender: ", sender)
-    print("instance: ", instance)
-    print("kwargs: ", kwargs)
+def send_ticket_info(sender, instance,created, **kwargs):
+    # 최초작성시에만 메일 발송
+    if created is True:
+        print("sender: ", sender)
+        print("instance: ", instance)
+        print("kwargs: ", kwargs)
 
-    user_profile = Profile.objects.get(user=instance.user)
+        user_profile = Profile.objects.get(user=instance.user)
 
-    send_ticket(user_profile)
+        send_ticket(user_profile)

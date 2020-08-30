@@ -11,4 +11,6 @@ class Ticket(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_patron = models.BooleanField(default=False)
     price = models.IntegerField(default=0)
+    agree_coc = models.BooleanField(default=False)
+
     ticket_purchase_datetime = models.DateTimeField(auto_now_add=True)
