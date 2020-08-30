@@ -7,7 +7,7 @@ from import_export.admin import ImportExportModelAdmin
 class TicketAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ('user', 'is_patron', 'price', 'agree_coc', 'get_user_code', 'get_user_email',)
     list_filter = ('is_patron', 'agree_coc',)
-    search_fields = ('user__profile__user_code',)
+    search_fields = ('user__profile__user_code', 'user__email',)
     autocomplete_fields = ('user',)
     actions = ('to_patron',)
 
