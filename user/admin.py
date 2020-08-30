@@ -32,8 +32,26 @@ class UserAdmin(BaseUserAdmin):
     actions = (send_test_mail,)
 
 
+class UserCodeListFilter(admin.SimpleListFilter):
+    title = "User code"
+    parameter_name = "empty"
+
+    def lookups(self, request, model_admin):
+        return (
+            ('empty', 'Empty'),
+            ('filled', 'Not empty'),
+        )
+
+    def queryset(self, request, queryset):
+        if self.value() == 'empty':
+            return queryset.filter(user_code=None)
+        if self.value() == 'filled':
+            return queryset.filter(user_code__regex='.*')
+
+
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('name_ko', 'name_en', 'user_code',)
+    list_filter = (UserCodeListFilter,)
     search_fields = ('user_code',)
     actions = ('make_user_code',)
 
