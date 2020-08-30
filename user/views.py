@@ -13,11 +13,12 @@ class ProfileDetail(DetailView):
     model = Profile
 
     def dispatch(self, request, *args, **kwargs):
-        try:
-            if not self.request.user.profile.name:
-                return redirect('profile_edit')
-        except Exception:
+        if not self.request.user.profile.name or not self.request.user.email or not self.request.user.profile.user_code:
             return redirect('profile_edit')
+
+        if Ticket.objects.filter(user=self.request.user).exists() and not Ticket.objects.get(user=self.request.user).agree_coc:
+            return redirect('registration_index')
+
         return super(ProfileDetail, self).dispatch(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
