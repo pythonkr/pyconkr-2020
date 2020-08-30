@@ -5,6 +5,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth import get_user_model
 from sorl.thumbnail.admin import AdminImageMixin
 from .models import Profile
+
 User = get_user_model()
 
 
@@ -27,13 +28,31 @@ class ProfileInline(AdminImageMixin, admin.StackedInline):
 
 
 class UserAdmin(BaseUserAdmin):
-    inlines = (ProfileInline, )
+    inlines = (ProfileInline,)
     actions = (send_test_mail,)
 
 
+class UserCodeListFilter(admin.SimpleListFilter):
+    title = "User code"
+    parameter_name = "empty"
+
+    def lookups(self, request, model_admin):
+        return (
+            ('empty', 'Empty'),
+            ('filled', 'Not empty'),
+        )
+
+    def queryset(self, request, queryset):
+        if self.value() == 'empty':
+            return queryset.filter(user_code=None)
+        if self.value() == 'filled':
+            return queryset.filter(user_code__regex='.*')
+
+
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('name_ko', 'name_en', 'user_code',)
-    search_fields = ('user_code',)
+    list_display = ('user', 'name_ko', 'name_en', 'user_code',)
+    list_filter = (UserCodeListFilter,)
+    search_fields = ('user__username', 'user_code',)
     actions = ('make_user_code',)
 
     def make_user_code(self, request, queryset):
