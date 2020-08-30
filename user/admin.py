@@ -50,9 +50,9 @@ class UserCodeListFilter(admin.SimpleListFilter):
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('name_ko', 'name_en', 'user_code',)
+    list_display = ('user', 'name_ko', 'name_en', 'user_code',)
     list_filter = (UserCodeListFilter,)
-    search_fields = ('user_code',)
+    search_fields = ('user__username', 'user_code',)
     actions = ('make_user_code',)
 
     def make_user_code(self, request, queryset):
