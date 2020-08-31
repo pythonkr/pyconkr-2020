@@ -247,8 +247,7 @@ class VirtualBooth(ListView):
             managers.append(super_user)
 
         context['is_manager'] = self.request.user in managers
-        context['is_opened'] = constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(
-            tz=KST)
+        context['is_opened'] = constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(tz=KST)
 
         return context
 

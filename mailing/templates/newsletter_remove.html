@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}
+    {% trans "구독 해지하기" %}
+{% endblock %}
+
+{% block content %}
+    <p>{% trans '구독을 해지할 이메일 주소를 입력해주세요.' %}</p>
+
+    {% crispy form %}
+
+{% endblock %}
