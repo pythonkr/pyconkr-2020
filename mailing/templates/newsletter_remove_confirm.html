@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}
+    {% trans "구독 해지하기" %}
+{% endblock %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <p>{{ object.email_address }}의 구독을 취소하시겠습니까?</p>
+        <input type="submit" value="확인">
+    </form>
+
+{% endblock %}

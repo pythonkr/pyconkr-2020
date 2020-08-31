@@ -15,7 +15,7 @@ from .views import login, logout
 from program.views import OpenReviewUpdate, OpenReviewList, OpenReviewHome, OpenReviewResult, ContributionHome, \
     LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate
 from registration.views import PatronList
-from mailing.views import NewsLetterAdd
+from mailing.views import NewsLetterAdd, NewsLetterRemove, NewsLetterRemoveConfirm
 
 admin.autodiscover()
 
@@ -42,6 +42,8 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/about/patron/$', PatronList.as_view(), name='patrons'),
 
     re_path(r'^2020/subscribe/$', NewsLetterAdd.as_view(), name='subscribe'),
+    re_path(r'^2020/unsubscribe/$', NewsLetterRemove.as_view(), name='unsubscribe'),
+    re_path(r'^2020/unsubscribe/(?P<mail>[\w\.@]+)$', NewsLetterRemoveConfirm.as_view(), name='unsubscribe-confirm'),
 
     # for rosetta
     re_path(r'^2020/rosetta/', include('rosetta.urls')),
