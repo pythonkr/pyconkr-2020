@@ -34,6 +34,7 @@ class ProposalAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     form = ProposalAdminForm
     list_display = ('id', 'user', 'title', 'difficulty', 'duration', 'language', 'category', 'accepted',)
     list_filter = ('accepted',)
+    autocomplete_fields = ('user',)
 
 
 admin.site.register(Proposal, ProposalAdmin)
