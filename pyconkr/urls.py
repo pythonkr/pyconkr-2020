@@ -7,7 +7,6 @@ from django.contrib.flatpages import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.decorators import login_required
 from django.urls import path, re_path
-from django.views.generic.base import TemplateView
 
 from .views import index, robots
 from .views import login, logout
@@ -69,7 +68,6 @@ urlpatterns += i18n_patterns(
 
     # for flatpages
     re_path(r'^(?P<url>.*/)$', views.flatpage, name='flatpage'),
-    # re_path(r'^2020/pages/', include('django.contrib.flatpages.urls')),
 
     prefix_default_language=False
 )
