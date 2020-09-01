@@ -8,11 +8,34 @@
 {% endblock %}
 
 {% block content %}
-    <ul>
-        <li>9/26 (토)</li>
-        <li>9/27 (일)</li>
+    <script>
+        const isSat = () => {
+            document.getElementById("sat").classList.remove("disabled");
+            document.getElementById("sun").classList.add("disabled");
+            document.getElementById("is_sat").style.textDecoration = "underline";
+            document.getElementById("is_sun").style.textDecoration = "none";
+        };
+
+        const isSun = () => {
+            document.getElementById("sat").classList.add("disabled");
+            document.getElementById("sun").classList.remove("disabled");
+            document.getElementById("is_sat").style.textDecoration = "none";
+            document.getElementById("is_sun").style.textDecoration = "underline";
+        };
+        window.onload = () => {
+            {% if sunday %}
+                isSun();
+            {% else %}
+                isSat();
+            {% endif %}
+        };
+    </script>
+
+    <ul class="days">
+        <li id="is_sat" onclick="isSat()">9/26 (토)</li>
+        <li id="is_sun" onclick="isSun()">9/27 (일)</li>
     </ul>
-    <table>
+    <table class="disabled" id="sat">
         <tbody>
         <tr>
             <th>
@@ -34,13 +57,13 @@
                     {{ time|date:"H:i" }}
                 </th>
                 {% for l in list %}
-                    <td>{{ l }}</td>
+                    <td>{{ l.title }}</td>
                 {% endfor %}
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    <table>
+    <table class="disabled" id="sun">
         <tbody>
         <tr>
             <th>

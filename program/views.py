@@ -132,6 +132,11 @@ class ProgramSchedule(TemplateView):
         context['sat'] = sat__sorted
         context['sun'] = sun__sorted
 
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        now = datetime.datetime.now(tz=KST)
+        if now.date() == datetime.date(2020, 9, 27):
+            context['sunday'] = True
+
         return context
 
 

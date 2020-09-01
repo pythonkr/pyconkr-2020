@@ -1440,3 +1440,31 @@ a.endBtn {
     pointer-events: none;
   }
 }
+
+// Timetable
+ul.days {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  li {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 8px;
+    cursor: pointer;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+table#sat,
+table#sun {
+  &.disabled {
+    display: none;
+  }
+}
