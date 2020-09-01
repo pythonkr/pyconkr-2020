@@ -137,6 +137,8 @@ class ProgramSchedule(TemplateView):
         if now.date() == datetime.date(2020, 9, 27):
             context['sunday'] = True
 
+        context['keynote'] = ProgramCategory.objects.get(slug="keynote")
+
         return context
 
 

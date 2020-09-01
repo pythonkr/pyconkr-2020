@@ -57,7 +57,11 @@
                     {{ time|date:"H:i" }}
                 </th>
                 {% for l in list %}
-                    <td>{{ l.title }}</td>
+                    {% if l.category == keynote %}
+                        <td colspan="3">{{ l }}</td>
+                    {% else %}
+                        <td>{{ l }}</td>
+                    {% endif %}
                 {% endfor %}
             </tr>
         {% endfor %}
