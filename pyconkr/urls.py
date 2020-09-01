@@ -7,6 +7,7 @@ from django.contrib.flatpages import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.decorators import login_required
 from django.urls import path, re_path
+from django.views.generic import RedirectView
 
 from .views import index, robots
 from .views import login, logout
@@ -33,6 +34,7 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/logout/$', logout, name='logout'),
     re_path(r'^2020/announcement/', include('program.urls')),
     re_path(r'^2020/profile/', include('user.urls')),
+    re_path(r'^2020/coc/$', RedirectView.as_view(url="/2020/about/coc", permanent=False)),
 
     re_path(r'^2020/sponsor/', include('sponsor.urls')),
     re_path(r'^2020/program/', include('program.urls')),
