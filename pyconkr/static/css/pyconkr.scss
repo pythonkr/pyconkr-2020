@@ -559,35 +559,6 @@ input[type="file"] {
   }
 }
 
-.timetable .table {
-  td {
-    text-align: left;
-  }
-
-  .cell-span {
-    text-align: center;
-  }
-}
-
-.timetable .title {
-  font-size: 1.1rem;
-}
-
-.timetable .speaker {
-  margin-top: 12px;
-}
-
-.timetable .speaker img {
-  width: 36px;
-  height: auto;
-  border: 1px solid #e7e7e7;
-  border-radius: 100px;
-}
-
-.timetable-wide .title {
-  display: block;
-}
-
 .jobfair dt img {
   width: auto;
   height: 64px;
@@ -664,7 +635,7 @@ input[type="file"] {
 
 .programs {
   li {
-    box-shadow: #C3D2E0 0px 0px 20px;
+    box-shadow: #c3d2e0 0px 0px 20px;
     margin-top: 20px;
     padding: 16px;
     display: flex;
@@ -1393,7 +1364,7 @@ a.endBtn {
     .price {
       font-size: 2rem;
       font-weight: 500;
-      
+
       &:lang(en) {
         font-size: 1.5rem;
       }
