@@ -1,6 +1,7 @@
 import random
 import constance
 import datetime
+from functools import reduce
 
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, TemplateView
@@ -95,6 +96,43 @@ class ProgramUpdate(UpdateView):
 
 class ProgramSchedule(TemplateView):
     template_name = "schedule.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        programs = Proposal.objects.filter(accepted=True, video_open_at__isnull=False, track_num__isnull=False)
+        sat = list()
+        sun = list()
+        for program in programs:
+            if program.video_open_at.weekday() == 5:
+                sat.append({'program': program, 'time': program.video_open_at, 'track': program.track_num})
+            elif program.video_open_at.weekday() == 6:
+                sun.append({'program': program, 'time': program.video_open_at, 'track': program.track_num})
+
+        def list_by_time(acc, cur):
+            program = cur['program']
+            time = cur['time']
+            track = cur['track']
+            if time not in acc.keys():
+                acc[time] = ['', '', '']
+                acc[time][track - 1] = program
+            else:
+                acc[time][track - 1] = program
+            return acc
+
+        sat_ = reduce(list_by_time, sat, {})
+        sun_ = reduce(list_by_time, sun, {})
+        sat__sorted = dict()
+        sun__sorted = dict()
+
+        for key in sorted(sat_.keys()):
+            sat__sorted[key] = sat_[key]
+        for key in sorted(sun_.keys()):
+            sun__sorted[key] = sun_[key]
+
+        context['sat'] = sat__sorted
+        context['sun'] = sun__sorted
+
+        return context
 
 
 class ProposalCreate(SuccessMessageMixin, CreateView):
