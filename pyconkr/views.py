@@ -57,7 +57,7 @@ def user_signed_up_custom(request, user, **kwargs):
 def error_page_404(request, exception):
     path = request.get_full_path()
     if path[:5] != "/2020":
-        redirect("/2020" + path)
+        return redirect("/2020" + path)
 
     return render(request, 'base.html', {'title': '해당하는 페이지를 찾을 수 없습니다.',
                                          'base_content': '주소를 확인해주세요. 혹은 현재 페이지가 작업 중일 수 있습니다.'})
