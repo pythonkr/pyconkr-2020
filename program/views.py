@@ -100,6 +100,11 @@ class ProgramSchedule(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         programs = Proposal.objects.filter(accepted=True, video_open_at__isnull=False, track_num__isnull=False)
+
+        if not programs.exists():
+            context['is_empty'] = True
+            return context
+
         sat = list()
         sun = list()
         for program in programs:

@@ -8,6 +8,9 @@
 {% endblock %}
 
 {% block content %}
+{% if is_empty %}
+    <h4 class="text-center">{% trans "Ready for content" %}</h4>
+{% else %}
     <script>
         const isSat = () => {
             document.getElementById("sat").classList.remove("disabled");
@@ -92,4 +95,5 @@
         </tr>
         </tbody>
     </table>
+{% endif %}
 {% endblock %}
