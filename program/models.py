@@ -1,5 +1,4 @@
 from django.db import models
-from jsonfield import JSONField
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.urls import reverse
@@ -56,6 +55,7 @@ class Proposal(models.Model):
     video_url = models.CharField(max_length=255, null=True, blank=True, help_text=_('발표 영상 URL'))
     slide_url = models.CharField(max_length=255, null=True, blank=True, help_text=_('발표 자료 URL'))
     video_open_at = models.DateTimeField(null=True, blank=True, help_text=_('파이콘 한국 유튜브에 공개되는 시간'))
+    track_num = models.IntegerField(null=True, blank=True, help_text=_('트랙 번호'))
 
     def __str__(self):
         return self.title

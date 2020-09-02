@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block content %}
+<div class="content">
+  {{ base_content | safe }}
+  {% if not narrow %}
+    <p>{% trans "Ready for content" %}</p>
+  {% endif %}
+
+  {% for d, d_ in narrow.items %}
+  <div class="timetable timetable-narrow visible-xs">
+    <h2>{{ d }}</h2>
+    <table class="table">
+      <tbody>
+      {% for t, t_ in d_.items %}
+      <tr>
+        <th nowrap rowspan="{{ t_|length }}">{{ t.begin|date:"H:i" }}</th>
+        {% for s in t_|slice:"1" %}
+        <td nowrap>{{ s.room }}</td>
+        <td>
+            <a href="{{ s.get_absolute_url }}">
+                {{ s.name }}
+                {% if not s.is_recordable %}
+                    &nbsp;<span class="glyphicon glyphicon-eye-close"></span>
+                {% endif %}
+            </a>
+            {% if s.get_slide_url_by_begin_time %}
+            <small><a href="{{ s.get_slide_url_by_begin_time }}"><span class="label label-slides">{% trans "Slides link" %}</span></a></small>
+            {% endif %}
+            {% if s.video_url %}
+            <small><a href="{{ s.video_url }}"><span class="label label-video">{% trans "Video link" %}</span></a></small>
+            {% endif %}
+            {% if s.pdf_url %}
+            <small><a href="{{ s.pdf_url }}"><span class="label label-pdf">{% trans "PDF link" %}</span></a></small>
+            {% endif %}
+            {% if not s.is_breaktime %}
+                <small>
+                    {% if s.difficulty == 'B' %}
+                        <span class="label label-difficulty-b">{% trans "Difficulty Beginner" %}</span>
+                    {% elif s.difficulty == 'I' %}
+                        <span class="label label-difficulty-i">{% trans "Difficulty Intermediate" %}</span>
+                    {% elif s.difficulty == 'E' %}
+                        <span class="label label-difficulty-e">{% trans "Difficulty Experienced" %}</span>
+                    {% endif %}
+                </small>
+
+                {% if s.language == 'E' %}
+                    <small><span class="label label-english-session">{% trans "Schedule English Label" %}</span></small>
+                {% endif %}
+            {% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% for s in t_|slice:"1:" %}
+      <tr>
+        <td nowrap>{{ s.room }}</td>
+        <td>
+            <a href="{{ s.get_absolute_url }}">
+                {{ s.name }}
+                {% if not s.is_recordable %}
+                    &nbsp;<span class="glyphicon glyphicon-eye-close"></span>
+                {% endif %}
+            </a>
+            {% if s.get_slide_url_by_begin_time %}
+                <small><a href="{{ s.get_slide_url_by_begin_time }}"><span class="label label-slides">{% trans "Slides link" %}</span></a></small>
+            {% endif %}
+            {% if s.video_url %}
+                <small><a href="{{ s.video_url }}"><span class="label label-video">{% trans "Video link" %}</span></a></small>
+            {% endif %}
+            {% if s.pdf_url %}
+                <small><a href="{{ s.pdf_url }}"><span class="label label-pdf">{% trans "PDF link" %}</span></a></small>
+            {% endif %}
+            {% if not s.is_breaktime %}
+                <small>
+                    {% if s.difficulty == 'B' %}
+                        <span class="label label-difficulty-b">{% trans "Difficulty Beginner" %}</span>
+                    {% elif s.difficulty == 'I' %}
+                        <span class="label label-difficulty-i">{% trans "Difficulty Intermediate" %}</span>
+                    {% elif s.difficulty == 'E' %}
+                        <span class="label label-difficulty-e">{% trans "Difficulty Experienced" %}</span>
+                    {% endif %}
+                </small>
+
+                {% if s.language == 'E' %}
+                    <small><span class="label label-english-session">{% trans "Schedule English Label" %}</span></small>
+                {% endif %}
+            {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endfor %}
+  {% for d, d_ in wide.items %}
+  <div class="timetable timetable-wide hidden-xs">
+    <h2>{{ d }}</h2>
+    <table class="table table-striped table-bordered">
+      <colgroup>
+        <col width="*">
+        {% for r in rooms %}
+        <col width="{{ width }}%">
+        {% endfor %}
+      </colgroup>
+      <thead>
+        <th></th>
+        {% for r in rooms %}
+        <th>{{ r.name }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+      {% for t, t_ in d_.items %}
+      <tr>
+        <th nowrap>{{ t.begin|date:"H:i" }}</th>
+        {% for r, s in t_.items %}
+        {% if s %}
+        <td class="cell {% if s.rooms.all.count > 1 %}cell-span{% endif %}"
+          colspan="{{ s.rooms.all|length }}"
+          rowspan="{{ s.times.all|length }}">
+          <div class="program">
+            <a href="{{ s.get_absolute_url }}" class="title">
+              <div>
+                {{ s.name }}
+                {% if not s.is_recordable %}
+                &nbsp;<span class="glyphicon glyphicon-eye-close"></span>
+                {% endif %}
+              </div>
+            </a>
+            {% if s.get_slide_url_by_begin_time %}
+            <small><a href="{{ s.get_slide_url_by_begin_time }}"><span class="label label-slides">{% trans "Slides link" %}</span></a></small>
+            {% endif %}
+            {% if s.video_url %}
+            <small><a href="{{ s.video_url }}"><span class="label label-video">{% trans "Video link" %}</span></a></small>
+            {% endif %}
+            {% if s.pdf_url %}
+            <small><a href="{{ s.pdf_url }}"><span class="label label-pdf">{% trans "PDF link" %}</span></a></small>
+            {% endif %}
+            {% if not s.is_breaktime %}
+                <small>
+                    {% if s.difficulty == 'B' %}
+                        <span class="label label-difficulty-b">{% trans "Difficulty Beginner" %}</span>
+                    {% elif s.difficulty == 'I' %}
+                        <span class="label label-difficulty-i">{% trans "Difficulty Intermediate" %}</span>
+                    {% elif s.difficulty == 'E' %}
+                        <span class="label label-difficulty-e">{% trans "Difficulty Experienced" %}</span>
+                    {% endif %}
+                </small>
+
+                {% if s.language == 'E' %}
+                    <small><span class="label label-english-session">{% trans "Schedule English Label" %}</span></small>
+                {% endif %}
+            {% endif %}
+          </div>
+          {% if s.speakers %}
+          <div class="speaker">
+            {% for speaker in s.speakers.all %}
+            <a href="{{ speaker.get_absolute_url }}">
+              {% thumbnail speaker.image "128x128" crop="center" as im %}
+              <img src="{{ im.url }}" alt="photo of {{ speaker.slug }}">
+              {% empty %}
+              <img src="{% static "image/anonymous.png" %}">
+              {% endthumbnail %}
+              {{ speaker.name }}
+            </a>
+            {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </td>
+        {% else %}
+        <td></td>
+        {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
