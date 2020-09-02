@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-02 23:48+0900\n"
+"POT-Creation-Date: 2020-09-03 00:10+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -524,7 +524,9 @@ msgid ""
 "파이썬 사용 사례, 지식 공유를 위한 행사입니다.<br> 컨퍼런스의 자세한 시간표"
 "는 <a href=\"/2020/program/talk-schedule/\">프로그램 > 세부일정</a> 에서 확인"
 "하실 수 있습니다."
-msgstr "Timetable of conference can be found <a href=\"/en/2020/program/talk-schedule/\">Program > Talks</a> later."
+msgstr ""
+"Timetable of conference can be found <a href=\"/en/2020/program/talk-"
+"schedule/\">Program > Talks</a> later."
 
 #: .\pyconkr\templates\index.html:45
 msgid ""
@@ -853,7 +855,7 @@ msgid "라이트닝 토크 신청"
 msgstr "Proposing a Lightning Talk"
 
 #: .\pyconkr\templates\pyconkr\contribution_home.html:84
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:37
 #: .\pyconkr\templates\pyconkr\openreview_home.html:25
 #: .\pyconkr\templates\pyconkr\openreview_result.html:13
 msgid "문의"
@@ -881,22 +883,70 @@ msgstr ""
 "lightning-talk/'>here</a>."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:13
+msgid "라이트닝 토크는 선착순으로 모집됩니다."
+msgstr "Lightning Talk is recruited on a first-come, first-served basis."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:14
+msgid "토, 일요일 각각 5개씩 선정될 예정입니다."
+msgstr "Five each will be selected on Saturday and Sunday."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:15
+msgid ""
+"각 요일에 대해 10개씩만 모집됩니다. 10개 중 5개만 선정됩니다. CoC 위반 등 선"
+"정 불가능한 경우 따로 고지해드리지 않습니다."
+msgstr "Only 10 are recruited for each day of the week. Only 5 out of 10 will be selected. If selection is not possible, such as violation of CoC, we will not notify you separately."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
+msgid ""
+"홈페이지를 통해 영상 파일을 제출하시는 것이 아니라 영상 파일을 다운 받을 수 "
+"있는 링크를 공유해주세요."
+msgstr "Instead of submitting the video file through the homepage, please share the link to download the video file."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:19
+msgid ""
+"만약 드라이브 권한 이슈 등 한 번에 영상을 확인할 수 없을 시 자동으로 다음 분"
+"에게 기회가 넘어갑니다."
+msgstr "If the video cannot be checked at once, such as a drive permission issue, the opportunity is automatically transferred to the next person."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:20
+msgid "파일 포맷이 일치하지 않을 경우에도 자동으로 기회가 넘어갑니다."
+msgstr "Even if the file format doesn't match, the chance is automatically skipped."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:21
+msgid "영상 길이가 5분을 넘길 경우 정확히 5분 00초에서 잘라서 송출됩니다."
+msgstr "If the length of the video exceeds 5 minutes, it is cut and transmitted at exactly 5 minutes 00 seconds."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:24
+msgid "라이트닝 토크 선정 여부는 행사 당일에 영상을 통해 확인하세요!"
+msgstr "Check the video on the day of the event to see if the Lightning Talk is selected!"
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:27
 #: .\pyconkr\templates\pyconkr\openreview_home.html:20
 msgid "일정"
 msgstr "Schedule"
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:15
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:29
 #: .\pyconkr\templates\pyconkr\openreview_home.html:22
 msgid "Y년 F j일 (D) H:i"
 msgstr "F jS (D) H:i"
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:23
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:31
+msgid "파일 형식"
+msgstr "File Format"
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:33
+msgid ".mov, .mp4 (Full HD 1980 * 1020)만 가능합니다."
+msgstr "Only .mov, .mp4 (Full HD 1980 * 1020) is possible."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:34
+msgid "발표자 얼굴 노출 등 영상 내용을 구성하는 형식은 자유입니다."
+msgstr "The format of the video content, such as exposure of the presenter's face, is free."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:42
 msgid "신청하기"
 msgstr "Apply"
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:27
-#, fuzzy
-#| msgid "마감되었습니다."
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:46
 msgid "마감되었습니다"
 msgstr "Closed"
 
