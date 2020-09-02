@@ -51,7 +51,7 @@ class ProgramList(ListView):
         context['accepted_exist'] = Proposal.objects.filter(accepted=True).exists()
         context['is_open'] = is_program_opened()
         categories = []
-        for program in Proposal.objects.filter(accepted=True):
+        for program in Proposal.objects.filter(accepted=True).exclude(category__slug="keynote"):
             categories.append(program.category)
         context['having_program'] = categories
 
