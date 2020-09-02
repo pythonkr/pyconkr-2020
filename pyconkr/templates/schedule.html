@@ -4,7 +4,7 @@
 {% load thumbnail %}
 
 {% block title %}
-    {% trans 'Talks schedule' %}
+    {% trans 'Talks Schedule' %}
 {% endblock %}
 
 {% block content %}
@@ -36,8 +36,8 @@
         </script>
 
         <ul class="days">
-            <li id="is_sat" onclick="isSat()">9/26 (토)</li>
-            <li id="is_sun" onclick="isSun()">9/27 (일)</li>
+            <li id="is_sat" onclick="isSat()">{% trans '9/26 (토)' %}</li>
+            <li id="is_sun" onclick="isSun()">{% trans '9/27 (일)' %}</li>
         </ul>
         <table class="disabled" id="sat" style="width: 100%;">
             <colgroup>
@@ -49,16 +49,16 @@
             <tbody>
             <tr>
                 <th>
-                    시간
+                    {% trans '시간' %}
                 </th>
                 <th>
-                    P 트랙
+                    {% trans 'P 트랙' %}
                 </th>
                 <th>
-                    Y 트랙
+                    {% trans 'Y 트랙' %}
                 </th>
                 <th>
-                    C 트랙
+                    {% trans 'C 트랙' %}
                 </th>
             </tr>
             {% for time, list in sat.items %}
@@ -131,13 +131,13 @@
             <tbody>
             <tr>
                 <th>
-                    시간
+                    {% trans '시간' %}
                 </th>
                 <th>
-                    O 트랙
+                    {% trans 'O 트랙' %}
                 </th>
                 <th>
-                    N 트랙
+                    {% trans 'N 트랙' %}
                 </th>
             </tr>
             {% for time, list in sun.items %}
