@@ -8,6 +8,9 @@
 {% endblock %}
 
 {% block content %}
+    {% if not is_open %}
+        <h4 class="text-center">{% trans "Ready for content" %}</h4>
+    {% else %}
     <div class="keynotes">
         {% for k in object_list %}
             <h2>{{ k.user.profile.name }}</h2>
@@ -23,4 +26,5 @@
             </div>
         {% endfor %}
     </div>
+    {% endif %}
 {% endblock %}

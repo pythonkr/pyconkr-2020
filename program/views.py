@@ -18,14 +18,18 @@ from .forms import ProposalForm, OpenReviewCategoryForm, OpenReviewCommentForm, 
 from .slack import new_cfp_registered, cfp_updated, program_updated
 
 
+def get_now():
+    KST = datetime.timezone(datetime.timedelta(hours=9))
+    now = datetime.datetime.now(tz=KST)
+    return KST, now
+
+
 class ContributionHome(TemplateView):
     template_name = "pyconkr/contribution_home.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
-        KST = datetime.timezone(datetime.timedelta(hours=9))
-        now = datetime.datetime.now(tz=KST)
+        KST, now = get_now()
         context['cfp_open'] = constance.config.CFP_OPEN.replace(tzinfo=KST)
         context['cfp_close'] = constance.config.CFP_CLOSE.replace(tzinfo=KST)
         context['keynote_start_at'] = constance.config.KEYNOTE_RECOMMEND_OPEN.replace(tzinfo=KST)
@@ -99,8 +103,7 @@ class ProgramSchedule(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        KST = datetime.timezone(datetime.timedelta(hours=9))
-        now = datetime.datetime.now(tz=KST)
+        KST, now = get_now()
         context['is_open'] = now > constance.config.SCHEDULE_OPEN
         programs = Proposal.objects.filter(accepted=True, video_open_at__isnull=False, track_num__isnull=False)
 
@@ -110,11 +113,11 @@ class ProgramSchedule(TemplateView):
 
         sat = list()
         sun = list()
-        for program in programs:
-            if program.video_open_at.weekday() == 5:
-                sat.append({'program': program, 'time': program.video_open_at, 'track': program.track_num})
-            elif program.video_open_at.weekday() == 6:
-                sun.append({'program': program, 'time': program.video_open_at, 'track': program.track_num})
+        for p in programs:
+            if p.video_open_at.weekday() == 5:
+                sat.append({'program': p, 'time': p.video_open_at, 'track': p.track_num})
+            elif p.video_open_at.weekday() == 6:
+                sun.append({'program': p, 'time': p.video_open_at, 'track': p.track_num})
 
         def list_by_time(acc, cur):
             program = cur['program']
@@ -139,9 +142,7 @@ class ProgramSchedule(TemplateView):
 
         context['sat'] = sat__sorted
         context['sun'] = sun__sorted
-
-        KST = datetime.timezone(datetime.timedelta(hours=9))
-        now = datetime.datetime.now(tz=KST)
+        KST, now = get_now()
         if now.date() == datetime.date(2020, 9, 27):
             context['sunday'] = True
 
@@ -252,8 +253,7 @@ class OpenReviewHome(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        KST = datetime.timezone(datetime.timedelta(hours=9))
-        now = datetime.datetime.now(tz=KST)
+        KST, now = get_now()
         review_start_at = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
         review_finish_at = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
 
@@ -390,8 +390,7 @@ class OpenReviewResult(ListView):
 
 
 def edit_proposal_available_checker(request):
-    KST = datetime.timezone(datetime.timedelta(hours=9))
-    now = datetime.datetime.now(tz=KST)
+    KST, now = get_now()
     flag = False  # 아래에 지정된 상황이 아니면 CFP Closed 상태
 
     cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
@@ -415,8 +414,7 @@ def edit_proposal_available_checker(request):
 
 
 def is_proposal_opened(request):
-    KST = datetime.timezone(datetime.timedelta(hours=9))
-    now = datetime.datetime.now(tz=KST)
+    KST, now = get_now()
     cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
     cfp_close = constance.config.CFP_CLOSE.replace(tzinfo=KST)
     flag = 0
@@ -433,8 +431,7 @@ def is_proposal_opened(request):
 
 def is_open_review_opened():
     # 현재시간
-    KST = datetime.timezone(datetime.timedelta(hours=9))
-    now = datetime.datetime.now(tz=KST)
+    KST, now = get_now()
 
     open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
     open_review_deadline = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
@@ -448,8 +445,7 @@ def is_open_review_opened():
 
 
 def is_lightning_talk_proposable(request):
-    KST = datetime.timezone(datetime.timedelta(hours=9))
-    now = datetime.datetime.now(tz=KST)
+    KST, now = get_now()
     LT_open_at = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
     LT_close_at = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
     LT_N = constance.config.LIGHTNING_TALK_N
@@ -462,8 +458,7 @@ def is_lightning_talk_proposable(request):
 
 
 def is_program_opened():
-    KST = datetime.timezone(datetime.timedelta(hours=9))
-    now = datetime.datetime.now(tz=KST)
+    KST, now = get_now()
     program_open = constance.config.PROGRAM_OPEN.replace(tzinfo=KST)
 
     if now < program_open:
@@ -478,7 +473,7 @@ class LightningTalkHome(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        KST = datetime.timezone(datetime.timedelta(hours=9))
+        KST, now = get_now()
         context['LT_open_at'] = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
         context['LT_close_at'] = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
         context['is_proposable'] = is_lightning_talk_proposable(self.request)
@@ -560,3 +555,10 @@ class SprintList(ListView):
 class KeynoteList(ListView):
     queryset = Proposal.objects.filter(category__slug="keynote")
     template_name = "pyconkr/keynote_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(KeynoteList, self).get_context_data(**kwargs)
+        KST, now = get_now()
+        if now > constance.config.KEYNOTE_OPEN:
+            context['is_open'] = True
+        return context
