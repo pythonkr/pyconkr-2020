@@ -38,8 +38,14 @@
         <li id="is_sat" onclick="isSat()">9/26 (토)</li>
         <li id="is_sun" onclick="isSun()">9/27 (일)</li>
     </ul>
-    <table class="disabled" id="sat">
-        <tbody>
+        <table class="disabled" id="sat" style="width: 100%;">
+            <colgroup>
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 30%;">
+                <col span="1" style="width: 30%;">
+                <col span="1" style="width: 30%;">
+            </colgroup>
+            <tbody>
         <tr>
             <th>
                 시간
@@ -71,7 +77,12 @@
         </tbody>
     </table>
     <table class="disabled" id="sun">
-        <tbody>
+            <colgroup>
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 45%;">
+                <col span="1" style="width: 45%;">
+            </colgroup>
+            <tbody>
         <tr>
             <th>
                 시간
