@@ -1,7 +1,10 @@
 {% load staticfiles %}
 {% load i18n %}
 
+
+
 <footer class="text-center">
+    <button id="to-top-btn" onclick="toTopFunc()" title="TOP"><span>TOP</span></button>
     <div class="container">
         <h3>We are Pythonistas, {% trans "PyCon Korea 2020" %}</h3>
         <p>{% trans "PyCon Korea 2020 is a product of PyCon Korea Organizing Team." %}</p>
@@ -17,3 +20,22 @@
         </p>
     </div>
 </footer>
+
+<!-- for button to top -->
+<script>
+    btn = document.getElementById("to-top-btn");
+    const scrollFunc = () => {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            btn.style.display = "flex";
+        } else {
+            btn.style.display = "none";
+        }
+    };
+
+    window.onscroll = () => {scrollFunc()};
+
+    const toTopFunc = () => {
+        document.body.scrollTop = 0;  // For Safari
+        document.documentElement.scrollTop = 0;  // For Chrome, Firefox, IE
+    }
+</script>
