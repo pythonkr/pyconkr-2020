@@ -449,10 +449,13 @@ def is_lightning_talk_proposable(request):
     now = datetime.datetime.now(tz=KST)
     LT_open_at = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
     LT_close_at = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
-    if LT_open_at < now < LT_close_at:
-        return True
-    else:
+    LT_N = constance.config.LIGHTNING_TALK_N
+    if now < LT_open_at or now > LT_close_at:
         return False
+    elif len(LightningTalk.objects.filter(day=1)) >= LT_N and len(LightningTalk.objects.filter(day=2)) >= LT_N:
+        return False
+    else:
+        return True
 
 
 def is_program_opened():
