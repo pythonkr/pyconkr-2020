@@ -32,7 +32,7 @@ class ProposalAdminForm(forms.ModelForm):
 
 class ProposalAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     form = ProposalAdminForm
-    list_display = ('id', 'user', 'title', 'accepted', 'video_open_at', 'track_num',)
+    list_display = ('id', 'user', 'title', 'accepted', 'category', 'video_open_at', 'track_num',)
     list_filter = ('accepted',)
     autocomplete_fields = ('user',)
     actions = ('to_track1', 'to_track2', 'to_track3',)
