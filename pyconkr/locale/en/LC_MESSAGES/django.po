@@ -39,11 +39,11 @@ msgstr "Submit"
 
 #: .\mailing\forms.py:20
 msgid "이메일 주소"
-msgstr ""
+msgstr "Email address"
 
 #: .\mailing\models.py:44
 msgid "소식을 받을 이메일 주소"
-msgstr ""
+msgstr "Email address to subscribe"
 
 #: .\mailing\templates\email_ticket.html:16
 msgid "파이콘 한국 2020에 등록해주셔서 감사합니다."
@@ -88,7 +88,7 @@ msgstr ""
 
 #: .\mailing\templates\newsletter_add.html:5 .\pyconkr\templates\footer.html:19
 msgid "소식 받아보기"
-msgstr ""
+msgstr "Subscribe Newsletter"
 
 #: .\mailing\templates\newsletter_add.html:9
 msgid ""
@@ -105,7 +105,7 @@ msgstr "You can cancel your subscription later here."
 #: .\mailing\templates\newsletter_remove.html:5
 #: .\mailing\templates\newsletter_remove_confirm.html:5
 msgid "구독 해지하기"
-msgstr "Unsubscribe"
+msgstr "Unsubscribe Newsletter"
 
 #: .\mailing\templates\newsletter_remove.html:9
 msgid "구독을 해지할 이메일 주소를 입력해주세요."
