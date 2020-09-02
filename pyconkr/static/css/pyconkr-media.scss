@@ -246,6 +246,19 @@
       }
     }
   }
+
+  #to-top-btn {
+    bottom: 5rem;
+    span {
+      display: none;
+    }
+    border-radius: 100px;
+    &::before {
+      line-height: 0.7;
+      font-size: 1rem;
+      margin-right: 2px;
+    }
+  }
 }
 
 @media (max-width: 640px) {

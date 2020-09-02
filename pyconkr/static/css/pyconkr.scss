@@ -1492,3 +1492,27 @@ table#sun {
     }
   }
 }
+
+#to-top-btn {
+  display: none;
+  position: fixed;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  bottom: 15rem;
+  right: 5%;
+  z-index: 99;
+  border: 2px #e7e7e7 solid;
+  background-color: white;
+  color: #47647D;
+  width: 3rem;
+  height: 3rem;
+
+  &::before {
+    font-family: FontAwesome;
+    content: "\f077";
+    width: 16px;
+    height: 12px;
+    line-height: 1;
+  }
+}
