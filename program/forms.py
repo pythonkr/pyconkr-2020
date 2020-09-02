@@ -118,6 +118,15 @@ class LightningTalkForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', _('Submit')))
+        LT_N = config.LIGHTNING_TALK_N
+        if len(LightningTalk.objects.filter(day=1)) >= LT_N:
+            if len(LightningTalk.objects.filter(day=2)) < LT_N:
+                self.fields['day'] = ChoiceField(choices=((2, _('일요일')),))
+        else:
+            if len(LightningTalk.objects.filter(day=2)) < LT_N:
+                self.fields['day'] = ChoiceField(choices=((1, _('토요일')), (2, _('일요일')),))
+            else:
+                self.fields['day'] = ChoiceField(choices=((1, _('토요일')),))
 
     class Meta:
         model = LightningTalk
