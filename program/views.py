@@ -555,3 +555,8 @@ class LightningTalkUpdate(UpdateView):
 class SprintList(ListView):
     model = Sprint
     template_name = "pyconkr/sprint_list.html"
+
+
+class KeynoteList(ListView):
+    queryset = Proposal.objects.filter(category__slug="keynote")
+    template_name = "pyconkr/keynote_list.html"
