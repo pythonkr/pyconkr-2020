@@ -476,6 +476,7 @@ class LightningTalkHome(TemplateView):
         KST, now = get_now()
         context['LT_open_at'] = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
         context['LT_close_at'] = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
+        context['is_open'] = now > constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
         context['is_proposable'] = is_lightning_talk_proposable(self.request)
 
         return context
