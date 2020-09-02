@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-03 00:10+0900\n"
+"POT-Creation-Date: 2020-09-03 01:23+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -33,7 +33,7 @@ msgid "Read more"
 msgstr "Read more"
 
 #: .\mailing\forms.py:14 .\program\forms.py:21 .\program\forms.py:120
-#: .\program\forms.py:158
+#: .\program\forms.py:160
 msgid "Submit"
 msgstr "Submit"
 
@@ -177,35 +177,39 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
-#: .\program\forms.py:124 .\program\forms.py:127 .\program\models.py:88
+#: .\program\forms.py:124 .\program\forms.py:127 .\program\models.py:89
 msgid "일요일"
 msgstr "Sunday"
 
-#: .\program\forms.py:127 .\program\forms.py:129 .\program\models.py:87
+#: .\program\forms.py:127 .\program\forms.py:129 .\program\models.py:88
 msgid "토요일"
 msgstr "Saturday"
 
-#: .\program\forms.py:135
+#: .\program\forms.py:136
 msgid "발표 제목"
 msgstr "Title"
 
-#: .\program\forms.py:136
+#: .\program\forms.py:137 .\program\models.py:55
+msgid "발표 영상 URL"
+msgstr "Presentation video URL"
+
+#: .\program\forms.py:138
 msgid "발표 슬라이드 URL"
 msgstr "Slide URL"
 
-#: .\program\forms.py:137
+#: .\program\forms.py:139
 msgid "발표 요일"
 msgstr "Day of the Week"
 
-#: .\program\forms.py:138
+#: .\program\forms.py:140
 msgid "준비위원회에게 남기고 싶은 말"
 msgstr "Comment to reviewers"
 
-#: .\program\forms.py:147
+#: .\program\forms.py:149
 msgid "발표 소개 문구"
 msgstr "Talk introduction"
 
-#: .\program\forms.py:148 .\program\models.py:56
+#: .\program\forms.py:150 .\program\models.py:56
 msgid "발표 자료 URL"
 msgstr "Slide URL"
 
@@ -241,10 +245,6 @@ msgstr "English"
 msgid "발표 소개 페이지에 들어가는 내용입니다."
 msgstr "This is the content that enters the talk introduction page."
 
-#: .\program\models.py:55
-msgid "발표 영상 URL"
-msgstr "Presentation video URL"
-
 #: .\program\models.py:57
 msgid "파이콘 한국 유튜브에 공개되는 시간"
 msgstr "When presentation video open in YouTube"
@@ -253,39 +253,39 @@ msgstr "When presentation video open in YouTube"
 msgid "트랙 번호"
 msgstr "Track number"
 
-#: .\program\models.py:100
+#: .\program\models.py:101
 msgid "스프린트를 등록한 유저"
 msgstr "User who give a sprint"
 
-#: .\program\models.py:101
+#: .\program\models.py:102
 msgid "스프린트 제목"
 msgstr "Sprint title"
 
-#: .\program\models.py:102
+#: .\program\models.py:103
 msgid "스프린트에 대한 짧은 설명"
 msgstr "Brief of the sprint"
 
-#: .\program\models.py:103
+#: .\program\models.py:104
 msgid "스프린트를 진행할 프로그래밍 언어"
 msgstr "Programming language of the sprint"
 
-#: .\program\models.py:105
+#: .\program\models.py:106
 msgid "홈페이지에 공개되는 스프린트 관련 주소입니다."
 msgstr "URL which is going on website."
 
-#: .\program\views.py:157
+#: .\program\views.py:160
 msgid "Proposal successfully created."
 msgstr "Proposal successfully created."
 
-#: .\program\views.py:210
+#: .\program\views.py:213
 msgid "Proposal successfully updated."
 msgstr "Proposal successfully updated."
 
-#: .\program\views.py:240
+#: .\program\views.py:243
 msgid "Proposal"
 msgstr "Proposal"
 
-#: .\program\views.py:524
+#: .\program\views.py:527
 msgid "Lightning Talk Proposal"
 msgstr ""
 
@@ -861,6 +861,10 @@ msgstr "Proposing a Lightning Talk"
 msgid "문의"
 msgstr "Contact"
 
+#: .\pyconkr\templates\pyconkr\keynote_list.html:7
+msgid "키노트"
+msgstr "Keynote"
+
 #: .\pyconkr\templates\pyconkr\lightning_talk_detail.html:11
 msgid "Slide URL"
 msgstr "Presentation slides URL"
@@ -894,31 +898,43 @@ msgstr "Five each will be selected on Saturday and Sunday."
 msgid ""
 "각 요일에 대해 10개씩만 모집됩니다. 10개 중 5개만 선정됩니다. CoC 위반 등 선"
 "정 불가능한 경우 따로 고지해드리지 않습니다."
-msgstr "Only 10 are recruited for each day of the week. Only 5 out of 10 will be selected. If selection is not possible, such as violation of CoC, we will not notify you separately."
+msgstr ""
+"Only 10 are recruited for each day of the week. Only 5 out of 10 will be "
+"selected. If selection is not possible, such as violation of CoC, we will "
+"not notify you separately."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
 msgid ""
 "홈페이지를 통해 영상 파일을 제출하시는 것이 아니라 영상 파일을 다운 받을 수 "
 "있는 링크를 공유해주세요."
-msgstr "Instead of submitting the video file through the homepage, please share the link to download the video file."
+msgstr ""
+"Instead of submitting the video file through the homepage, please share the "
+"link to download the video file."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:19
 msgid ""
 "만약 드라이브 권한 이슈 등 한 번에 영상을 확인할 수 없을 시 자동으로 다음 분"
 "에게 기회가 넘어갑니다."
-msgstr "If the video cannot be checked at once, such as a drive permission issue, the opportunity is automatically transferred to the next person."
+msgstr ""
+"If the video cannot be checked at once, such as a drive permission issue, "
+"the opportunity is automatically transferred to the next person."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:20
 msgid "파일 포맷이 일치하지 않을 경우에도 자동으로 기회가 넘어갑니다."
-msgstr "Even if the file format doesn't match, the chance is automatically skipped."
+msgstr ""
+"Even if the file format doesn't match, the chance is automatically skipped."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:21
 msgid "영상 길이가 5분을 넘길 경우 정확히 5분 00초에서 잘라서 송출됩니다."
-msgstr "If the length of the video exceeds 5 minutes, it is cut and transmitted at exactly 5 minutes 00 seconds."
+msgstr ""
+"If the length of the video exceeds 5 minutes, it is cut and transmitted at "
+"exactly 5 minutes 00 seconds."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:24
 msgid "라이트닝 토크 선정 여부는 행사 당일에 영상을 통해 확인하세요!"
-msgstr "Check the video on the day of the event to see if the Lightning Talk is selected!"
+msgstr ""
+"Check the video on the day of the event to see if the Lightning Talk is "
+"selected!"
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:27
 #: .\pyconkr\templates\pyconkr\openreview_home.html:20
@@ -940,7 +956,9 @@ msgstr "Only .mov, .mp4 (Full HD 1980 * 1020) is possible."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:34
 msgid "발표자 얼굴 노출 등 영상 내용을 구성하는 형식은 자유입니다."
-msgstr "The format of the video content, such as exposure of the presenter's face, is free."
+msgstr ""
+"The format of the video content, such as exposure of the presenter's face, "
+"is free."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:42
 msgid "신청하기"
@@ -1149,30 +1167,10 @@ msgstr "9/27 (Sun)"
 msgid "시간"
 msgstr "Time<br>(UTC+9)"
 
-#: .\pyconkr\templates\schedule.html:55
-msgid "P 트랙"
-msgstr "Track P"
-
-#: .\pyconkr\templates\schedule.html:58
-msgid "Y 트랙"
-msgstr "Track Y"
-
-#: .\pyconkr\templates\schedule.html:61
-msgid "C 트랙"
-msgstr "Track C"
-
 #: .\pyconkr\templates\schedule.html:77 .\pyconkr\templates\schedule.html:105
 #: .\pyconkr\templates\schedule.html:156 .\pyconkr\templates\schedule.html:174
 msgid "Schedule English Label"
 msgstr "English"
-
-#: .\pyconkr\templates\schedule.html:137
-msgid "O 트랙"
-msgstr "Track O"
-
-#: .\pyconkr\templates\schedule.html:140
-msgid "N 트랙"
-msgstr "Track N"
 
 #: .\pyconkr\templates\youngcoder.html:12
 msgid "Young Coder"
@@ -1303,6 +1301,21 @@ msgid ""
 msgstr ""
 "In the end, we will have a broader view of the world as we create websites "
 "and simple games."
+
+#~ msgid "P 트랙"
+#~ msgstr "Track P"
+
+#~ msgid "Y 트랙"
+#~ msgstr "Track Y"
+
+#~ msgid "C 트랙"
+#~ msgstr "Track C"
+
+#~ msgid "O 트랙"
+#~ msgstr "Track O"
+
+#~ msgid "N 트랙"
+#~ msgstr "Track N"
 
 #~ msgid "Slides link"
 #~ msgstr "Presentation slides URL"

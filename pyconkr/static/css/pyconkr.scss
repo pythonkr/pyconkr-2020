@@ -1516,3 +1516,18 @@ table#sun {
     line-height: 1;
   }
 }
+
+.keynotes {
+  width: 75%;
+  margin: 0 auto;
+
+  .head {
+    text-align: center;
+    img {
+      width: 20rem;
+      height: 20rem;
+      border-radius: 200px;
+      margin: 2rem 0;
+    }
+  }
+}

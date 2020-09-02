@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "키노트" %}
+{% endblock %}
+
+{% block content %}
+    {% if not is_open %}
+        <h4 class="text-center">{% trans "Ready for content" %}</h4>
+    {% else %}
+    <div class="keynotes">
+        {% for k in object_list %}
+            <h2>{{ k.user.profile.name }}</h2>
+            <div class="head">
+                {% thumbnail obj.user.profile.image "128x128" crop="center" as im %}
+                    <img src="{{ im.url }}" alt="photo of {{ k.user.profile.name }}">
+                {% empty %}
+                    <img src="{% static 'image/anonymous.png' %}">
+                {% endthumbnail %}
+            </div>
+            <div class="body">
+                {{ k.desc|safe }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}
