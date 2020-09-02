@@ -35,6 +35,22 @@ class ProposalAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ('id', 'user', 'title', 'accepted', 'video_open_at', 'track_num',)
     list_filter = ('accepted',)
     autocomplete_fields = ('user',)
+    actions = ('to_track1', 'to_track2', 'to_track3',)
+
+    def to_track1(self, request, queryset):
+        queryset.update(track_num=1)
+
+    to_track1.short_description = "트랙 1번으로 설정"
+
+    def to_track2(self, request, queryset):
+        queryset.update(track_num=2)
+
+    to_track2.short_description = "트랙 2번으로 설정"
+
+    def to_track3(self, request, queryset):
+        queryset.update(track_num=3)
+
+    to_track3.short_description = "트랙 3번으로 설정"
 
 
 admin.site.register(Proposal, ProposalAdmin)
