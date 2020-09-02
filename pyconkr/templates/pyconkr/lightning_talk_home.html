@@ -9,10 +9,29 @@
 <p>
   {% trans "누구나 라이트닝 토크를 신청할 수 있습니다! 주제와 같은 자세한 내용은 <a href='/2020/program/lightning-talk/'>여기</a>를 참고해주세요." %}
 </p>
+<p>
+    {% trans '라이트닝 토크는 선착순으로 모집됩니다.' %}
+    {% trans '토, 일요일 각각 5개씩 선정될 예정입니다.' %}
+    {% trans '각 요일에 대해 10개씩만 모집됩니다. 10개 중 5개만 선정됩니다. CoC 위반 등 선정 불가능한 경우 따로 고지해드리지 않습니다.' %}
+</p>
+<p>
+    {% trans '홈페이지를 통해 영상 파일을 제출하시는 것이 아니라 영상 파일을 다운 받을 수 있는 링크를 공유해주세요.' %}
+    {% trans '만약 드라이브 권한 이슈 등 한 번에 영상을 확인할 수 없을 시 자동으로 다음 분에게 기회가 넘어갑니다.' %}
+    {% trans '파일 포맷이 일치하지 않을 경우에도 자동으로 기회가 넘어갑니다.' %}
+    {% trans '영상 길이가 5분을 넘길 경우 정확히 5분 00초에서 잘라서 송출됩니다.' %}
+</p>
+<p>
+    {% trans '라이트닝 토크 선정 여부는 행사 당일에 영상을 통해 확인하세요!' %}
+</p>
 
 <h2>{% trans "일정" %}</h2>
 <p>
 {{ LT_open_at|date:_("Y년 F j일 (D) H:i") }} - {{ LT_close_at|date:_("Y년 F j일 (D) H:i") }}
+</p>
+<h2>{% trans '파일 형식' %}</h2>
+<p>
+    {% trans '.mov, .mp4 (Full HD 1980 * 1020)만 가능합니다.' %}
+    {% trans '발표자 얼굴 노출 등 영상 내용을 구성하는 형식은 자유입니다.' %}
 </p>
 
 <h2>{% trans "문의" %}</h2>
@@ -20,7 +39,11 @@
 
 {% if is_proposable %}
 <div class="a_btn_container">
-  <a class="a_btn large" href="{% url 'lightning-talk-propose' %}">{% trans "신청하기" %}</a>
+    <a class="a_btn large" href="{% url 'lightning-talk-propose' %}">{% trans "신청하기" %}</a>
+</div>
+{% else %}
+<div class="a_btn_container">
+    <a class="a_btn large disable" href="#">{% trans "마감되었습니다" %}</a>
 </div>
 {% endif %}
 {% endblock %}

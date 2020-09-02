@@ -80,14 +80,15 @@ class LightningTalk(models.Model):
     class Meta:
         ordering = ['created_at', ]
 
-    title = models.CharField(max_length=255, null=True, help_text='라이트닝 토크 제목')
+    title = models.CharField(max_length=255, help_text='라이트닝 토크 제목')
     owner = models.OneToOneField(User, blank=True, null=True, on_delete=models.SET_NULL)
-    slide_url = models.CharField(max_length=511, null=True)
+    slide_url = models.CharField(max_length=511, null=True, blank=True)
+    video_url = models.CharField(max_length=511, null=True, blank=True)
     day = models.IntegerField(choices=(
         (1, _('토요일')),
         (2, _('일요일')),
     ))
-    comment = models.TextField(blank=True, default='')
+    comment = models.TextField(null=True, blank=True)
 
     accepted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

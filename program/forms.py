@@ -118,12 +118,23 @@ class LightningTalkForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', _('Submit')))
+        LT_N = config.LIGHTNING_TALK_N
+        if len(LightningTalk.objects.filter(day=1)) >= LT_N:
+            if len(LightningTalk.objects.filter(day=2)) < LT_N:
+                self.fields['day'] = ChoiceField(choices=((2, _('일요일')),))
+        else:
+            if len(LightningTalk.objects.filter(day=2)) < LT_N:
+                self.fields['day'] = ChoiceField(choices=((1, _('토요일')), (2, _('일요일')),))
+            else:
+                self.fields['day'] = ChoiceField(choices=((1, _('토요일')),))
+        self.fields['video_url'].required = True
 
     class Meta:
         model = LightningTalk
-        fields = ('title', 'slide_url', 'day', 'comment',)
+        fields = ('title', 'video_url', 'slide_url', 'day', 'comment',)
         labels = {
             'title': _('발표 제목'),
+            'video_url': _('발표 영상 URL'),
             'slide_url': _('발표 슬라이드 URL'),
             'day': _('발표 요일'),
             'comment': _('준비위원회에게 남기고 싶은 말'),

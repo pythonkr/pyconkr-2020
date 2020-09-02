@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-02 17:43+0900\n"
+"POT-Creation-Date: 2020-09-03 00:10+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -33,7 +33,7 @@ msgid "Read more"
 msgstr "Read more"
 
 #: .\mailing\forms.py:14 .\program\forms.py:21 .\program\forms.py:120
-#: .\program\forms.py:149
+#: .\program\forms.py:158
 msgid "Submit"
 msgstr "Submit"
 
@@ -177,27 +177,35 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
-#: .\program\forms.py:126
+#: .\program\forms.py:124 .\program\forms.py:127 .\program\models.py:88
+msgid "일요일"
+msgstr "Sunday"
+
+#: .\program\forms.py:127 .\program\forms.py:129 .\program\models.py:87
+msgid "토요일"
+msgstr "Saturday"
+
+#: .\program\forms.py:135
 msgid "발표 제목"
 msgstr "Title"
 
-#: .\program\forms.py:127
+#: .\program\forms.py:136
 msgid "발표 슬라이드 URL"
 msgstr "Slide URL"
 
-#: .\program\forms.py:128
+#: .\program\forms.py:137
 msgid "발표 요일"
 msgstr "Day of the Week"
 
-#: .\program\forms.py:129
+#: .\program\forms.py:138
 msgid "준비위원회에게 남기고 싶은 말"
 msgstr "Comment to reviewers"
 
-#: .\program\forms.py:138
+#: .\program\forms.py:147
 msgid "발표 소개 문구"
 msgstr "Talk introduction"
 
-#: .\program\forms.py:139 .\program\models.py:56
+#: .\program\forms.py:148 .\program\models.py:56
 msgid "발표 자료 URL"
 msgstr "Slide URL"
 
@@ -245,14 +253,6 @@ msgstr "When presentation video open in YouTube"
 msgid "트랙 번호"
 msgstr "Track number"
 
-#: .\program\models.py:87
-msgid "토요일"
-msgstr "Saturday"
-
-#: .\program\models.py:88
-msgid "일요일"
-msgstr "Sunday"
-
 #: .\program\models.py:100
 msgid "스프린트를 등록한 유저"
 msgstr "User who give a sprint"
@@ -285,7 +285,7 @@ msgstr "Proposal successfully updated."
 msgid "Proposal"
 msgstr "Proposal"
 
-#: .\program\views.py:521
+#: .\program\views.py:524
 msgid "Lightning Talk Proposal"
 msgstr ""
 
@@ -375,7 +375,7 @@ msgstr "Recommending Keynote"
 msgid "Video Subtitle"
 msgstr ""
 
-#: .\pyconkr\context_processors.py:72 .\pyconkr\templates\index.html:79
+#: .\pyconkr\context_processors.py:72 .\pyconkr\templates\index.html:76
 msgid "Sponsor"
 msgstr "Sponsor"
 
@@ -519,99 +519,108 @@ msgstr "PyCon Korea 2020 will be held via online."
 msgid "세부 운영 계획, 행사 상세 일정은 추후 안내 예정입니다."
 msgstr "Detailed plans and event schedules will be announced later."
 
+#: .\pyconkr\templates\index.html:44
+msgid ""
+"파이썬 사용 사례, 지식 공유를 위한 행사입니다.<br> 컨퍼런스의 자세한 시간표"
+"는 <a href=\"/2020/program/talk-schedule/\">프로그램 > 세부일정</a> 에서 확인"
+"하실 수 있습니다."
+msgstr ""
+"Timetable of conference can be found <a href=\"/en/2020/program/talk-"
+"schedule/\">Program > Talks</a> later."
+
 #: .\pyconkr\templates\index.html:45
 msgid ""
-"파이썬 사용 사례와 지식을 공유하는 50여 개의 다양한 발표 세션이 열립니다."
+"파이썬 사용 사례와 지식을 공유하는 40여 개의 다양한 발표 세션이 열립니다."
 msgstr ""
-"There are over 50 different presentation sessions that share knowledge and "
+"There are over 40 different presentation sessions that share knowledge and "
 "use of Python use cases."
 
-#: .\pyconkr\templates\index.html:47
+#: .\pyconkr\templates\index.html:46
 msgid ""
 "컨퍼런스의 자세한 시간표는 프로그램 > 세부일정에서 추후에 확인하실 수 있습니"
 "다."
 msgstr "Timetable of conference can be found Program > Talks later."
 
-#: .\pyconkr\templates\index.html:51
+#: .\pyconkr\templates\index.html:48
 msgid "이 외의 모든 공지사항은 공식 "
 msgstr "Other announcement will be announced via "
 
-#: .\pyconkr\templates\index.html:52 .\pyconkr\templates\index.html:78
+#: .\pyconkr\templates\index.html:49 .\pyconkr\templates\index.html:75
 msgid "페이스북"
 msgstr "Facebook"
 
-#: .\pyconkr\templates\index.html:52
+#: .\pyconkr\templates\index.html:49
 msgid "과 "
 msgstr ", "
 
-#: .\pyconkr\templates\index.html:53
+#: .\pyconkr\templates\index.html:50
 msgid "트위터"
 msgstr "twitter"
 
-#: .\pyconkr\templates\index.html:53
+#: .\pyconkr\templates\index.html:50
 msgid ", 이곳을 통해 공지될 예정입니다."
 msgstr " and website."
 
-#: .\pyconkr\templates\index.html:58
+#: .\pyconkr\templates\index.html:55
 msgid "Slogan"
 msgstr ""
 
-#: .\pyconkr\templates\index.html:61
+#: .\pyconkr\templates\index.html:58
 msgid "이 곳에는 '파이썬'이라는 단 하나의 공통점으로 모이는 사람들이 있습니다."
 msgstr "We have a group of people with one common interest, 'Python'."
 
-#: .\pyconkr\templates\index.html:62
+#: .\pyconkr\templates\index.html:59
 msgid "이제 막 파이썬이 무엇인지 알게 된 사람들,"
 msgstr "Those who just got to know about Python,"
 
-#: .\pyconkr\templates\index.html:63
+#: .\pyconkr\templates\index.html:60
 msgid "파이썬으로 무언가를 만들고 연구하며 세상에 기여하고 있는 사람들,"
 msgstr "those who develop, research, and contribute to the world with Python,"
 
-#: .\pyconkr\templates\index.html:64
+#: .\pyconkr\templates\index.html:61
 msgid "다른 이에게 파이썬을 더 널리 알리고 싶은 사람들까지."
 msgstr "those who want to expand the Python community."
 
-#: .\pyconkr\templates\index.html:65
+#: .\pyconkr\templates\index.html:62
 msgid "이렇게 다양한 사람들이 모여있는 파이콘 한국에서"
 msgstr "These wide ranges of people get around,"
 
-#: .\pyconkr\templates\index.html:66
+#: .\pyconkr\templates\index.html:63
 msgid ""
 "우리는 서로의 경험담에 응원을 보내고, 울고 웃으며 많은 이야기를 나눕니다."
 msgstr ""
 "cheer each other, cry, laugh, share their experience, and talk to each other "
 "at PyCon Korea."
 
-#: .\pyconkr\templates\index.html:67
+#: .\pyconkr\templates\index.html:64
 msgid "그렇게 파이콘 한국은 점점 깊어지고, 넓어지고, 단단해졌습니다."
 msgstr "That's how we get deeper, wider, and stronger."
 
-#: .\pyconkr\templates\index.html:68
+#: .\pyconkr\templates\index.html:65
 msgid ""
 "올해도 어김없이 열릴 파이콘 한국을 통해<br>여러분의 세상이 한 발자국 더 넓어"
 "질 수 있기를 바랍니다."
 msgstr "We hope you to expand your world one step further via PyCon Korea."
 
-#: .\pyconkr\templates\index.html:69
+#: .\pyconkr\templates\index.html:66
 msgid ""
 "이곳에 모인 우리는 함께 걸어갈 수 있는 힘을 가진 파이써니스타들이니까요."
 msgstr "Because here, we are Pythonistas walking together."
 
-#: .\pyconkr\templates\index.html:70
+#: .\pyconkr\templates\index.html:67
 msgid "We are Pythonistas."
 msgstr ""
 
-#: .\pyconkr\templates\index.html:75
+#: .\pyconkr\templates\index.html:72
 msgid "문의 & 공식 계정"
 msgstr "Contact"
 
-#: .\pyconkr\templates\index.html:76
+#: .\pyconkr\templates\index.html:73
 msgid ""
 "파이콘 한국 2020에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다."
 msgstr "Please contact the official contact below about all inquiries."
 
-#: .\pyconkr\templates\index.html:77
+#: .\pyconkr\templates\index.html:74
 msgid "Email"
 msgstr ""
 
@@ -846,7 +855,7 @@ msgid "라이트닝 토크 신청"
 msgstr "Proposing a Lightning Talk"
 
 #: .\pyconkr\templates\pyconkr\contribution_home.html:84
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:37
 #: .\pyconkr\templates\pyconkr\openreview_home.html:25
 #: .\pyconkr\templates\pyconkr\openreview_result.html:13
 msgid "문의"
@@ -874,18 +883,72 @@ msgstr ""
 "lightning-talk/'>here</a>."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:13
+msgid "라이트닝 토크는 선착순으로 모집됩니다."
+msgstr "Lightning Talk is recruited on a first-come, first-served basis."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:14
+msgid "토, 일요일 각각 5개씩 선정될 예정입니다."
+msgstr "Five each will be selected on Saturday and Sunday."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:15
+msgid ""
+"각 요일에 대해 10개씩만 모집됩니다. 10개 중 5개만 선정됩니다. CoC 위반 등 선"
+"정 불가능한 경우 따로 고지해드리지 않습니다."
+msgstr "Only 10 are recruited for each day of the week. Only 5 out of 10 will be selected. If selection is not possible, such as violation of CoC, we will not notify you separately."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
+msgid ""
+"홈페이지를 통해 영상 파일을 제출하시는 것이 아니라 영상 파일을 다운 받을 수 "
+"있는 링크를 공유해주세요."
+msgstr "Instead of submitting the video file through the homepage, please share the link to download the video file."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:19
+msgid ""
+"만약 드라이브 권한 이슈 등 한 번에 영상을 확인할 수 없을 시 자동으로 다음 분"
+"에게 기회가 넘어갑니다."
+msgstr "If the video cannot be checked at once, such as a drive permission issue, the opportunity is automatically transferred to the next person."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:20
+msgid "파일 포맷이 일치하지 않을 경우에도 자동으로 기회가 넘어갑니다."
+msgstr "Even if the file format doesn't match, the chance is automatically skipped."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:21
+msgid "영상 길이가 5분을 넘길 경우 정확히 5분 00초에서 잘라서 송출됩니다."
+msgstr "If the length of the video exceeds 5 minutes, it is cut and transmitted at exactly 5 minutes 00 seconds."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:24
+msgid "라이트닝 토크 선정 여부는 행사 당일에 영상을 통해 확인하세요!"
+msgstr "Check the video on the day of the event to see if the Lightning Talk is selected!"
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:27
 #: .\pyconkr\templates\pyconkr\openreview_home.html:20
 msgid "일정"
 msgstr "Schedule"
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:15
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:29
 #: .\pyconkr\templates\pyconkr\openreview_home.html:22
 msgid "Y년 F j일 (D) H:i"
 msgstr "F jS (D) H:i"
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:23
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:31
+msgid "파일 형식"
+msgstr "File Format"
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:33
+msgid ".mov, .mp4 (Full HD 1980 * 1020)만 가능합니다."
+msgstr "Only .mov, .mp4 (Full HD 1980 * 1020) is possible."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:34
+msgid "발표자 얼굴 노출 등 영상 내용을 구성하는 형식은 자유입니다."
+msgstr "The format of the video content, such as exposure of the presenter's face, is free."
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:42
 msgid "신청하기"
 msgstr "Apply"
+
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:46
+msgid "마감되었습니다"
+msgstr "Closed"
 
 #: .\pyconkr\templates\pyconkr\openreview_form.html:10
 #: .\pyconkr\templates\pyconkr\openreview_list.html:32
