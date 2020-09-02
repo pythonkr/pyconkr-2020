@@ -99,6 +99,9 @@ class ProgramSchedule(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        KST = datetime.timezone(datetime.timedelta(hours=9))
+        now = datetime.datetime.now(tz=KST)
+        context['is_open'] = now > constance.config.SCHEDULE_OPEN
         programs = Proposal.objects.filter(accepted=True, video_open_at__isnull=False, track_num__isnull=False)
 
         if not programs.exists():
