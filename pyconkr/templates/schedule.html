@@ -15,15 +15,16 @@
             const isSat = () => {
                 document.getElementById("sat").classList.remove("disabled");
                 document.getElementById("sun").classList.add("disabled");
-                document.getElementById("is_sat").style.textDecoration = "underline";
-                document.getElementById("is_sun").style.textDecoration = "none";
+
+                document.getElementById("is_sat").classList.add("selected");
+                document.getElementById("is_sun").classList.remove("selected");
             };
 
             const isSun = () => {
                 document.getElementById("sat").classList.add("disabled");
                 document.getElementById("sun").classList.remove("disabled");
-                document.getElementById("is_sat").style.textDecoration = "none";
-                document.getElementById("is_sun").style.textDecoration = "underline";
+                document.getElementById("is_sat").classList.remove("selected");
+                document.getElementById("is_sun").classList.add("selected");
             };
             window.onload = () => {
                 {% if sunday %}

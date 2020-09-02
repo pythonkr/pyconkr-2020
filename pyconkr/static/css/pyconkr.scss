@@ -1455,7 +1455,10 @@ ul.days {
     font-weight: 700;
     margin-left: 1rem;
     cursor: pointer;
-    text-underline-position: under;
+
+    &.selected {
+      border-bottom: 2px solid black;
+    }
 
     &:first-child {
       margin-left: 0;
@@ -1465,10 +1468,14 @@ ul.days {
 
 table#sat,
 table#sun {
-  & tr,
-  & td,
-  & th {
+  tr,
+  td,
+  th {
     padding: 0.5rem 0;
+  }
+
+  tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
   }
 
   &.disabled {
