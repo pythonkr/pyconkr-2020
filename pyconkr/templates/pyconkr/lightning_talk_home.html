@@ -20,7 +20,11 @@
 
 {% if is_proposable %}
 <div class="a_btn_container">
-  <a class="a_btn large" href="{% url 'lightning-talk-propose' %}">{% trans "신청하기" %}</a>
+    <a class="a_btn large" href="{% url 'lightning-talk-propose' %}">{% trans "신청하기" %}</a>
+</div>
+{% else %}
+<div class="a_btn_container">
+    <a class="a_btn large disable" href="#">{% trans "마감되었습니다" %}</a>
 </div>
 {% endif %}
 {% endblock %}
