@@ -1464,7 +1464,23 @@ ul.days {
 
 table#sat,
 table#sun {
+  & tr,
+  & td,
+  & th {
+    padding: 0.5rem 0;
+  }
+
   &.disabled {
     display: none;
+  }
+
+  .speaker {
+    margin-top: 12px;
+    & img {
+      width: 36px;
+      height: auto;
+      border: 1px solid #e7e7e7;
+      border-radius: 100px;
+    }
   }
 }

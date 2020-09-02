@@ -8,36 +8,36 @@
 {% endblock %}
 
 {% block content %}
-{% if is_empty %}
-    <h4 class="text-center">{% trans "Ready for content" %}</h4>
-{% else %}
-    <script>
-        const isSat = () => {
-            document.getElementById("sat").classList.remove("disabled");
-            document.getElementById("sun").classList.add("disabled");
-            document.getElementById("is_sat").style.textDecoration = "underline";
-            document.getElementById("is_sun").style.textDecoration = "none";
-        };
+    {% if is_empty %}
+        <h4 class="text-center">{% trans "Ready for content" %}</h4>
+    {% else %}
+        <script>
+            const isSat = () => {
+                document.getElementById("sat").classList.remove("disabled");
+                document.getElementById("sun").classList.add("disabled");
+                document.getElementById("is_sat").style.textDecoration = "underline";
+                document.getElementById("is_sun").style.textDecoration = "none";
+            };
 
-        const isSun = () => {
-            document.getElementById("sat").classList.add("disabled");
-            document.getElementById("sun").classList.remove("disabled");
-            document.getElementById("is_sat").style.textDecoration = "none";
-            document.getElementById("is_sun").style.textDecoration = "underline";
-        };
-        window.onload = () => {
-            {% if sunday %}
-                isSun();
-            {% else %}
-                isSat();
-            {% endif %}
-        };
-    </script>
+            const isSun = () => {
+                document.getElementById("sat").classList.add("disabled");
+                document.getElementById("sun").classList.remove("disabled");
+                document.getElementById("is_sat").style.textDecoration = "none";
+                document.getElementById("is_sun").style.textDecoration = "underline";
+            };
+            window.onload = () => {
+                {% if sunday %}
+                    isSun();
+                {% else %}
+                    isSat();
+                {% endif %}
+            };
+        </script>
 
-    <ul class="days">
-        <li id="is_sat" onclick="isSat()">9/26 (토)</li>
-        <li id="is_sun" onclick="isSun()">9/27 (일)</li>
-    </ul>
+        <ul class="days">
+            <li id="is_sat" onclick="isSat()">9/26 (토)</li>
+            <li id="is_sun" onclick="isSun()">9/27 (일)</li>
+        </ul>
         <table class="disabled" id="sat" style="width: 100%;">
             <colgroup>
                 <col span="1" style="width: 10%;">
@@ -46,65 +46,149 @@
                 <col span="1" style="width: 30%;">
             </colgroup>
             <tbody>
-        <tr>
-            <th>
-                시간
-            </th>
-            <th>
-                P 트랙
-            </th>
-            <th>
-                Y 트랙
-            </th>
-            <th>
-                C 트랙
-            </th>
-        </tr>
-        {% for time, list in sat.items %}
             <tr>
                 <th>
-                    {{ time|date:"H:i" }}
+                    시간
                 </th>
-                {% for l in list %}
-                    {% if l.category == keynote or l.category == lt %}
-                        <td colspan="3">{{ l }}</td>
-                    {% else %}
-                        <td>{{ l }}</td>
-                    {% endif %}
-                {% endfor %}
+                <th>
+                    P 트랙
+                </th>
+                <th>
+                    Y 트랙
+                </th>
+                <th>
+                    C 트랙
+                </th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <table class="disabled" id="sun">
+            {% for time, list in sat.items %}
+                <tr>
+                    <th>
+                        {{ time|date:"H:i" }}
+                    </th>
+                    {% for l in list %}
+                        {% if l != '' %}
+                            {% if l.category == keynote or l.category == lt %}
+                                <td colspan="3">
+                                    <div class="program">
+                                        {{ l }}
+                                        {% if l.language == 'E' %}
+                                            <small><span
+                                                    class="label label-english-session">{% trans "Schedule English Label" %}</span></small>
+                                        {% endif %}
+                                    </div>
+                                    {% if l.category != lt %}
+                                        <div class="speaker">
+                                            {% thumbnail l.user.profile.image "128x128" crop="center" as im %}
+                                                <img src="{{ im.url }}" alt="photo of {{ l.user.profile.name }}">
+                                            {% empty %}
+                                                <img src="{% static 'image/anonymous.png' %}">
+                                            {% endthumbnail %}
+                                            {{ l.user.profile.name }}
+                                        </div>
+                                    {% endif %}
+                                </td>
+                            {% else %}
+                                <td>
+                                    <div class="program">
+                                        {{ l }}
+                                        <small>
+                                            {% if l.difficulty == 'B' %}
+                                                <span class="label label-difficulty-b">{% trans "Difficulty Beginner" %}</span>
+                                            {% elif l.difficulty == 'I' %}
+                                                <span class="label label-difficulty-i">{% trans "Difficulty Intermediate" %}</span>
+                                            {% elif l.difficulty == 'E' %}
+                                                <span class="label label-difficulty-e">{% trans "Difficulty Experienced" %}</span>
+                                            {% endif %}
+                                            {% if l.language == 'E' %}
+                                                <small><span
+                                                        class="label label-english-session">{% trans "Schedule English Label" %}</span></small>
+                                            {% endif %}
+                                        </small>
+                                    </div>
+                                    <div class="speaker">
+                                        {% thumbnail l.user.profile.image "128x128" crop="center" as im %}
+                                            <img src="{{ im.url }}" alt="photo of {{ l.user.profile.name }}">
+                                        {% empty %}
+                                            <img src="{% static 'image/anonymous.png' %}">
+                                        {% endthumbnail %}
+                                        {{ l.user.profile.name }}
+                                    </div>
+                                </td>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <table class="disabled" id="sun" style="width: 100%;">
             <colgroup>
                 <col span="1" style="width: 10%;">
                 <col span="1" style="width: 45%;">
                 <col span="1" style="width: 45%;">
             </colgroup>
             <tbody>
-        <tr>
-            <th>
-                시간
-            </th>
-            <th>
-                O 트랙
-            </th>
-            <th>
-                N 트랙
-            </th>
-        </tr>
-        <tr>
-            {% for time, list in sun.items %}
+            <tr>
                 <th>
-                    {{ time|date:"H:i" }}
+                    시간
                 </th>
-                {% for l in list %}
-                    <td>{{ l }}</td>
-                {% endfor %}
+                <th>
+                    O 트랙
+                </th>
+                <th>
+                    N 트랙
+                </th>
+            </tr>
+            {% for time, list in sun.items %}
+                <tr>
+                    <th>
+                        {{ time|date:"H:i" }}
+                    </th>
+                    {% for l in list %}
+                        {% if l != '' %}
+                            {% if l.category == lt %}
+                                <td colspan="2">
+                                    <div class="program">
+                                        {{ l }}
+                                        {% if l.language == 'E' %}
+                                            <small><span
+                                                    class="label label-english-session">{% trans "Schedule English Label" %}</span></small>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            {% else %}
+                                <td>
+                                    <div class="program">
+                                        {{ l }}
+                                        <small>
+                                            {% if l.difficulty == 'B' %}
+                                                <span class="label label-difficulty-b">{% trans "Difficulty Beginner" %}</span>
+                                            {% elif l.difficulty == 'I' %}
+                                                <span class="label label-difficulty-i">{% trans "Difficulty Intermediate" %}</span>
+                                            {% elif l.difficulty == 'E' %}
+                                                <span class="label label-difficulty-e">{% trans "Difficulty Experienced" %}</span>
+                                            {% endif %}
+                                            {% if l.language == 'E' %}
+                                                <small><span
+                                                        class="label label-english-session">{% trans "Schedule English Label" %}</span></small>
+                                            {% endif %}
+                                        </small>
+                                    </div>
+                                    <div class="speaker">
+                                        {% thumbnail l.user.profile.image "128x128" crop="center" as im %}
+                                            <img src="{{ im.url }}" alt="photo of {{ l.user.profile.name }}">
+                                        {% empty %}
+                                            <img src="{% static 'image/anonymous.png' %}">
+                                        {% endthumbnail %}
+                                        {{ l.user.profile.name }}
+                                    </div>
+                                </td>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </tr>
             {% endfor %}
-        </tr>
-        </tbody>
-    </table>
-{% endif %}
+            </tbody>
+        </table>
+    {% endif %}
 {% endblock %}
