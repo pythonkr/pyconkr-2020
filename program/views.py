@@ -110,9 +110,9 @@ class ProgramSchedule(TemplateView):
         sat = list()
         sun = list()
         for p in programs:
-            if p.video_open_at.weekday() == 5:
+            if (p.video_open_at + datetime.timedelta(hours=9)).replace(tzinfo=KST).weekday() == 5:
                 sat.append({'program': p, 'time': p.video_open_at, 'track': p.track_num})
-            elif p.video_open_at.weekday() == 6:
+            elif (p.video_open_at + datetime.timedelta(hours=9)).replace(tzinfo=KST).weekday() == 6:
                 sun.append({'program': p, 'time': p.video_open_at, 'track': p.track_num})
 
         def list_by_time(acc, cur):
