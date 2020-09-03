@@ -65,6 +65,9 @@
             <tr>
                 <th>
                     {{ time|date:"H:i" }}
+                    {% if time == live %}
+                    <div class="live-badge">LIVE</div>
+                    {% endif %}
                 </th>
                 {% for l in list %}
                     {% if l != '' %}

@@ -145,6 +145,11 @@ class ProgramSchedule(TemplateView):
         KST, now = get_now()
         if now.date() == datetime.date(2020, 9, 27):
             context['sunday'] = True
+        # TODO Change required
+        for time in sat__sorted.keys():
+            time = (time + datetime.timedelta(hours=9)).replace(tzinfo=KST)
+            if time.time() < now.time() < (time + datetime.timedelta(minutes=40)).time():
+                context['live'] = time
 
         try:
             context['keynote'] = ProgramCategory.objects.get(slug="keynote")
