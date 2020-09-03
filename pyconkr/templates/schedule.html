@@ -62,7 +62,7 @@
             </th>
         </tr>
         {% for time, list in sat.items %}
-            <tr>
+            <tr {% if time == live %}class="live"{% endif %}>
                 <th>
                     {{ time|date:"H:i" }}
                     {% if time == live %}
