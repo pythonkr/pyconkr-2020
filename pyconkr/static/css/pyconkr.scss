@@ -1491,6 +1491,22 @@ table#sun {
       border-radius: 100px;
     }
   }
+
+  .live-badge {
+    border: 1px solid black;
+    color: #fff;
+    background-color: red;
+    width: fit-content;
+    padding: 0 0.5rem;
+    margin: 0 auto;
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+    animation: blinker 2s linear infinite;
+    transform: scale(0.8);
+  }
 }
 
 #to-top-btn {
@@ -1504,7 +1520,7 @@ table#sun {
   z-index: 99;
   border: 2px #e7e7e7 solid;
   background-color: white;
-  color: #47647D;
+  color: #47647d;
   width: 3rem;
   height: 3rem;
 
