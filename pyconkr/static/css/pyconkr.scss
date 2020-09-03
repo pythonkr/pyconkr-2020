@@ -1485,7 +1485,7 @@ table#sun {
   }
 
   tr.live {
-    background-color: #E2FFFB;
+    background-color: #e2fffb;
   }
 
   tr:nth-of-type(odd) {
@@ -1514,7 +1514,7 @@ table#sun {
     margin: 0 auto;
     animation: blinker 2s linear infinite;
     transform: scale(0.8);
-    border-radius: .25rem;
+    border-radius: 0.25rem;
   }
 }
 

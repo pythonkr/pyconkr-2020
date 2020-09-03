@@ -15,7 +15,6 @@
             const isSat = () => {
                 document.getElementById("sat").classList.remove("disabled");
                 document.getElementById("sun").classList.add("disabled");
-
                 document.getElementById("is_sat").classList.add("selected");
                 document.getElementById("is_sun").classList.remove("selected");
             };
@@ -187,6 +186,8 @@
                                     </div>
                                 </td>
                             {% endif %}
+                        {% else %}
+                            <td></td>
                         {% endif %}
                     {% endfor %}
                 </tr>
