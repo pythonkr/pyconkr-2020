@@ -541,9 +541,12 @@ input[type="file"] {
 
 .list-group-item {
   font-size: 1.1rem;
+  display: flex;
+  align-items: center;
 
   span {
     margin-left: 4px;
+    margin-right: 8px;
   }
 }
 
