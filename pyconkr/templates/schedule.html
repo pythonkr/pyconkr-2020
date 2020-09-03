@@ -65,7 +65,11 @@
                             {% if l.category == keynote or l.category == lt %}
                                 <td colspan="3">
                                     <div class="program">
-                                        {{ l }}
+                                        {% if l.category == keynote %}
+                                            <a href="{% url 'keynote' %}">{{ l }}</a>
+                                        {% else %}
+                                            <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
+                                        {% endif %}
                                         {% if l.language == 'E' %}
                                             <small>
                                                 <span class="label label-english-session">{% trans "Schedule English Label" %}</span>
@@ -86,7 +90,7 @@
                             {% else %}
                                 <td>
                                     <div class="program">
-                                        {{ l }}
+                                        <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
                                         <small>
                                             {% if l.category == pkot %}
                                                 <span class="label label-pkot-session">{% trans "Schedule Organizing Team Label" %}</span>
@@ -147,7 +151,7 @@
                             {% if l.category == lt %}
                                 <td colspan="2">
                                     <div class="program">
-                                        {{ l }}
+                                        <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
                                         {% if l.language == 'E' %}
                                             <small>
                                                 <span class="label label-english-session">{% trans "Schedule English Label" %}</span>
@@ -158,7 +162,7 @@
                             {% else %}
                                 <td>
                                     <div class="program">
-                                        {{ l }}
+                                        <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
                                         <small>
                                             {% if l.category == pkot %}
                                                 <span class="label label-pkot-session">{% trans "Schedule Organizing Team Label" %}</span>
