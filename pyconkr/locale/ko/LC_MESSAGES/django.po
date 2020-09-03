@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-03 01:23+0900\n"
+"POT-Creation-Date: 2020-09-03 16:46+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -24,6 +24,7 @@ msgid "Back to list"
 msgstr "목록으로"
 
 #: .\announcement\templates\announcement\announcement_list.html:6
+#: .\pyconkr\templates\pyconkr\keynote_list.html:12
 #: .\pyconkr\templates\pyconkr\program_list.html:12
 #: .\pyconkr\templates\schedule.html:12 .\pyconkr\templates\sponsors.html:21
 msgid "Ready for content"
@@ -260,19 +261,19 @@ msgstr ""
 msgid "홈페이지에 공개되는 스프린트 관련 주소입니다."
 msgstr ""
 
-#: .\program\views.py:160
+#: .\program\views.py:167
 msgid "Proposal successfully created."
 msgstr "발표안을 제출하였습니다."
 
-#: .\program\views.py:213
+#: .\program\views.py:220
 msgid "Proposal successfully updated."
 msgstr "발표안이 수정되었습니다."
 
-#: .\program\views.py:243
+#: .\program\views.py:250
 msgid "Proposal"
 msgstr "발표안"
 
-#: .\program\views.py:527
+#: .\program\views.py:529
 msgid "Lightning Talk Proposal"
 msgstr "라이트닝 토크 신청 내역"
 
@@ -917,7 +918,7 @@ msgstr ""
 msgid "신청하기"
 msgstr ""
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:46
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:47
 msgid "마감되었습니다"
 msgstr ""
 
@@ -1004,17 +1005,17 @@ msgid ""
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:20
-#: .\pyconkr\templates\schedule.html:97 .\pyconkr\templates\schedule.html:166
+#: .\pyconkr\templates\schedule.html:101 .\pyconkr\templates\schedule.html:174
 msgid "Difficulty Beginner"
 msgstr "초급"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:21
-#: .\pyconkr\templates\schedule.html:99 .\pyconkr\templates\schedule.html:168
+#: .\pyconkr\templates\schedule.html:103 .\pyconkr\templates\schedule.html:176
 msgid "Difficulty Intermediate"
 msgstr "중급"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:22
-#: .\pyconkr\templates\schedule.html:101 .\pyconkr\templates\schedule.html:170
+#: .\pyconkr\templates\schedule.html:105 .\pyconkr\templates\schedule.html:178
 msgid "Difficulty Experienced"
 msgstr "고급"
 
@@ -1102,14 +1103,18 @@ msgstr ""
 msgid "9/27 (일)"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:52 .\pyconkr\templates\schedule.html:134
+#: .\pyconkr\templates\schedule.html:52 .\pyconkr\templates\schedule.html:142
 msgid "시간"
 msgstr "시간<br>(UTC+9)"
 
-#: .\pyconkr\templates\schedule.html:77 .\pyconkr\templates\schedule.html:105
-#: .\pyconkr\templates\schedule.html:156 .\pyconkr\templates\schedule.html:174
+#: .\pyconkr\templates\schedule.html:80 .\pyconkr\templates\schedule.html:108
+#: .\pyconkr\templates\schedule.html:164 .\pyconkr\templates\schedule.html:182
 msgid "Schedule English Label"
 msgstr "영어"
+
+#: .\pyconkr\templates\schedule.html:111
+msgid "Schedule Organizing Team Label"
+msgstr "파준위"
 
 #: .\pyconkr\templates\youngcoder.html:12
 msgid "Young Coder"
