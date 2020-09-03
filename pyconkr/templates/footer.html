@@ -21,8 +21,8 @@
     </div>
 </footer>
 
-<!-- for button to top -->
 <script>
+{# for button to top #}
     btn = document.getElementById("to-top-btn");
     const scrollFunc = () => {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -35,7 +35,7 @@
     window.onscroll = () => {scrollFunc()};
 
     const toTopFunc = () => {
-        document.body.scrollTop = 0;  // For Safari
-        document.documentElement.scrollTop = 0;  // For Chrome, Firefox, IE
+        document.body.scrollTop = 0;  {# For Safari #}
+        document.documentElement.scrollTop = 0;  {# For Chrome, Firefox, IE #}
     }
 </script>
