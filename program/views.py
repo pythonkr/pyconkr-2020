@@ -37,10 +37,8 @@ class ContributionHome(TemplateView):
         context['review_start_at'] = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
         context['review_finish_at'] = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
         context['lightning_talk_open'] = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
-        context['lightning_talk_close'] = constance.config.LIGHTNING_TALK_CLOSE.replace(
-            tzinfo=KST)
+        context['lightning_talk_close'] = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
         context['now'] = now
-
         return context
 
 
@@ -58,7 +56,6 @@ class ProgramList(ListView):
         for program in Proposal.objects.filter(accepted=True).exclude(category__slug="keynote"):
             categories.append(program.category)
         context['having_program'] = categories
-
         return context
 
 
@@ -75,7 +72,6 @@ class ProgramDetail(DetailView):
         context = super(ProgramDetail, self).get_context_data(**kwargs)
         context['program'] = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True)
         context['editable'] = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True).user == self.request.user
-
         return context
 
 
@@ -267,7 +263,6 @@ class OpenReviewHome(TemplateView):
         context['review_finish_at'] = review_finish_at
         context['is_review_able'] = review_start_at < now < review_finish_at
         context['is_submitted'] = OpenReview.objects.filter(user=self.request.user, submitted=True).exists()
-
         return context
 
 
@@ -415,7 +410,6 @@ def edit_proposal_available_checker(request):
     elif cfp_open < now < cfp_close:
         print('CFP 제출 기간에는 수정 가능')
         flag = True
-
     return flag
 
 
@@ -431,7 +425,6 @@ def is_proposal_opened(request):
     # CFP 마감 이후
     elif now > cfp_close:
         flag = 1
-
     return flag
 
 
@@ -484,7 +477,6 @@ class LightningTalkHome(TemplateView):
         context['LT_close_at'] = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
         context['is_open'] = now > constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
         context['is_proposable'] = is_lightning_talk_proposable(self.request)
-
         return context
 
 
