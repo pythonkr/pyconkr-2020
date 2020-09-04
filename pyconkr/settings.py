@@ -251,9 +251,7 @@ SUMMERNOTE_CONFIG = {
 # ACCOUNT_UNIQUE_EMAIL = False
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
-        'SCOPE': [
-            'user',
-        ]
+        'SCOPE': []
     },
     # Didn't finish yet
     # https://django-allauth.readthedocs.io/en/latest/providers.html#facebook
