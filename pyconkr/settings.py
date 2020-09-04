@@ -252,7 +252,8 @@ SUMMERNOTE_CONFIG = {
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
         'SCOPE': [
-            'user',
+            'read:user',
+            'user:email',
         ]
     },
     # Didn't finish yet
