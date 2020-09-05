@@ -311,6 +311,11 @@ CONSTANCE_CONFIG = {
     'PATRON_OPEN': (datetime.datetime(2020, 8, 1, tzinfo=KST), '개인 후원 티켓 판매 시작'),
     'PATRON_CLOSE': (datetime.datetime(2020, 9, 28, tzinfo=KST), '개인 후원 티켓 판매 종료'),
     'PATRON_URL': ('', '개인 후원 티켓 판매 URL'),
+    'YOUTUBE_TRACK_1': ('', '트랙1 YouTube 링크'),
+    'YOUTUBE_TRACK_2': ('', '트랙2 YouTube 링크'),
+    'YOUTUBE_TRACK_3': ('', '트랙3 YouTube 링크'),
+    'YOUTUBE_TRACK_4': ('', '트랙4 YouTube 링크'),
+    'YOUTUBE_TRACK_5': ('', '트랙5 YouTube 링크'),
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {
@@ -321,7 +326,8 @@ CONSTANCE_CONFIG_FIELDSETS = {
                 'LIGHTNING_TALK_CLOSE', 'LIGHTNING_TALK_N', 'PROGRAM_OPEN', 'SCHEDULE_OPEN', 'KEYNOTE_OPEN',),
     'Sponsor': ('CFS_OPEN', 'CFS_CLOSE', 'VIRTUAL_BOOTH_OPEN'),
     'Template': ('CFP_BRIEF_TEMPLATE', 'CFP_DESC_TEMPLATE',),
-    'Etc.': ('TOTAL_TICKET', 'PATRON_URL',),
+    'Etc.': ('TOTAL_TICKET', 'PATRON_URL', 'YOUTUBE_TRACK_1', 'YOUTUBE_TRACK_2', 'YOUTUBE_TRACK_3', 'YOUTUBE_TRACK_4',
+             'YOUTUBE_TRACK_5',),
 }
 
 # For supporting i18n of django modules
