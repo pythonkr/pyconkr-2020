@@ -15,7 +15,7 @@
         {% for k in object_list %}
             <h2 id="{{ k.pk }}">{{ k.user.profile.name }}</h2>
             <div class="head">
-                {% thumbnail obj.user.profile.image "128x128" crop="center" as im %}
+                {% thumbnail k.user.profile.image "128x128" crop="center" as im %}
                     <img src="{{ im.url }}" alt="photo of {{ k.user.profile.name }}">
                 {% empty %}
                     <img src="{% static 'image/anonymous.png' %}">
