@@ -1,13 +1,11 @@
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Button
+from crispy_forms.layout import Submit
 
 from django import forms
-from django.conf import settings
-from django.forms import ModelChoiceField, ChoiceField, HiddenInput
+from django.forms import ModelChoiceField, ChoiceField
 from django_summernote.widgets import SummernoteInplaceWidget
 from django.shortcuts import reverse
 from django.utils.translation import ugettext_lazy as _
-from django.core.files.images import get_image_dimensions
 from .models import Proposal, OpenReview, ProgramCategory, LightningTalk
 
 from constance import config
@@ -59,7 +57,6 @@ class OpenReviewLanguageForm(forms.Form):
         super(OpenReviewLanguageForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        # self.helper.form_action = reverse()+'?lang='
         self.helper.add_input(Submit('next', _('Next')))
         self.fields['language'] = ChoiceField(choices=(
             ('N', '상관 없음'),
