@@ -1523,6 +1523,22 @@ table#sun {
     transform: scale(0.8);
     border-radius: 0.25rem;
   }
+
+  .youtube_btn {
+    color: #fff;
+    background-color: #ff1733;
+    width: fit-content;
+    padding: 0 0.5rem;
+    margin: 0 auto;
+    transform: scale(0.8);
+    border-radius: 0.25rem;
+
+    & > a {
+      color: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
 }
 
 #to-top-btn {

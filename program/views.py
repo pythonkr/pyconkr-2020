@@ -146,6 +146,10 @@ class ProgramSchedule(TemplateView):
             # if time < now < time + datetime.timedelta(minutes=40): # TODO
             if time.time() < now.time() < (time + datetime.timedelta(minutes=40)).time():
                 context['live'] = time
+                if time.weekday() == 5:
+                    context['live_weekday'] = 5
+                elif time.weekday() == 6:
+                    context['live_weekday'] = 6
 
         try:
             context['keynote'] = ProgramCategory.objects.get(slug="keynote")
@@ -153,6 +157,12 @@ class ProgramSchedule(TemplateView):
             context['pkot'] = ProgramCategory.objects.get(slug="pycon_korea_organizing_team")
         except ProgramCategory.DoesNotExist:
             pass
+
+        context['track1'] = constance.config.YOUTUBE_TRACK_1
+        context['track2'] = constance.config.YOUTUBE_TRACK_2
+        context['track3'] = constance.config.YOUTUBE_TRACK_3
+        context['track4'] = constance.config.YOUTUBE_TRACK_4
+        context['track5'] = constance.config.YOUTUBE_TRACK_5
 
         return context
 
