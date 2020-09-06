@@ -14,3 +14,8 @@ class Ticket(models.Model):
     agree_coc = models.BooleanField(default=False)
 
     ticket_purchase_datetime = models.DateTimeField(auto_now_add=True)
+
+
+class Patron(models.Model):
+    user_code = models.CharField(max_length=20)
+    price = models.IntegerField(default=0)
