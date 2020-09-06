@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from registration.models import Ticket
+from registration.models import Ticket, Patron
+from user.models import Profile
 from import_export.admin import ImportExportModelAdmin
 
 
@@ -33,3 +34,29 @@ class TicketAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 
 admin.site.register(Ticket, TicketAdmin)
+
+
+class PatronAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    list_display = ('user_code', 'price',)
+    search_fields = ('user_code',)
+    actions = ('to_ticket',)
+
+    def to_ticket(self, request, queryset):
+        for p in queryset:
+            user = Profile.objects.get(user_code=p.user_code).user
+            if Ticket.objects.filter(user=user).exists():
+                ticket = Ticket.objects.get(user=user)
+                if not ticket.is_patron:
+                    ticket.is_patron = True
+                    ticket.price = p.price
+                    ticket.save()
+                    p.delete()
+            else:
+                ticket = Ticket(user=user, is_patron=True, price=p.price)
+                ticket.save()
+                p.delete()
+
+    to_ticket.short_description = "Make a patron ticket"
+
+
+admin.site.register(Patron, PatronAdmin)
