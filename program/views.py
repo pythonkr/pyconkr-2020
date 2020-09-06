@@ -143,8 +143,7 @@ class ProgramSchedule(TemplateView):
             context['sunday'] = True
         for time in list(sat__sorted.keys()) + list(sun__sorted.keys()):
             time = (time + datetime.timedelta(hours=9)).replace(tzinfo=KST)
-            # if time < now < time + datetime.timedelta(minutes=40): # TODO
-            if time.time() < now.time() < (time + datetime.timedelta(minutes=40)).time():
+            if time < now < time + datetime.timedelta(minutes=40):
                 context['live'] = time
                 if time.weekday() == 5:
                     context['live_weekday'] = 5
