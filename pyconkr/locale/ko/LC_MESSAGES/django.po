@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-03 16:46+0900\n"
+"POT-Creation-Date: 2020-09-06 17:08+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -34,8 +34,8 @@ msgstr "준비 중입니다."
 msgid "Read more"
 msgstr "더 보기"
 
-#: .\mailing\forms.py:14 .\program\forms.py:21 .\program\forms.py:120
-#: .\program\forms.py:160
+#: .\mailing\forms.py:14 .\program\forms.py:19 .\program\forms.py:117
+#: .\program\forms.py:158
 msgid "Submit"
 msgstr "제출"
 
@@ -101,103 +101,103 @@ msgstr ""
 msgid "구독을 해지할 이메일 주소를 입력해주세요."
 msgstr ""
 
-#: .\program\forms.py:36
+#: .\program\forms.py:34
 msgid "Proposal title (required)"
 msgstr "세션 제목 (필수)"
 
-#: .\program\forms.py:37
+#: .\program\forms.py:35
 msgid "Brief (required)"
 msgstr "간략한 설명 (필수)"
 
-#: .\program\forms.py:38
+#: .\program\forms.py:36
 msgid "Detailed description (required)"
 msgstr "자세한 설명 (필수)"
 
-#: .\program\forms.py:39
+#: .\program\forms.py:37
 msgid "Comment to reviewers (optional)"
 msgstr "검토자에게 알리고 싶은 말 (선택)"
 
-#: .\program\forms.py:40
+#: .\program\forms.py:38
 msgid "Session difficulty"
 msgstr "세션 난이도"
 
-#: .\program\forms.py:41
+#: .\program\forms.py:39
 msgid "Session duration"
 msgstr "세션 길이"
 
-#: .\program\forms.py:42
+#: .\program\forms.py:40
 msgid "Session language"
 msgstr "발표 언어"
 
-#: .\program\forms.py:43
+#: .\program\forms.py:41
 msgid "Category"
 msgstr "분야"
 
-#: .\program\forms.py:63 .\program\forms.py:82
+#: .\program\forms.py:60 .\program\forms.py:79
 msgid "Next"
 msgstr "다음"
 
-#: .\program\forms.py:68
+#: .\program\forms.py:65
 msgid "어떤 언어로 작성된 발표 제안을 리뷰할지 선택하세요."
 msgstr ""
 
-#: .\program\forms.py:73
+#: .\program\forms.py:70
 msgid "언어"
 msgstr ""
 
-#: .\program\forms.py:83
+#: .\program\forms.py:80
 msgid "카테고리"
 msgstr ""
 
-#: .\program\forms.py:86
+#: .\program\forms.py:83
 msgid "리뷰할 분야를 선택하세요. 발표 제안이 없는 분야는 표시되지 않습니다."
 msgstr ""
 
-#: .\program\forms.py:94
+#: .\program\forms.py:91
 msgid "카테고리 이름"
 msgstr ""
 
-#: .\program\forms.py:105
+#: .\program\forms.py:102
 msgid "Save"
 msgstr ""
 
-#: .\program\forms.py:111
+#: .\program\forms.py:108
 msgid "Comment"
 msgstr "댓글"
 
-#: .\program\forms.py:124 .\program\forms.py:127 .\program\models.py:89
+#: .\program\forms.py:121 .\program\forms.py:124 .\program\models.py:89
 msgid "일요일"
 msgstr ""
 
-#: .\program\forms.py:127 .\program\forms.py:129 .\program\models.py:88
+#: .\program\forms.py:124 .\program\forms.py:126 .\program\models.py:88
 msgid "토요일"
 msgstr ""
 
-#: .\program\forms.py:136
+#: .\program\forms.py:133
 msgid "발표 제목"
 msgstr ""
 
-#: .\program\forms.py:137 .\program\models.py:55
+#: .\program\forms.py:134 .\program\models.py:55
 msgid "발표 영상 URL"
 msgstr ""
 
-#: .\program\forms.py:138
+#: .\program\forms.py:135
 msgid "발표 슬라이드 URL"
 msgstr ""
 
-#: .\program\forms.py:139
+#: .\program\forms.py:136
 msgid "발표 요일"
 msgstr ""
 
-#: .\program\forms.py:140
-msgid "준비위원회에게 남기고 싶은 말"
-msgstr ""
-
-#: .\program\forms.py:149
+#: .\program\forms.py:137 .\program\forms.py:147
 msgid "발표 소개 문구"
 msgstr ""
 
-#: .\program\forms.py:150 .\program\models.py:56
+#: .\program\forms.py:138
+msgid "준비위원회에게 남기고 싶은 말"
+msgstr ""
+
+#: .\program\forms.py:148 .\program\models.py:56
 msgid "발표 자료 URL"
 msgstr ""
 
@@ -241,39 +241,39 @@ msgstr ""
 msgid "트랙 번호"
 msgstr ""
 
-#: .\program\models.py:101
+#: .\program\models.py:102
 msgid "스프린트를 등록한 유저"
 msgstr ""
 
-#: .\program\models.py:102
+#: .\program\models.py:103
 msgid "스프린트 제목"
 msgstr ""
 
-#: .\program\models.py:103
+#: .\program\models.py:104
 msgid "스프린트에 대한 짧은 설명"
 msgstr ""
 
-#: .\program\models.py:104
+#: .\program\models.py:105
 msgid "스프린트를 진행할 프로그래밍 언어"
 msgstr ""
 
-#: .\program\models.py:106
+#: .\program\models.py:107
 msgid "홈페이지에 공개되는 스프린트 관련 주소입니다."
 msgstr ""
 
-#: .\program\views.py:167
+#: .\program\views.py:173
 msgid "Proposal successfully created."
 msgstr "발표안을 제출하였습니다."
 
-#: .\program\views.py:220
+#: .\program\views.py:226
 msgid "Proposal successfully updated."
 msgstr "발표안이 수정되었습니다."
 
-#: .\program\views.py:250
+#: .\program\views.py:256
 msgid "Proposal"
 msgstr "발표안"
 
-#: .\program\views.py:529
+#: .\program\views.py:531
 msgid "Lightning Talk Proposal"
 msgstr "라이트닝 토크 신청 내역"
 
@@ -1005,17 +1005,17 @@ msgid ""
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:20
-#: .\pyconkr\templates\schedule.html:101 .\pyconkr\templates\schedule.html:174
+#: .\pyconkr\templates\schedule.html:118 .\pyconkr\templates\schedule.html:202
 msgid "Difficulty Beginner"
 msgstr "초급"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:21
-#: .\pyconkr\templates\schedule.html:103 .\pyconkr\templates\schedule.html:176
+#: .\pyconkr\templates\schedule.html:120 .\pyconkr\templates\schedule.html:204
 msgid "Difficulty Intermediate"
 msgstr "중급"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:22
-#: .\pyconkr\templates\schedule.html:105 .\pyconkr\templates\schedule.html:178
+#: .\pyconkr\templates\schedule.html:122 .\pyconkr\templates\schedule.html:206
 msgid "Difficulty Experienced"
 msgstr "고급"
 
@@ -1095,24 +1095,30 @@ msgstr ""
 msgid "스프린트에 참여하세요!"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:39
+#: .\pyconkr\templates\schedule.html:38
 msgid "9/26 (토)"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:40
+#: .\pyconkr\templates\schedule.html:39
 msgid "9/27 (일)"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:52 .\pyconkr\templates\schedule.html:142
+#: .\pyconkr\templates\schedule.html:50 .\pyconkr\templates\schedule.html:156
 msgid "시간"
 msgstr "시간<br>(UTC+9)"
 
-#: .\pyconkr\templates\schedule.html:80 .\pyconkr\templates\schedule.html:108
-#: .\pyconkr\templates\schedule.html:164 .\pyconkr\templates\schedule.html:182
+#: .\pyconkr\templates\schedule.html:55 .\pyconkr\templates\schedule.html:63
+#: .\pyconkr\templates\schedule.html:70 .\pyconkr\templates\schedule.html:161
+#: .\pyconkr\templates\schedule.html:168
+msgid "YouTube 바로 가기"
+msgstr ""
+
+#: .\pyconkr\templates\schedule.html:94 .\pyconkr\templates\schedule.html:125
+#: .\pyconkr\templates\schedule.html:188 .\pyconkr\templates\schedule.html:209
 msgid "Schedule English Label"
 msgstr "영어"
 
-#: .\pyconkr\templates\schedule.html:111
+#: .\pyconkr\templates\schedule.html:115 .\pyconkr\templates\schedule.html:199
 msgid "Schedule Organizing Team Label"
 msgstr "파준위"
 
