@@ -88,7 +88,8 @@ class LightningTalk(models.Model):
         (1, _('토요일')),
         (2, _('일요일')),
     ))
-    comment = models.TextField(null=True, blank=True)
+    brief = models.TextField(max_length=1000, null=True, blank=True, help_text='라이트닝 토크 소개 문구')
+    comment = models.TextField(null=True, blank=True, help_text='준비위원회에게 남기고 싶은 말')
 
     accepted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

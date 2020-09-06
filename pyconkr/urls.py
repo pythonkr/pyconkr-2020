@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.contrib.flatpages import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.decorators import login_required
-from django.urls import path, re_path
+from django.urls import re_path
 from django.views.generic import RedirectView
 
 from .views import index, robots
@@ -57,7 +57,7 @@ urlpatterns += i18n_patterns(
             login_required(OpenReviewList.as_view()), name='openreview-list'),
     re_path(r'^2020/contribution/review-talk-proposal/review/(?P<pk>\d+)$',
             login_required(OpenReviewUpdate.as_view()), name='openreview-update'),
-    re_path(r'^2020/contribution/review-talk-proposal/review/result$',
+    re_path(r'^2020/contribution/review-talk-proposal/review/result/$',
             login_required(OpenReviewResult.as_view()), name='openreview-result'),
     re_path(r'^2020/contribution/lightning-talk/home/$',
             login_required(LightningTalkHome.as_view()), name='lightning-talk'),

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-03 01:23+0900\n"
+"POT-Creation-Date: 2020-09-06 17:08+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -23,6 +23,7 @@ msgid "Back to list"
 msgstr "Back to list"
 
 #: .\announcement\templates\announcement\announcement_list.html:6
+#: .\pyconkr\templates\pyconkr\keynote_list.html:12
 #: .\pyconkr\templates\pyconkr\program_list.html:12
 #: .\pyconkr\templates\schedule.html:12 .\pyconkr\templates\sponsors.html:21
 msgid "Ready for content"
@@ -32,8 +33,8 @@ msgstr "Ready for content"
 msgid "Read more"
 msgstr "Read more"
 
-#: .\mailing\forms.py:14 .\program\forms.py:21 .\program\forms.py:120
-#: .\program\forms.py:160
+#: .\mailing\forms.py:14 .\program\forms.py:19 .\program\forms.py:117
+#: .\program\forms.py:158
 msgid "Submit"
 msgstr "Submit"
 
@@ -111,105 +112,105 @@ msgstr "Unsubscribe Newsletter"
 msgid "구독을 해지할 이메일 주소를 입력해주세요."
 msgstr "Please enter your email address to unsubscribe."
 
-#: .\program\forms.py:36
+#: .\program\forms.py:34
 msgid "Proposal title (required)"
 msgstr "Proposal title (required)"
 
-#: .\program\forms.py:37
+#: .\program\forms.py:35
 msgid "Brief (required)"
 msgstr "Brief (required)"
 
-#: .\program\forms.py:38
+#: .\program\forms.py:36
 msgid "Detailed description (required)"
 msgstr "Detailed description (required)"
 
-#: .\program\forms.py:39
+#: .\program\forms.py:37
 msgid "Comment to reviewers (optional)"
 msgstr "Comment to reviewers (optional)"
 
-#: .\program\forms.py:40
+#: .\program\forms.py:38
 msgid "Session difficulty"
 msgstr "Session difficulty"
 
-#: .\program\forms.py:41
+#: .\program\forms.py:39
 msgid "Session duration"
 msgstr "Session duration"
 
-#: .\program\forms.py:42
+#: .\program\forms.py:40
 msgid "Session language"
 msgstr ""
 
-#: .\program\forms.py:43
+#: .\program\forms.py:41
 msgid "Category"
 msgstr "Category"
 
-#: .\program\forms.py:63 .\program\forms.py:82
+#: .\program\forms.py:60 .\program\forms.py:79
 msgid "Next"
 msgstr ""
 
-#: .\program\forms.py:68
+#: .\program\forms.py:65
 msgid "어떤 언어로 작성된 발표 제안을 리뷰할지 선택하세요."
 msgstr "Choose which language to review."
 
-#: .\program\forms.py:73
+#: .\program\forms.py:70
 msgid "언어"
 msgstr "Language"
 
-#: .\program\forms.py:83
+#: .\program\forms.py:80
 msgid "카테고리"
 msgstr "Category"
 
-#: .\program\forms.py:86
+#: .\program\forms.py:83
 msgid "리뷰할 분야를 선택하세요. 발표 제안이 없는 분야는 표시되지 않습니다."
 msgstr ""
 "Please select a category to review. Categories that do not have any CFP are "
 "not displayed."
 
-#: .\program\forms.py:94
+#: .\program\forms.py:91
 msgid "카테고리 이름"
 msgstr "Category name"
 
-#: .\program\forms.py:105
+#: .\program\forms.py:102
 msgid "Save"
 msgstr ""
 
-#: .\program\forms.py:111
+#: .\program\forms.py:108
 msgid "Comment"
 msgstr ""
 
-#: .\program\forms.py:124 .\program\forms.py:127 .\program\models.py:89
+#: .\program\forms.py:121 .\program\forms.py:124 .\program\models.py:89
 msgid "일요일"
 msgstr "Sunday"
 
-#: .\program\forms.py:127 .\program\forms.py:129 .\program\models.py:88
+#: .\program\forms.py:124 .\program\forms.py:126 .\program\models.py:88
 msgid "토요일"
 msgstr "Saturday"
 
-#: .\program\forms.py:136
+#: .\program\forms.py:133
 msgid "발표 제목"
 msgstr "Title"
 
-#: .\program\forms.py:137 .\program\models.py:55
+#: .\program\forms.py:134 .\program\models.py:55
 msgid "발표 영상 URL"
 msgstr "Presentation video URL"
 
-#: .\program\forms.py:138
+#: .\program\forms.py:135
 msgid "발표 슬라이드 URL"
 msgstr "Slide URL"
 
-#: .\program\forms.py:139
+#: .\program\forms.py:136
 msgid "발표 요일"
 msgstr "Day of the Week"
 
-#: .\program\forms.py:140
-msgid "준비위원회에게 남기고 싶은 말"
-msgstr "Comment to reviewers"
-
-#: .\program\forms.py:149
+#: .\program\forms.py:137 .\program\forms.py:147
 msgid "발표 소개 문구"
 msgstr "Talk introduction"
 
-#: .\program\forms.py:150 .\program\models.py:56
+#: .\program\forms.py:138
+msgid "준비위원회에게 남기고 싶은 말"
+msgstr "Comment to reviewers"
+
+#: .\program\forms.py:148 .\program\models.py:56
 msgid "발표 자료 URL"
 msgstr "Slide URL"
 
@@ -253,39 +254,39 @@ msgstr "When presentation video open in YouTube"
 msgid "트랙 번호"
 msgstr "Track number"
 
-#: .\program\models.py:101
+#: .\program\models.py:102
 msgid "스프린트를 등록한 유저"
 msgstr "User who give a sprint"
 
-#: .\program\models.py:102
+#: .\program\models.py:103
 msgid "스프린트 제목"
 msgstr "Sprint title"
 
-#: .\program\models.py:103
+#: .\program\models.py:104
 msgid "스프린트에 대한 짧은 설명"
 msgstr "Brief of the sprint"
 
-#: .\program\models.py:104
+#: .\program\models.py:105
 msgid "스프린트를 진행할 프로그래밍 언어"
 msgstr "Programming language of the sprint"
 
-#: .\program\models.py:106
+#: .\program\models.py:107
 msgid "홈페이지에 공개되는 스프린트 관련 주소입니다."
 msgstr "URL which is going on website."
 
-#: .\program\views.py:160
+#: .\program\views.py:173
 msgid "Proposal successfully created."
 msgstr "Proposal successfully created."
 
-#: .\program\views.py:213
+#: .\program\views.py:226
 msgid "Proposal successfully updated."
 msgstr "Proposal successfully updated."
 
-#: .\program\views.py:243
+#: .\program\views.py:256
 msgid "Proposal"
 msgstr "Proposal"
 
-#: .\program\views.py:527
+#: .\program\views.py:531
 msgid "Lightning Talk Proposal"
 msgstr ""
 
@@ -964,7 +965,7 @@ msgstr ""
 msgid "신청하기"
 msgstr "Apply"
 
-#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:46
+#: .\pyconkr\templates\pyconkr\lightning_talk_home.html:47
 msgid "마감되었습니다"
 msgstr "Closed"
 
@@ -1059,17 +1060,17 @@ msgstr ""
 "support."
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:20
-#: .\pyconkr\templates\schedule.html:97 .\pyconkr\templates\schedule.html:166
+#: .\pyconkr\templates\schedule.html:118 .\pyconkr\templates\schedule.html:202
 msgid "Difficulty Beginner"
 msgstr "Beginner"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:21
-#: .\pyconkr\templates\schedule.html:99 .\pyconkr\templates\schedule.html:168
+#: .\pyconkr\templates\schedule.html:120 .\pyconkr\templates\schedule.html:204
 msgid "Difficulty Intermediate"
 msgstr "Intermediate"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:22
-#: .\pyconkr\templates\schedule.html:101 .\pyconkr\templates\schedule.html:170
+#: .\pyconkr\templates\schedule.html:122 .\pyconkr\templates\schedule.html:206
 msgid "Difficulty Experienced"
 msgstr "Experienced"
 
@@ -1155,22 +1156,32 @@ msgstr ""
 msgid "스프린트에 참여하세요!"
 msgstr "Join the sprint!"
 
-#: .\pyconkr\templates\schedule.html:39
+#: .\pyconkr\templates\schedule.html:38
 msgid "9/26 (토)"
 msgstr "9/26 (Sat)"
 
-#: .\pyconkr\templates\schedule.html:40
+#: .\pyconkr\templates\schedule.html:39
 msgid "9/27 (일)"
 msgstr "9/27 (Sun)"
 
-#: .\pyconkr\templates\schedule.html:52 .\pyconkr\templates\schedule.html:134
+#: .\pyconkr\templates\schedule.html:50 .\pyconkr\templates\schedule.html:156
 msgid "시간"
 msgstr "Time<br>(UTC+9)"
 
-#: .\pyconkr\templates\schedule.html:77 .\pyconkr\templates\schedule.html:105
-#: .\pyconkr\templates\schedule.html:156 .\pyconkr\templates\schedule.html:174
+#: .\pyconkr\templates\schedule.html:55 .\pyconkr\templates\schedule.html:63
+#: .\pyconkr\templates\schedule.html:70 .\pyconkr\templates\schedule.html:161
+#: .\pyconkr\templates\schedule.html:168
+msgid "YouTube 바로 가기"
+msgstr "Go to YouTube"
+
+#: .\pyconkr\templates\schedule.html:94 .\pyconkr\templates\schedule.html:125
+#: .\pyconkr\templates\schedule.html:188 .\pyconkr\templates\schedule.html:209
 msgid "Schedule English Label"
 msgstr "English"
+
+#: .\pyconkr\templates\schedule.html:115 .\pyconkr\templates\schedule.html:199
+msgid "Schedule Organizing Team Label"
+msgstr "Organizing Team"
 
 #: .\pyconkr\templates\youngcoder.html:12
 msgid "Young Coder"

@@ -56,6 +56,10 @@ h6 a {
   font-weight: 700;
 }
 
+p {
+  word-break: break-word;
+}
+
 small a:hover {
   text-decoration: none;
 }
@@ -541,9 +545,12 @@ input[type="file"] {
 
 .list-group-item {
   font-size: 1.1rem;
+  display: flex;
+  align-items: center;
 
   span {
     margin-left: 4px;
+    margin-right: 8px;
   }
 }
 
@@ -802,6 +809,10 @@ footer {
 
 .label-difficulty-e {
   background-color: #ff0000;
+}
+
+.label-pkot-session {
+  background-color: #0f4c81;
 }
 
 .label-english-session {
@@ -1466,12 +1477,22 @@ ul.days {
   }
 }
 
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 table#sat,
 table#sun {
   tr,
   td,
   th {
     padding: 0.5rem 0;
+  }
+
+  tr.live {
+    background-color: #e2fffb!important;
   }
 
   tr:nth-of-type(odd) {
@@ -1493,19 +1514,30 @@ table#sun {
   }
 
   .live-badge {
-    border: 1px solid black;
     color: #fff;
-    background-color: red;
+    background-color: #ff1733;
     width: fit-content;
     padding: 0 0.5rem;
     margin: 0 auto;
-    @keyframes blinker {
-      50% {
-        opacity: 0;
-      }
-    }
     animation: blinker 2s linear infinite;
     transform: scale(0.8);
+    border-radius: 0.25rem;
+  }
+
+  .youtube_btn {
+    color: #fff;
+    background-color: #ff1733;
+    width: fit-content;
+    padding: 0 0.5rem;
+    margin: 0 auto;
+    transform: scale(0.8);
+    border-radius: 0.25rem;
+
+    & > a {
+      color: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
   }
 }
 

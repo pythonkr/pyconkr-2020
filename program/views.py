@@ -37,10 +37,8 @@ class ContributionHome(TemplateView):
         context['review_start_at'] = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
         context['review_finish_at'] = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
         context['lightning_talk_open'] = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
-        context['lightning_talk_close'] = constance.config.LIGHTNING_TALK_CLOSE.replace(
-            tzinfo=KST)
+        context['lightning_talk_close'] = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
         context['now'] = now
-
         return context
 
 
@@ -58,7 +56,6 @@ class ProgramList(ListView):
         for program in Proposal.objects.filter(accepted=True).exclude(category__slug="keynote"):
             categories.append(program.category)
         context['having_program'] = categories
-
         return context
 
 
@@ -75,7 +72,6 @@ class ProgramDetail(DetailView):
         context = super(ProgramDetail, self).get_context_data(**kwargs)
         context['program'] = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True)
         context['editable'] = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True).user == self.request.user
-
         return context
 
 
@@ -114,9 +110,9 @@ class ProgramSchedule(TemplateView):
         sat = list()
         sun = list()
         for p in programs:
-            if p.video_open_at.weekday() == 5:
+            if (p.video_open_at + datetime.timedelta(hours=9)).replace(tzinfo=KST).weekday() == 5:
                 sat.append({'program': p, 'time': p.video_open_at, 'track': p.track_num})
-            elif p.video_open_at.weekday() == 6:
+            elif (p.video_open_at + datetime.timedelta(hours=9)).replace(tzinfo=KST).weekday() == 6:
                 sun.append({'program': p, 'time': p.video_open_at, 'track': p.track_num})
 
         def list_by_time(acc, cur):
@@ -145,17 +141,27 @@ class ProgramSchedule(TemplateView):
         KST, now = get_now()
         if now.date() == datetime.date(2020, 9, 27):
             context['sunday'] = True
-        # TODO Change required
-        for time in sat__sorted.keys():
+        for time in list(sat__sorted.keys()) + list(sun__sorted.keys()):
             time = (time + datetime.timedelta(hours=9)).replace(tzinfo=KST)
-            if time.time() < now.time() < (time + datetime.timedelta(minutes=40)).time():
+            if time < now < time + datetime.timedelta(minutes=40):
                 context['live'] = time
+                if time.weekday() == 5:
+                    context['live_weekday'] = 5
+                elif time.weekday() == 6:
+                    context['live_weekday'] = 6
 
         try:
             context['keynote'] = ProgramCategory.objects.get(slug="keynote")
             context['lt'] = ProgramCategory.objects.get(slug="lightning_talk")
+            context['pkot'] = ProgramCategory.objects.get(slug="pycon_korea_organizing_team")
         except ProgramCategory.DoesNotExist:
             pass
+
+        context['track1'] = constance.config.YOUTUBE_TRACK_1
+        context['track2'] = constance.config.YOUTUBE_TRACK_2
+        context['track3'] = constance.config.YOUTUBE_TRACK_3
+        context['track4'] = constance.config.YOUTUBE_TRACK_4
+        context['track5'] = constance.config.YOUTUBE_TRACK_5
 
         return context
 
@@ -266,7 +272,6 @@ class OpenReviewHome(TemplateView):
         context['review_finish_at'] = review_finish_at
         context['is_review_able'] = review_start_at < now < review_finish_at
         context['is_submitted'] = OpenReview.objects.filter(user=self.request.user, submitted=True).exists()
-
         return context
 
 
@@ -414,7 +419,6 @@ def edit_proposal_available_checker(request):
     elif cfp_open < now < cfp_close:
         print('CFP 제출 기간에는 수정 가능')
         flag = True
-
     return flag
 
 
@@ -430,7 +434,6 @@ def is_proposal_opened(request):
     # CFP 마감 이후
     elif now > cfp_close:
         flag = 1
-
     return flag
 
 
@@ -483,7 +486,6 @@ class LightningTalkHome(TemplateView):
         context['LT_close_at'] = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
         context['is_open'] = now > constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
         context['is_proposable'] = is_lightning_talk_proposable(self.request)
-
         return context
 
 
