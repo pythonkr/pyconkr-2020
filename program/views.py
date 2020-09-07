@@ -38,7 +38,7 @@ class ContributionHome(TemplateView):
 
 
 class ProgramList(ListView):
-    model = ProgramCategory
+    queryset = ProgramCategory.objects.all().exclude(slug="opening").exclude(slug="closing")
     template_name = "pyconkr/program_list.html"
     ordering = ('id',)
 
