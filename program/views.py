@@ -1,6 +1,7 @@
 import random
 import constance
 import datetime
+from pyconkr.views import get_KST_now
 from functools import reduce
 
 from django.shortcuts import render, redirect
@@ -18,18 +19,12 @@ from .forms import ProposalForm, OpenReviewCategoryForm, OpenReviewCommentForm, 
 from .slack import new_cfp_registered, cfp_updated, program_updated
 
 
-def get_now():
-    KST = datetime.timezone(datetime.timedelta(hours=9))
-    now = datetime.datetime.now(tz=KST)
-    return KST, now
-
-
 class ContributionHome(TemplateView):
     template_name = "pyconkr/contribution_home.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        KST, now = get_now()
+        KST, now = get_KST_now()
         context['cfp_open'] = constance.config.CFP_OPEN.replace(tzinfo=KST)
         context['cfp_close'] = constance.config.CFP_CLOSE.replace(tzinfo=KST)
         context['keynote_start_at'] = constance.config.KEYNOTE_RECOMMEND_OPEN.replace(tzinfo=KST)
@@ -99,7 +94,7 @@ class ProgramSchedule(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        KST, now = get_now()
+        KST, now = get_KST_now()
         context['is_open'] = now > constance.config.SCHEDULE_OPEN
         programs = Proposal.objects.filter(accepted=True, video_open_at__isnull=False, track_num__isnull=False)
 
@@ -138,7 +133,7 @@ class ProgramSchedule(TemplateView):
 
         context['sat'] = sat__sorted
         context['sun'] = sun__sorted
-        KST, now = get_now()
+        KST, now = get_KST_now()
         if now.date() == datetime.date(2020, 9, 27):
             context['sunday'] = True
         for time in list(sat__sorted.keys()) + list(sun__sorted.keys()):
@@ -264,7 +259,7 @@ class OpenReviewHome(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        KST, now = get_now()
+        KST, now = get_KST_now()
         review_start_at = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
         review_finish_at = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
 
@@ -400,7 +395,7 @@ class OpenReviewResult(ListView):
 
 
 def edit_proposal_available_checker(request):
-    KST, now = get_now()
+    KST, now = get_KST_now()
     flag = False  # 아래에 지정된 상황이 아니면 CFP Closed 상태
 
     cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
@@ -423,7 +418,7 @@ def edit_proposal_available_checker(request):
 
 
 def is_proposal_opened(request):
-    KST, now = get_now()
+    KST, now = get_KST_now()
     cfp_open = constance.config.CFP_OPEN.replace(tzinfo=KST)
     cfp_close = constance.config.CFP_CLOSE.replace(tzinfo=KST)
     flag = 0
@@ -439,7 +434,7 @@ def is_proposal_opened(request):
 
 def is_open_review_opened():
     # 현재시간
-    KST, now = get_now()
+    KST, now = get_KST_now()
 
     open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
     open_review_deadline = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
@@ -453,7 +448,7 @@ def is_open_review_opened():
 
 
 def is_lightning_talk_proposable(request):
-    KST, now = get_now()
+    KST, now = get_KST_now()
     LT_open_at = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
     LT_close_at = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
     LT_N = constance.config.LIGHTNING_TALK_N
@@ -466,7 +461,7 @@ def is_lightning_talk_proposable(request):
 
 
 def is_program_opened():
-    KST, now = get_now()
+    KST, now = get_KST_now()
     program_open = constance.config.PROGRAM_OPEN.replace(tzinfo=KST)
 
     if now < program_open:
@@ -481,7 +476,7 @@ class LightningTalkHome(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        KST, now = get_now()
+        KST, now = get_KST_now()
         context['LT_open_at'] = constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
         context['LT_close_at'] = constance.config.LIGHTNING_TALK_CLOSE.replace(tzinfo=KST)
         context['is_open'] = now > constance.config.LIGHTNING_TALK_OPEN.replace(tzinfo=KST)
@@ -566,7 +561,7 @@ class KeynoteList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(KeynoteList, self).get_context_data(**kwargs)
-        KST, now = get_now()
+        KST, now = get_KST_now()
         if now > constance.config.KEYNOTE_OPEN:
             context['is_open'] = True
         return context

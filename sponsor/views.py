@@ -1,19 +1,17 @@
-from crispy_forms.layout import Submit, Button
+from crispy_forms.layout import Submit
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, View
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.urls import reverse
+
 from .models import Sponsor, SponsorLevel
 from .forms import SponsorForm, VirtualBoothUpdateForm
+from pyconkr.views import get_KST_now
 import constance
-import datetime
 from program import slack
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponseForbidden
-
-KST = datetime.timezone(datetime.timedelta(hours=9))
 
 
 class SponsorDetail(DetailView):
@@ -49,10 +47,9 @@ class SponsorProposalHome(ListView):
                     level=level, accepted=True).__len__(), limit=level.limit)
         context['remains'] = level_remain
 
-        KST = datetime.timezone(datetime.timedelta(hours=9))
+        KST, now = get_KST_now()
         context['CFS_start_at'] = constance.config.CFS_OPEN.replace(tzinfo=KST)
-        context['CFS_finish_at'] = constance.config.CFS_CLOSE.replace(
-            tzinfo=KST)
+        context['CFS_finish_at'] = constance.config.CFS_CLOSE.replace(tzinfo=KST)
 
         return context
 
@@ -68,7 +65,7 @@ class SponsorProposalDetail(DetailView):
         else:
             return redirect('sponsor_propose')
 
-        # 제출상태로 변경처리
+        # 제출 상태로 변경 처리
         if request.GET.get('submit') == '1':
             cfs_obj = written_cfs.get()
             cfs_obj.submitted = True
@@ -109,9 +106,9 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
         if has_submitted_cfs is True:
             return redirect('sponsor_proposal_detail')
 
+        KST, now = get_KST_now()
         opening = constance.config.CFS_OPEN.astimezone(KST)
         deadline = constance.config.CFS_CLOSE.astimezone(KST)
-        now = datetime.datetime.now(tz=KST)
 
         if now < opening:
             return render(request, 'simple.html', {
@@ -215,11 +212,21 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
             return Sponsor.objects.get(manager_id=self.request.user)
 
     def get_success_url(self):
-        # slack.cfs_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
         if self.go_proposal == '1':
             return reverse('sponsor_proposal_detail')
         else:
             return reverse('sponsor_detail', kwargs={'slug': self.object.slug})
+
+
+def is_sponsor_manager(user):
+    managers = []
+    for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
+        managers.append(sponsor.creator)
+        managers.append(sponsor.manager_id)
+    for super_user in User.objects.filter(is_staff=True):
+        managers.append(super_user)
+
+    return user in managers
 
 
 class VirtualBooth(ListView):
@@ -239,15 +246,9 @@ class VirtualBooth(ListView):
         except Sponsor.DoesNotExist:
             pass
 
-        managers = []
-        for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
-            managers.append(sponsor.creator)
-            managers.append(sponsor.manager_id)
-        for super_user in User.objects.filter(is_staff=True):
-            managers.append(super_user)
-
-        context['is_manager'] = self.request.user in managers
-        context['is_opened'] = constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(tz=KST)
+        KST, now = get_KST_now()
+        context['is_manager'] = is_sponsor_manager(self.request.user)
+        context['is_opened'] = constance.config.VIRTUAL_BOOTH_OPEN <= now
 
         return context
 
@@ -257,15 +258,8 @@ class VirtualBoothDetail(DetailView):
     template_name = "sponsor/virtual_booth_detail.html"
 
     def get(self, request, *args, **kwargs):
-        managers = []
-        for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
-            managers.append(sponsor.creator)
-            managers.append(sponsor.manager_id)
-        for super_user in User.objects.filter(is_staff=True):
-            managers.append(super_user)
-
-        is_visible = self.request.user in managers \
-            or constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(tz=KST)
+        KST, now = get_KST_now()
+        is_visible = is_sponsor_manager(self.request.user) or constance.config.VIRTUAL_BOOTH_OPEN <= now
         if not is_visible:
             return redirect('virtual_booth_home')
 
@@ -279,12 +273,14 @@ class VirtualBoothDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
         user = self.request.user
-        is_editable = user.is_authenticated and (
+        KST, now = get_KST_now()
+
+        is_editable = now < constance.config.VIRTUAL_BOOTH_OPEN and user.is_authenticated and (
                 Sponsor.objects.filter(creator=user, accepted=True, paid_at__isnull=False,
                                        slug=self.kwargs['slug']).exists()
                 or Sponsor.objects.filter(manager_id=user, accepted=True, paid_at__isnull=False,
                                           slug=self.kwargs['slug']).exists())
-        context['EDITABLE'] = is_editable
+        context['is_editable'] = is_editable
 
         return context
 
@@ -295,7 +291,9 @@ class VirtualBoothUpdate(UpdateView):
     template_name = "sponsor/virtual_booth_update.html"
 
     def get(self, request, *args, **kwargs):
-        is_editable = self.request.user.is_authenticated and (
+        KST, now = get_KST_now()
+
+        is_editable = now < constance.config.VIRTUAL_BOOTH_OPEN and self.request.user.is_authenticated and (
                 Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at__isnull=False,
                                        slug=self.kwargs['slug']).exists()
                 or Sponsor.objects.filter(manager_id=self.request.user, accepted=True, paid_at__isnull=False,
@@ -323,7 +321,7 @@ class LoginForSponsor(View):
         user = authenticate(username=username, password=password)
 
         if user is not None:
-            # 로그인 성공시 이전에 실패한 이력 삭제
+            # 로그인 성공 시 이전에 실패한 이력 삭제
             try:
                 del request.session['retry']
             except KeyError:
@@ -336,4 +334,3 @@ class LoginForSponsor(View):
             # 로그인 실패
             request.session['retry'] = True
             return redirect('login_for_sponsor')
-

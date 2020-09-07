@@ -1,21 +1,16 @@
-from django import forms
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth.models import User
-from django.contrib.flatpages.models import FlatPage
 from django.db import models
 from django_summernote.admin import SummernoteModelAdmin
-from django_summernote.widgets import SummernoteWidget
 from import_export.admin import ImportExportModelAdmin
 from modeltranslation.admin import TranslationAdmin
-from sorl.thumbnail.admin import AdminImageMixin
-from .models import (Sponsor, SponsorLevel)
+from .models import Sponsor, SponsorLevel
 from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 
 
 class SponsorAdmin(ImportExportModelAdmin, SummernoteModelAdmin, TranslationAdmin):
     formfield_overrides = {models.TextField: {
         'widget': SummernoteWidgetWithCustomToolbar}}
+    autocomplete_fields = ('creator', 'manager_id',)
     list_display = ('creator', 'name', 'level', 'manager_name', 'manager_email', 'manager_id',
                     'submitted', 'accepted', 'paid_at',)
     list_filter = ('accepted',)

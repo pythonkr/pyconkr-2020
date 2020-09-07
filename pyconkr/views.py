@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import datetime
+
 from mail_templated import send_mail
 from django.dispatch import receiver
 from allauth.account.signals import user_signed_up
@@ -65,3 +67,9 @@ def error_page_404(request, exception):
 
 def error_page_500(request):
     return render(request, 'base.html', {'title': '현재 작업 중입니다.', 'base_content': '잠시 후 다시 시도해주세요.'})
+
+
+def get_KST_now():
+    KST = datetime.timezone(datetime.timedelta(hours=9))
+    now = datetime.datetime.now(tz=KST)
+    return KST, now
