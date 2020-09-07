@@ -204,9 +204,15 @@
                                             </small>
                                         {% endif %}
                                     </div>
-                                    {% if l.category == lt and live == time %}
+                                    {% if live == time %}
                                         <div class="youtube_btn">
-                                            <a target="_blank" href="{{ lt2 }}">{% trans 'YouTube 바로 가기' %}</a>
+                                            <a target="_blank" href="
+                                                    {% if l.category == lt %}
+                                                        {{ lt2 }}
+                                                    {% else %}
+                                                        {{ closing_link }}
+                                                    {% endif %}
+                                                    ">{% trans 'YouTube 바로 가기' %}</a>
                                         </div>
                                     {% endif %}
                                 </td>
