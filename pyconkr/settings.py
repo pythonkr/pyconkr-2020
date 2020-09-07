@@ -317,6 +317,9 @@ CONSTANCE_CONFIG = {
     'YOUTUBE_TRACK_3': ('', '트랙3 YouTube 링크'),
     'YOUTUBE_TRACK_4': ('', '트랙4 YouTube 링크'),
     'YOUTUBE_TRACK_5': ('', '트랙5 YouTube 링크'),
+    'YOUTUBE_TRACK_LT_1': ('', '토요일 라이트닝 토크 YouTube 링크'),
+    'YOUTUBE_TRACK_LT_2': ('', '일요일 라이트닝 토크 YouTube 링크'),
+    'YOUTUBE_TRACK_CLOSING': ('', '클로징 YouTube 링크'),
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {

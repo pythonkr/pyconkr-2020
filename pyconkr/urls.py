@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from django.urls import re_path
 from django.views.generic import RedirectView
 
+from constance import config
+
 from .views import index, robots
 from .views import login, logout
 
@@ -35,6 +37,13 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/announcement/', include('program.urls')),
     re_path(r'^2020/profile/', include('user.urls')),
     re_path(r'^2020/coc/$', RedirectView.as_view(url="/2020/about/coc", permanent=False)),
+
+    # YouTube redirect
+    re_path(r'2020/lt/sat', RedirectView.as_view(url=config.YOUTUBE_TRACK_LT_1, permanent=False)),
+    re_path(r'2020/LT/sat', RedirectView.as_view(url=config.YOUTUBE_TRACK_LT_1, permanent=False)),
+    re_path(r'2020/lt/sun', RedirectView.as_view(url=config.YOUTUBE_TRACK_LT_2, permanent=False)),
+    re_path(r'2020/LT/sun', RedirectView.as_view(url=config.YOUTUBE_TRACK_LT_2, permanent=False)),
+    re_path(r'2020/closing', RedirectView.as_view(url=config.YOUTUBE_TRACK_CLOSING, permanent=False)),
 
     re_path(r'^2020/sponsor/', include('sponsor.urls')),
     re_path(r'^2020/program/', include('program.urls')),
