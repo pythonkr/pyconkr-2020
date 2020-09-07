@@ -276,13 +276,13 @@ class VirtualBoothDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
         user = self.request.user
+        KST, now = get_KST_now()
 
-        is_editable = user.is_authenticated and (
+        is_editable = now < constance.config.VIRTUAL_BOOTH_OPEN and user.is_authenticated and (
                 Sponsor.objects.filter(creator=user, accepted=True, paid_at__isnull=False,
                                        slug=self.kwargs['slug']).exists()
                 or Sponsor.objects.filter(manager_id=user, accepted=True, paid_at__isnull=False,
                                           slug=self.kwargs['slug']).exists())
-        context['EDITABLE'] = is_editable
         context['is_editable'] = is_editable
 
         return context
@@ -294,7 +294,9 @@ class VirtualBoothUpdate(UpdateView):
     template_name = "sponsor/virtual_booth_update.html"
 
     def get(self, request, *args, **kwargs):
-        is_editable = self.request.user.is_authenticated and (
+        KST, now = get_KST_now()
+
+        is_editable = now < constance.config.VIRTUAL_BOOTH_OPEN and self.request.user.is_authenticated and (
                 Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at__isnull=False,
                                        slug=self.kwargs['slug']).exists()
                 or Sponsor.objects.filter(manager_id=self.request.user, accepted=True, paid_at__isnull=False,
