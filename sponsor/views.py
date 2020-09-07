@@ -1,4 +1,4 @@
-from crispy_forms.layout import Submit, Button
+from crispy_forms.layout import Submit
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, View
 from django.contrib.messages.views import SuccessMessageMixin
@@ -9,11 +9,9 @@ from .models import Sponsor, SponsorLevel
 from .forms import SponsorForm, VirtualBoothUpdateForm
 from pyconkr.views import get_KST_now
 import constance
-import datetime
 from program import slack
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponseForbidden
 
 
 class SponsorDetail(DetailView):
@@ -67,7 +65,7 @@ class SponsorProposalDetail(DetailView):
         else:
             return redirect('sponsor_propose')
 
-        # 제출상태로 변경처리
+        # 제출 상태로 변경 처리
         if request.GET.get('submit') == '1':
             cfs_obj = written_cfs.get()
             cfs_obj.submitted = True
@@ -214,7 +212,6 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
             return Sponsor.objects.get(manager_id=self.request.user)
 
     def get_success_url(self):
-        # slack.cfs_updated(self.request.META['HTTP_ORIGIN'], self.object.id, self.object.name)
         if self.go_proposal == '1':
             return reverse('sponsor_proposal_detail')
         else:
@@ -324,7 +321,7 @@ class LoginForSponsor(View):
         user = authenticate(username=username, password=password)
 
         if user is not None:
-            # 로그인 성공시 이전에 실패한 이력 삭제
+            # 로그인 성공 시 이전에 실패한 이력 삭제
             try:
                 del request.session['retry']
             except KeyError:
