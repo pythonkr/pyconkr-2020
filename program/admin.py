@@ -1,19 +1,15 @@
 from django import forms
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth.models import User
-from django.contrib.flatpages.models import FlatPage
-from django.db import models
 from django_summernote.admin import SummernoteModelAdmin
 from pyconkr.admin import SummernoteWidgetWithCustomToolbar
 from modeltranslation.admin import TranslationAdmin
 from sorl.thumbnail.admin import AdminImageMixin
-from import_export.admin import ImportExportModelAdmin, ImportMixin
+from import_export.admin import ImportExportModelAdmin
 from .models import ProgramCategory, Proposal, OpenReview, LightningTalk, Sprint
 
 
 class ProgramCategoryAdmin(TranslationAdmin, ImportExportModelAdmin):
-    list_display = ('id', 'name', 'slug', 'visible')
+    list_display = ('id', 'name', 'slug', 'visible',)
 
 
 admin.site.register(ProgramCategory, ProgramCategoryAdmin)
@@ -78,7 +74,7 @@ class LightningTalkAdminForm(forms.ModelForm):
 
 class LightningTalkAdmin(admin.ModelAdmin):
     form = LightningTalkAdminForm
-    list_display = ('owner', 'title', 'day', 'accepted', 'created_at')
+    list_display = ('owner', 'title', 'day', 'accepted', 'created_at',)
 
 
 admin.site.register(LightningTalk, LightningTalkAdmin)

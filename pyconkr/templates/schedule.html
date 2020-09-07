@@ -160,14 +160,16 @@
                         <div class="youtube_btn">
                             <a target="_blank" href="{{ track4 }}">{% trans 'YouTube 바로 가기' %}</a>
                         </div>
-                    {% endif %}</th>
+                    {% endif %}
+                </th>
                 <th>
                     105
                     {% if live_weekday == 6 %}
                         <div class="youtube_btn">
                             <a target="_blank" href="{{ track5 }}">{% trans 'YouTube 바로 가기' %}</a>
                         </div>
-                    {% endif %}</th>
+                    {% endif %}
+                </th>
             </tr>
             {% for time, list in sun.items %}
                 <tr {% if time == live %}class="live"{% endif %}>
