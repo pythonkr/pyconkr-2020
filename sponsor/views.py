@@ -7,7 +7,7 @@ from django.urls import reverse
 
 from .models import Sponsor, SponsorLevel
 from .forms import SponsorForm, VirtualBoothUpdateForm
-from pyconkr.views import get_now
+from pyconkr.views import get_KST_now
 import constance
 import datetime
 from program import slack
@@ -49,7 +49,7 @@ class SponsorProposalHome(ListView):
                     level=level, accepted=True).__len__(), limit=level.limit)
         context['remains'] = level_remain
 
-        KST, now = get_now()
+        KST, now = get_KST_now()
         context['CFS_start_at'] = constance.config.CFS_OPEN.replace(tzinfo=KST)
         context['CFS_finish_at'] = constance.config.CFS_CLOSE.replace(tzinfo=KST)
 
@@ -108,7 +108,7 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
         if has_submitted_cfs is True:
             return redirect('sponsor_proposal_detail')
 
-        KST, now = get_now()
+        KST, now = get_KST_now()
         opening = constance.config.CFS_OPEN.astimezone(KST)
         deadline = constance.config.CFS_CLOSE.astimezone(KST)
 
@@ -221,6 +221,17 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
             return reverse('sponsor_detail', kwargs={'slug': self.object.slug})
 
 
+def is_sponsor_manager(user):
+    managers = []
+    for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
+        managers.append(sponsor.creator)
+        managers.append(sponsor.manager_id)
+    for super_user in User.objects.filter(is_staff=True):
+        managers.append(super_user)
+
+    return user in managers
+
+
 class VirtualBooth(ListView):
     queryset = Sponsor.objects.filter(accepted=True, paid_at__isnull=False)
     template_name = "sponsor/virtual_booth_home.html"
@@ -238,16 +249,9 @@ class VirtualBooth(ListView):
         except Sponsor.DoesNotExist:
             pass
 
-        managers = []
-        for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
-            managers.append(sponsor.creator)
-            managers.append(sponsor.manager_id)
-        for super_user in User.objects.filter(is_staff=True):
-            managers.append(super_user)
-
-        KST, now = get_now()
-        context['is_manager'] = self.request.user in managers
-        context['is_opened'] = constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(tz=KST)
+        KST, now = get_KST_now()
+        context['is_manager'] = is_sponsor_manager(self.request.user)
+        context['is_opened'] = constance.config.VIRTUAL_BOOTH_OPEN <= now
 
         return context
 
@@ -257,16 +261,8 @@ class VirtualBoothDetail(DetailView):
     template_name = "sponsor/virtual_booth_detail.html"
 
     def get(self, request, *args, **kwargs):
-        managers = []
-        for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
-            managers.append(sponsor.creator)
-            managers.append(sponsor.manager_id)
-        for super_user in User.objects.filter(is_staff=True):
-            managers.append(super_user)
-
-        KST, now = get_now()
-        is_visible = self.request.user in managers \
-                     or constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(tz=KST)
+        KST, now = get_KST_now()
+        is_visible = is_sponsor_manager(self.request.user) or constance.config.VIRTUAL_BOOTH_OPEN <= now
         if not is_visible:
             return redirect('virtual_booth_home')
 
