@@ -83,13 +83,15 @@
                     </th>
                     {% for l in list %}
                         {% if l != '' %}
-                            {% if l.category == keynote or l.category == lt %}
+                            {% if l.category == keynote or l.category == lt or l.category == opening %}
                                 <td colspan="3">
                                     <div class="program">
                                         {% if l.category == keynote %}
                                             <a href="{% url 'keynote' %}#{{ l.pk }}">{{ l }}</a>
-                                        {% else %}
+                                        {% elif l.category != opening %}
                                             <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
+                                        {% elif l.category == opening %}
+                                            {{ l }}
                                         {% endif %}
                                         {% if l.language == 'E' %}
                                             <small>
@@ -97,7 +99,7 @@
                                             </small>
                                         {% endif %}
                                     </div>
-                                    {% if l.category != lt %}
+                                    {% if l.category != lt and l.category != opening %}
                                         <div class="speaker">
                                             {% thumbnail l.user.profile.image "128x128" crop="center" as im %}
                                                 <img src="{{ im.url }}" alt="photo of {{ l.user.profile.name }}">
@@ -107,12 +109,10 @@
                                             {{ l.user.profile.name }}
                                         </div>
                                     {% endif %}
-                                    {% if l.category == lt %}
-                                        {% if live == time %}
-                                            <div class="youtube_btn">
-                                                <a target="_blank" href="{{ lt1 }}">{% trans 'YouTube 바로 가기' %}</a>
-                                            </div>
-                                        {% endif %}
+                                    {% if l.category == lt and live == time %}
+                                        <div class="youtube_btn">
+                                            <a target="_blank" href="{{ lt1 }}">{% trans 'YouTube 바로 가기' %}</a>
+                                        </div>
                                     {% endif %}
                                 </td>
                             {% else %}
@@ -190,17 +190,21 @@
                     </th>
                     {% for l in list %}
                         {% if l != '' %}
-                            {% if l.category == lt %}
+                            {% if l.category == lt or l.category == closing %}
                                 <td colspan="2">
                                     <div class="program">
-                                        <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
+                                        {% if l.category != closing %}
+                                            <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
+                                        {% else %}
+                                            {{ l }}
+                                        {% endif %}
                                         {% if l.language == 'E' %}
                                             <small>
                                                 <span class="label label-english-session">{% trans "Schedule English Label" %}</span>
                                             </small>
                                         {% endif %}
                                     </div>
-                                    {% if live == time %}
+                                    {% if l.category == lt and live == time %}
                                         <div class="youtube_btn">
                                             <a target="_blank" href="{{ lt2 }}">{% trans 'YouTube 바로 가기' %}</a>
                                         </div>

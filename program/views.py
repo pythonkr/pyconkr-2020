@@ -148,6 +148,8 @@ class ProgramSchedule(TemplateView):
         try:
             context['keynote'] = ProgramCategory.objects.get(slug="keynote")
             context['lt'] = ProgramCategory.objects.get(slug="lightning_talk")
+            context['opening'] = ProgramCategory.objects.get(slug="opening")
+            context['closing'] = ProgramCategory.objects.get(slug="closing")
             context['pkot'] = ProgramCategory.objects.get(slug="pycon_korea_organizing_team")
         except ProgramCategory.DoesNotExist:
             pass
