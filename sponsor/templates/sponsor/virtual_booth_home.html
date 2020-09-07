@@ -29,7 +29,7 @@
     {% if is_empty %}
         <h4 class="text-center">{% trans "Ready for content" %}</h4>
     {% else %}
-        {% if not is_opened and not is_manager %}
+        {% if not is_manager and not is_opened %}
             <h4 class="text-center">{% trans "Ready for content" %}</h4>
         {% else %}
             <div class="card">
