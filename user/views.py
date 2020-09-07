@@ -16,7 +16,8 @@ class ProfileDetail(DetailView):
         if not self.request.user.profile.name or not self.request.user.email or not self.request.user.profile.user_code:
             return redirect('profile_edit')
 
-        if Ticket.objects.filter(user=self.request.user).exists() and not Ticket.objects.get(user=self.request.user).agree_coc:
+        if Ticket.objects.filter(user=self.request.user).exists() \
+                and not Ticket.objects.get(user=self.request.user).agree_coc:
             return redirect('registration_index')
 
         return super(ProfileDetail, self).dispatch(request, *args, **kwargs)
@@ -31,7 +32,10 @@ class ProfileDetail(DetailView):
         if self.request.user.is_authenticated:
             if self.request.user == self.object.user:
                 context['editable'] = True
-        context['sponsors'] = Sponsor.objects.filter(creator=self.request.user)
+        if Sponsor.objects.filter(creator=self.request.user).exists():
+            context['sponsors'] = Sponsor.objects.filter(creator=self.request.user)
+        elif Sponsor.objects.filter(manager_id=self.request.user).exists():
+            context['sponsors'] = Sponsor.objects.filter(manager_id=self.request.user)
         context['proposals'] = Proposal.objects.filter(user=self.request.user)
         context['title'] = _("Profile")
 
