@@ -283,6 +283,7 @@ class VirtualBoothDetail(DetailView):
                 or Sponsor.objects.filter(manager_id=user, accepted=True, paid_at__isnull=False,
                                           slug=self.kwargs['slug']).exists())
         context['EDITABLE'] = is_editable
+        context['is_editable'] = is_editable
 
         return context
 
