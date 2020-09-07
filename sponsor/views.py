@@ -4,16 +4,16 @@ from django.views.generic import ListView, DetailView, UpdateView, CreateView, V
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.urls import reverse
+
 from .models import Sponsor, SponsorLevel
 from .forms import SponsorForm, VirtualBoothUpdateForm
+from pyconkr.views import get_now
 import constance
 import datetime
 from program import slack
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseForbidden
-
-KST = datetime.timezone(datetime.timedelta(hours=9))
 
 
 class SponsorDetail(DetailView):
@@ -49,10 +49,9 @@ class SponsorProposalHome(ListView):
                     level=level, accepted=True).__len__(), limit=level.limit)
         context['remains'] = level_remain
 
-        KST = datetime.timezone(datetime.timedelta(hours=9))
+        KST, now = get_now()
         context['CFS_start_at'] = constance.config.CFS_OPEN.replace(tzinfo=KST)
-        context['CFS_finish_at'] = constance.config.CFS_CLOSE.replace(
-            tzinfo=KST)
+        context['CFS_finish_at'] = constance.config.CFS_CLOSE.replace(tzinfo=KST)
 
         return context
 
@@ -109,9 +108,9 @@ class SponsorCreate(SuccessMessageMixin, CreateView):
         if has_submitted_cfs is True:
             return redirect('sponsor_proposal_detail')
 
+        KST, now = get_now()
         opening = constance.config.CFS_OPEN.astimezone(KST)
         deadline = constance.config.CFS_CLOSE.astimezone(KST)
-        now = datetime.datetime.now(tz=KST)
 
         if now < opening:
             return render(request, 'simple.html', {
@@ -246,6 +245,7 @@ class VirtualBooth(ListView):
         for super_user in User.objects.filter(is_staff=True):
             managers.append(super_user)
 
+        KST, now = get_now()
         context['is_manager'] = self.request.user in managers
         context['is_opened'] = constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(tz=KST)
 
@@ -264,8 +264,9 @@ class VirtualBoothDetail(DetailView):
         for super_user in User.objects.filter(is_staff=True):
             managers.append(super_user)
 
+        KST, now = get_now()
         is_visible = self.request.user in managers \
-            or constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(tz=KST)
+                     or constance.config.VIRTUAL_BOOTH_OPEN <= datetime.datetime.now(tz=KST)
         if not is_visible:
             return redirect('virtual_booth_home')
 
@@ -279,6 +280,7 @@ class VirtualBoothDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(VirtualBoothDetail, self).get_context_data(**kwargs)
         user = self.request.user
+
         is_editable = user.is_authenticated and (
                 Sponsor.objects.filter(creator=user, accepted=True, paid_at__isnull=False,
                                        slug=self.kwargs['slug']).exists()
@@ -336,4 +338,3 @@ class LoginForSponsor(View):
             # 로그인 실패
             request.session['retry'] = True
             return redirect('login_for_sponsor')
-

@@ -1,6 +1,7 @@
 import random
 import constance
 import datetime
+from pyconkr.views import get_now
 from functools import reduce
 
 from django.shortcuts import render, redirect
@@ -16,12 +17,6 @@ from .models import ProgramCategory, Proposal, OpenReview, LightningTalk, Sprint
 from .forms import ProposalForm, OpenReviewCategoryForm, OpenReviewCommentForm, OpenReviewLanguageForm, \
     LightningTalkForm, ProgramUpdateForm
 from .slack import new_cfp_registered, cfp_updated, program_updated
-
-
-def get_now():
-    KST = datetime.timezone(datetime.timedelta(hours=9))
-    now = datetime.datetime.now(tz=KST)
-    return KST, now
 
 
 class ContributionHome(TemplateView):
