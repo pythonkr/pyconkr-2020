@@ -161,7 +161,7 @@ class ProgramSchedule(TemplateView):
         context['track5'] = constance.config.YOUTUBE_TRACK_5
         context['lt1'] = constance.config.YOUTUBE_TRACK_LT_1
         context['lt2'] = constance.config.YOUTUBE_TRACK_LT_2
-        context['closing'] = constance.config.YOUTUBE_TRACK_CLOSING
+        context['closing_link'] = constance.config.YOUTUBE_TRACK_CLOSING
 
         return context
 
