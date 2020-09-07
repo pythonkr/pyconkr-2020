@@ -62,14 +62,16 @@
                         <div class="youtube_btn">
                             <a target="_blank" href="{{ track2 }}">{% trans 'YouTube 바로 가기' %}</a>
                         </div>
-                    {% endif %}</th>
+                    {% endif %}
+                </th>
                 <th>
                     103
                     {% if live_weekday == 5 %}
                         <div class="youtube_btn">
                             <a target="_blank" href="{{ track3 }}">{% trans 'YouTube 바로 가기' %}</a>
                         </div>
-                    {% endif %}</th>
+                    {% endif %}
+                </th>
             </tr>
             {% for time, list in sat.items %}
                 <tr {% if time == live %}class="live"{% endif %}>
@@ -104,6 +106,13 @@
                                             {% endthumbnail %}
                                             {{ l.user.profile.name }}
                                         </div>
+                                    {% endif %}
+                                    {% if l.category == lt %}
+                                        {% if live == time %}
+                                            <div class="youtube_btn">
+                                                <a target="_blank" href="{{ lt1 }}">{% trans 'YouTube 바로 가기' %}</a>
+                                            </div>
+                                        {% endif %}
                                     {% endif %}
                                 </td>
                             {% else %}
@@ -191,6 +200,11 @@
                                             </small>
                                         {% endif %}
                                     </div>
+                                    {% if live == time %}
+                                        <div class="youtube_btn">
+                                            <a target="_blank" href="{{ lt2 }}">{% trans 'YouTube 바로 가기' %}</a>
+                                        </div>
+                                    {% endif %}
                                 </td>
                             {% else %}
                                 <td>
