@@ -136,14 +136,28 @@ class ProgramSchedule(TemplateView):
         KST, now = get_KST_now()
         if now.date() == datetime.date(2020, 9, 27):
             context['sunday'] = True
-        for time in list(sat__sorted.keys()) + list(sun__sorted.keys()):
+
+        for time in sat__sorted.keys():
+            time = (time + datetime.timedelta(hours=9)).replace(tzinfo=KST)
+            if ProgramCategory.objects.filter(slug="opening").exists():
+                if sat__sorted[time][0].category == ProgramCategory.objects.get(slug="opening"):
+                    if time < now < time + datetime.timedelta(minutes=10):
+                        context['live'] = time
+                        context['live_weekday'] = 5
+                else:
+                    if time < now < time + datetime.timedelta(minutes=40):
+                        context['live'] = time
+                        context['live_weekday'] = 5
+            else:
+                if time < now < time + datetime.timedelta(minutes=40):
+                    context['live'] = time
+                    context['live_weekday'] = 5
+
+        for time in sun__sorted.keys():
             time = (time + datetime.timedelta(hours=9)).replace(tzinfo=KST)
             if time < now < time + datetime.timedelta(minutes=40):
                 context['live'] = time
-                if time.weekday() == 5:
-                    context['live_weekday'] = 5
-                elif time.weekday() == 6:
-                    context['live_weekday'] = 6
+                context['live_weekday'] = 6
 
         try:
             context['keynote'] = ProgramCategory.objects.get(slug="keynote")
