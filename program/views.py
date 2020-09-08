@@ -254,7 +254,7 @@ class ProposalDetail(DetailView):
         context = super(ProposalDetail, self).get_context_data(**kwargs)
         context['title'] = _("Proposal")
         context['proposal'] = Proposal.objects.get(user=self.request.user, id=self.kwargs['pk'])
-        context['EDIT_AVAILABLE'] = edit_proposal_available_checker(self.request)
+        context['is_editable'] = edit_proposal_available_checker(self.request)
         return context
 
 
