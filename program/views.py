@@ -421,7 +421,7 @@ def edit_proposal_available_checker(request):
         print('CFP 제출 기간에는 수정 가능')
         flag = True
     # 발표 시간표 공개 후 불가능
-    elif now > schedule_open:
+    if now > schedule_open:
         print('발표 시간표 공개 후에는 수정 불가능, 발표 소개 업데이트 폼으로 수정 가능')
         flag = False
     return flag
