@@ -37,6 +37,9 @@
             {% if is_editable %}
                 <a class="a_btn" href="{% url 'proposal-update' proposal.id %}">{% trans "수정하기" %}</a>
             {% endif %}
+            {% if introduction_editable %}
+                <a class="a_btn" href="{% url 'talk-update' proposal.id %}">{% trans "발표 소개 수정하기" %}</a>
+            {% endif %}
         </div>
 </div>
 {% endblock %}

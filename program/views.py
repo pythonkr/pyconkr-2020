@@ -255,6 +255,9 @@ class ProposalDetail(DetailView):
         context['title'] = _("Proposal")
         context['proposal'] = Proposal.objects.get(user=self.request.user, id=self.kwargs['pk'])
         context['is_editable'] = edit_proposal_available_checker(self.request)
+
+        KST, now = get_KST_now()
+        context['introduction_editable'] = now > constance.config.SCHEDULE_OPEN
         return context
 
 
