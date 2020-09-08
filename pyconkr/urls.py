@@ -15,7 +15,8 @@ from .views import index, robots
 from .views import login, logout
 
 from program.views import OpenReviewUpdate, OpenReviewList, OpenReviewHome, OpenReviewResult, ContributionHome, \
-    LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate
+    LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate, LightningTalkRedirect, \
+    ClosingRedirect
 from registration.views import PatronList
 from mailing.views import NewsLetterAdd, NewsLetterRemove, NewsLetterRemoveConfirm
 
@@ -39,11 +40,11 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/coc/$', RedirectView.as_view(url="/2020/about/coc", permanent=False)),
 
     # YouTube redirect
-    re_path(r'^2020/lt/sat/$', RedirectView.as_view(url=config.YOUTUBE_TRACK_LT_1, permanent=False)),
-    re_path(r'^2020/LT/sat/$', RedirectView.as_view(url=config.YOUTUBE_TRACK_LT_1, permanent=False)),
-    re_path(r'^2020/lt/sun/$', RedirectView.as_view(url=config.YOUTUBE_TRACK_LT_2, permanent=False)),
-    re_path(r'^2020/LT/sun/$', RedirectView.as_view(url=config.YOUTUBE_TRACK_LT_2, permanent=False)),
-    re_path(r'^2020/closing/$', RedirectView.as_view(url=config.YOUTUBE_TRACK_CLOSING, permanent=False)),
+    re_path(r'^2020/lt/sat/$', LightningTalkRedirect.as_view()),
+    re_path(r'^2020/LT/sat/$', LightningTalkRedirect.as_view()),
+    re_path(r'^2020/lt/sun/$', LightningTalkRedirect.as_view()),
+    re_path(r'^2020/LT/sun/$', LightningTalkRedirect.as_view()),
+    re_path(r'^2020/closing/$', ClosingRedirect.as_view()),
 
     re_path(r'^2020/sponsor/', include('sponsor.urls')),
     re_path(r'^2020/program/', include('program.urls')),
