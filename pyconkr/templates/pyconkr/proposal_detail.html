@@ -34,8 +34,11 @@
         </div>
         <div class="a_btn_container">
             <a class="a_btn" href="{% url 'proposal-list' %}">{% trans "목록 보기" %}</a>
-            {% if EDIT_AVAILABLE %}
+            {% if is_editable %}
                 <a class="a_btn" href="{% url 'proposal-update' proposal.id %}">{% trans "수정하기" %}</a>
+            {% endif %}
+            {% if introduction_editable %}
+                <a class="a_btn" href="{% url 'talk-update' proposal.id %}">{% trans "발표 소개 수정하기" %}</a>
             {% endif %}
         </div>
 </div>

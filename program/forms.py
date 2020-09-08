@@ -142,8 +142,9 @@ class LightningTalkForm(forms.ModelForm):
 class ProgramUpdateForm(forms.ModelForm):
     class Meta:
         model = Proposal
-        fields = ('introduction', 'slide_url',)
+        fields = ('title', 'introduction', 'slide_url',)
         labels = {
+            'title': _('Proposal title (required)'),
             'introduction': _('발표 소개 문구'),
             'slide_url': _('발표 자료 URL'),
         }

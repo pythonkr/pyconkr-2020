@@ -254,7 +254,10 @@ class ProposalDetail(DetailView):
         context = super(ProposalDetail, self).get_context_data(**kwargs)
         context['title'] = _("Proposal")
         context['proposal'] = Proposal.objects.get(user=self.request.user, id=self.kwargs['pk'])
-        context['EDIT_AVAILABLE'] = edit_proposal_available_checker(self.request)
+        context['is_editable'] = edit_proposal_available_checker(self.request)
+
+        KST, now = get_KST_now()
+        context['introduction_editable'] = now > constance.config.SCHEDULE_OPEN
         return context
 
 
@@ -407,6 +410,7 @@ def edit_proposal_available_checker(request):
     cfp_close = constance.config.CFP_CLOSE.replace(tzinfo=KST)
     open_review_start = constance.config.OPEN_REVIEW_START.replace(tzinfo=KST)
     open_review_finish = constance.config.OPEN_REVIEW_FINISH.replace(tzinfo=KST)
+    schedule_open = constance.config.SCHEDULE_OPEN.replace(tzinfo=KST)
 
     # CFP 마감 후 오픈리뷰 시작 전
     if cfp_close < now < open_review_start and Proposal.objects.filter(user=request.user).exists():
@@ -419,6 +423,10 @@ def edit_proposal_available_checker(request):
     elif cfp_open < now < cfp_close:
         print('CFP 제출 기간에는 수정 가능')
         flag = True
+    # 발표 시간표 공개 후 불가능
+    if now > schedule_open:
+        print('발표 시간표 공개 후에는 수정 불가능, 발표 소개 업데이트 폼으로 수정 가능')
+        flag = False
     return flag
 
 
