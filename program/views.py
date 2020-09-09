@@ -140,7 +140,7 @@ class ProgramSchedule(TemplateView):
         for time in sat__sorted.keys():
             time = (time + datetime.timedelta(hours=9)).replace(tzinfo=KST)
             if ProgramCategory.objects.filter(slug="opening").exists():
-                if sat__sorted[time][0].category == ProgramCategory.objects.get(slug="opening"):
+                if sat__sorted[time][0] != '' and sat__sorted[time][0].category == ProgramCategory.objects.get(slug="opening"):
                     if time < now < time + datetime.timedelta(minutes=10):
                         context['live'] = time
                         context['live_weekday'] = 5
