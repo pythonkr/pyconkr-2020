@@ -96,7 +96,6 @@
 
   table {
     margin: 1rem auto;
-    width: auto;
     word-break: keep-all;
     .no-limit {
       display: none;
@@ -258,6 +257,10 @@
       font-size: 1rem;
       margin-right: 2px;
     }
+  }
+
+  .keynotes > .head > img {
+    width: 75%;
   }
 }
 
