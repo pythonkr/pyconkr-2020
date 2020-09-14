@@ -636,6 +636,10 @@ input[type="file"] {
         margin-top: 0;
         margin-bottom: 5px;
       }
+
+      .bio > p {
+        white-space: pre-wrap;
+      }
     }
   }
 }

@@ -51,6 +51,9 @@ class PatronAdmin(ImportExportModelAdmin, admin.ModelAdmin):
                     ticket.price = p.price
                     ticket.save()
                     p.delete()
+                else:
+                    if ticket.price == p.price:
+                        p.delete()
             else:
                 ticket = Ticket(user=user, is_patron=True, price=p.price)
                 ticket.save()
