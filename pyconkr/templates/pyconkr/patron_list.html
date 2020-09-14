@@ -31,7 +31,7 @@
               </h4>
               <div class="bio">
               {% if obj.user.profile.bio %}
-                  <p>{{ obj.user.profile.bio|escape }}</p>
+                  <p>{{ obj.user.profile.bio|escape|urlize }}</p>
               {% else %}
                   <p>후원해주셔서 감사합니다. Thank you for your contribution.</p>
               {% endif %}
