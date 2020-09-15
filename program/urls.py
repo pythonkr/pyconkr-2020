@@ -9,7 +9,7 @@ from django.views.decorators.cache import cache_page
 admin.autodiscover()
 
 urlpatterns = [
-    re_path(r'^talks/$', views.ProgramList.as_view(), name='talk-list'),
+    re_path(r'^talks/$', cache_page(60 * 60)(views.ProgramList.as_view()), name='talk-list'),
     re_path(r'^talk/(?P<pk>\d+)$', views.ProgramDetail.as_view(), name='talk'),
     re_path(r'^talk/(?P<pk>\d+)/edit/$', login_required(views.ProgramUpdate.as_view()), name='talk-update'),
     re_path(r'^talk-schedule/$', cache_page(5 * 60)(views.ProgramSchedule.as_view()), name='talk-schedule'),

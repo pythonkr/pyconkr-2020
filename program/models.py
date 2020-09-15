@@ -51,7 +51,8 @@ class Proposal(models.Model):
     category = models.ForeignKey(
         ProgramCategory, on_delete=models.SET_DEFAULT, null=True, blank=True, default=14)
     accepted = models.BooleanField(default=False)
-    introduction = models.TextField(max_length=1000, null=True, blank=True, help_text=_('발표 소개 페이지에 들어가는 내용입니다.'))
+    introduction = models.TextField(max_length=1000, null=True, blank=True,
+                                    help_text=_('발표 소개 페이지에 들어가는 내용입니다. 변경 사항은 최대 60분 이내에 적용됩니다.'))
     video_url = models.CharField(max_length=255, null=True, blank=True, help_text=_('발표 영상 URL'))
     slide_url = models.CharField(max_length=255, null=True, blank=True, help_text=_('발표 자료 URL'))
     video_open_at = models.DateTimeField(null=True, blank=True, help_text=_('파이콘 한국 유튜브에 공개되는 시간'))
