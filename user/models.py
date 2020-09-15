@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 from django.contrib.auth import get_user_model
 from sorl.thumbnail import ImageField as SorlImageField
 from django.utils.translation import ugettext as _
+
 User = get_user_model()
 
 
@@ -19,7 +20,8 @@ class Profile(models.Model):
     organization = models.CharField(max_length=100, null=True, blank=True, help_text=_(
         '여기에 기입한 조직 이름이 행사 당일 이름표에 표시됩니다.'))
     image = SorlImageField(upload_to=profile_image, null=True, blank=True)
-    bio = models.TextField(max_length=4000, null=True, blank=True)
+    bio = models.TextField(max_length=4000, null=True, blank=True,
+                           help_text=_('이 내용이 개인 후원자 목록에 노출됩니다. 변경 사항은 최대 60분 이내에 적용됩니다.'))
     user_code = models.CharField(max_length=20, null=True, blank=True)
     agreement_receive_advertising_info = models.BooleanField(default=False)
 
