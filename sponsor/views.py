@@ -275,11 +275,12 @@ class VirtualBoothDetail(DetailView):
         user = self.request.user
         KST, now = get_KST_now()
 
-        is_editable = now < constance.config.VIRTUAL_BOOTH_OPEN and user.is_authenticated and (
-                Sponsor.objects.filter(creator=user, accepted=True, paid_at__isnull=False,
-                                       slug=self.kwargs['slug']).exists()
-                or Sponsor.objects.filter(manager_id=user, accepted=True, paid_at__isnull=False,
-                                          slug=self.kwargs['slug']).exists())
+        is_editable = now < constance.config.VIRTUAL_BOOTH_EDIT_FINISH \
+                      and now < constance.config.VIRTUAL_BOOTH_OPEN and user.is_authenticated and (
+                              Sponsor.objects.filter(creator=user, accepted=True, paid_at__isnull=False,
+                                                     slug=self.kwargs['slug']).exists()
+                              or Sponsor.objects.filter(manager_id=user, accepted=True, paid_at__isnull=False,
+                                                        slug=self.kwargs['slug']).exists())
         context['is_editable'] = is_editable
 
         return context
@@ -293,11 +294,13 @@ class VirtualBoothUpdate(UpdateView):
     def get(self, request, *args, **kwargs):
         KST, now = get_KST_now()
 
-        is_editable = now < constance.config.VIRTUAL_BOOTH_OPEN and self.request.user.is_authenticated and (
-                Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at__isnull=False,
-                                       slug=self.kwargs['slug']).exists()
-                or Sponsor.objects.filter(manager_id=self.request.user, accepted=True, paid_at__isnull=False,
-                                          slug=self.kwargs['slug']).exists())
+        is_editable = now < constance.config.VIRTUAL_BOOTH_EDIT_FINISH \
+                    and now < constance.config.VIRTUAL_BOOTH_OPEN and self.request.user.is_authenticated and (
+                              Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at__isnull=False,
+                                                     slug=self.kwargs['slug']).exists()
+                              or Sponsor.objects.filter(manager_id=self.request.user, accepted=True,
+                                                        paid_at__isnull=False,
+                                                        slug=self.kwargs['slug']).exists())
         if not is_editable:
             return redirect('virtual_booth_home')
         return super().get(request, *args, **kwargs)
