@@ -20,10 +20,6 @@
   -moz-transition: background 0.2s;
   -o-transition: background 0.2s;
   transition: background 0.2s;
-
-  &:lang(en) {
-    font-weight: 600;
-  }
 }
 
 html {
