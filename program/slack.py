@@ -90,3 +90,20 @@ def program_updated(hostname, pk, title):
         slack.chat.post_message(
             CFP_CHANNEL, text=text, attachments=[attachment], icon_emoji=':female_mage:'
         )
+
+
+def virtual_booth_updated(hostname, slug, name):
+    if token:
+        slack = Slacker(token)
+        text = 'Virtual booth가 업데이트 되었어요!'
+        url = hostname + reverse('virtual_booth', kwargs={'slug': slug})
+
+        attachment = {
+            "color": 'good',
+            "title": '수정된 virtual booth',
+            "text": '후원사: {}\n 주소: {}'.format(name, url),
+        }
+
+        slack.chat.post_message(
+            CFS_CHANNEL, text=text, attachments=[attachment], icon_emoji=':female_mage:'
+        )
