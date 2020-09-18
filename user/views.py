@@ -1,8 +1,8 @@
-from django.views.generic import DetailView, UpdateView
+from django.views.generic import DetailView, UpdateView, ListView
 from django.utils.translation import ugettext as _
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect, get_object_or_404
-from .models import Profile
+from .models import Profile, Staff
 from sponsor.models import Sponsor
 from .forms import ProfileForm
 from program.models import Proposal
@@ -66,3 +66,8 @@ class ProfileUpdate(SuccessMessageMixin, UpdateView):
         context = super(ProfileUpdate, self).get_context_data(**kwargs)
         context['title'] = _("Update profile")
         return context
+
+
+class StaffList(ListView):
+    model = Staff
+    template_name = "user/staff_list.html"

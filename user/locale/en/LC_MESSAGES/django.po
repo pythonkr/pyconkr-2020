@@ -2,13 +2,11 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-18 22:37+0900\n"
+"POT-Creation-Date: 2020-09-18 23:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -162,10 +160,8 @@ msgid "수정하기"
 msgstr "Edit"
 
 #: .\user\templates\user\profile_detail.html:81
-#, fuzzy
-#| msgid "수정하기"
 msgid "Virtual booth 수정하기"
-msgstr "Edit"
+msgstr "Edit Virtual booth"
 
 #: .\user\templates\user\profile_detail.html:91
 msgid "My Ticket"
@@ -178,6 +174,34 @@ msgstr ""
 #: .\user\templates\user\social_signup_form.html:5
 msgid "Social Sign-up"
 msgstr ""
+
+#: .\user\templates\user\staff_list.html:7
+msgid "파이콘 한국 준비위원회"
+msgstr "PyCon Korea Organizing Team"
+
+#: .\user\templates\user\staff_list.html:12
+msgid ""
+"파이콘 한국 준비위원회는 2014년 조직되어, 올해 일곱 번째 한국에서의 파이콘 행"
+"사를 준비하고 있습니다."
+msgstr "PyCon Korea Organizing Team was first organized in 2014 and we're preparing our 7th PyCon in Korea."
+
+#: .\user\templates\user\staff_list.html:13
+msgid ""
+"준비위원회는 매년 신규 멤버를 모집하는 파이콘을 사랑하는 사람들의 열린 모임입"
+"니다."
+msgstr "PyCon Korea Organizing Team is an open community of Pythonistas recruiting new members every year."
+
+#: .\user\templates\user\staff_list.html:16
+msgid "준비위원회 명단 (가나다 순)"
+msgstr "PyCon Korea Organizing Team (Ordered alphabetically in Korean)"
+
+#: .\user\templates\user\staff_list.html:17
+msgid "파이콘 한국 2020는 다음과 같은 사람들이 준비하고 있습니다."
+msgstr "PyCon Korea 2020 is being prepared by the following people."
+
+#: .\user\templates\user\staff_list.html:47
+msgid "문의"
+msgstr "Contact"
 
 #: .\user\views.py:30
 msgid "프로필을 수정해주세요."
