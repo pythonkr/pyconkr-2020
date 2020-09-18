@@ -2,7 +2,7 @@
 @import "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap";
 
 * {
-  font-family: "Noto Sans KR", "Helvetica Neue", "Apple SD Gothic Neo",
+  font-family: "Nunito", "Noto Sans KR", "Helvetica Neue", "Apple SD Gothic Neo",
     "Nanum Gothic", "Arial", "Apple Gothic", sans-serif;
   letter-spacing: -0.02rem;
   line-height: 1.6rem;
@@ -41,7 +41,7 @@ h4,
 h5,
 h6,
 th {
-  font-family: "Montserrat", "Noto Sans KR", "Helvetica Neue",
+  font-family: "Nunito", "Montserrat", "Noto Sans KR", "Helvetica Neue",
     "Apple SD Gothic Neo", "Nanum Gothic", "Arial", "Apple Gothic", sans-serif;
   font-weight: 700;
   margin: 0.5rem 0;
@@ -91,14 +91,10 @@ input[type="file"] {
 }
 
 .navbar .navbar-nav > li > a {
-  font-family: "Montserrat", "Lato", "Helvetica Neue", "Apple SD Gothic Neo",
-    "Nanum Gothic", "Arial", "Apple Gothic", sans-serif;
+  font-family: "Nunito", "Montserrat", "Lato", "Helvetica Neue",
+    "Apple SD Gothic Neo", "Nanum Gothic", "Arial", "Apple Gothic", sans-serif;
   font-weight: 300;
   color: #333;
-}
-
-.navbar .navbar-nav > li > a:lang(en) {
-  font-size: 1rem;
 }
 
 .navbar .dropdown .caret {
@@ -116,8 +112,8 @@ input[type="file"] {
 }
 
 .navbar .dropdown-menu > li > a {
-  font-family: "Lato", "Helvetica Neue", "Apple SD Gothic Neo", "Nanum Gothic",
-    "Arial", "Apple Gothic", sans-serif;
+  font-family: "Nunito", "Lato", "Helvetica Neue", "Apple SD Gothic Neo",
+    "Nanum Gothic", "Arial", "Apple Gothic", sans-serif;
   font-weight: 300;
   color: #333;
   font-size: 1rem;
