@@ -45,6 +45,11 @@
                             [{% trans '발표 확정' %}]
                         {% endif %}
                         {{ proposal.title }}
+                        {% if proposal.accepted and proposal.video_url %}
+                            <a href="{{ proposal.video_url }}">
+                                <span class="badge badge-primary badge-pill">{% trans '발표 영상 확인하기' %}</span>
+                            </a>
+                        {% endif %}
                     </a>
                 </li>
             {% endfor %}
