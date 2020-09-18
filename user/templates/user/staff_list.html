@@ -39,9 +39,9 @@
                         </h4>
                         <div class="bio">
                             {% if obj.phrase %}
-                                <p>{{ obj.phrase|escape }}</p>
+                                <p>{{ obj.phrase|escape|urlize }}</p>
                             {% else %}
-                                <p>We are Pythonistas</p>
+                                <p>We are Pythonistas!</p>
                             {% endif %}
                         </div>
                     </div>
