@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block head-title %}{{ block.super }} | {% trans "파이콘 한국 준비위원회" %}{% endblock %}
+{% block og-title %}{% trans "파이콘 한국 준비위원회" %}{% endblock %}
+{% block title %}
+    {% trans "파이콘 한국 준비위원회" %}
+{% endblock %}
+
+{% block content %}
+    <p>
+        {% trans '파이콘 한국 준비위원회는 2014년 조직되어, 올해 일곱 번째 한국에서의 파이콘 행사를 준비하고 있습니다.' %}
+        {% trans '준비위원회는 매년 신규 멤버를 모집하는 파이콘을 사랑하는 사람들의 열린 모임입니다.' %}
+    </p>
+
+    <h3>{% trans '준비위원회 명단 (가나다 순)' %}</h3>
+    <p>{% trans '파이콘 한국 2020는 다음과 같은 사람들이 준비하고 있습니다.' %}</p>
+
+    <div class="margin-top-40">
+        <ul class="staffs">
+            {% for obj in object_list %}
+                <li>
+                    <div class="head">
+                        {% thumbnail obj.image "128x128" crop="center" as im %}
+                            <img class="media-patron" src="{{ im.url }}" alt="photo of {{ obj.name }}">
+                        {% empty %}
+                            <img class="media-patron" src="{% static 'image/anonymous.png' %}">
+                        {% endthumbnail %}
+                    </div>
+                    <div class="body">
+                        <h4 class="name">
+                            {{ obj.name }}
+                        </h4>
+                        <div class="bio">
+                            {% if obj.phrase %}
+                                <p>{{ obj.phrase|escape }}</p>
+                            {% else %}
+                                <p>We are Pythonistas</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <h2>{% trans '문의' %}</h2>
+    <p><a href="mailto:pyconkr@pycon.kr" target="_blank">pyconkr@pycon.kr</a></p>
+{% endblock %}

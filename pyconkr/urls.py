@@ -20,6 +20,7 @@ from program.views import OpenReviewUpdate, OpenReviewList, OpenReviewHome, Open
     ClosingRedirect
 from registration.views import PatronList
 from mailing.views import NewsLetterAdd, NewsLetterRemove, NewsLetterRemoveConfirm
+from user.views import StaffList
 
 admin.autodiscover()
 
@@ -52,6 +53,7 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/registration/', include('registration.urls')),
 
     re_path(r'^2020/about/patron/$', cache_page(60 * 60)(PatronList.as_view()), name='patrons'),
+    re_path(r'^2020/about/organizing-team/$', StaffList.as_view(), name='staffs'),
 
     re_path(r'^2020/subscribe/$', NewsLetterAdd.as_view(), name='subscribe'),
     re_path(r'^2020/unsubscribe/$', NewsLetterRemove.as_view(), name='unsubscribe'),
