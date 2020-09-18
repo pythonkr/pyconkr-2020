@@ -31,7 +31,11 @@
                     </div>
                     <div class="body">
                         <h4 class="name">
-                            {{ obj.name }}
+                            {% if obj.display_name %}
+                                {{ obj.display_name }}
+                            {% else %}
+                                {{ obj.name }}
+                            {% endif %}
                         </h4>
                         <div class="bio">
                             {% if obj.phrase %}
