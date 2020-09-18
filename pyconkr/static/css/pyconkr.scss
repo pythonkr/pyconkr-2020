@@ -1493,6 +1493,10 @@ table#sun {
   td,
   th {
     padding: 0.5rem 0;
+
+    span.time, span.room {
+      font: inherit;
+    }
   }
 
   tr.live {

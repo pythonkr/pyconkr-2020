@@ -34,6 +34,10 @@
             };
         </script>
 
+        <p>
+            {% trans '세션 시작 시간에 행사 안내 영상과 3분 토크가 시작합니다. 본 세션은 약 5분 후 시작됩니다.' %}
+        </p>
+
         <ul class="days">
             <li id="is_sat" onclick="isSat()">{% trans '9/26 (토)' %}</li>
             <li id="is_sun" onclick="isSun()">{% trans '9/27 (일)' %}</li>
@@ -49,7 +53,7 @@
             <tr>
                 <th>{% trans '시간' %}</th>
                 <th>
-                    101
+                    <span class="room">101</span>
                     {% if live_weekday == 5 %}
                         <div class="youtube_btn">
                             <a target="_blank" href="{{ track1 }}">{% trans 'YouTube 바로 가기' %}</a>
@@ -57,7 +61,7 @@
                     {% endif %}
                 </th>
                 <th>
-                    102
+                    <span class="room">102</span>
                     {% if live_weekday == 5 %}
                         <div class="youtube_btn">
                             <a target="_blank" href="{{ track2 }}">{% trans 'YouTube 바로 가기' %}</a>
@@ -65,7 +69,7 @@
                     {% endif %}
                 </th>
                 <th>
-                    103
+                    <span class="room">103</span>
                     {% if live_weekday == 5 %}
                         <div class="youtube_btn">
                             <a target="_blank" href="{{ track3 }}">{% trans 'YouTube 바로 가기' %}</a>
@@ -76,7 +80,7 @@
             {% for time, list in sat.items %}
                 <tr {% if time == live %}class="live"{% endif %}>
                     <th>
-                        {{ time|date:"H:i" }}
+                        <span class="time">{{ time|date:"H:i" }}</span>
                         {% if time == live %}
                             <div class="live-badge">LIVE</div>
                         {% endif %}
@@ -91,7 +95,7 @@
                                         {% elif l.category != opening %}
                                             <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
                                         {% elif l.category == opening %}
-                                            {{ l }}
+                                            <span>{{ l }}</span>
                                         {% endif %}
                                         {% if l.language == 'E' %}
                                             <small>
@@ -106,7 +110,7 @@
                                             {% empty %}
                                                 <img src="{% static 'image/anonymous.png' %}">
                                             {% endthumbnail %}
-                                            {{ l.user.profile.name }}
+                                            <span class="speaker_name">{{ l.user.profile.name }}</span>
                                         </div>
                                     {% endif %}
                                     {% if l.category == lt and live == time %}
@@ -142,7 +146,7 @@
                                         {% empty %}
                                             <img src="{% static 'image/anonymous.png' %}">
                                         {% endthumbnail %}
-                                        {{ l.user.profile.name }}
+                                        <span class="speaker_name">{{ l.user.profile.name }}</span>
                                     </div>
                                 </td>
                             {% endif %}
@@ -164,7 +168,7 @@
             <tr>
                 <th>{% trans '시간' %}</th>
                 <th>
-                    104
+                    <span class="room">104</span>
                     {% if live_weekday == 6 %}
                         <div class="youtube_btn">
                             <a target="_blank" href="{{ track4 }}">{% trans 'YouTube 바로 가기' %}</a>
@@ -172,7 +176,7 @@
                     {% endif %}
                 </th>
                 <th>
-                    105
+                    <span class="room">105</span>
                     {% if live_weekday == 6 %}
                         <div class="youtube_btn">
                             <a target="_blank" href="{{ track5 }}">{% trans 'YouTube 바로 가기' %}</a>
@@ -183,7 +187,7 @@
             {% for time, list in sun.items %}
                 <tr {% if time == live %}class="live"{% endif %}>
                     <th>
-                        {{ time|date:"H:i" }}
+                        <span class="time">{{ time|date:"H:i" }}</span>
                         {% if time == live %}
                             <div class="live-badge">LIVE</div>
                         {% endif %}
@@ -196,7 +200,7 @@
                                         {% if l.category != closing %}
                                             <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
                                         {% else %}
-                                            {{ l }}
+                                            <span>{{ l }}</span>
                                         {% endif %}
                                         {% if l.language == 'E' %}
                                             <small>
@@ -243,7 +247,7 @@
                                         {% empty %}
                                             <img src="{% static 'image/anonymous.png' %}">
                                         {% endthumbnail %}
-                                        {{ l.user.profile.name }}
+                                        <span class="speaker_name">{{ l.user.profile.name }}</span>
                                     </div>
                                 </td>
                             {% endif %}
