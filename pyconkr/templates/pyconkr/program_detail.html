@@ -39,7 +39,7 @@
     <p>{{ program.slide_url | urlize }}</p>
 {% endif %}
 
-{% if program.video_url %}
+{% if program.video_url and video_opened %}
 <h3>{% trans "Video" %}</h3>
     <p>{{ program.video_url | urlize }}</p>
 {% endif %}

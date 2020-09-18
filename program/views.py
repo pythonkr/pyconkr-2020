@@ -65,6 +65,13 @@ class ProgramDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProgramDetail, self).get_context_data(**kwargs)
+
+        KST, now = get_KST_now()
+        video_open_at = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True).video_open_at
+        if video_open_at:
+            context['video_opened'] = now > video_open_at
+        else:
+            context['video_opened'] = False
         context['program'] = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True)
         context['editable'] = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True).user == self.request.user
         return context

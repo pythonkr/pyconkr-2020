@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-06 17:08+0900\n"
+"POT-Creation-Date: 2020-09-18 17:39+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,11 +92,17 @@ msgstr "Agree PyCon Korea Code of Conduct."
 msgid "가입하기"
 msgstr "Sign Up"
 
-#: .\user\models.py:20
+#: .\user\models.py:21
 msgid "여기에 기입한 조직 이름이 행사 당일 이름표에 표시됩니다."
 msgstr ""
 "Please specify the organization name you want to print on the conference "
 "nametag."
+
+#: .\user\models.py:24
+msgid ""
+"이 내용이 개인 후원자 목록에 노출됩니다. 변경 사항은 최대 60분 이내에 적용됩"
+"니다."
+msgstr ""
 
 #: .\user\templates\socialaccount\signup.html:7
 msgid "Signup"
@@ -129,37 +135,41 @@ msgstr "Call for Proposal"
 msgid "발표 확정"
 msgstr ""
 
-#: .\user\templates\user\profile_detail.html:56
+#: .\user\templates\user\profile_detail.html:50
+msgid "발표 영상 확인하기"
+msgstr "Check the video"
+
+#: .\user\templates\user\profile_detail.html:61
 msgid "후원사 신청 내역"
 msgstr "Sponsor Application"
 
-#: .\user\templates\user\profile_detail.html:63
+#: .\user\templates\user\profile_detail.html:68
 msgid "스폰서 확정"
 msgstr "Accepted"
 
-#: .\user\templates\user\profile_detail.html:65
+#: .\user\templates\user\profile_detail.html:70
 msgid "신청서 제출"
 msgstr "Submitted"
 
-#: .\user\templates\user\profile_detail.html:67
+#: .\user\templates\user\profile_detail.html:72
 msgid "임시 저장"
 msgstr "Temporarily Saved"
 
-#: .\user\templates\user\profile_detail.html:72
+#: .\user\templates\user\profile_detail.html:77
 msgid "수정하기"
 msgstr "Edit"
 
-#: .\user\templates\user\profile_detail.html:76
+#: .\user\templates\user\profile_detail.html:81
 #, fuzzy
 #| msgid "수정하기"
 msgid "Virtual booth 수정하기"
 msgstr "Edit"
 
-#: .\user\templates\user\profile_detail.html:86
+#: .\user\templates\user\profile_detail.html:91
 msgid "My Ticket"
 msgstr ""
 
-#: .\user\templates\user\profile_form.html:5 .\user\views.py:36
+#: .\user\templates\user\profile_form.html:5 .\user\views.py:40
 msgid "Profile"
 msgstr ""
 
@@ -167,14 +177,14 @@ msgstr ""
 msgid "Social Sign-up"
 msgstr ""
 
-#: .\user\views.py:29
+#: .\user\views.py:30
 msgid "프로필을 수정해주세요."
 msgstr "Please edit your profile."
 
-#: .\user\views.py:51
+#: .\user\views.py:55
 msgid "Profile successfully updated."
 msgstr ""
 
-#: .\user\views.py:63
+#: .\user\views.py:67
 msgid "Update profile"
 msgstr ""
