@@ -69,5 +69,5 @@ class ProfileUpdate(SuccessMessageMixin, UpdateView):
 
 
 class StaffList(ListView):
-    model = Staff
+    queryset = Staff.objects.all().order_by('name_ko')
     template_name = "user/staff_list.html"
