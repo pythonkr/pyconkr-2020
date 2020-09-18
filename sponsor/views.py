@@ -305,6 +305,7 @@ class VirtualBoothUpdate(UpdateView):
         return super().get(request, *args, **kwargs)
 
     def get_success_url(self):
+        slack.virtual_booth_updated(self.request.META['HTTP_ORIGIN'], self.object.slug, self.object.name)
         return reverse('virtual_booth', kwargs={'slug': self.object.slug})
 
 
