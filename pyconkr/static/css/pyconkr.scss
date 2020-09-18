@@ -1495,13 +1495,14 @@ table#sun {
   th {
     padding: 0.5rem 0;
 
-    span.time, span.room {
+    span.time,
+    span.room {
       font: inherit;
     }
   }
 
   tr.live {
-    background-color: #e2fffb!important;
+    background-color: #e2fffb !important;
   }
 
   tr:nth-of-type(odd) {
