@@ -33,7 +33,7 @@ def default(request):
                     ('schedule', {'title': _('Important Dates')}),
                     ('patron', {'title': _('Patrons')}),
                     ('coc', {'title': _('Code of Conduct')}),
-                    ('orginizing-team', {'title': _('Organizing Team')}),
+                    ('organizing-team', {'title': _('Organizing Team')}),
                     ('previous-pyconkr', {'title': _('Previous PyCon Korea')}),
                 ])
             }
