@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth import get_user_model
 from sorl.thumbnail.admin import AdminImageMixin
-from .models import Profile
+from .models import Profile, Staff
 
 User = get_user_model()
 
@@ -76,3 +76,12 @@ class ProfileAdmin(admin.ModelAdmin):
 
 # admin.site.register(User, UserAdmin)
 admin.site.register(Profile, ProfileAdmin)
+
+
+class StaffAdmin(admin.ModelAdmin):
+    list_display = ('name_ko', 'name_en', 'user',)
+    autocomplete_fields = ('user',)
+    ordering = ('name_ko',)
+
+
+admin.site.register(Staff, StaffAdmin)

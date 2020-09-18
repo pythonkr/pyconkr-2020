@@ -1,7 +1,5 @@
 from modeltranslation.translator import translator, TranslationOptions
-from .models import (
-    Profile
-)
+from .models import Profile, Staff
 
 
 class ProfileTranslationOptions(TranslationOptions):
@@ -9,3 +7,10 @@ class ProfileTranslationOptions(TranslationOptions):
 
 
 translator.register(Profile, ProfileTranslationOptions)
+
+
+class StaffTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+translator.register(Staff, StaffTranslationOptions)

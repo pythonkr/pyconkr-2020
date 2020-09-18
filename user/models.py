@@ -37,3 +37,11 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
+
+
+class Staff(models.Model):
+    name = models.CharField(max_length=100)
+    display_name = models.CharField(max_length=100, null=True, blank=True)
+    phrase = models.TextField(max_length=1000, null=True, blank=True)
+    image = SorlImageField(upload_to=profile_image, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
