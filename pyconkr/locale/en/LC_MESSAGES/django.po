@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-18 17:39+0900\n"
+"POT-Creation-Date: 2020-09-18 22:37+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -246,7 +246,9 @@ msgstr "English"
 msgid ""
 "발표 소개 페이지에 들어가는 내용입니다. 변경 사항은 최대 60분 이내에 적용됩니"
 "다."
-msgstr "This is the content that enters the talk introduction page. Changes take effect within up to 60 minutes."
+msgstr ""
+"This is the content that enters the talk introduction page. Changes take "
+"effect within up to 60 minutes."
 
 #: .\program\models.py:58
 msgid "파이콘 한국 유튜브에 공개되는 시간"
@@ -276,19 +278,19 @@ msgstr "Programming language of the sprint"
 msgid "홈페이지에 공개되는 스프린트 관련 주소입니다."
 msgstr "URL which is going on website."
 
-#: .\program\views.py:189
+#: .\program\views.py:193
 msgid "Proposal successfully created."
 msgstr "Proposal successfully created."
 
-#: .\program\views.py:242
+#: .\program\views.py:246
 msgid "Proposal successfully updated."
 msgstr "Proposal successfully updated."
 
-#: .\program\views.py:272
+#: .\program\views.py:276
 msgid "Proposal"
 msgstr "Proposal"
 
-#: .\program\views.py:555
+#: .\program\views.py:559
 msgid "Lightning Talk Proposal"
 msgstr ""
 
@@ -1062,17 +1064,17 @@ msgstr ""
 "support."
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:20
-#: .\pyconkr\templates\schedule.html:129 .\pyconkr\templates\schedule.html:230
+#: .\pyconkr\templates\schedule.html:131 .\pyconkr\templates\schedule.html:232
 msgid "Difficulty Beginner"
 msgstr "Beginner"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:21
-#: .\pyconkr\templates\schedule.html:131 .\pyconkr\templates\schedule.html:232
+#: .\pyconkr\templates\schedule.html:133 .\pyconkr\templates\schedule.html:234
 msgid "Difficulty Intermediate"
 msgstr "Intermediate"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:22
-#: .\pyconkr\templates\schedule.html:133 .\pyconkr\templates\schedule.html:234
+#: .\pyconkr\templates\schedule.html:135 .\pyconkr\templates\schedule.html:236
 msgid "Difficulty Experienced"
 msgstr "Experienced"
 
@@ -1159,31 +1161,37 @@ msgstr ""
 msgid "스프린트에 참여하세요!"
 msgstr "Join the sprint!"
 
-#: .\pyconkr\templates\schedule.html:40
+#: .\pyconkr\templates\schedule.html:38
+msgid ""
+"세션 시작 시간에 행사 안내 영상과 3분 토크가 시작합니다. 본 세션은 약 5분 후 "
+"시작됩니다."
+msgstr "At the start time of the session, a announcement video of the event and a 3-minute talk begins. This session starts in about 5 minutes."
+
+#: .\pyconkr\templates\schedule.html:42
 msgid "9/26 (토)"
 msgstr "9/26 (Sat)"
 
-#: .\pyconkr\templates\schedule.html:41
+#: .\pyconkr\templates\schedule.html:43
 msgid "9/27 (일)"
 msgstr "9/27 (Sun)"
 
-#: .\pyconkr\templates\schedule.html:52 .\pyconkr\templates\schedule.html:167
+#: .\pyconkr\templates\schedule.html:54 .\pyconkr\templates\schedule.html:169
 msgid "시간"
 msgstr "Time<br>(UTC+9)"
 
-#: .\pyconkr\templates\schedule.html:57 .\pyconkr\templates\schedule.html:65
-#: .\pyconkr\templates\schedule.html:73 .\pyconkr\templates\schedule.html:116
-#: .\pyconkr\templates\schedule.html:172 .\pyconkr\templates\schedule.html:180
-#: .\pyconkr\templates\schedule.html:217
+#: .\pyconkr\templates\schedule.html:59 .\pyconkr\templates\schedule.html:67
+#: .\pyconkr\templates\schedule.html:75 .\pyconkr\templates\schedule.html:118
+#: .\pyconkr\templates\schedule.html:174 .\pyconkr\templates\schedule.html:182
+#: .\pyconkr\templates\schedule.html:219
 msgid "YouTube 바로 가기"
 msgstr "Go to YouTube"
 
-#: .\pyconkr\templates\schedule.html:100 .\pyconkr\templates\schedule.html:136
-#: .\pyconkr\templates\schedule.html:205 .\pyconkr\templates\schedule.html:237
+#: .\pyconkr\templates\schedule.html:102 .\pyconkr\templates\schedule.html:138
+#: .\pyconkr\templates\schedule.html:207 .\pyconkr\templates\schedule.html:239
 msgid "Schedule English Label"
 msgstr "English"
 
-#: .\pyconkr\templates\schedule.html:126 .\pyconkr\templates\schedule.html:227
+#: .\pyconkr\templates\schedule.html:128 .\pyconkr\templates\schedule.html:229
 msgid "Schedule Organizing Team Label"
 msgstr "Organizing Team"
 

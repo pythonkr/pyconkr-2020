@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-18 17:39+0900\n"
+"POT-Creation-Date: 2020-09-18 22:37+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -263,19 +263,19 @@ msgstr ""
 msgid "홈페이지에 공개되는 스프린트 관련 주소입니다."
 msgstr ""
 
-#: .\program\views.py:189
+#: .\program\views.py:193
 msgid "Proposal successfully created."
 msgstr "발표안을 제출하였습니다."
 
-#: .\program\views.py:242
+#: .\program\views.py:246
 msgid "Proposal successfully updated."
 msgstr "발표안이 수정되었습니다."
 
-#: .\program\views.py:272
+#: .\program\views.py:276
 msgid "Proposal"
 msgstr "발표안"
 
-#: .\program\views.py:555
+#: .\program\views.py:559
 msgid "Lightning Talk Proposal"
 msgstr "라이트닝 토크 신청 내역"
 
@@ -1007,17 +1007,17 @@ msgid ""
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:20
-#: .\pyconkr\templates\schedule.html:129 .\pyconkr\templates\schedule.html:230
+#: .\pyconkr\templates\schedule.html:131 .\pyconkr\templates\schedule.html:232
 msgid "Difficulty Beginner"
 msgstr "초급"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:21
-#: .\pyconkr\templates\schedule.html:131 .\pyconkr\templates\schedule.html:232
+#: .\pyconkr\templates\schedule.html:133 .\pyconkr\templates\schedule.html:234
 msgid "Difficulty Intermediate"
 msgstr "중급"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:22
-#: .\pyconkr\templates\schedule.html:133 .\pyconkr\templates\schedule.html:234
+#: .\pyconkr\templates\schedule.html:135 .\pyconkr\templates\schedule.html:236
 msgid "Difficulty Experienced"
 msgstr "고급"
 
@@ -1098,31 +1098,37 @@ msgstr ""
 msgid "스프린트에 참여하세요!"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:40
+#: .\pyconkr\templates\schedule.html:38
+msgid ""
+"세션 시작 시간에 행사 안내 영상과 3분 토크가 시작합니다. 본 세션은 약 5분 후 "
+"시작됩니다."
+msgstr ""
+
+#: .\pyconkr\templates\schedule.html:42
 msgid "9/26 (토)"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:41
+#: .\pyconkr\templates\schedule.html:43
 msgid "9/27 (일)"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:52 .\pyconkr\templates\schedule.html:167
+#: .\pyconkr\templates\schedule.html:54 .\pyconkr\templates\schedule.html:169
 msgid "시간"
 msgstr "시간<br>(UTC+9)"
 
-#: .\pyconkr\templates\schedule.html:57 .\pyconkr\templates\schedule.html:65
-#: .\pyconkr\templates\schedule.html:73 .\pyconkr\templates\schedule.html:116
-#: .\pyconkr\templates\schedule.html:172 .\pyconkr\templates\schedule.html:180
-#: .\pyconkr\templates\schedule.html:217
+#: .\pyconkr\templates\schedule.html:59 .\pyconkr\templates\schedule.html:67
+#: .\pyconkr\templates\schedule.html:75 .\pyconkr\templates\schedule.html:118
+#: .\pyconkr\templates\schedule.html:174 .\pyconkr\templates\schedule.html:182
+#: .\pyconkr\templates\schedule.html:219
 msgid "YouTube 바로 가기"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:100 .\pyconkr\templates\schedule.html:136
-#: .\pyconkr\templates\schedule.html:205 .\pyconkr\templates\schedule.html:237
+#: .\pyconkr\templates\schedule.html:102 .\pyconkr\templates\schedule.html:138
+#: .\pyconkr\templates\schedule.html:207 .\pyconkr\templates\schedule.html:239
 msgid "Schedule English Label"
 msgstr "영어"
 
-#: .\pyconkr\templates\schedule.html:126 .\pyconkr\templates\schedule.html:227
+#: .\pyconkr\templates\schedule.html:128 .\pyconkr\templates\schedule.html:229
 msgid "Schedule Organizing Team Label"
 msgstr "파준위"
 
