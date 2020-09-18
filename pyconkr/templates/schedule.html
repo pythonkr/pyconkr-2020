@@ -76,7 +76,7 @@
             {% for time, list in sat.items %}
                 <tr {% if time == live %}class="live"{% endif %}>
                     <th>
-                        {{ time|date:"H:i" }}
+                        <span class="time">{{ time|date:"H:i" }}</span>
                         {% if time == live %}
                             <div class="live-badge">LIVE</div>
                         {% endif %}
@@ -91,7 +91,7 @@
                                         {% elif l.category != opening %}
                                             <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
                                         {% elif l.category == opening %}
-                                            {{ l }}
+                                            <span>{{ l }}</span>
                                         {% endif %}
                                         {% if l.language == 'E' %}
                                             <small>
@@ -106,7 +106,7 @@
                                             {% empty %}
                                                 <img src="{% static 'image/anonymous.png' %}">
                                             {% endthumbnail %}
-                                            {{ l.user.profile.name }}
+                                            <span class="speaker_name">{{ l.user.profile.name }}</span>
                                         </div>
                                     {% endif %}
                                     {% if l.category == lt and live == time %}
@@ -142,7 +142,7 @@
                                         {% empty %}
                                             <img src="{% static 'image/anonymous.png' %}">
                                         {% endthumbnail %}
-                                        {{ l.user.profile.name }}
+                                        <span class="speaker_name">{{ l.user.profile.name }}</span>
                                     </div>
                                 </td>
                             {% endif %}
@@ -183,7 +183,7 @@
             {% for time, list in sun.items %}
                 <tr {% if time == live %}class="live"{% endif %}>
                     <th>
-                        {{ time|date:"H:i" }}
+                        <span class="time">{{ time|date:"H:i" }}</span>
                         {% if time == live %}
                             <div class="live-badge">LIVE</div>
                         {% endif %}
@@ -196,7 +196,7 @@
                                         {% if l.category != closing %}
                                             <a href="{% url 'talk' pk=l.pk %}">{{ l }}</a>
                                         {% else %}
-                                            {{ l }}
+                                            <span>{{ l }}</span>
                                         {% endif %}
                                         {% if l.language == 'E' %}
                                             <small>
@@ -243,7 +243,7 @@
                                         {% empty %}
                                             <img src="{% static 'image/anonymous.png' %}">
                                         {% endthumbnail %}
-                                        {{ l.user.profile.name }}
+                                        <span class="speaker_name">{{ l.user.profile.name }}</span>
                                     </div>
                                 </td>
                             {% endif %}
