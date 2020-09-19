@@ -293,7 +293,6 @@ class VirtualBoothUpdate(UpdateView):
 
     def get(self, request, *args, **kwargs):
         KST, now = get_KST_now()
-
         is_editable = self.request.user.is_authenticated and (
                 Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at__isnull=False,
                                        slug=self.kwargs['slug']).exists()
@@ -305,7 +304,9 @@ class VirtualBoothUpdate(UpdateView):
         return super().get(request, *args, **kwargs)
 
     def get_success_url(self):
-        slack.virtual_booth_updated(self.request.META['HTTP_ORIGIN'], self.object.slug, self.object.name)
+        KST, now = get_KST_now()
+        if now > constance.config.VIRTUAL_BOOTH_OPEN:
+            slack.virtual_booth_updated(self.request.META['HTTP_ORIGIN'], self.object.slug, self.object.name)
         return reverse('virtual_booth', kwargs={'slug': self.object.slug})
 
 
