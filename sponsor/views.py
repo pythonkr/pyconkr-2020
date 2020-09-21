@@ -2,6 +2,8 @@ from crispy_forms.layout import Submit
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, View
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from django.utils.translation import ugettext as _
 from django.urls import reverse
 
@@ -10,8 +12,6 @@ from .forms import SponsorForm, VirtualBoothUpdateForm
 from pyconkr.views import get_KST_now
 import constance
 from program import slack
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
 
 
 class SponsorDetail(DetailView):
@@ -280,7 +280,7 @@ class VirtualBoothDetail(DetailView):
                                        slug=self.kwargs['slug']).exists()
                 or Sponsor.objects.filter(manager_id=user, accepted=True, paid_at__isnull=False,
                                           slug=self.kwargs['slug']).exists()) and (
-                    now < constance.config.VIRTUAL_BOOTH_EDIT_FINISH or now > constance.config.VIRTUAL_BOOTH_OPEN)
+                              now < constance.config.VIRTUAL_BOOTH_EDIT_FINISH or now > constance.config.VIRTUAL_BOOTH_OPEN)
         context['is_editable'] = is_editable
 
         return context
@@ -298,7 +298,7 @@ class VirtualBoothUpdate(UpdateView):
                                        slug=self.kwargs['slug']).exists()
                 or Sponsor.objects.filter(manager_id=self.request.user, accepted=True, paid_at__isnull=False,
                                           slug=self.kwargs['slug']).exists()) and (
-                    now < constance.config.VIRTUAL_BOOTH_EDIT_FINISH or now > constance.config.VIRTUAL_BOOTH_OPEN)
+                              now < constance.config.VIRTUAL_BOOTH_EDIT_FINISH or now > constance.config.VIRTUAL_BOOTH_OPEN)
         if not is_editable:
             return redirect('virtual_booth_home')
         return super().get(request, *args, **kwargs)
