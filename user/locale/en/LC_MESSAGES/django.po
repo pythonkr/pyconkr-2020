@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-18 23:19+0900\n"
+"POT-Creation-Date: 2020-09-21 21:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -205,7 +205,7 @@ msgstr "PyCon Korea Organizing Team (Ordered alphabetically in Korean)"
 msgid "파이콘 한국 2020는 다음과 같은 사람들이 준비하고 있습니다."
 msgstr "PyCon Korea 2020 is being prepared by the following people."
 
-#: .\user\templates\user\staff_list.html:49
+#: .\user\templates\user\staff_list.html:53
 msgid "문의"
 msgstr "Contact"
 

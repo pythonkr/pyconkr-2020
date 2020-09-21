@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block og-title %}{{ block.super }} {{ flatpage.title }}{% endblock %}
+{% block og-title %}{{ block.super }} | {{ flatpage.title }}{% endblock %}
 {#{% block og-desc %}{{ flatpage.content|striptags|truncatechars:300 }}{% endblock %}#}
 {% block og-desc %}{% trans "base-og-description" %}{% endblock %}
 {% block head-title %}{{ block.super }} {{ flatpage.title }}{% endblock %}
