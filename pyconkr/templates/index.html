@@ -24,7 +24,7 @@
 
 {% if recent_announcements %}
 <section class="box-section">
-    <h3>{% trans "공지사항" %}</h3>
+    <h3>{% trans "공지 사항" %}</h3>
     {% for announcement in recent_announcements %}
         {% if announcement.active %}
             <li><a href="{{ announcement.url }}" target="_blank">{{ announcement.title|safe }}</a></li>
@@ -36,16 +36,14 @@
 <section class="box-section">
   <h3>{% trans "행사 상세" %}</h3>
   <p>
-      {% trans "파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입니다." %}<br>
-      {% trans "파이콘 한국 2020은 온라인으로 진행됩니다." %}<br>
-      {% trans "세부 운영 계획, 행사 상세 일정은 추후 안내 예정입니다." %}<br><br>
+    {% trans "파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입니다." %}<br>
+    {% trans "파이콘 한국 2020은 온라인으로 진행됩니다." %}<br><br>
 
     <h4>{% trans "Conference" %}</h4>
-    <div>{% trans '파이썬 사용 사례, 지식 공유를 위한 행사입니다.<br> 컨퍼런스의 자세한 시간표는 <a href="/2020/program/talk-schedule/">프로그램 > 세부일정</a> 에서 확인하실 수 있습니다.' %}</div>
+    <div>{% trans '파이썬 사용 사례, 지식 공유를 위한 행사입니다.<br> 컨퍼런스의 자세한 시간표는 <a href="/2020/program/talk-schedule/">프로그램 > 세부 일정</a>에서 확인하실 수 있습니다.' %}</div>
     <div>{% trans "파이썬 사용 사례와 지식을 공유하는 40여 개의 다양한 발표 세션이 열립니다." %}</div>
-    <div>{% trans "컨퍼런스의 자세한 시간표는 프로그램 > 세부일정에서 추후에 확인하실 수 있습니다." %}</div>
 
-    {% trans "이 외의 모든 공지사항은 공식 " %}
+    {% trans "이외의 모든 공지 사항은 공식 " %}
     <a href="https://www.facebook.com/pyconkorea/" target="_blank">{% trans "페이스북" %}</a>{% trans "과 " %}
     <a href="https://twitter.com/PyConKR" target="_blank">{% trans "트위터" %}</a>{% trans ", 이곳을 통해 공지될 예정입니다." %}
   </p>

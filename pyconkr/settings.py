@@ -246,6 +246,9 @@ SUMMERNOTE_CONFIG = {
         static_url('components/summernote-emoji/tam-emoji/css/emoji.css'),
         static_url('css/pyconkr.css'),
     ),
+    'styleTags': [
+        {'title': 'Blockquote', 'tag': 'blockquote', 'className': 'blockquote', 'value': 'bock',}
+    ],
 }
 
 # ACCOUNT_UNIQUE_EMAIL = False
