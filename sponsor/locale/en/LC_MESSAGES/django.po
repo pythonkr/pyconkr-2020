@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-19 20:50+0900\n"
+"POT-Creation-Date: 2020-09-21 21:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\sponsor\forms.py:15 .\sponsor\views.py:44
+#: .\sponsor\forms.py:15 .\sponsor\views.py:45
 msgid "마감"
 msgstr "Sold out"
 
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Virtual booth content"
 msgstr ""
 
-#: .\sponsor\forms.py:76 .\sponsor\views.py:142 .\sponsor\views.py:199
+#: .\sponsor\forms.py:76 .\sponsor\views.py:143 .\sponsor\views.py:200
 msgid "Submit"
 msgstr ""
 
@@ -388,7 +388,7 @@ msgstr ""
 msgid "Virtual booth 내용 수정하기"
 msgstr "Edit Virtual booth content"
 
-#: .\sponsor\views.py:94 .\sponsor\views.py:157
+#: .\sponsor\views.py:95 .\sponsor\views.py:158
 msgid ""
 "후원사 신청이 성공적으로 처리되었습니다. 준비위원회 리뷰 이후 안내 메일을 발"
 "송드리도록 하겠습니다."
@@ -396,26 +396,26 @@ msgstr ""
 "Your sponsor application has been successfully processed. We will send you "
 "an e-mail after the Review."
 
-#: .\sponsor\views.py:115
+#: .\sponsor\views.py:116
 msgid "후원사 모집이 아직 시작되지 않았습니다.🤖"
 msgstr "Sponsor Invitation is not opened yet🤖"
 
-#: .\sponsor\views.py:116
+#: .\sponsor\views.py:117
 msgid "모집 기간은 {} ~ {} 이니 일정에 참고해주세요."
 msgstr "Sponsor Invitation Period is {} ~ {}. Please save your date!"
 
-#: .\sponsor\views.py:120
+#: .\sponsor\views.py:121
 msgid "후원사 모집이 종료되었습니다.🤖"
 msgstr "Sponsor Invitation period has closed.🤖"
 
-#: .\sponsor\views.py:121
+#: .\sponsor\views.py:122
 msgid ""
 "모집 기간은 {} ~ {} 였습니다. 내년에 다시 개최될 파이콘 한국을 기대해주세요"
 msgstr ""
 "Sponsor Invitation Period is {} ~ {}. Please look forward to the PyCon Korea "
 "to be held again next year."
 
-#: .\sponsor\views.py:140 .\sponsor\views.py:193
+#: .\sponsor\views.py:141 .\sponsor\views.py:194
 msgid "Save"
 msgstr ""
 

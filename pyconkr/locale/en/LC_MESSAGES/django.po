@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-19 20:50+0900\n"
+"POT-Creation-Date: 2020-09-21 21:25+0900\n"
 "PO-Revision-Date: 2017-05-13 01:45+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -900,10 +900,10 @@ msgstr ""
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:18
 msgid ""
-"홈페이지를 통해 영상 파일을 제출하시는 것이 아니라 영상 파일을 다운 받을 수 "
-"있는 링크를 공유해주세요."
+"홈페이지를 통해 영상 파일을 제출하시는 것이 아니라 영상 파일을 내려받을 수 있"
+"는 링크를 공유해주세요."
 msgstr ""
-"Instead of submitting the video file through the homepage, please share the "
+"Instead of submitting the video file through the website, please share the "
 "link to download the video file."
 
 #: .\pyconkr\templates\pyconkr\lightning_talk_home.html:19
@@ -983,7 +983,7 @@ msgid "제출하신 리뷰는 수정할 수 없습니다. 신중하게 작성해
 msgstr "You can't edit your reviews after submitted."
 
 #: .\pyconkr\templates\pyconkr\openreview_home.html:11
-msgid "오픈 리뷰에서도 파이콘 한국 행동강령(CoC)을 준수해야 합니다."
+msgid "오픈 리뷰에서도 파이콘 한국 행동 강령(CoC)을 준수해야 합니다."
 msgstr "You must also comply CoC in Open Review."
 
 #: .\pyconkr\templates\pyconkr\openreview_home.html:14
