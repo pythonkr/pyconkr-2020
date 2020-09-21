@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login
 from django.utils.translation import ugettext as _
 from django.urls import reverse
 
+import re
 from .models import Sponsor, SponsorLevel
 from .forms import SponsorForm, VirtualBoothUpdateForm
 from pyconkr.views import get_KST_now
@@ -218,6 +219,31 @@ class SponsorUpdate(SuccessMessageMixin, UpdateView):
             return reverse('sponsor_detail', kwargs={'slug': self.object.slug})
 
 
+def summernoteFilter(code):
+    filter_list = [
+        # s3 request issue
+        [r'(?<=amazonaws\.com/django-summernote/\d{4}-\d{2}-\d{2}/[\w\-]{36}\.\w{3})\?.*?(?=")', ''],
+        [r'(?<=amazonaws\.com/django-summernote/\d{4}-\d{2}-\d{2}/[\w\-]{36}\.\w{4})\?.*?(?=")', ''],
+
+        # no effect style
+        [r'\s?letter-spacing: -0.32px;?\s?', ''],
+        [r'</?o:p>', ''],
+
+        # empty attr
+        [r'\s?style=""', ''],
+
+        # empty tag
+        [r'<p></p>\n?', ''],
+        [r'<p\s[^>]*?></p>', ''],
+        [r'<span\s[^>]*?></span>', ''],
+    ]
+    html_code = code
+    for f in filter_list:
+        html_code = re.sub(f[0], f[1], html_code)
+
+    return html_code
+
+
 def is_sponsor_manager(user):
     managers = []
     for sponsor in Sponsor.objects.filter(accepted=True, paid_at__isnull=False):
@@ -302,6 +328,13 @@ class VirtualBoothUpdate(UpdateView):
         if not is_editable:
             return redirect('virtual_booth_home')
         return super().get(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        form.instance.virtual_booth_content_ko = summernoteFilter(form.instance.virtual_booth_content_ko)
+        form.instance.virtual_booth_content_en = summernoteFilter(form.instance.virtual_booth_content_en)
+        form.save()
+
+        return super(VirtualBoothUpdate, self).form_valid(form)
 
     def get_success_url(self):
         KST, now = get_KST_now()
