@@ -330,8 +330,11 @@ class VirtualBoothUpdate(UpdateView):
         return super().get(request, *args, **kwargs)
 
     def form_valid(self, form):
-        form.instance.virtual_booth_content_ko = summernoteFilter(form.instance.virtual_booth_content_ko)
-        form.instance.virtual_booth_content_en = summernoteFilter(form.instance.virtual_booth_content_en)
+        try:
+            form.instance.virtual_booth_content_ko = summernoteFilter(form.instance.virtual_booth_content_ko)
+            form.instance.virtual_booth_content_en = summernoteFilter(form.instance.virtual_booth_content_en)
+        except TypeError:
+            pass
         form.save()
 
         return super(VirtualBoothUpdate, self).form_valid(form)
