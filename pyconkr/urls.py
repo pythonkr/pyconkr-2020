@@ -8,7 +8,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.decorators import login_required
 from django.urls import re_path
 from django.views.generic import RedirectView
-from django.views.decorators.cache import cache_page
 
 from constance import config
 
@@ -52,7 +51,7 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/program/', include('program.urls')),
     re_path(r'^2020/registration/', include('registration.urls')),
 
-    re_path(r'^2020/about/patron/$', cache_page(60 * 60)(PatronList.as_view()), name='patrons'),
+    re_path(r'^2020/about/patron/$', PatronList.as_view(), name='patrons'),
     re_path(r'^2020/about/organizing-team/$', StaffList.as_view(), name='staffs'),
 
     re_path(r'^2020/subscribe/$', NewsLetterAdd.as_view(), name='subscribe'),

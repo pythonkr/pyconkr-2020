@@ -2,11 +2,13 @@
 {% load i18n %}
 {% load thumbnail %}
 {% load staticfiles %}
+{% load cache %}
 
 {% block title %}
     {% trans '발표' %}
 {% endblock %}
 
+{% cache 3600 programs %}
 {% block content %}
     {% if not accepted_exist or not is_open %}
         <h4 class="text-center">{% trans "Ready for content" %}</h4>
@@ -47,3 +49,4 @@
         {% endfor %}
     {% endif %}
 {% endblock %}
+{% endcache %}
