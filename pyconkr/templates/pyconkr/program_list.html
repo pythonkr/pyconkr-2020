@@ -22,12 +22,12 @@
                             <li>
                                 <a href="{% url 'talk' pk=proposal.pk %}">
                                     <div class="head">
-                                        {% thumbnail proposal.user.profile.image "128x128" crop="center" as im %}
-                                            <img class="media-patron" src="{{ im.url }}"
-                                                 alt="photo of {{ proposal.user.profile.name }}">
-                                        {% empty %}
-                                            <img class="media-patron" src="{% static 'image/anonymous.png' %}">
-                                        {% endthumbnail %}
+                                        {% if proposal.user.profile.image_small %}
+                                            <span class="program_image"><img class="media-patron" src="{{ proposal.user.profile.image_small.url }}"
+                                                 alt="photo of {{ proposal.user.profile.name }}"></span>
+                                        {% else %}
+                                            <span class="program_image"><img class="media-patron" src="{% static 'image/anonymous.png' %}"></span>
+                                        {% endif %}
                                     </div>
                                     <div class="body">
                                         <h4 class="name">

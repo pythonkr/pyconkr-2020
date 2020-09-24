@@ -669,9 +669,14 @@ input[type="file"] {
     a {
       text-decoration: none;
       color: inherit;
+      display: inherit;
+      align-items: inherit;
+      .head {
+        display: flex;
+      }
     }
   }
-  img {
+  .program_image {
     width: 48px;
     height: 48px;
   }
