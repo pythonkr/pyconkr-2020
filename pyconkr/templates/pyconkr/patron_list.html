@@ -2,48 +2,48 @@
 {% load staticfiles %}
 {% load thumbnail %}
 {% load i18n %}
-{% load cache %}
 
 {% block title %}
-{% trans "개인 후원자 목록" %}
+    {% trans "개인 후원자 목록" %}
 {% endblock %}
 
-{% cache 3600 patrons %}
 {% block content %}
 <div>
-  <p>{% trans "파이콘 한국 2020을 후원해주신 개인 후원자 분들의 명단입니다. 후원해주셔서 감사합니다." %}</p>
-  <div class="margin-top-40">
-    <ul class="patrons">
-      {% for obj in object_list %}
-        {% with obj_name=obj.user.profile.name %}
-          <li>
-            <div class="head">
-              {% thumbnail obj.user.profile.image "128x128" crop="center" as im %}
-              <img class="media-patron" src="{{ im.url }}" alt="photo of {{ obj_name }}">
-              {% empty %}
-              <img class="media-patron" src="{% static 'image/anonymous.png' %}">
-              {% endthumbnail %}
-            </div>
-            <div class="body">
-              <h4 class="name">
-                {{ obj_name }}
-                {% if obj.user.profile.organization %}
-                / {{ obj.user.profile.organization }}
-                {% endif %}
-              </h4>
-              <div class="bio">
-              {% if obj.user.profile.bio %}
-                  <p>{{ obj.user.profile.bio|escape|urlize }}</p>
-              {% else %}
-                  <p>후원해주셔서 감사합니다. Thank you for your contribution.</p>
-              {% endif %}
-              </div>
-            </div>
-          </li>
-        {% endwith %}
-      {% endfor %}
-    </ul>
-  </div>
+    <p>{% trans "파이콘 한국 2020을 후원해주신 개인 후원자 분들의 명단입니다. 후원해주셔서 감사합니다." %}</p>
+    <div class="margin-top-40">
+        <ul class="patrons">
+            {% for obj in object_list %}
+                {% with obj_name=obj.user.profile.name %}
+                    <li>
+                        <div class="head">
+                            {% if obj.user.profile.image_small %}
+                                <span class="patron_image"><img class="media-patron"
+                                                                src="{{ obj.user.profile.image_small.url }}"
+                                                                alt="photo of {{ obj_name }}"></span>
+                            {% else %}
+                                <span class="patron_image"><img class="media-patron"
+                                                                src="{% static 'image/anonymous.png' %}"></span>
+                            {% endif %}
+                        </div>
+                        <div class="body">
+                            <h4 class="name">
+                                {{ obj_name }}
+                                {% if obj.user.profile.organization %}
+                                    / {{ obj.user.profile.organization }}
+                                {% endif %}
+                            </h4>
+                            <div class="bio">
+                                {% if obj.user.profile.bio %}
+                                    <p>{{ obj.user.profile.bio|escape|urlize }}</p>
+                                {% else %}
+                                    <p>후원해주셔서 감사합니다. Thank you for your contribution.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                {% endwith %}
+            {% endfor %}
+        </ul>
+    </div>
 </div>
 {% endblock %}
-{% endcache %}

@@ -1,6 +1,10 @@
 # from allauth.account.forms import BaseSignupForm
 from contextlib import suppress
-import random, string
+import random
+import string
+from PIL import Image
+from io import BytesIO
+from django.core.files import File
 from django.urls.exceptions import NoReverseMatch
 from crispy_forms.bootstrap import InlineCheckboxes
 from allauth.socialaccount.forms import SignupForm
@@ -15,6 +19,7 @@ from .models import Profile
 from django.urls import reverse
 from django.db import transaction
 from django.contrib.auth import get_user_model
+
 UserModel = get_user_model()
 
 
@@ -29,9 +34,9 @@ class ProfileForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', _('Submit')))
-        self.fields['image'].help_text += _('Maximum size is %(size)d MB') \
+        self.fields['image_ori'].help_text += _('Maximum size is %(size)d MB') \
             % {'size': settings.SPEAKER_IMAGE_MAXIMUM_FILESIZE_IN_MB}
-        self.fields['image'].help_text += ' / ' \
+        self.fields['image_ori'].help_text += ' / ' \
             + _('Minimum dimension is %(width)d x %(height)d') \
             % {'width': settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[0],
                'height': settings.SPEAKER_IMAGE_MINIMUM_DIMENSION[1]}
@@ -39,24 +44,26 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('name_ko', 'name_en', 'email', 'phone',
-                  'organization', 'image', 'bio_ko', 'bio_en', 'agreement_receive_advertising_info')
+                  'organization', 'image_ori', 'bio_ko', 'bio_en', 'agreement_receive_advertising_info')
         widgets = {
             'bio': SummernoteInplaceWidget(),
         }
         labels = {
             'name_ko': _('이름 (한글)'),
             'name_en': _('이름 (영어)'),
-            'image': _('Photo'),
+            'image_ori': _('Photo'),
             'agreement_receive_advertising_info': _('홍보성 메일 수신 동의')
         }
 
     def save(self, commit=True):
+        # Update user email
         user = self.instance.user
         email = self.cleaned_data['email']
         if email != user.email:
             user.email = self.cleaned_data['email']
             user.save()
 
+        # Make user code
         profile = self.instance
         if not profile.user_code:
             length = 20
@@ -73,10 +80,29 @@ class ProfileForm(forms.ModelForm):
             profile.user_code = result
             profile.save()
 
+        # Optimize user profile image
+        image = self.instance.image_ori
+        small_image_size = 256
+        new_width = 0
+        new_height = 0
+        if image.width >= image.height:
+            new_height = small_image_size
+            new_width = int(small_image_size * image.width / image.height)
+        else:
+            new_width = small_image_size
+            new_height = int(small_image_size * image.height / image.width)
+
+        PIL_image = Image.open(image.file)
+        image_small = PIL_image.resize((new_width, new_height))
+        blob = BytesIO()
+        image_small.save(blob, 'JPEG')
+        self.instance.image_small.save(image.name+'_small.jpg', File(blob), save=False)
+        self.instance.save()
+
         return super(ProfileForm, self).save(commit=commit)
 
     def clean_image(self):
-        image = self.cleaned_data.get('image')
+        image = self.cleaned_data.get('image_ori')
         if image:
             try:
                 if image._size > settings.SPEAKER_IMAGE_MAXIMUM_FILESIZE_IN_MB * 1024 * 1024:
