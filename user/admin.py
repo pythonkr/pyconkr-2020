@@ -126,12 +126,15 @@ class ProfileAdmin(admin.ModelAdmin):
                 new_width = small_image_size
                 new_height = int(small_image_size * image.height / image.width)
 
-            PIL_image = Image.open(image.file)
-            image_small = PIL_image.resize((new_width, new_height))
-            blob = BytesIO()
-            image_small.save(blob, 'PNG')
-            p.image_small.save(image.name + '_small.jpg', File(blob), save=False)
-            p.save()
+            try:
+                PIL_image = Image.open(image.file)
+                image_small = PIL_image.resize((new_width, new_height))
+                blob = BytesIO()
+                image_small.save(blob, 'PNG')
+                p.image_small.save(image.name + '_small.jpg', File(blob), save=False)
+                p.save()
+            except ValueError:
+                pass
 
 
 # admin.site.register(User, UserAdmin)
