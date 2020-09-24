@@ -1,5 +1,9 @@
 from mail_templated import send_mail
-import random, string
+import random
+import string
+from PIL import Image
+from io import BytesIO
+from django.core.files import File
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth import get_user_model
@@ -34,7 +38,7 @@ class UserAdmin(BaseUserAdmin):
 
 class UserCodeListFilter(admin.SimpleListFilter):
     title = "User code"
-    parameter_name = "empty"
+    parameter_name = "user_code"
 
     def lookups(self, request, model_admin):
         return (
@@ -49,11 +53,45 @@ class UserCodeListFilter(admin.SimpleListFilter):
             return queryset.filter(user_code__regex='.*')
 
 
+class ProfileImageListFilter(admin.SimpleListFilter):
+    title = "Profile image"
+    parameter_name = "image_ori"
+
+    def lookups(self, request, model_admin):
+        return (
+            ('empty', 'Empty'),
+            ('exist', 'Not empty'),
+        )
+
+    def queryset(self, request, queryset):
+        if self.value() == 'empty':
+            return queryset.filter(image_ori__isnull=True)
+        if self.value() == 'exist':
+            return queryset.filter(image_ori__isnull=False)
+
+
+class ProfileSmallImageListFilter(admin.SimpleListFilter):
+    title = "Small image"
+    parameter_name = "image_small"
+
+    def lookups(self, request, model_admin):
+        return (
+            ('empty', 'Empty'),
+            ('exist', 'Not empty'),
+        )
+
+    def queryset(self, request, queryset):
+        if self.value() == 'empty':
+            return queryset.filter(image_small__isnull=True)
+        if self.value() == 'exist':
+            return queryset.filter(image_small__isnull=False)
+
+
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'name_ko', 'name_en', 'user_code',)
-    list_filter = (UserCodeListFilter,)
+    list_display = ('user', 'name_ko', 'name_en', 'user_code', 'image_ori', 'image_small',)
+    list_filter = (UserCodeListFilter, ProfileImageListFilter, ProfileSmallImageListFilter,)
     search_fields = ('user__username', 'user_code', 'name_ko', 'name_en',)
-    actions = ('make_user_code',)
+    actions = ('make_user_code', 'make_small_image',)
 
     def make_user_code(self, request, queryset):
         length = 20
@@ -71,6 +109,28 @@ class ProfileAdmin(admin.ModelAdmin):
                     break
 
             p.user_code = result
+            p.save()
+
+    def make_small_image(self, request, queryset):
+        for p in queryset:
+            if p.image_small:
+                continue
+            image = p.image_ori
+            small_image_size = 256
+            new_width = 0
+            new_height = 0
+            if image.width >= image.height:
+                new_height = small_image_size
+                new_width = int(small_image_size * image.width / image.height)
+            else:
+                new_width = small_image_size
+                new_height = int(small_image_size * image.height / image.width)
+
+            PIL_image = Image.open(image.url)
+            image_small = PIL_image.resize((new_width, new_height))
+            blob = BytesIO()
+            image_small.save(blob, 'PNG')
+            p.image_small.save(image.name + '_small.jpg', File(blob), save=False)
             p.save()
 
 
