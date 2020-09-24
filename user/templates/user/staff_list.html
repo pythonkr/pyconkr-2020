@@ -24,9 +24,9 @@
                 <li>
                     <div class="head">
                         {% thumbnail obj.image "128x128" crop="center" as im %}
-                            <img class="media-patron" src="{{ im.url }}" alt="photo of {{ obj.name }}">
+                            <span class="staff_image"><img class="media-patron" src="{{ im.url }}" alt="photo of {{ obj.name }}"></span>
                         {% empty %}
-                            <img class="media-patron" src="{% static 'image/anonymous.png' %}">
+                            <span class="staff_image"><img class="media-patron" src="{% static 'image/anonymous.png' %}"></span>
                         {% endthumbnail %}
                     </div>
                     <div class="body">
