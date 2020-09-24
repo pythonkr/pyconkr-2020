@@ -2,13 +2,11 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load thumbnail %}
-{% load cache %}
 
 {% block title %}
     {% trans 'Talks Schedule' %}
 {% endblock %}
 
-{% cache 300 schedule %}
 {% block content %}
     {% if is_empty or not is_open %}
         <h4 class="text-center">{% trans "Ready for content" %}</h4>
@@ -263,4 +261,3 @@
         </table>
     {% endif %}
 {% endblock %}
-{% endcache %}
