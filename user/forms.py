@@ -92,12 +92,15 @@ class ProfileForm(forms.ModelForm):
             new_width = small_image_size
             new_height = int(small_image_size * image.height / image.width)
 
-        PIL_image = Image.open(image.file)
-        image_small = PIL_image.resize((new_width, new_height))
-        blob = BytesIO()
-        image_small.save(blob, 'JPEG')
-        self.instance.image_small.save(image.name+'_small.jpg', File(blob), save=False)
-        self.instance.save()
+        try:
+            PIL_image = Image.open(image.file)
+            image_small = PIL_image.resize((new_width, new_height))
+            blob = BytesIO()
+            image_small.save(blob, 'PNG')
+            self.instance.image_small.save(image.name+'_small.jpg', File(blob), save=False)
+            self.instance.save()
+        except ValueError:  # 동일한 파일 입력
+            pass
 
         return super(ProfileForm, self).save(commit=commit)
 
