@@ -19,7 +19,10 @@ class Profile(models.Model):
     phone = models.CharField(max_length=100, null=True, blank=True)
     organization = models.CharField(max_length=100, null=True, blank=True, help_text=_(
         '여기에 기입한 조직 이름이 행사 당일 이름표에 표시됩니다.'))
-    image = SorlImageField(upload_to=profile_image, null=True, blank=True)
+    image_ori = SorlImageField(upload_to=profile_image, null=True, blank=True,
+                               help_text=_('사용자 사진 원본'))
+    image_small = SorlImageField(upload_to=profile_image, null=True, blank=True,
+                                 help_text=_('사용자 사진 축소본'))
     bio = models.TextField(max_length=4000, null=True, blank=True,
                            help_text=_('이 내용이 개인 후원자 목록에 노출됩니다. 변경 사항은 최대 60분 이내에 적용됩니다.'))
     user_code = models.CharField(max_length=20, null=True, blank=True)

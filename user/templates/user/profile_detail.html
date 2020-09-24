@@ -9,8 +9,8 @@
     {% if profile.name %}
         <div class="row">
             <div class="col-md-2">
-                {% if profile.image %}
-                    <img src="{{ profile.image.url }}" width="100">
+                {% if profile.image_ori %}
+                    <img src="{{ profile.image_ori.url }}" width="100">
                 {% else %}
                     <img src="{% static 'image/pycon_profile.png' %}" width="100">
                 {% endif %}

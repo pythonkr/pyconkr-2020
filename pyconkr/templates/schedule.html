@@ -2,13 +2,11 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load thumbnail %}
-{% load cache %}
 
 {% block title %}
     {% trans 'Talks Schedule' %}
 {% endblock %}
 
-{% cache 300 schedule %}
 {% block content %}
     {% if is_empty or not is_open %}
         <h4 class="text-center">{% trans "Ready for content" %}</h4>
@@ -107,11 +105,11 @@
                                     </div>
                                     {% if l.category != lt and l.category != opening %}
                                         <div class="speaker">
-                                            {% thumbnail l.user.profile.image "128x128" crop="center" as im %}
-                                                <img src="{{ im.url }}" alt="photo of {{ l.user.profile.name }}">
-                                            {% empty %}
-                                                <img src="{% static 'image/anonymous.png' %}">
-                                            {% endthumbnail %}
+                                            {% if l.user.profile.image_small %}
+                                                <span class="speaker_image"><img src="{{ l.user.profile.image_small.url }}" alt="photo of {{ l.user.profile.name }}"></span>
+                                            {% else %}
+                                                <span class="speaker_image"><img src="{% static 'image/anonymous.png' %}" alt="No photo"></span>
+                                            {% endif %}
                                             <span class="speaker_name">{{ l.user.profile.name }}</span>
                                         </div>
                                     {% endif %}
@@ -143,11 +141,11 @@
                                         </small>
                                     </div>
                                     <div class="speaker">
-                                        {% thumbnail l.user.profile.image "128x128" crop="center" as im %}
-                                            <img src="{{ im.url }}" alt="photo of {{ l.user.profile.name }}">
-                                        {% empty %}
-                                            <img src="{% static 'image/anonymous.png' %}">
-                                        {% endthumbnail %}
+                                        {% if l.user.profile.image_small %}
+                                            <span class="speaker_image"><img src="{{ l.user.profile.image_small.url }}" alt="photo of {{ l.user.profile.name }}"></span>
+                                        {% else %}
+                                            <span class="speaker_image"><img src="{% static 'image/anonymous.png' %}" alt="No photo"></span>
+                                        {% endif %}
                                         <span class="speaker_name">{{ l.user.profile.name }}</span>
                                     </div>
                                 </td>
@@ -244,11 +242,11 @@
                                         </small>
                                     </div>
                                     <div class="speaker">
-                                        {% thumbnail l.user.profile.image "128x128" crop="center" as im %}
-                                            <img src="{{ im.url }}" alt="photo of {{ l.user.profile.name }}">
-                                        {% empty %}
-                                            <img src="{% static 'image/anonymous.png' %}">
-                                        {% endthumbnail %}
+                                        {% if l.user.profile.image_small %}
+                                            <span class="speaker_image"><img src="{{ l.user.profile.image_small.url }}" alt="photo of {{ l.user.profile.name }}"></span>
+                                        {% else %}
+                                            <span class="speaker_image"><img src="{% static 'image/anonymous.png' %}" alt="No photo"></span>
+                                        {% endif %}
                                         <span class="speaker_name">{{ l.user.profile.name }}</span>
                                     </div>
                                 </td>
@@ -263,4 +261,3 @@
         </table>
     {% endif %}
 {% endblock %}
-{% endcache %}
