@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 21:25+0900\n"
+"POT-Creation-Date: 2020-09-24 20:59+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: woojing seok <woojing@pycon.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: .\registration\templates\registration\my_ticket.html:13
-#: .\registration\templates\registration\ticket_list.html:68
-#: .\registration\templates\registration\ticket_list.html:76
+#: .\registration\templates\registration\ticket_list.html:69
+#: .\registration\templates\registration\ticket_list.html:77
 msgid "개인 후원 티켓"
 msgstr ""
 
@@ -31,19 +31,19 @@ msgstr ""
 
 #: .\registration\templates\registration\my_ticket.html:20
 #: .\registration\templates\registration\ticket_list.html:32
-#: .\registration\templates\registration\ticket_list.html:80
+#: .\registration\templates\registration\ticket_list.html:81
 msgid "기간: 9월 26-27일 (토-일)"
 msgstr ""
 
 #: .\registration\templates\registration\my_ticket.html:21
 #: .\registration\templates\registration\ticket_list.html:33
-#: .\registration\templates\registration\ticket_list.html:81
+#: .\registration\templates\registration\ticket_list.html:82
 msgid "CoC를 꼭 지켜주세요."
 msgstr ""
 
 #: .\registration\templates\registration\my_ticket.html:22
 #: .\registration\templates\registration\ticket_list.html:34
-#: .\registration\templates\registration\ticket_list.html:82
+#: .\registration\templates\registration\ticket_list.html:83
 msgid "YouTube link"
 msgstr ""
 "<a href='https://www.youtube.com/channel/UC26x6D5xpKx6io4ShfXa_Ow/' "
@@ -126,7 +126,7 @@ msgid "무료"
 msgstr ""
 
 #: .\registration\templates\registration\ticket_list.html:44
-#: .\registration\templates\registration\ticket_list.html:92
+#: .\registration\templates\registration\ticket_list.html:93
 msgid "판매 종료"
 msgstr ""
 
@@ -135,31 +135,35 @@ msgid "구매함"
 msgstr ""
 
 #: .\registration\templates\registration\ticket_list.html:49
-#: .\registration\templates\registration\ticket_list.html:95
+#: .\registration\templates\registration\ticket_list.html:96
 msgid "구매하기"
 msgstr ""
 
 #: .\registration\templates\registration\ticket_list.html:62
+msgid "일반 티켓은 9월 24일 목요일 23시 59분까지 판매됩니다."
+msgstr ""
+
+#: .\registration\templates\registration\ticket_list.html:63
 msgid ""
 "일반 티켓을 구매하신 분들에게는 행사와 관련된 후원사 정보, 이벤트 등에 대해 "
 "메일을 통해 알려드립니다. (선택적)"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:65
+#: .\registration\templates\registration\ticket_list.html:66
 msgid "또한 행사 기간 동안 운영되는 참가자용 슬랙에 초대드릴 예정입니다."
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:87
+#: .\registration\templates\registration\ticket_list.html:88
 msgid "8만 원 이상"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:107
+#: .\registration\templates\registration\ticket_list.html:108
 msgid ""
 "파이콘은 참가하는 \"모든\" 사람(준비위원회, 자원봉사자, 발표자까지)이 티켓을 "
 "구매하는 것을 원칙으로 합니다."
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:108
+#: .\registration\templates\registration\ticket_list.html:109
 msgid ""
 "그렇게 하여 모든 참가자들이 정당한 가격을 지불하고 동등한 자격으로 행사의 일"
 "부가 되도록 하는 것이 파이콘의 중요한 철학 중 하나입니다. [<a href=\"http://"
@@ -167,12 +171,12 @@ msgid ""
 "a>]"
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:111
+#: .\registration\templates\registration\ticket_list.html:112
 msgid ""
 "이번 파이콘 한국 2020은 온라인 컨퍼런스로 진행되어 티켓 가격이 무료입니다."
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:112
+#: .\registration\templates\registration\ticket_list.html:113
 msgid ""
 "후원 금액은 작년 행사까지는 금전적인 이유로 파이콘에 참가하기 힘든 분께 지원"
 "하는 것을 최우선으로 사용하였고, 이후 여분의 금액이 발생할 시에는 내년 파이콘"
@@ -181,13 +185,13 @@ msgid ""
 "편집, 자막 작업, 번역 등 예산 집행에 사용될 예정입니다."
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:115
+#: .\registration\templates\registration\ticket_list.html:116
 msgid ""
 "개인 후원 티켓을 구매하신 분들은 홈페이지의 <a href=\"/2020/about/patron/\">"
 "개인 후원자 목록</a>에 본인이 표시됩니다."
 msgstr ""
 
-#: .\registration\templates\registration\ticket_list.html:116
+#: .\registration\templates\registration\ticket_list.html:117
 msgid ""
 "또한 개인 후원 티켓 구매가 아니라 <b>티셔츠만 구매하실 수도 있습니다!</b> 이 "
 "경우에는 홈페이지에 티켓 표시가 되지 않습니다."
