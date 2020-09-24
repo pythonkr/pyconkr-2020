@@ -20,12 +20,13 @@
                 <a href="{{ obj.url|default:"#" }}">
                     <li>
                         <div class="head">
-                            {% thumbnail obj.creator.profile.image "128x128" crop="center" as im %}
-                                <img class="media-patron" src="{{ im.url }}"
-                                     alt="photo of {{ obj.creator.profile.name }}">
-                            {% empty %}
-                                <img class="media-patron" src="{% static 'image/anonymous.png' %}">
-                            {% endthumbnail %}
+                            {% if obj.creator.profile.image_small %}
+                                <span class="sprint_image"><img class="media-patron" src="{{ obj.creator.profile.image_small.url }}"
+                                                                alt="photo of {{ obj.creator.profile.name }}"></span>
+                            {% else %}
+                                <span class="sprint_image"><img class="media-patron"
+                                                                src="{% static 'image/anonymous.png' %}"></span>
+                            {% endif %}
                         </div>
                         <div class="body">
                             <h4 class="name">
