@@ -604,20 +604,18 @@ class KeynoteList(ListView):
 class ProgramRedirect(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         KST, now = get_KST_now()
-        sat_open = datetime.datetime(2020, 9, 26, 9, 50, tzinfo=KST)
-        sat_close = datetime.datetime(2020, 9, 26, 17, 0, tzinfo=KST)
-        sun_open = datetime.datetime(2020, 9, 27, 10, 0, tzinfo=KST)
+        sat_close = datetime.datetime(2020, 9, 26, 17, 15, tzinfo=KST)
         sun_close = datetime.datetime(2020, 9, 27, 17, 0, tzinfo=KST)
         room = self.kwargs['room']
 
-        if sat_open < now < sat_close:
+        if now < sat_close:
             if room == '101':
                 return redirect(constance.config.YOUTUBE_TRACK_1)
             elif room == '102':
                 return redirect(constance.config.YOUTUBE_TRACK_2)
             elif room == '103':
                 return redirect(constance.config.YOUTUBE_TRACK_3)
-        elif sun_open < now < sun_close:
+        elif now < sun_close:
             if room == '104':
                 return redirect(constance.config.YOUTUBE_TRACK_4)
             elif room == '105':
