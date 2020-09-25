@@ -2,7 +2,6 @@ import datetime
 import time
 
 from django.contrib.auth import get_user_model
-from django.core.mail import send_mail, send_mass_mail, EmailMessage, EmailMultiAlternatives
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -40,19 +39,16 @@ def send_email_immediately(sender, instance, created, **kwargs):
             else:
                 bcc_list = send_list[i * 50:i * 50 + 50]
 
-            email = EmailMultiAlternatives(
+            import mailing.thread
+            mailing.thread.send_mail(
                 instance.title,
                 instance.content,
                 instance.sender_name,
                 ['pyconkr@pycon.kr'],  # To
+                True,
+                instance.content,
                 bcc_list,  # bcc
             )
-
-            email.attach_alternative(instance.content, "text/html")
-            email.content_subtype = 'html'
-            email.mixed_subtype = 'related'
-    
-            email.send(fail_silently=False)
 
         instance.send_successfully = True
         instance.save()
