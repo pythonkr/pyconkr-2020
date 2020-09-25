@@ -25,7 +25,7 @@ def send_email_immediately(sender, instance, created, **kwargs):
         send_list = list()
 
         if send_to_participants == 'INFO':
-            send_list = [m.email for m in Ticket.objects.all()]
+            send_list = [m.user.email for m in Ticket.objects.all()]
         elif send_to_participants == 'AD':
             send_list = [m.user.email for m in Ticket.objects.filter(user__profile__agreement_receive_advertising_info=True)]
 
