@@ -147,7 +147,8 @@ class ProgramSchedule(TemplateView):
         for time in sat__sorted.keys():
             time = (time + datetime.timedelta(hours=9)).replace(tzinfo=KST)
             if ProgramCategory.objects.filter(slug="opening").exists():
-                if sat__sorted[time][0] != '' and sat__sorted[time][0].category == ProgramCategory.objects.get(slug="opening"):
+                if sat__sorted[time][0] != '' and sat__sorted[time][0].category == ProgramCategory.objects.get(
+                        slug="opening"):
                     if time < now < time + datetime.timedelta(minutes=10):
                         context['live'] = time
                         context['live_weekday'] = 5
@@ -607,25 +608,25 @@ class ProgramRedirect(TemplateView):
         sat_close = datetime.datetime(2020, 9, 26, 17, 15, tzinfo=KST)
         sun_close = datetime.datetime(2020, 9, 27, 17, 0, tzinfo=KST)
         room = self.kwargs['room']
-        try:
-            if now < sat_close:
-                if room == '101':
-                    return redirect(constance.config.YOUTUBE_TRACK_1)
-                elif room == '102':
-                    return redirect(constance.config.YOUTUBE_TRACK_2)
-                elif room == '103':
-                    return redirect(constance.config.YOUTUBE_TRACK_3)
-            elif now < sun_close:
-                if room == '104':
-                    return redirect(constance.config.YOUTUBE_TRACK_4)
-                elif room == '105':
-                    return redirect(constance.config.YOUTUBE_TRACK_5)
-            else:
-                return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
-                                                     'base_content': '영상이 공개 중인 시간이 아닙니다.'})
-        except ValueError:
+
+        if now < sat_close:
+            if room == '101' and constance.config.YOUTUBE_TRACK_1:
+                return redirect(constance.config.YOUTUBE_TRACK_1)
+            elif room == '102' and constance.config.YOUTUBE_TRACK_2:
+                return redirect(constance.config.YOUTUBE_TRACK_2)
+            elif room == '103' and constance.config.YOUTUBE_TRACK_3:
+                return redirect(constance.config.YOUTUBE_TRACK_3)
+        elif now < sun_close:
+            if room == '104' and constance.config.YOUTUBE_TRACK_4:
+                return redirect(constance.config.YOUTUBE_TRACK_4)
+            elif room == '105' and constance.config.YOUTUBE_TRACK_5:
+                return redirect(constance.config.YOUTUBE_TRACK_5)
+        else:
             return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
-                                                 'base_content': '영상이 아직 준비되지 않았습니다.'})
+                                                 'base_content': '영상이 공개 중인 시간이 아닙니다.'})
+
+        return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                             'base_content': '영상이 아직 준비되지 않았습니다.'})
 
 
 class LightningTalkRedirect(TemplateView):
