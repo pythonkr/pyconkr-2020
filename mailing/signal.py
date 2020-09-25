@@ -2,7 +2,7 @@ import datetime
 import time
 
 from django.contrib.auth import get_user_model
-from django.core.mail import send_mail, send_mass_mail, EmailMessage
+from django.core.mail import send_mail, send_mass_mail, EmailMessage, EmailMultiAlternatives
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -33,13 +33,19 @@ def send_email_immediately(sender, instance, created, **kwargs):
             subscriber_list = [m.email_address for m in NewsLetter.objects.all()]
             send_list = send_list + subscriber_list
 
-        email = EmailMessage(
+        email = EmailMultiAlternatives(
             instance.title,
             instance.content,
             instance.sender_name,
-            [],  # To
+            ['pyconkr@pycon.kr'],  # To
             send_list,  # bcc
-        ).send(fail_silently=False)
+        )
+
+        email.attach_alternative(instance.content, "text/html")
+        email.content_subtype = 'html'
+        email.mixed_subtype = 'related'
+
+        email.send(fail_silently=False)
 
         instance.send_successfully = True
         instance.save()
