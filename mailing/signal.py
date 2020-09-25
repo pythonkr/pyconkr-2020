@@ -8,6 +8,7 @@ from django.dispatch import receiver
 
 from mailing.models import Mailing
 from user.models import Profile
+from registration.models import Ticket
 
 
 @receiver(post_save, sender=Mailing)
@@ -24,9 +25,9 @@ def send_email_immediately(sender, instance, created, **kwargs):
         send_list = list()
 
         if send_to_participants == 'INFO':
-            send_list = [m.email for m in user_model.objects.all()]
+            send_list = [m.email for m in Ticket.objects.all()]
         elif send_to_participants == 'AD':
-            send_list = [m.user.email for m in Profile.objects.filter(agreement_receive_advertising_info=True)]
+            send_list = [m.user.email for m in Ticket.objects.filter(user__profile__agreement_receive_advertising_info=True)]
 
         # TODO 뉴스레터
         if send_to_subscriber == 'YES':
