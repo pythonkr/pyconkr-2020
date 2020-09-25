@@ -16,7 +16,7 @@ from .views import login, logout
 
 from program.views import OpenReviewUpdate, OpenReviewList, OpenReviewHome, OpenReviewResult, ContributionHome, \
     LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate, LightningTalkRedirect, \
-    ClosingRedirect
+    ClosingRedirect, ProgramRedirect
 from registration.views import PatronList
 from mailing.views import NewsLetterAdd, NewsLetterRemove, NewsLetterRemoveConfirm
 from user.views import StaffList
@@ -41,6 +41,8 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/coc/$', RedirectView.as_view(url="/2020/about/coc", permanent=False)),
 
     # YouTube redirect
+    re_path(r'^2020/sat/(?P<room>\d{3})/$', ProgramRedirect.as_view()),
+    re_path(r'^2020/sun/(?P<room>\d{3})/$', ProgramRedirect.as_view()),
     re_path(r'^2020/lt/sat/$', LightningTalkRedirect.as_view()),
     re_path(r'^2020/LT/sat/$', LightningTalkRedirect.as_view()),
     re_path(r'^2020/lt/sun/$', LightningTalkRedirect.as_view()),

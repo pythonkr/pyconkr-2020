@@ -601,6 +601,32 @@ class KeynoteList(ListView):
         return context
 
 
+class ProgramRedirect(TemplateView):
+    def dispatch(self, request, *args, **kwargs):
+        KST, now = get_KST_now()
+        sat_open = datetime.datetime(2020, 9, 26, 9, 50, tzinfo=KST)
+        sat_close = datetime.datetime(2020, 9, 26, 17, 0, tzinfo=KST)
+        sun_open = datetime.datetime(2020, 9, 27, 10, 0, tzinfo=KST)
+        sun_close = datetime.datetime(2020, 9, 27, 17, 0, tzinfo=KST)
+        room = self.kwargs['room']
+
+        if sat_open < now < sat_close:
+            if room == '101':
+                return redirect(constance.config.YOUTUBE_TRACK_1)
+            elif room == '102':
+                return redirect(constance.config.YOUTUBE_TRACK_2)
+            elif room == '103':
+                return redirect(constance.config.YOUTUBE_TRACK_3)
+        elif sun_open < now < sun_close:
+            if room == '104':
+                return redirect(constance.config.YOUTUBE_TRACK_4)
+            elif room == '105':
+                return redirect(constance.config.YOUTUBE_TRACK_5)
+        else:
+            return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                 'base_content': '영상이 공개 중인 시간이 아닙니다.'})
+
+
 class LightningTalkRedirect(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         try:
