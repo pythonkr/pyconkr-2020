@@ -6,7 +6,7 @@ from django.core.mail import send_mail, send_mass_mail, EmailMessage
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from mailing.models import Mailing
+from mailing.models import Mailing, NewsLetter
 from user.models import Profile
 from registration.models import Ticket
 
@@ -29,9 +29,8 @@ def send_email_immediately(sender, instance, created, **kwargs):
         elif send_to_participants == 'AD':
             send_list = [m.user.email for m in Ticket.objects.filter(user__profile__agreement_receive_advertising_info=True)]
 
-        # TODO 뉴스레터
         if send_to_subscriber == 'YES':
-            subscriber_list = []
+            subscriber_list = [m.email_address for m in NewsLetter.objects.all()]
             send_list = send_list + subscriber_list
 
         email = EmailMessage(
