@@ -7,8 +7,8 @@ from registration.models import Ticket
 
 
 @receiver(post_save, sender=Ticket)
-def send_ticket_info(sender, instance,created, **kwargs):
-    # 최초작성시에만 메일 발송
+def send_ticket_info(sender, instance, created, **kwargs):
+    # 최초 작성 시에만 메일 발송
     if created is True:
         print("sender: ", sender)
         print("instance: ", instance)
