@@ -64,7 +64,6 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.twitter',
     'debug_toolbar',
-    'mailer',
 )
 
 MIDDLEWARE = [
@@ -207,7 +206,7 @@ SOCIALACCOUNT_FORMS = {
 }
 
 if os.getenv('EMAIL_HOST_USER_NO_REPLY'):
-    EMAIL_BACKEND = 'mailer.backend.DbBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_HOST = os.getenv('EMAIL_HOST_NO_REPLY')
     EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER_NO_REPLY')
