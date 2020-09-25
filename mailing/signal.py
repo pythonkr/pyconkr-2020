@@ -33,19 +33,26 @@ def send_email_immediately(sender, instance, created, **kwargs):
             subscriber_list = [m.email_address for m in NewsLetter.objects.all()]
             send_list = send_list + subscriber_list
 
-        email = EmailMultiAlternatives(
-            instance.title,
-            instance.content,
-            instance.sender_name,
-            ['pyconkr@pycon.kr'],  # To
-            send_list,  # bcc
-        )
+        for i in range(1 + len(send_list) // 50):
+            bcc_list = list()
+            if i == len(send_list) // 50:
+                bcc_list = send_list[i * 50:]
+            else:
+                bcc_list = send_list[i * 50:i * 50 + 50]
 
-        email.attach_alternative(instance.content, "text/html")
-        email.content_subtype = 'html'
-        email.mixed_subtype = 'related'
+            email = EmailMultiAlternatives(
+                instance.title,
+                instance.content,
+                instance.sender_name,
+                ['pyconkr@pycon.kr'],  # To
+                bcc_list,  # bcc
+            )
 
-        email.send(fail_silently=False)
+            email.attach_alternative(instance.content, "text/html")
+            email.content_subtype = 'html'
+            email.mixed_subtype = 'related'
+    
+            email.send(fail_silently=False)
 
         instance.send_successfully = True
         instance.save()
