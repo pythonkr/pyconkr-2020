@@ -1297,6 +1297,7 @@ a.endBtn {
     border-radius: 1rem;
     word-break: keep-all;
     text-align: center;
+    position: relative;
 
     &:hover {
       background-color: #fff;
@@ -1310,6 +1311,19 @@ a.endBtn {
       &::before {
         content: "준비 중입니다. Coming soon.";
       }
+    }
+
+    .live_alert {
+      position: absolute;
+      top: -1.75rem;
+      height: 1.5rem;
+      font-size: 1rem;
+      color: #fff;
+      padding: 0 0.25rem;
+      border-radius: 5px;
+      background-color: #ff1733;
+      padding: 0 0.5rem;
+      animation: blinker 2s linear infinite;
     }
   }
 }
