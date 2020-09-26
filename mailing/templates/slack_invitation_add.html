@@ -11,4 +11,10 @@
 
     {% crispy form %}
 
+    <div class="alert alert-warning" role="alert">
+        {% trans '본 서비스에 참가하실 경우, <a href="/2020/terms-of-service/" target="_blank">서비스 이용 약관</a> 및 관련 운영 정책을 동의하신 것으로 봅니다.' %}
+        <br />
+        {% trans '참가자 슬랙 참가 신청이 완료되면, <a href="/2020/privacy-policy/" target="_blank">개인정보 처리 방침</a>에 동의한 것으로 간주됩니다.' %}
+    </div>
+
 {% endblock %}
