@@ -44,7 +44,7 @@ msgstr "Email address"
 
 #: .\mailing\forms.py:37
 msgid "CoC 동의 (필수)"
-msgstr ""
+msgstr "Agreement on CoC (required)"
 
 #: .\mailing\models.py:44
 msgid "소식을 받을 이메일 주소"
@@ -52,7 +52,7 @@ msgstr "Email address to subscribe"
 
 #: .\mailing\models.py:45
 msgid "참가자 슬랙 초대용 CoC 동의 여부"
-msgstr ""
+msgstr "Agreement on CoC (required)"
 
 #: .\mailing\templates\email_ticket.html:16
 msgid "파이콘 한국 2020에 등록해주셔서 감사합니다."
@@ -122,20 +122,20 @@ msgstr "Please enter your email address to unsubscribe."
 
 #: .\mailing\templates\slack_invitation_add.html:5
 msgid "참가자 슬랙 참가하기"
-msgstr ""
+msgstr "Join participant slack"
 
 #: .\mailing\templates\slack_invitation_add.html:9
 msgid ""
 "파이써니스타 여러분! 두구두구! 파이콘 한국 2020 행사 기간 동안 더 많은 분들"
 "과 함께 대화를 나누며 즐기고 싶어 파이콘 한국 2020 행사 기간 동안 운영되고 있"
 "는 슬랙에 초대합니다!"
-msgstr ""
+msgstr "Hi, Pythonisatas! We invite you to the participant slack to enjoy with more people!"
 
 #: .\mailing\templates\slack_invitation_add.html:10
 msgid ""
 "슬랙에 오시면 특별 대박 감동 굿즈 이벤트에도 참여하실 수 있으니까 많이들 놀러"
 "오세요! 🙂 ❤ 💬 🎉"
-msgstr ""
+msgstr "When you come to slack, you can also participate in the goods event! 🙂 ❤ 💬 🎉"
 
 #: .\mailing\templates\slack_invitation_add.html:15
 msgid ""
@@ -1228,7 +1228,7 @@ msgstr ""
 msgid ""
 "티켓을 미처 구매하지 못 하셨더라도 참가자 슬랙에 참가하실 수 있습니다! <a "
 "href=\"/2020/slack/\" target=\"_blank\">여기서!</a>"
-msgstr "Even if you haven't purchased a ticket, you can still participate in Participant Slack! <a href=\"/en/2020/slack/\" target=\"_blank\">Here!</a>"
+msgstr "Even if you haven't purchased a ticket, you can still participate in participant slack! <a href=\"/en/2020/slack/\" target=\"_blank\">Here!</a>"
 
 #: .\pyconkr\templates\schedule.html:45
 msgid "9/26 (토)"
