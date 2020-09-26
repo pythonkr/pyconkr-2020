@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}
+    {% trans "참가자 슬랙 참가하기" %}
+{% endblock %}
+
+{% block content %}
+    <p>{% trans '파이써니스타 여러분! 두구두구! 파이콘 한국 2020 행사 기간 동안 더 많은 분들과 함께 대화를 나누며 즐기고 싶어 파이콘 한국 2020 행사 기간 동안 운영되고 있는 슬랙에 초대합니다!' %}</p>
+    <p>{% trans '슬랙에 오시면 특별 대박 감동 굿즈 이벤트에도 참여하실 수 있으니까 많이들 놀러오세요! 🙂 ❤ 💬 🎉' %}</p>
+
+    {% crispy form %}
+
+    <div class="alert alert-warning" role="alert">
+        {% trans '본 서비스에 참가하실 경우, <a href="/2020/terms-of-service/" target="_blank">서비스 이용 약관</a> 및 관련 운영 정책을 동의하신 것으로 봅니다.' %}
+        <br />
+        {% trans '참가자 슬랙 참가 신청이 완료되면, <a href="/2020/privacy-policy/" target="_blank">개인정보 처리 방침</a>에 동의한 것으로 간주됩니다.' %}
+    </div>
+
+{% endblock %}

@@ -42,6 +42,7 @@ class Mailing(models.Model):
 
 class NewsLetter(models.Model):
     email_address = models.EmailField(help_text=_('소식을 받을 이메일 주소'))
+    agree_coc = models.BooleanField(default=False, help_text=_('참가자 슬랙 초대용 CoC 동의 여부'))
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):

@@ -18,7 +18,7 @@ from program.views import OpenReviewUpdate, OpenReviewList, OpenReviewHome, Open
     LightningTalkCreate, LightningTalkHome, LightningTalkDetail, LightningTalkUpdate, LightningTalkRedirect, \
     ClosingRedirect, ProgramRedirect
 from registration.views import PatronList
-from mailing.views import NewsLetterAdd, NewsLetterRemove, NewsLetterRemoveConfirm
+from mailing.views import NewsLetterAdd, NewsLetterRemove, NewsLetterRemoveConfirm, SlackInvitation
 from user.views import StaffList
 
 admin.autodiscover()
@@ -39,6 +39,7 @@ urlpatterns += i18n_patterns(
     re_path(r'^2020/announcement/', include('program.urls')),
     re_path(r'^2020/profile/', include('user.urls')),
     re_path(r'^2020/coc/$', RedirectView.as_view(url="/2020/about/coc", permanent=False)),
+    re_path(r'^2020/slack/$', SlackInvitation.as_view(), name='slack-invitation'),
 
     # YouTube redirect
     re_path(r'^2020/sat/(?P<room>\d{3})/$', ProgramRedirect.as_view()),

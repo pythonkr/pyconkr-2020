@@ -5,6 +5,7 @@ from constance import config
 token = config.SLACK_TOKEN
 CFP_CHANNEL = config.SLACK_CHANNEL
 CFS_CHANNEL = config.CFS_NOTI_CHANNEL
+SLACK_INVITATION_ALARM_CHANNEL = config.SLACK_INVITATION_ALARM_CHANNEL
 
 
 def new_cfp_registered(hostname, pk, title):
@@ -106,4 +107,20 @@ def virtual_booth_updated(hostname, slug, name):
 
         slack.chat.post_message(
             CFS_CHANNEL, text=text, attachments=[attachment], icon_emoji=':female_mage:'
+        )
+
+
+def slack_invitation_request(email):
+    if token:
+        slack = Slacker(token)
+        text = '새롭게 신청된 Slack 가입 요청이 있어요!'
+
+        attachment = {
+            "color": 'good',
+            "title": 'Slack 가입 요청',
+            "text": '이메일: {}'.format(email),
+        }
+
+        slack.chat.post_message(
+            SLACK_INVITATION_ALARM_CHANNEL, text=text, attachments=[attachment], icon_emoji=':female_mage:'
         )

@@ -293,6 +293,7 @@ KST = datetime.timezone(datetime.timedelta(hours=9))
 CONSTANCE_CONFIG = {
     'SLACK_TOKEN': ('', '홈페이지에서 파준위 슬랙으로 알림을 보내기 위한 토큰'),
     'SLACK_CHANNEL': ('#bot-test', '홈페이지에서 파준위 슬랙으로 알림을 보낼 채널'),
+    'SLACK_INVITATION_ALARM_CHANNEL': ('#bot-test', 'Slack 가입 요청 알림을 보낼 채널'),
     'CFS_NOTI_CHANNEL': ('#bot-test', 'CFS 등록시, 홈페이지에서 파준위 슬랙으로 알림을 보낼 채널'),
     'TOTAL_TICKET': (1800, '판매할 전체 티켓 수량'),
     'CFP_OPEN': (datetime.datetime(2020, 5, 1), 'CFP 오픈'),
@@ -329,7 +330,7 @@ CONSTANCE_CONFIG = {
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {
-    'SLACK': ('SLACK_CHANNEL', 'CFS_NOTI_CHANNEL', 'SLACK_TOKEN'),
+    'SLACK': ('SLACK_CHANNEL', 'CFS_NOTI_CHANNEL', 'SLACK_INVITATION_ALARM_CHANNEL', 'SLACK_TOKEN'),
     'Ticket': ('TICKET_OPEN', 'TICKET_CLOSE', 'PATRON_OPEN', 'PATRON_CLOSE',),
     'Program': ('CFP_OPEN', 'CFP_CLOSE', 'OPEN_REVIEW_START', 'OPEN_REVIEW_FINISH',
                 'KEYNOTE_RECOMMEND_OPEN', 'KEYNOTE_RECOMMEND_CLOSE', 'LIGHTNING_TALK_OPEN',
