@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-26 11:47+0900\n"
+"POT-Creation-Date: 2020-09-26 20:36+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -45,6 +45,10 @@ msgstr ""
 
 #: .\mailing\models.py:44
 msgid "소식을 받을 이메일 주소"
+msgstr ""
+
+#: .\mailing\models.py:45
+msgid "참가자 슬랙 초대용 CoC 동의 여부"
 msgstr ""
 
 #: .\mailing\templates\email_ticket.html:16
@@ -99,6 +103,23 @@ msgstr ""
 
 #: .\mailing\templates\newsletter_remove.html:9
 msgid "구독을 해지할 이메일 주소를 입력해주세요."
+msgstr ""
+
+#: .\mailing\templates\slack_invitation_add.html:5
+msgid "참가자 슬랙 참가하기"
+msgstr ""
+
+#: .\mailing\templates\slack_invitation_add.html:9
+msgid ""
+"파이써니스타 여러분! 두구두구! 파이콘 한국 2020 행사 기간 동안 더 많은 분들"
+"과 함께 대화를 나누며 즐기고 싶어 파이콘 한국 2020 행사 기간 동안 운영되고 있"
+"는 슬랙에 초대합니다!"
+msgstr ""
+
+#: .\mailing\templates\slack_invitation_add.html:10
+msgid ""
+"슬랙에 오시면 특별 대박 감동 굿즈 이벤트에도 참여하실 수 있으니까 많이들 놀러"
+"오세요! 🙂 ❤ 💬 🎉"
 msgstr ""
 
 #: .\program\forms.py:34 .\program\forms.py:147
