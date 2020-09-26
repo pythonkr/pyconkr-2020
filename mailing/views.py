@@ -8,6 +8,7 @@ from django.db.models import ObjectDoesNotExist
 from registration.models import Ticket
 from .forms import NewsLetterAddForm, SlackAddForm
 from .models import NewsLetter
+from program.slack import slack_invitation_request
 
 
 class NewsLetterAdd(CreateView):
@@ -31,6 +32,9 @@ class NewsLetterRemove(CreateView):
     template_name = "newsletter_remove.html"
 
     def form_valid(self, form):
+        if form.instance.agree_coc is False:
+            raise
+
         if NewsLetter.objects.filter(email_address=form.instance.email_address).exists():
             return HttpResponseRedirect(reverse('unsubscribe-confirm', kwargs={'mail': form.instance.email_address}))
         else:
@@ -61,6 +65,9 @@ class SlackInvitation(CreateView):
     template_name = 'slack_invitation_add.html'
 
     def form_valid(self, form):
+        if form.instance.agree_coc is False:
+            raise Http404
+
         if NewsLetter.objects.filter(email_address=form.instance.email_address).exists() \
                 or Ticket.objects.filter(user__email=form.instance.email_address).exists():
             context = {
@@ -70,6 +77,9 @@ class SlackInvitation(CreateView):
             return render(self.request, 'base.html', context=context)
         else:
             form.save()
+
+            slack_invitation_request(form.instance.email_address)
+
             context = {
                 'title': _('신청이 완료되었습니다.'),
                 'base_content': _('확인 후 메일드리겠습니다. 감사합니다.')

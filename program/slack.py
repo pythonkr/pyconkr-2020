@@ -107,3 +107,19 @@ def virtual_booth_updated(hostname, slug, name):
         slack.chat.post_message(
             CFS_CHANNEL, text=text, attachments=[attachment], icon_emoji=':female_mage:'
         )
+
+
+def slack_invitation_request(email):
+    if token:
+        slack = Slacker(token)
+        text = '새롭게 신청된 Slack 가입 요청이 있어요!'
+
+        attachment = {
+            "color": 'good',
+            "title": 'Slack 가입 요청',
+            "text": '이메일: {}'.format(email),
+        }
+
+        slack.chat.post_message(
+            CFS_CHANNEL, text=text, attachments=[attachment], icon_emoji=':female_mage:'
+        )
