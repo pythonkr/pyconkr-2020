@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-26 20:36+0900\n"
+"POT-Creation-Date: 2020-09-26 22:07+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -34,13 +34,17 @@ msgstr "준비 중입니다."
 msgid "Read more"
 msgstr "더 보기"
 
-#: .\mailing\forms.py:14 .\program\forms.py:19 .\program\forms.py:117
-#: .\program\forms.py:159
+#: .\mailing\forms.py:14 .\mailing\forms.py:29 .\program\forms.py:19
+#: .\program\forms.py:117 .\program\forms.py:159
 msgid "Submit"
 msgstr "제출"
 
-#: .\mailing\forms.py:20
+#: .\mailing\forms.py:20 .\mailing\forms.py:36
 msgid "이메일 주소"
+msgstr ""
+
+#: .\mailing\forms.py:37
+msgid "CoC 동의 (필수)"
 msgstr ""
 
 #: .\mailing\models.py:44
@@ -120,6 +124,36 @@ msgstr ""
 msgid ""
 "슬랙에 오시면 특별 대박 감동 굿즈 이벤트에도 참여하실 수 있으니까 많이들 놀러"
 "오세요! 🙂 ❤ 💬 🎉"
+msgstr ""
+
+#: .\mailing\templates\slack_invitation_add.html:15
+msgid ""
+"본 서비스에 참가하실 경우, <a href=\"/2020/terms-of-service/\" target="
+"\"_blank\">서비스 이용 약관</a> 및 관련 운영 정책을 동의하신 것으로 봅니다."
+msgstr ""
+
+#: .\mailing\templates\slack_invitation_add.html:17
+msgid ""
+"참가자 슬랙 참가 신청이 완료되면, <a href=\"/2020/privacy-policy/\" target="
+"\"_blank\">개인정보 처리 방침</a>에 동의한 것으로 간주됩니다."
+msgstr ""
+
+#: .\mailing\views.py:76
+msgid "중복된 이메일입니다."
+msgstr ""
+
+#: .\mailing\views.py:77
+msgid ""
+"이미 초대 신청된 메일 주소입니다. 신청하신 적이 없다면 pyconkr@pycon.kr로 알"
+"려주세요."
+msgstr ""
+
+#: .\mailing\views.py:86
+msgid "신청이 완료되었습니다."
+msgstr ""
+
+#: .\mailing\views.py:87
+msgid "확인 후 메일드리겠습니다. 감사합니다."
 msgstr ""
 
 #: .\program\forms.py:34 .\program\forms.py:147
@@ -284,19 +318,19 @@ msgstr ""
 msgid "홈페이지에 공개되는 스프린트 관련 주소입니다."
 msgstr ""
 
-#: .\program\views.py:194
+#: .\program\views.py:195
 msgid "Proposal successfully created."
 msgstr "발표안을 제출하였습니다."
 
-#: .\program\views.py:247
+#: .\program\views.py:248
 msgid "Proposal successfully updated."
 msgstr "발표안이 수정되었습니다."
 
-#: .\program\views.py:277
+#: .\program\views.py:278
 msgid "Proposal"
 msgstr "발표안"
 
-#: .\program\views.py:560
+#: .\program\views.py:561
 msgid "Lightning Talk Proposal"
 msgstr "라이트닝 토크 신청 내역"
 
@@ -1022,17 +1056,17 @@ msgid ""
 msgstr ""
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:20
-#: .\pyconkr\templates\schedule.html:131 .\pyconkr\templates\schedule.html:232
+#: .\pyconkr\templates\schedule.html:134 .\pyconkr\templates\schedule.html:235
 msgid "Difficulty Beginner"
 msgstr "초급"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:21
-#: .\pyconkr\templates\schedule.html:133 .\pyconkr\templates\schedule.html:234
+#: .\pyconkr\templates\schedule.html:136 .\pyconkr\templates\schedule.html:237
 msgid "Difficulty Intermediate"
 msgstr "중급"
 
 #: .\pyconkr\templates\pyconkr\program_detail.html:22
-#: .\pyconkr\templates\schedule.html:135 .\pyconkr\templates\schedule.html:236
+#: .\pyconkr\templates\schedule.html:138 .\pyconkr\templates\schedule.html:239
 msgid "Difficulty Experienced"
 msgstr "고급"
 
@@ -1119,31 +1153,37 @@ msgid ""
 "시작됩니다."
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:42
+#: .\pyconkr\templates\schedule.html:41
+msgid ""
+"티켓을 미처 구매하지 못 하셨더라도 참가자 슬랙에 참가하실 수 있습니다! <a "
+"href=\"/2020/slack/\" target=\"_blank\">여기서!</a>"
+msgstr ""
+
+#: .\pyconkr\templates\schedule.html:45
 msgid "9/26 (토)"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:43
+#: .\pyconkr\templates\schedule.html:46
 msgid "9/27 (일)"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:54 .\pyconkr\templates\schedule.html:169
+#: .\pyconkr\templates\schedule.html:57 .\pyconkr\templates\schedule.html:172
 msgid "시간"
 msgstr "시간<br>(UTC+9)"
 
-#: .\pyconkr\templates\schedule.html:59 .\pyconkr\templates\schedule.html:67
-#: .\pyconkr\templates\schedule.html:75 .\pyconkr\templates\schedule.html:118
-#: .\pyconkr\templates\schedule.html:174 .\pyconkr\templates\schedule.html:182
-#: .\pyconkr\templates\schedule.html:219
+#: .\pyconkr\templates\schedule.html:62 .\pyconkr\templates\schedule.html:70
+#: .\pyconkr\templates\schedule.html:78 .\pyconkr\templates\schedule.html:121
+#: .\pyconkr\templates\schedule.html:177 .\pyconkr\templates\schedule.html:185
+#: .\pyconkr\templates\schedule.html:222
 msgid "YouTube 바로 가기"
 msgstr ""
 
-#: .\pyconkr\templates\schedule.html:102 .\pyconkr\templates\schedule.html:138
-#: .\pyconkr\templates\schedule.html:207 .\pyconkr\templates\schedule.html:239
+#: .\pyconkr\templates\schedule.html:105 .\pyconkr\templates\schedule.html:141
+#: .\pyconkr\templates\schedule.html:210 .\pyconkr\templates\schedule.html:242
 msgid "Schedule English Label"
 msgstr "영어"
 
-#: .\pyconkr\templates\schedule.html:128 .\pyconkr\templates\schedule.html:229
+#: .\pyconkr\templates\schedule.html:131 .\pyconkr\templates\schedule.html:232
 msgid "Schedule Organizing Team Label"
 msgstr "파준위"
 
