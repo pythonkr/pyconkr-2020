@@ -19,9 +19,18 @@ User = get_user_model()
 
 
 def index(request):
+    KST, now = get_KST_now()
+    sat_start = datetime.datetime(2020, 9, 26, 10, 0, tzinfo=KST)
+    sat_end = datetime.datetime(2020, 9, 26, 17, 30, tzinfo=KST)
+    sun_start = datetime.datetime(2020, 9, 27, 10, 0, tzinfo=KST)
+    sun_end = datetime.datetime(2020, 9, 27, 17, 30, tzinfo=KST)
+    live = False
+    if sat_start < now < sat_end or sun_start < now < sun_end:
+        live = True
     return render(request, 'index.html', {
         'index': True,
         'recent_announcements': Announcement.objects.filter(active=True),
+        'live': live,
     })
 
 

@@ -14,8 +14,14 @@
 
 <div class="quick_btns_container">
     <div class="quick_btns">
-        <a class="quick_btn" href="{% url 'talk-schedule' %}"><span>📅 {% trans '세션 시간표' %}</span></a>
-        <a class="quick_btn" href="https://www.youtube.com/channel/UC26x6D5xpKx6io4ShfXa_Ow/" target="_blank"><span>📺 {% trans '파이콘 한국 유튜브' %}</span></a>
+        <a class="quick_btn" href="{% url 'talk-schedule' %}">
+            {% if live %}<div class="live_alert">{% trans 'LIVE 진행 중' %}</div>{% endif %}
+            <span>📅 {% trans '세션 시간표' %}</span>
+        </a>
+        <a class="quick_btn" href="https://www.youtube.com/channel/UC26x6D5xpKx6io4ShfXa_Ow/" target="_blank">
+            {% if live %}<div class="live_alert">{% trans 'LIVE 진행 중' %}</div>{% endif %}
+            <span>📺 {% trans '파이콘 한국 유튜브' %}</span>
+        </a>
         <a class="quick_btn" href="{% url 'virtual_booth_home' %}"><span>🎪 Virtual Booth</span></a>
         <a class="quick_btn" href="{% url 'ticket' %}"><span>📋 {% trans '참가자 등록' %}</span></a>
         <a class="quick_btn" href="{% url 'ticket' %}#patron"><span>🌱 {% trans '개인 후원' %}</span></a>
