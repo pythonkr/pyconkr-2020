@@ -62,9 +62,10 @@ class SlackInvitation(CreateView):
     template_name = 'slack_invitation_add.html'
 
     def get_initial(self):
-        init_val = super().get_initial()
-        init_val['email_address'] = self.request.user.email
-        return init_val
+        if self.request.user.is_authenticated:
+            init_val = super().get_initial()
+            init_val['email_address'] = self.request.user.email
+            return init_val
 
     def form_valid(self, form):
         if form.instance.agree_coc is False:
