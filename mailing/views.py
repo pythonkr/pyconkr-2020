@@ -2,8 +2,10 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DeleteView, TemplateView
 from django.urls import reverse
+from django.utils.translation import ugettext as _
 from django.db.models import ObjectDoesNotExist
 
+from registration.models import Ticket
 from .forms import NewsLetterAddForm, SlackAddForm
 from .models import NewsLetter
 
@@ -56,19 +58,20 @@ class NewsLetterRemoveConfirm(DeleteView):
 class SlackInvitation(CreateView):
     model = NewsLetter
     form_class = SlackAddForm
-    template_name = ''
+    template_name = 'slack_invitation_add.html'
 
     def form_valid(self, form):
-        if NewsLetter.objects.filter(email_address=form.instance.email_address).exists():
+        if NewsLetter.objects.filter(email_address=form.instance.email_address).exists() \
+                or Ticket.objects.filter(user__email=form.instance.email_address).exists():
             context = {
-                'title': '중복된 이메일입니다.',
-                'base_content': '이미 초대신청 된 메일주소입니다. 신청하신적이 없다면 저희에게 알려주세요.'
+                'title': _('중복된 이메일입니다.'),
+                'base_content': _('이미 초대 신청된 메일 주소입니다. 신청하신 적이 없다면 pyconkr@pycon.kr로 알려주세요.')
             }
-            return render(self.request, 'base.html')
+            return render(self.request, 'base.html', context=context)
         else:
             form.save()
             context = {
-                'title': '등록에 성공했습니다.',
-                'base_content': '확인 후 메일드리겠습니다.'
+                'title': _('신청이 완료되었습니다.'),
+                'base_content': _('확인 후 메일드리겠습니다. 감사합니다.')
             }
             return render(self.request, 'base.html', context=context)
