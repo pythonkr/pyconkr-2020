@@ -9,6 +9,7 @@ from django.views.generic import ListView, DetailView, UpdateView, CreateView, T
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.urls import reverse
+from django.http import Http404
 from django.views.generic.edit import ModelFormMixin
 
 from crispy_forms.layout import Hidden
@@ -642,14 +643,15 @@ class LightningTalkRedirect(TemplateView):
             for talk in talks:
                 time = talk.video_open_at
                 time = (time + datetime.timedelta(hours=9)).replace(tzinfo=KST)
-                if time < now < time + datetime.timedelta(minutes=30):
-                    if time.weekday() == 5:
+                if time < now < time + datetime.timedelta(minutes=20):
+                    if self.kwargs['day'] == 'sat' and constance.config.YOUTUBE_TRACK_LT_1:
                         return redirect(constance.config.YOUTUBE_TRACK_LT_1)
-                    elif time.weekday() == 6:
+                    elif self.kwargs['day'] == 'sun' and constance.config.YOUTUBE_TRACK_LT_2:
                         return redirect(constance.config.YOUTUBE_TRACK_LT_2)
-                else:
-                    return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
-                                                         'base_content': '영상이 공개 중인 시간이 아닙니다.'})
+                    else:
+                        raise Http404
+                return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                     'base_content': '영상이 공개 중인 시간이 아닙니다.'})
         else:
             return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
                                                  'base_content': '영상이 아직 준비되지 않았습니다.'})

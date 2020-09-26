@@ -43,10 +43,7 @@ urlpatterns += i18n_patterns(
     # YouTube redirect
     re_path(r'^2020/sat/(?P<room>\d{3})/$', ProgramRedirect.as_view()),
     re_path(r'^2020/sun/(?P<room>\d{3})/$', ProgramRedirect.as_view()),
-    re_path(r'^2020/lt/sat/$', LightningTalkRedirect.as_view()),
-    re_path(r'^2020/LT/sat/$', LightningTalkRedirect.as_view()),
-    re_path(r'^2020/lt/sun/$', LightningTalkRedirect.as_view()),
-    re_path(r'^2020/LT/sun/$', LightningTalkRedirect.as_view()),
+    re_path(r'^2020/(lt|LT)/(?P<day>\w{3})/$', LightningTalkRedirect.as_view()),
     re_path(r'^2020/closing/$', ClosingRedirect.as_view()),
 
     re_path(r'^2020/sponsor/', include('sponsor.urls')),
