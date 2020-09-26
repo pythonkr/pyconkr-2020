@@ -27,11 +27,12 @@ class SlackAddForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', _('Submit')))
+        self.fields['agree_coc'].required = True
 
     class Meta:
         model = NewsLetter
         fields = ('email_address', 'agree_coc')
         labels = {
             'email_address': _('이메일 주소'),
-            'agree_coc': _('CoC 동의'),
+            'agree_coc': _('CoC 동의 (필수)'),
         }
