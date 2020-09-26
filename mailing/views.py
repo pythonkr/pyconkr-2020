@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.http import HttpResponse, HttpResponseRedirect, Http404, HttpResponseBadRequest
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DeleteView, TemplateView
 from django.urls import reverse
@@ -32,9 +32,6 @@ class NewsLetterRemove(CreateView):
     template_name = "newsletter_remove.html"
 
     def form_valid(self, form):
-        if form.instance.agree_coc is False:
-            raise
-
         if NewsLetter.objects.filter(email_address=form.instance.email_address).exists():
             return HttpResponseRedirect(reverse('unsubscribe-confirm', kwargs={'mail': form.instance.email_address}))
         else:
@@ -66,7 +63,7 @@ class SlackInvitation(CreateView):
 
     def form_valid(self, form):
         if form.instance.agree_coc is False:
-            raise Http404
+            raise HttpResponseBadRequest
 
         if NewsLetter.objects.filter(email_address=form.instance.email_address).exists() \
                 or Ticket.objects.filter(user__email=form.instance.email_address).exists():
