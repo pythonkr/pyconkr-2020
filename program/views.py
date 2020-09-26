@@ -609,25 +609,54 @@ class ProgramRedirect(TemplateView):
         sat_close = datetime.datetime(2020, 9, 26, 17, 15, tzinfo=KST)
         sun_close = datetime.datetime(2020, 9, 27, 17, 0, tzinfo=KST)
         room = self.kwargs['room']
+        day = self.kwargs['day']
+        rooms = ['101', '102', '103', '104', '105']
+        days = ['sat', 'sun']
+        if room not in rooms or day not in days:
+            raise Http404
 
         if now < sat_close:
-            if room == '101' and constance.config.YOUTUBE_TRACK_1:
-                return redirect(constance.config.YOUTUBE_TRACK_1)
-            elif room == '102' and constance.config.YOUTUBE_TRACK_2:
-                return redirect(constance.config.YOUTUBE_TRACK_2)
-            elif room == '103' and constance.config.YOUTUBE_TRACK_3:
-                return redirect(constance.config.YOUTUBE_TRACK_3)
+            if day == 'sat':
+                if room == '101' and constance.config.YOUTUBE_TRACK_1:
+                    return redirect(constance.config.YOUTUBE_TRACK_1)
+                elif room == '102' and constance.config.YOUTUBE_TRACK_2:
+                    return redirect(constance.config.YOUTUBE_TRACK_2)
+                elif room == '103' and constance.config.YOUTUBE_TRACK_3:
+                    return redirect(constance.config.YOUTUBE_TRACK_3)
+                elif room in ['104', '105']:
+                    raise Http404
+                else:  # 링크가 없는 경우
+                    return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                         'base_content': '영상이 아직 준비되지 않았습니다.'})
+            elif day == 'sun':
+                if room in ['101', '102', '103']:
+                    raise Http404
+                else:
+                    return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                         'base_content': '영상이 공개 중인 시간이 아닙니다.'})
         elif now < sun_close:
-            if room == '104' and constance.config.YOUTUBE_TRACK_4:
-                return redirect(constance.config.YOUTUBE_TRACK_4)
-            elif room == '105' and constance.config.YOUTUBE_TRACK_5:
-                return redirect(constance.config.YOUTUBE_TRACK_5)
+            if day == 'sat':
+                if room in ['104', '105']:
+                    raise Http404
+                else:
+                    return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                         'base_content': '영상이 공개 중인 시간이 아닙니다.'})
+            elif day == 'sun':
+                if room == '104' and constance.config.YOUTUBE_TRACK_4:
+                    return redirect(constance.config.YOUTUBE_TRACK_4)
+                elif room == '105' and constance.config.YOUTUBE_TRACK_5:
+                    return redirect(constance.config.YOUTUBE_TRACK_5)
+                elif room in ['101', '102', '103']:
+                    raise Http404
+                else:  # 링크가 없는 경우
+                    return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                         'base_content': '영상이 아직 준비되지 않았습니다.'})
         else:
-            return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
-                                                 'base_content': '영상이 공개 중인 시간이 아닙니다.'})
-
-        return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
-                                             'base_content': '영상이 아직 준비되지 않았습니다.'})
+            if (day == 'sat' and room in ['104', '105']) or (day == 'sun' and room in ['101', '102', '103']):
+                raise Http404
+            else:
+                return render(request, 'base.html', {'title': '행사가 종료되었습니다.',
+                                                     'base_content': '영상 공개가 끝났습니다. 개별 영상은 이후 유튜브에 업로드될 예정입니다.'})
 
 
 class LightningTalkRedirect(TemplateView):
@@ -638,20 +667,38 @@ class LightningTalkRedirect(TemplateView):
             return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
                                                  'base_content': '영상이 아직 준비되지 않았습니다.'})
         KST, now = get_KST_now()
+        day = self.kwargs['day']
+        days = ['sat', 'sun']
+        if day not in days:
+            raise Http404
+
         if Proposal.objects.filter(category=lt).exists():
             talks = Proposal.objects.filter(category=lt)
             for talk in talks:
                 time = talk.video_open_at
                 time = (time + datetime.timedelta(hours=9)).replace(tzinfo=KST)
-                if time < now < time + datetime.timedelta(minutes=20):
-                    if self.kwargs['day'] == 'sat' and constance.config.YOUTUBE_TRACK_LT_1:
-                        return redirect(constance.config.YOUTUBE_TRACK_LT_1)
-                    elif self.kwargs['day'] == 'sun' and constance.config.YOUTUBE_TRACK_LT_2:
-                        return redirect(constance.config.YOUTUBE_TRACK_LT_2)
-                    else:
-                        raise Http404
-            return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
-                                                 'base_content': '영상이 공개 중인 시간이 아닙니다.'})
+                if now < time + datetime.timedelta(minutes=20):
+                    if time.weekday() == 5:  # Saturday
+                        if day == 'sat' and constance.config.YOUTUBE_TRACK_LT_1:
+                            return redirect(constance.config.YOUTUBE_TRACK_LT_1)
+                        elif day == 'sun':
+                            return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                                 'base_content': '영상이 공개 중인 시간이 아닙니다.'})
+                        else:  # 링크가 없는 경우
+                            return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                                 'base_content': '영상이 아직 준비되지 않았습니다.'})
+                    elif time.weekday() == 6:  # Sunday
+                        if now.weekday() == 6 and day == 'sun' and constance.config.YOUTUBE_TRACK_LT_2:
+                            return redirect(constance.config.YOUTUBE_TRACK_LT_2)
+                        elif now.weekday() != 6:
+                            return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                                 'base_content': '영상이 공개 중인 시간이 아닙니다.'})
+                        else:
+                            return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                                 'base_content': '영상이 아직 준비되지 않았습니다.'})
+                else:
+                    return render(request, 'base.html', {'title': '행사가 종료되었습니다.',
+                                                         'base_content': '영상 공개가 끝났습니다. 개별 영상은 이후 유튜브에 업로드될 예정입니다.'})
         else:
             return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
                                                  'base_content': '영상이 아직 준비되지 않았습니다.'})
@@ -668,8 +715,12 @@ class ClosingRedirect(TemplateView):
         KST, now = get_KST_now()
         time = closing.video_open_at
         time = (time + datetime.timedelta(hours=9)).replace(tzinfo=KST)
-        if time < now < time + datetime.timedelta(minutes=20):
-            return redirect(constance.config.YOUTUBE_TRACK_CLOSING)
+        if now < time + datetime.timedelta(minutes=20):
+            if constance.config.YOUTUBE_TRACK_CLOSING:
+                return redirect(constance.config.YOUTUBE_TRACK_CLOSING)
+            else:
+                return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                     'base_content': '영상이 아직 준비되지 않았습니다.'})
         else:
-            return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
-                                                 'base_content': '영상이 공개 중인 시간이 아닙니다.'})
+            return render(request, 'base.html', {'title': '행사가 종료되었습니다.',
+                                                 'base_content': '영상 공개가 끝났습니다. 개별 영상은 이후 유튜브에 업로드될 예정입니다.'})
