@@ -18,7 +18,8 @@ admin.site.register(Mailing, MailingAdmin)
 
 
 class NewsLetterAdmin(admin.ModelAdmin):
-    list_display = ('email_address',)
+    list_display = ('email_address', 'agree_coc',)
+    list_filter = ('agree_coc',)
 
 
 admin.site.register(NewsLetter, NewsLetterAdmin)
