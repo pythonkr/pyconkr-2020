@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-26 22:07+0900\n"
+"POT-Creation-Date: 2020-09-27 07:06+0900\n"
 "PO-Revision-Date: 2017-05-13 01:46+0900\n"
 "Last-Translator: ez.amiryo@gmail.com\n"
 "Language-Team: \n"
@@ -138,21 +138,22 @@ msgid ""
 "\"_blank\">개인정보 처리 방침</a>에 동의한 것으로 간주됩니다."
 msgstr ""
 
-#: .\mailing\views.py:76
+#: .\mailing\views.py:77
 msgid "중복된 이메일입니다."
 msgstr ""
 
-#: .\mailing\views.py:77
+#: .\mailing\views.py:79
 msgid ""
-"이미 초대 신청된 메일 주소입니다. 신청하신 적이 없다면 pyconkr@pycon.kr로 알"
-"려주세요."
+"이미 초대 신청된 메일 주소입니다. <a href=\"https://pyconkr2020.slack.com/\" "
+"target=\"_blank\">https://pyconkr2020.slack.com/</a> 으로 로그인해보세요!<br>"
+"신청하신 적이 없다면 pyconkr@pycon.kr로 알려주세요."
 msgstr ""
 
-#: .\mailing\views.py:86
+#: .\mailing\views.py:91
 msgid "신청이 완료되었습니다."
 msgstr ""
 
-#: .\mailing\views.py:87
+#: .\mailing\views.py:92
 msgid "확인 후 메일드리겠습니다. 감사합니다."
 msgstr ""
 

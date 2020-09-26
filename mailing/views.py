@@ -75,7 +75,11 @@ class SlackInvitation(CreateView):
                 or Ticket.objects.filter(user__email=form.instance.email_address).exists():
             context = {
                 'title': _('중복된 이메일입니다.'),
-                'base_content': _('이미 초대 신청된 메일 주소입니다. 신청하신 적이 없다면 pyconkr@pycon.kr로 알려주세요.')
+                'base_content': _(
+                    '이미 초대 신청된 메일 주소입니다. '
+                    '<a href="https://pyconkr2020.slack.com/" target="_blank">https://pyconkr2020.slack.com/</a> '
+                    '으로 로그인해보세요!<br>'
+                    '신청하신 적이 없다면 pyconkr@pycon.kr로 알려주세요.')
             }
             return render(self.request, 'base.html', context=context)
         else:
