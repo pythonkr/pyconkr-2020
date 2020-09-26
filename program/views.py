@@ -650,8 +650,8 @@ class LightningTalkRedirect(TemplateView):
                         return redirect(constance.config.YOUTUBE_TRACK_LT_2)
                     else:
                         raise Http404
-                return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
-                                                     'base_content': '영상이 공개 중인 시간이 아닙니다.'})
+            return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
+                                                 'base_content': '영상이 공개 중인 시간이 아닙니다.'})
         else:
             return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
                                                  'base_content': '영상이 아직 준비되지 않았습니다.'})
