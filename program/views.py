@@ -696,9 +696,8 @@ class LightningTalkRedirect(TemplateView):
                         else:
                             return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
                                                                  'base_content': '영상이 아직 준비되지 않았습니다.'})
-                else:
-                    return render(request, 'base.html', {'title': '행사가 종료되었습니다.',
-                                                         'base_content': '영상 공개가 끝났습니다. 개별 영상은 이후 유튜브에 업로드될 예정입니다.'})
+            return render(request, 'base.html', {'title': '행사가 종료되었습니다.',
+                                                 'base_content': '영상 공개가 끝났습니다. 개별 영상은 이후 유튜브에 업로드될 예정입니다.'})
         else:
             return render(request, 'base.html', {'title': '영상을 찾을 수 없습니다.',
                                                  'base_content': '영상이 아직 준비되지 않았습니다.'})
