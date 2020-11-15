@@ -41,12 +41,12 @@
 
 {% if program.slide_url %}
 <h3>{% trans "Slide" %}</h3>
-    <a target="_blank" href="{{ program.slide_url }}">{{ program.slide_url }}</a>
+    <p><a target="_blank" href="{{ program.slide_url }}">{{ program.slide_url }}</a></p>
 {% endif %}
 
 {% if program.video_url and video_opened %}
 <h3>{% trans "Video" %}</h3>
-    <a target="_blank" href="{{ program.video_url }}">{{ program.video_url }}</a>
+    <p><a target="_blank" href="{{ program.video_url }}">{{ program.video_url }}</a></p>
 {% endif %}
 
 {% if editable %}
