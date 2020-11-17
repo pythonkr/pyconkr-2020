@@ -23,48 +23,48 @@ ALLOWED_HOSTS = []
 SITE_ID = 1
 
 INSTALLED_APPS = (
-    # django apps
-    'modeltranslation',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.sites',
-    'django.contrib.staticfiles',
-    'django.contrib.flatpages',
-    'django.contrib.humanize',
-) + (
-    # third-party apps
-    'django_summernote',
-    'rosetta',
-    'crispy_forms',
-    'sorl.thumbnail',
-    'constance',
-    'constance.backends.database',
-    'django_csv_exports',
-    'mail_templated',
-    'import_export',
-    'sass_processor',
-    # 'compressor',
-) + (
-    # local apps
-    'pyconkr',
-    'announcement',
-    'user',
-    'sponsor',
-    'program',
-    'registration',
-    'mailing',
-) + (
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.twitter',
-    'debug_toolbar',
-)
+                     # django apps
+                     'modeltranslation',
+                     'django.contrib.admin',
+                     'django.contrib.auth',
+                     'django.contrib.contenttypes',
+                     'django.contrib.sessions',
+                     'django.contrib.messages',
+                     'django.contrib.sites',
+                     'django.contrib.staticfiles',
+                     'django.contrib.flatpages',
+                     'django.contrib.humanize',
+                 ) + (
+                     # third-party apps
+                     'django_summernote',
+                     'rosetta',
+                     'crispy_forms',
+                     'sorl.thumbnail',
+                     'constance',
+                     'constance.backends.database',
+                     'django_csv_exports',
+                     'mail_templated',
+                     'import_export',
+                     'sass_processor',
+                     # 'compressor',
+                 ) + (
+                     # local apps
+                     'pyconkr',
+                     'announcement',
+                     'user',
+                     'sponsor',
+                     'program',
+                     'registration',
+                     'mailing',
+                 ) + (
+                     'allauth',
+                     'allauth.account',
+                     'allauth.socialaccount',
+                     'allauth.socialaccount.providers.facebook',
+                     'allauth.socialaccount.providers.github',
+                     'allauth.socialaccount.providers.twitter',
+                     'debug_toolbar',
+                 )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -249,7 +249,7 @@ SUMMERNOTE_CONFIG = {
         static_url('css/pyconkr.css'),
     ),
     'styleTags': [
-        {'title': 'Blockquote', 'tag': 'blockquote', 'className': 'blockquote', 'value': 'bock',}
+        {'title': 'Blockquote', 'tag': 'blockquote', 'className': 'blockquote', 'value': 'bock', }
     ],
 }
 
@@ -403,5 +403,5 @@ COMPRESS_PRECOMPILERS = (
 )
 
 # django debugger toolbar
-INTERNAL_IPS = ['127.0.0.1',]
+INTERNAL_IPS = ['127.0.0.1', ]
 INTERNAL_IPS += [os.getenv('DEBUG_IP1')]
