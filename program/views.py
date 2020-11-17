@@ -85,7 +85,7 @@ class ProgramUpdate(UpdateView):
     template_name = "pyconkr/program_update.html"
 
     def dispatch(self, request, *args, **kwargs):
-        is_editable = self.request.user.is_authenticated \
+        is_editable = constance.config.PROGRAM_DETAIL_EDITABLE and self.request.user.is_authenticated \
                       and Proposal.objects.filter(user=self.request.user, accepted=True).exists() \
                       and (str(Proposal.objects.get(user=self.request.user, accepted=True).pk) == self.kwargs['pk'])
         if not is_editable:

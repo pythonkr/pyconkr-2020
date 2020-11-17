@@ -301,7 +301,7 @@ class VirtualBoothDetail(DetailView):
         user = self.request.user
         KST, now = get_KST_now()
 
-        is_editable = user.is_authenticated and (
+        is_editable = constance.config.VIRTUAL_BOOTH_EDITABLE and user.is_authenticated and (
                 Sponsor.objects.filter(creator=user, accepted=True, paid_at__isnull=False,
                                        slug=self.kwargs['slug']).exists()
                 or Sponsor.objects.filter(manager_id=user, accepted=True, paid_at__isnull=False,
@@ -319,7 +319,7 @@ class VirtualBoothUpdate(UpdateView):
 
     def get(self, request, *args, **kwargs):
         KST, now = get_KST_now()
-        is_editable = self.request.user.is_authenticated and (
+        is_editable = constance.config.VIRTUAL_BOOTH_EDITABLE and self.request.user.is_authenticated and (
                 Sponsor.objects.filter(creator=self.request.user, accepted=True, paid_at__isnull=False,
                                        slug=self.kwargs['slug']).exists()
                 or Sponsor.objects.filter(manager_id=self.request.user, accepted=True, paid_at__isnull=False,
