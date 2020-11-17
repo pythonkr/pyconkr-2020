@@ -9,6 +9,9 @@ from registration.models import Ticket
 from .forms import NewsLetterAddForm, SlackAddForm
 from .models import NewsLetter
 from program.slack import slack_invitation_request
+from pyconkr.views import get_KST_now
+
+import constance
 
 
 class NewsLetterAdd(CreateView):
@@ -60,6 +63,15 @@ class SlackInvitation(CreateView):
     model = NewsLetter
     form_class = SlackAddForm
     template_name = 'slack_invitation_add.html'
+
+    def get(self, request, *args, **kwargs):
+        KST, now = get_KST_now()
+        if not (constance.config.SLACK_INVITATION_OPEN < now < constance.config.SLACK_INVITATION_CLOSE):
+            context = {
+                'title': _('초대 기간이 아닙니다.'),
+                'base_content': _('참가자 슬랙 초대 기간이 아닙니다.')
+            }
+            return render(self.request, 'base.html', context=context)
 
     def get_initial(self):
         if self.request.user.is_authenticated:

@@ -34,19 +34,19 @@
   </li>
 </ul>
 
+{% if program.introduction %}
+<h3>{% trans "Description" %}</h3>
+    <p>{{ program.introduction | safe }}</p>
+{% endif %}
+
 {% if program.slide_url %}
 <h3>{% trans "Slide" %}</h3>
-    <p>{{ program.slide_url | urlize }}</p>
+    <p><a target="_blank" href="{{ program.slide_url }}">{{ program.slide_url }}</a></p>
 {% endif %}
 
 {% if program.video_url and video_opened %}
 <h3>{% trans "Video" %}</h3>
-    <p>{{ program.video_url | urlize }}</p>
-{% endif %}
-
-{% if program.introduction %}
-<h3>{% trans "Description" %}</h3>
-    <p>{{ program.introduction | safe }}</p>
+    <p><a target="_blank" href="{{ program.video_url }}">{{ program.video_url }}</a></p>
 {% endif %}
 
 {% if editable %}
