@@ -74,7 +74,8 @@ class ProgramDetail(DetailView):
         else:
             context['video_opened'] = False
         context['program'] = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True)
-        context['editable'] = Proposal.objects.get(pk=self.kwargs['pk'], accepted=True).user == self.request.user
+        context['editable'] = constance.config.PROGRAM_DETAIL_EDITABLE \
+                                and Proposal.objects.get(pk=self.kwargs['pk'], accepted=True).user == self.request.user
         return context
 
 
