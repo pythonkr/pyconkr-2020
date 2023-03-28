@@ -10,6 +10,7 @@ ALLOWED_HOSTS = [
     'www.pycon.kr',
     'dev.pycon.kr',
     'pycon.kr',
+    '2020.pycon.kr',
 ]
 
 # https://stackoverflow.com/questions/54784981/django-allauth-google-oauth-redirect-uri-mismatch-error
